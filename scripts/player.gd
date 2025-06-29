@@ -181,9 +181,9 @@ func attack():
 		var collider = heavy_attack_ray.get_collider()
 		if collider.is_in_group("enemies"):
 			var direction_to_push = -1 if animated_sprite.flip_h else 1
-			collider.get_parent().take_damage_heavy(direction_to_push, 10)
+			collider.get_parent().get_parent().take_damage_heavy(direction_to_push, 10)
 	elif light_attack_ray.is_colliding():
 		var collider = light_attack_ray.get_collider()
 		if collider.is_in_group("enemies"):
-			collider.get_parent().take_damage()
+			collider.get_parent().get_parent().take_damage()
 			

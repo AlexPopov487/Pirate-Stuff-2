@@ -6,26 +6,20 @@ enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING }
 
 const SPEED = 45
 const MAX_HEALTH = 5
-const PLAYER_ALERT_DISTANCE = 150
 # 1 = moving right. -1 = moving left
 var direction = 1
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var ray_cast_right: RayCast2D = $RayCastRight
-@onready var ray_cast_left: RayCast2D = $RayCastLeft
-@onready var ray_cast_right_bottom: RayCast2D = $RayCastRightBottom
-@onready var ray_cast_left_bottom: RayCast2D = $RayCastLeftBottom
 @export var player: CharacterBody2D
-@onready var damage_cooldown_timer: Timer = $DamageCooldownTimer
-@onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
-@onready var attack_area: Area2D = $AttackArea
-@onready var collision_shape_2d: CollisionShape2D = $AttackArea/CollisionShape2D
-@onready var eye_sight_ray: RayCast2D = $EyeSightRay
-@onready var tile_map: TileMap = %TileMap
-@onready var attack_ray_left: RayCast2D = $AttackRayLeft
-@onready var attack_ray_right: RayCast2D = $AttackRayRight
-@onready var exclamation: Marker2D = $Exclamation
+@export var tile_map: TileMap
 
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var attack_cooldown_timer: Timer = $enemy/AttackArea/AttackCooldownTimer
+@onready var damage_cooldown_timer: Timer = $enemy/AttackArea/DamageCooldownTimer
+@onready var attack_area: Area2D = $enemy/AttackArea
+@onready var attack_ray_right: RayCast2D = $enemy/AttackArea/AttackRayRight
+@onready var attack_ray_left: RayCast2D = $enemy/AttackArea/AttackRayLeft
+@onready var exclamation: Marker2D = $Exclamation
+@onready var enemy: Node2D = $enemy
 
 var has_attack_animation_played = false
 var can_attack = true
@@ -45,7 +39,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var player_seen = is_player_seen()
+	var player_seen = enemy.is_player_seen(tile_map, position, player)
 	if (player_seen 
 	and current_move != MOVE_SET.ATTACKING
 	and current_move != MOVE_SET.HIT
@@ -66,10 +60,10 @@ func _process(delta: float) -> void:
 	set_animation_by_current_move(delta)
 
 func flip_enemy_sprite(player_direction_optional = null):
-	if has_obstacle_to_right():
+	if enemy.has_obstacle_to_right():
 		direction = -1
 		animated_sprite.flip_h = false
-	elif has_obstacle_to_left():
+	elif enemy.has_obstacle_to_left():
 		direction = 1
 		animated_sprite.flip_h = true
 
@@ -118,10 +112,10 @@ func set_animation_by_current_move(delta:float):
 					current_move = MOVE_SET.RECOVERING
 				return
 			
-			var player_direction = get_direction_to_player(player.position)
+			var player_direction = enemy.get_direction_to_player(position, player.position)
 
-			if ((has_obstacle_to_left() and player_direction == -1) 
-			or (has_obstacle_to_right() and player_direction == 1)):
+			if ((enemy.has_obstacle_to_left() and player_direction == -1) 
+			or (enemy.has_obstacle_to_right() and player_direction == 1)):
 				exclamation.show_popup(Enums.DIALOGUE_TYPE.INTERROGATION)
 				return
 				
@@ -135,7 +129,6 @@ func set_animation_by_current_move(delta:float):
 func _on_attack_area_body_entered(player: CharacterBody2D) -> void:
 	if current_move == MOVE_SET.HIT or current_move == MOVE_SET.DEAD:
 		return
-		
 	print("Crabby attacks")
 	# TODO refactor that. I do not know how external fields are accessed 
 	if player.current_move != 6: #DEAD 
@@ -211,75 +204,3 @@ func attack() :
 	# TODO refactor that. I do not know how external fields are accessed 
 	if player.current_move != 6: #DEAD 
 		player.change_move_type("HIT")
-
-func is_player_seen() -> bool:
-	var distance_to_player = position.distance_to(player.position)
-
-	if distance_to_player > PLAYER_ALERT_DISTANCE:
-		toggle_eyesight_ray(false)
-		return false
-		
-	toggle_eyesight_ray(true)
-
-	var enemy_bottom := ray_cast_left_bottom.get_collision_point()
-	var player_bottom = player.bottom_collision_ray.get_collision_point()
-		
-	# Comparing player's and enemie's y with a small tolerance:
-	var is_on_same_ground_with_player = abs(enemy_bottom.y - player_bottom.y) < 5
-	
-	return (is_on_same_ground_with_player
-	and is_player_within_eyesight(collision_shape_2d, player.position, enemy_bottom) 
-	and not has_gap_between(enemy_bottom, player_bottom))
-
-func is_player_within_eyesight(enemy_collision: CollisionShape2D, 
-								player_position: Vector2,
-								enemy_bottom: Vector2) -> bool:
-
-
-
-	var enemy_widht = collision_shape_2d.shape.get_rect().size.x
-	var enemy_height = collision_shape_2d.shape.get_rect().size.y
-	var ray_dir = get_direction_to_player(player_position)
-	
-	# By default the eye_sight_ray is started from the left side of the enemy. 
-	# If the player is to the right of the enemy, the ray should be casted from the enemy's right.
-	var eye_sight_start := to_local(enemy_bottom)
-	if (ray_dir == 1):
-		eye_sight_start.x += enemy_widht
-	
-	# Start eye_sight_ray from enemy's horizontal center
-	eye_sight_start.y = eye_sight_start.y - (enemy_height / 2)
-	
-	# Set hardcoded -4 for y axis because otherwise the ray is slanted to the bottom
-	var eye_sight_target = Vector2(
-		eye_sight_start.x + (ray_dir * PLAYER_ALERT_DISTANCE),
-		eye_sight_ray.position.y - 4)
-	
-	eye_sight_ray.position = eye_sight_start
-	eye_sight_ray.target_position = eye_sight_target
-	eye_sight_ray.force_raycast_update()
-	
-	return (eye_sight_ray.is_colliding() and eye_sight_ray.get_collider() == player)
-
-func has_gap_between(enemy_bottom: Vector2, player_bottom: Vector2) -> bool:
-	var start = tile_map.local_to_map(enemy_bottom)
-	var end = tile_map.local_to_map(player_bottom)
-
-	for x in range(min(start.x, end.x), max(start.x, end.x) + 1):
-		var cell_pos = Vector2i(x, start.y)
-		if tile_map.get_cell_tile_data(0, cell_pos) == null:
-			return true
-	return false
-
-func toggle_eyesight_ray(state: bool) -> void:
-	eye_sight_ray.visible = state
-	eye_sight_ray.enabled = state
-	
-func get_direction_to_player(player_position: Vector2):
-	return sign(player_position.x - position.x)
-
-func has_obstacle_to_right() -> bool:
-	return ray_cast_right.is_colliding() or !ray_cast_right_bottom.is_colliding()
-
-func has_obstacle_to_left() -> bool:
-	return ray_cast_left.is_colliding() or !ray_cast_left_bottom.is_colliding()

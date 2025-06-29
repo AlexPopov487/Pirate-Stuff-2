@@ -265,55 +265,57 @@ sprite_frames = SubResource("SpriteFrames_2xeco")
 animation = &"attack"
 
 [node name="enemy" parent="." instance=ExtResource("1_avswb")]
+PLAYER_ALERT_DISTANCE = 150
 
-[node name="AttackRayRight" type="RayCast2D" parent="."]
-position = Vector2(1, 4)
+[node name="AttackArea" type="Area2D" parent="enemy" groups=["enemies"]]
+position = Vector2(-11, -8)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/AttackArea"]
+position = Vector2(11.5, 12.5)
+shape = SubResource("RectangleShape2D_l3k6a")
+
+[node name="AttackRayRight" type="RayCast2D" parent="enemy/AttackArea"]
+position = Vector2(12, 12)
 target_position = Vector2(33, 0)
 collision_mask = 2
 
-[node name="AttackRayLeft" type="RayCast2D" parent="."]
-position = Vector2(0, 4)
+[node name="AttackRayLeft" type="RayCast2D" parent="enemy/AttackArea"]
+position = Vector2(11, 12)
 target_position = Vector2(-29, 0)
 collision_mask = 2
 
-[node name="RayCastRight" type="RayCast2D" parent="."]
+[node name="AttackCooldownTimer" type="Timer" parent="enemy/AttackArea"]
+wait_time = 1.5
+one_shot = true
+
+[node name="DamageCooldownTimer" type="Timer" parent="enemy/AttackArea"]
+wait_time = 0.5
+one_shot = true
+
+[node name="RayCastRight" type="RayCast2D" parent="enemy"]
 target_position = Vector2(24, 0)
 
-[node name="RayCastLeft" type="RayCast2D" parent="."]
+[node name="RayCastLeft" type="RayCast2D" parent="enemy"]
 target_position = Vector2(-21, 0)
 
-[node name="RayCastRightBottom" type="RayCast2D" parent="."]
+[node name="RayCastRightBottom" type="RayCast2D" parent="enemy"]
 position = Vector2(12, -8)
 target_position = Vector2(0, 23)
 
-[node name="RayCastLeftBottom" type="RayCast2D" parent="."]
+[node name="RayCastLeftBottom" type="RayCast2D" parent="enemy"]
 position = Vector2(-11, -8)
 target_position = Vector2(0, 23)
 
-[node name="EyeSightRay" type="RayCast2D" parent="."]
+[node name="EyeSightRay" type="RayCast2D" parent="enemy"]
 position = Vector2(0, -18)
 target_position = Vector2(0, 3)
 collision_mask = 2
 hit_from_inside = true
 
-[node name="AttackArea" type="Area2D" parent="." groups=["enemies"]]
-position = Vector2(-11, -8)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea"]
-position = Vector2(11.5, 12.5)
-shape = SubResource("RectangleShape2D_l3k6a")
-
-[node name="AttackCooldownTimer" type="Timer" parent="."]
-one_shot = true
-
-[node name="DamageCooldownTimer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
-
 [node name="Exclamation" parent="." instance=ExtResource("8_65u1r")]
 position = Vector2(4, -18)
 
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
-[connection signal="timeout" from="DamageCooldownTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="body_entered" from="enemy/AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="enemy/AttackArea/AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="enemy/AttackArea/DamageCooldownTimer" to="." method="_on_damage_timer_timeout"]

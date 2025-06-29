@@ -1,0 +1,252 @@
+[gd_scene load_steps=28 format=3 uid="uid://cbnugrsop3mky"]
+
+[ext_resource type="Script" uid="uid://fl0xf0i8sdh" path="res://scripts/starfish.gd" id="1_x31qf"]
+[ext_resource type="PackedScene" uid="uid://b2v86d6n0a562" path="res://scenes/exclamation.tscn" id="2_7r28u"]
+[ext_resource type="Texture2D" uid="uid://8vje1ia6ckfs" path="res://assets/The Crusty Crew/Sprites/Pink Star/starfish.png" id="3_x31qf"]
+[ext_resource type="PackedScene" uid="uid://dfoywfoh5w7ly" path="res://scenes/enemy.tscn" id="4_w5rel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r28u"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(360, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iuskt"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(396, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nidis"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(432, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7leu"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(216, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_84tli"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(252, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp3ym"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(288, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8pke8"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(324, 96, 36, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_asrbc"]
+load_path = "res://.godot/imported/starfish.png-151f65b2a01f7d739e70b9f60dd27108.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x31qf"]
+atlas = SubResource("CompressedTexture2D_asrbc")
+region = Rect2(0, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeved"]
+atlas = SubResource("CompressedTexture2D_asrbc")
+region = Rect2(36, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3n3t"]
+atlas = SubResource("CompressedTexture2D_asrbc")
+region = Rect2(72, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fy35n"]
+atlas = SubResource("CompressedTexture2D_asrbc")
+region = Rect2(108, 96, 36, 32)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x31qf"]
+load_path = "res://.godot/imported/starfish6.png-cfbfaf4adfa2fe51dbd4af03255351d2.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uxiub"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(0, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w5rel"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(36, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uo87k"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(72, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uk2fp"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(108, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fjtbp"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(144, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cj4b7"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(180, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qj8h"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(216, 64, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vsu0s"]
+atlas = SubResource("CompressedTexture2D_x31qf")
+region = Rect2(252, 64, 36, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iuskt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r28u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iuskt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nidis")
+}],
+"loop": false,
+"name": &"attack_end",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7leu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_84tli")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cp3ym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8pke8")
+}],
+"loop": true,
+"name": &"attack_spin",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x31qf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeved")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3n3t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy35n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy35n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fy35n")
+}],
+"loop": false,
+"name": &"attack_start",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uxiub")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w5rel")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uo87k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uk2fp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fjtbp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cj4b7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qj8h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vsu0s")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nidis"]
+size = Vector2(17, 15)
+
+[node name="starfish" type="Node2D"]
+script = ExtResource("1_x31qf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_iuskt")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="enemy" parent="." instance=ExtResource("4_w5rel")]
+position = Vector2(0, -2)
+PLAYER_ALERT_DISTANCE = 150
+
+[node name="AttackArea" type="Area2D" parent="enemy" groups=["enemies"]]
+position = Vector2(-11, -8)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy/AttackArea"]
+position = Vector2(7.5, 13.5)
+shape = SubResource("RectangleShape2D_nidis")
+
+[node name="AttackRayRight" type="RayCast2D" parent="enemy/AttackArea"]
+position = Vector2(7, 10)
+target_position = Vector2(14, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="AttackRayLeft" type="RayCast2D" parent="enemy/AttackArea"]
+position = Vector2(7, 10)
+target_position = Vector2(-14, 0)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="AttackCooldownTimer" type="Timer" parent="enemy/AttackArea"]
+wait_time = 4.0
+one_shot = true
+
+[node name="DamageCooldownTimer" type="Timer" parent="enemy/AttackArea"]
+wait_time = 0.5
+one_shot = true
+
+[node name="RayCastRight" type="RayCast2D" parent="enemy"]
+position = Vector2(-4, 3)
+target_position = Vector2(17, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="enemy"]
+position = Vector2(-4, 3)
+target_position = Vector2(-16, 0)
+
+[node name="RayCastRightBottom" type="RayCast2D" parent="enemy"]
+position = Vector2(5, 4)
+target_position = Vector2(0, 10)
+
+[node name="RayCastLeftBottom" type="RayCast2D" parent="enemy"]
+position = Vector2(-12, 4)
+target_position = Vector2(0, 10)
+
+[node name="EyeSightRay" type="RayCast2D" parent="enemy"]
+position = Vector2(0, -18)
+target_position = Vector2(0, 3)
+collision_mask = 2
+hit_from_inside = true
+
+[node name="PlayerDetectTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Exclamation" parent="." instance=ExtResource("2_7r28u")]
+position = Vector2(0, -20)
+
+[connection signal="area_entered" from="enemy/AttackArea" to="." method="_on_attack_area_area_entered"]
+[connection signal="body_entered" from="enemy/AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="timeout" from="enemy/AttackArea/AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="enemy/AttackArea/DamageCooldownTimer" to="." method="_on_damage_cooldown_timer_timeout"]
+[connection signal="timeout" from="PlayerDetectTimer" to="." method="_on_player_detect_timer_timeout"]
