@@ -23,7 +23,7 @@ enum MODE {PEACE, COMBAT}
 enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING, JUMPING }
 
 
-const MAX_HEALTH = 5
+const MAX_HEALTH = 2
 # 1 = moving right. -1 = moving left
 var direction = 1
 var can_take_damage := true
@@ -37,14 +37,14 @@ var current_mode := MODE.PEACE:
 		current_mode = updated_mode
 		print(name + " in " + MODE.find_key(current_mode))
 
-var current_move = default_move:
+var current_move := default_move:
 	set(updated_move):
 		if current_move == updated_move:
 			return
 		current_move = updated_move
 		print(name + " move changed to " + MOVE_SET.find_key(current_move))
 
-var health = 10
+var health = MAX_HEALTH
 
 
 func _process(delta: float) -> void:
@@ -85,7 +85,17 @@ func set_current_move_by_mode(delta: float):
 				exclamation.show_popup(Enums.DIALOGUE_TYPE.INTERROGATION)
 				if attack_cooldown_timer.is_stopped():
 					attack_cooldown_timer.start()
-
+			elif current_move == MOVE_SET.HIT:
+				animated_sprite_2d.play("hit")
+				if is_last_frame("hit"):
+					if !attack_cooldown_timer.is_stopped():
+						current_move = MOVE_SET.RECOVERING
+					else:
+						current_move = MOVE_SET.IDLE
+			elif current_move == MOVE_SET.DEAD:
+				animated_sprite_2d.play("dead")
+				if (is_last_frame("dead")):
+					queue_free()
 
 func handle_animation_by_move():
 	match current_mode:
@@ -116,7 +126,9 @@ func start_attack():
 func is_during_attack() -> bool:
 	return (current_move == MOVE_SET.ATTACKING
 		or current_move == MOVE_SET.RECOVERING
-		or current_move == MOVE_SET.JUMPING)
+		or current_move == MOVE_SET.JUMPING
+		or current_move == MOVE_SET.HIT
+		or current_move == MOVE_SET.DEAD)
 
 func handle_attack_animation(delta: float):
 	# calculate position
@@ -185,7 +197,7 @@ func take_damage():
 	health -= 1
 	if health <= 0:
 		current_move = MOVE_SET.DEAD
-		#exclamation.show_popup(Enums.DIALOGUE_TYPE.DEAD)
+		exclamation.show_popup(Enums.DIALOGUE_TYPE.DEAD)
 	else:
 		current_move = MOVE_SET.HIT
 	print(name + "; Damage taken from player. Current healt: " + str(health))
@@ -200,7 +212,7 @@ func take_damage_heavy(direction_to_push: float, push_force:float):
 	health -= 2
 	if health <= 0:
 		current_move = MOVE_SET.DEAD
-		#exclamation.show_popup(Enums.DIALOGUE_TYPE.DEAD)
+		exclamation.show_popup(Enums.DIALOGUE_TYPE.DEAD)
 	else:
 		current_move = MOVE_SET.HIT
 		
@@ -214,6 +226,12 @@ func _on_player_detect_timer_timeout() -> void:
 	current_mode = MODE.PEACE
 
 func _on_attack_cooldown_timer_timeout() -> void:
+	# Damage can be taken only in RECOVERING state, thus, this timer will still be
+	# active during the DEAD state. To avoid weird occassions of resurrection, 
+	# this check is required 
+	if current_move == MOVE_SET.DEAD:
+		return
+		
 	# From idling state it is possible to start attack over
 	current_move = MOVE_SET.IDLE 
 

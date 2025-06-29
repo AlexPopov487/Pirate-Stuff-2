@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://cbnugrsop3mky"]
+[gd_scene load_steps=40 format=3 uid="uid://cbnugrsop3mky"]
 
 [ext_resource type="Script" uid="uid://fl0xf0i8sdh" path="res://scripts/starfish.gd" id="1_x31qf"]
 [ext_resource type="PackedScene" uid="uid://b2v86d6n0a562" path="res://scenes/exclamation.tscn" id="2_7r28u"]
@@ -51,6 +51,54 @@ region = Rect2(72, 96, 36, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_fy35n"]
 atlas = SubResource("CompressedTexture2D_asrbc")
 region = Rect2(108, 96, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm4xf"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(0, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsvj1"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(36, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6qb5q"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(72, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj02a"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(108, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5akp3"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(144, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6wscw"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(180, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6r771"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(216, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etdna"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(252, 160, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snb4d"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(0, 32, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_of6p1"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(36, 32, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3snrb"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(72, 32, 36, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp875"]
+atlas = ExtResource("3_x31qf")
+region = Rect2(108, 32, 36, 32)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x31qf"]
 load_path = "res://.godot/imported/starfish6.png-cfbfaf4adfa2fe51dbd4af03255351d2.ctex"
@@ -145,6 +193,52 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_bm4xf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsvj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6qb5q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj02a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5akp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6wscw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6r771")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etdna")
+}],
+"loop": false,
+"name": &"dead",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snb4d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_of6p1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3snrb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp875")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_uxiub")
 }, {
 "duration": 1.0,
@@ -181,7 +275,7 @@ script = ExtResource("1_x31qf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iuskt")
-animation = &"idle"
+animation = &"dead"
 autoplay = "idle"
 
 [node name="enemy" parent="." instance=ExtResource("4_w5rel")]
@@ -209,7 +303,6 @@ collision_mask = 2
 hit_from_inside = true
 
 [node name="AttackCooldownTimer" type="Timer" parent="enemy/AttackArea"]
-wait_time = 4.0
 one_shot = true
 
 [node name="DamageCooldownTimer" type="Timer" parent="enemy/AttackArea"]
