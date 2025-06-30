@@ -35,10 +35,14 @@ var health = MAX_HEALTH:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	direction = 1
+	animated_sprite.flip_h = true
 	set_default_move()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	flip_enemy_sprite()
+	
 	var player_seen = enemy.is_player_seen(tile_map, position, player)
 	if (player_seen 
 	and current_move != MOVE_SET.ATTACKING
@@ -79,7 +83,6 @@ func set_animation_by_current_move(delta:float):
 		MOVE_SET.RUNNING:
 			animated_sprite.play("running")
 			position.x += SPEED * delta * direction
-			flip_enemy_sprite()
 		MOVE_SET.HIT:
 			animated_sprite.play("hit")
 			restore_move_type_on_animation_end()

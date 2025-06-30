@@ -2,10 +2,11 @@ extends Node2D
 
 @export var default_move: MOVE_SET = MOVE_SET.IDLE
 @export var player: CharacterBody2D
-@export var SPEED = 45
+@export var SPEED = 35
 @export var SPINNING_SPEED = 150
 @export var SPINNING_DISTANCE = 150
 @export var tile_map: TileMap
+
 @onready var attack_ray_left: RayCast2D = $enemy/AttackArea/AttackRayLeft
 @onready var attack_ray_right: RayCast2D = $enemy/AttackArea/AttackRayRight
 @onready var attack_area: Area2D = $enemy/AttackArea
@@ -20,7 +21,7 @@ extends Node2D
 
 
 enum MODE {PEACE, COMBAT}
-enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING, JUMPING }
+enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING, JUMPING, TURNING }
 
 
 const MAX_HEALTH = 2
@@ -47,16 +48,29 @@ var current_move := default_move:
 var health = MAX_HEALTH
 
 
+func _ready() -> void:
+	direction = 1
+	animated_sprite_2d.flip_h = true
+
+
 func _process(delta: float) -> void:
 	flip_sprite()
 	change_mode()
 	set_current_move_by_mode(delta)
-	#todo probably redundant since animation is tied up to current move and handled in set_current_move_by_mode
-	handle_animation_by_move()
-	
 
 func flip_sprite():
-	pass
+	if enemy.has_obstacle_to_right() and direction == 1:
+		direction = -1
+		animated_sprite_2d.flip_h = false
+		
+		if current_mode == MODE.PEACE:
+			current_move = MOVE_SET.TURNING
+	elif enemy.has_obstacle_to_left() and direction == -1:
+		direction = 1
+		animated_sprite_2d.flip_h = true
+		
+		if current_mode == MODE.PEACE:
+			current_move = MOVE_SET.TURNING
 	
 func change_mode():
 	var is_player_seen = enemy.is_player_seen(tile_map, position, player)
@@ -64,6 +78,8 @@ func change_mode():
 		current_mode = MODE.COMBAT
 		player_detect_timer.stop()
 	elif (!is_player_seen and current_mode == MODE.COMBAT):
+		# When enemy's in COMBAT mode but has lost the player, wait till 
+		# player_detect_timer runs out and switched the mode to PEACE
 		if player_detect_timer.is_stopped():
 			player_detect_timer.start()
 	
@@ -71,7 +87,17 @@ func change_mode():
 func set_current_move_by_mode(delta: float):
 	match current_mode:
 		MODE.PEACE:
-			current_move = default_move
+			match current_move:
+				MOVE_SET.TURNING:
+					animated_sprite_2d.play("turning")
+					if is_last_frame("turning"):
+						current_move = default_move
+				MOVE_SET.RUNNING:
+					animated_sprite_2d.play("running")
+					position.x += SPEED * delta * direction
+				MOVE_SET.IDLE:
+					animated_sprite_2d.play("idle")
+			
 		MODE.COMBAT:
 			if not is_during_attack():
 				start_attack()
@@ -97,23 +123,6 @@ func set_current_move_by_mode(delta: float):
 				if (is_last_frame("dead")):
 					queue_free()
 
-func handle_animation_by_move():
-	match current_mode:
-		MODE.PEACE:
-			handle_animation_peace()
-		MODE.COMBAT:
-			handle_animation_combat()
-			
-func handle_animation_peace():
-	match current_move:
-		MOVE_SET.RUNNING:
-			pass
-		_:
-			animated_sprite_2d.play("idle")
-	
-func handle_animation_combat():
-	pass
-
 func start_attack():
 #	TODO track collision with player using CollisionShape2d?
 	var is_player_near = attack_ray_right.is_colliding() or attack_ray_left.is_colliding()
@@ -131,12 +140,6 @@ func is_during_attack() -> bool:
 		or current_move == MOVE_SET.DEAD)
 
 func handle_attack_animation(delta: float):
-	# calculate position
-	# move to position
-	# loop through 7-10 frames while moving
-	# damage can be landed only when at frames 7-10 
-	# when at position, continue animation
-	# when last frame is played set move to RECOVERING
 	if !has_attack_animation_started:
 		animated_sprite_2d.play("attack_start")
 		has_attack_animation_started = true
@@ -223,7 +226,9 @@ func take_damage_heavy(direction_to_push: float, push_force:float):
 func _on_player_detect_timer_timeout() -> void:
 	if has_attack_animation_started:
 		has_attack_animation_started = false
+		current_attack_target_x = null
 	current_mode = MODE.PEACE
+	current_move = default_move
 
 func _on_attack_cooldown_timer_timeout() -> void:
 	# Damage can be taken only in RECOVERING state, thus, this timer will still be
@@ -232,8 +237,11 @@ func _on_attack_cooldown_timer_timeout() -> void:
 	if current_move == MOVE_SET.DEAD:
 		return
 		
-	# From idling state it is possible to start attack over
-	current_move = MOVE_SET.IDLE 
+	if current_mode == MODE.PEACE:
+		current_move = default_move
+	else:
+		# From idling state it is possible to start attack over
+		current_move = MOVE_SET.IDLE 
 
 func _on_damage_cooldown_timer_timeout() -> void:
 	can_take_damage = true
