@@ -351,10 +351,8 @@ script = ExtResource("1_x31qf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_iuskt")
-animation = &"running"
+animation = &"attack_start"
 autoplay = "idle"
-frame = 5
-frame_progress = 1.0
 
 [node name="enemy" parent="." instance=ExtResource("4_w5rel")]
 position = Vector2(0, -2)

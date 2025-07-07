@@ -21,7 +21,7 @@ extends Node2D
 
 
 enum MODE {PEACE, COMBAT}
-enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING, JUMPING, TURNING }
+enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING, TURNING }
 
 
 const MAX_HEALTH = 2
@@ -100,10 +100,10 @@ func set_current_move_by_mode(delta: float):
 			
 		MODE.COMBAT:
 			if not is_during_attack():
-				start_attack()
+				start_attack(delta)
 			
-			if current_move == MOVE_SET.JUMPING:
-				current_move = MOVE_SET.ATTACKING
+			if current_move == MOVE_SET.ALERTED:
+				handle_alert_animation(delta)
 			elif current_move == MOVE_SET.ATTACKING:
 				handle_attack_animation(delta)
 			elif current_move == MOVE_SET.RECOVERING:
@@ -123,21 +123,30 @@ func set_current_move_by_mode(delta: float):
 				if (is_last_frame("dead")):
 					queue_free()
 
-func start_attack():
+func start_attack(delta: float):
 #	TODO track collision with player using CollisionShape2d?
 	var is_player_near = attack_ray_right.is_colliding() or attack_ray_left.is_colliding()
 	
 	if is_player_near:
-		current_move = MOVE_SET.JUMPING
+		current_move = MOVE_SET.ALERTED
 	else:
 		current_move = MOVE_SET.ATTACKING
 	
 func is_during_attack() -> bool:
 	return (current_move == MOVE_SET.ATTACKING
 		or current_move == MOVE_SET.RECOVERING
-		or current_move == MOVE_SET.JUMPING
+		or current_move == MOVE_SET.ALERTED
 		or current_move == MOVE_SET.HIT
 		or current_move == MOVE_SET.DEAD)
+
+
+func handle_alert_animation(delta: float):
+	if !animated_sprite_2d.animation == "attack_end":
+		spin_to_position(delta,  position.x + (SPINNING_DISTANCE / 3))
+		
+	if (is_last_frame("attack_end")):
+		current_move = MOVE_SET.ATTACKING
+
 
 func handle_attack_animation(delta: float):
 	if !has_attack_animation_started:
@@ -160,13 +169,16 @@ func handle_attack_animation(delta: float):
 		current_move = MOVE_SET.RECOVERING
 		has_attack_animation_started = false
 		
-func spin_to_position(delta: float) -> void:
+func spin_to_position(delta: float, position_override = null) -> void:
 
 	# Attack has just begun
 	if current_attack_target_x == null:
 		# move enemy towards the player
 		# direction is set according to player's postition at attack start
-		current_attack_target_x = position.x + SPINNING_DISTANCE * direction
+		if position_override != null:
+			current_attack_target_x = position_override
+		else:	
+			current_attack_target_x = position.x + SPINNING_DISTANCE * direction
 		animated_sprite_2d.play("attack_spin")
 		
 	

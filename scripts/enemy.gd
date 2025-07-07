@@ -43,9 +43,10 @@ func is_player_within_eyesight(enemy_collision: CollisionShape2D,
 	var ray_dir = get_direction_to_player(enemy_bottom, player.position)
 	
 	# By default the eye_sight_ray is started from the left side of the enemy. 
-	# If the player is to the right of the enemy, the ray should be casted from the enemy's right.
+	# To track enemy's collisions with player, I start decetion ray from the inside of the enemy.
+	# Thus, yf the player is to the right of the enemy, the ray should be casted from the enemy's left and vice versa.
 	var eye_sight_start := to_local(enemy_bottom)
-	if (ray_dir == 1):
+	if (ray_dir == -1):
 		eye_sight_start.x += enemy_widht
 	
 	# Start eye_sight_ray from enemy's horizontal center
