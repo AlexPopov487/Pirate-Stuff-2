@@ -2,9 +2,6 @@ extends Node2D
 
 @export var default_move: MOVE_SET
 @export var player: CharacterBody2D
-@export var SPEED = 35
-@export var SPINNING_SPEED = 150
-@export var SPINNING_DISTANCE = 150
 @export var tile_map: TileMap
 
 @onready var attack_ray_left: RayCast2D = $enemy/AttackArea/AttackRayLeft
@@ -19,18 +16,20 @@ extends Node2D
 @onready var exclamation: Marker2D = $Exclamation
 
 
-
 enum MODE {PEACE, COMBAT}
-enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING, TURNING }
+enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING}
 
+const MAX_HEALTH = 4
+const SPEED: int =  25
+const CHASE_SPEED: int = 55
+const BITE_SPEED = 3 * CHASE_SPEED
 
-const MAX_HEALTH = 2
-# 1 = moving right. -1 = moving left
-var direction = 1
-var can_take_damage := true
 var has_attack_animation_started = false
-var current_attack_target_x = null
-
+var current_attack_direction = null
+var can_take_damage = true
+var direction = 1
+var current_speed: int
+var health = MAX_HEALTH
 var current_mode := MODE.PEACE:
 	set(updated_mode):
 		if current_mode == updated_mode:
@@ -45,34 +44,39 @@ var current_move := default_move:
 		current_move = updated_move
 		print(name + " move changed to " + MOVE_SET.find_key(current_move))
 
-var health = MAX_HEALTH
-
-
+# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	direction = 1
-	animated_sprite_2d.flip_h = true
+	current_mode = MODE.PEACE
 	current_move = default_move
+	current_speed = SPEED
 
 
+# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	flip_sprite()
+	#fall_down(delta)
+	flip_enemy_sprite()
 	change_mode()
 	set_current_move_by_mode(delta)
 
-func flip_sprite():
-	if enemy.has_obstacle_to_right() and direction == 1:
+
+func flip_enemy_sprite():
+	# current_attack_direction, if set, should not be overriden
+	if current_attack_direction != null:
+		direction = current_attack_direction
+		return
+	
+	if enemy.has_obstacle_to_right():
 		direction = -1
 		animated_sprite_2d.flip_h = false
-		
-		if current_mode == MODE.PEACE:
-			current_move = MOVE_SET.TURNING
-	elif enemy.has_obstacle_to_left() and direction == -1:
+	elif enemy.has_obstacle_to_left():
 		direction = 1
 		animated_sprite_2d.flip_h = true
 		
-		if current_mode == MODE.PEACE:
-			current_move = MOVE_SET.TURNING
-	
+	elif animated_sprite_2d.flip_h == true and direction == -1:
+		animated_sprite_2d.flip_h = false
+	elif animated_sprite_2d.flip_h == false and direction == 1:
+		animated_sprite_2d.flip_h = true
+		
 func change_mode():
 	var is_player_seen = enemy.is_player_seen(tile_map, position, player)
 	if (is_player_seen):
@@ -84,21 +88,15 @@ func change_mode():
 		if player_detect_timer.is_stopped():
 			player_detect_timer.start()
 	
-
 func set_current_move_by_mode(delta: float):
 	match current_mode:
 		MODE.PEACE:
 			match current_move:
-				MOVE_SET.TURNING:
-					animated_sprite_2d.play("turning")
-					if is_last_frame("turning"):
-						current_move = default_move
 				MOVE_SET.RUNNING:
 					animated_sprite_2d.play("running")
-					position.x += SPEED * delta * direction
+					position.x += current_speed * delta * direction
 				MOVE_SET.IDLE:
 					animated_sprite_2d.play("idle")
-			
 		MODE.COMBAT:
 			if not is_during_attack():
 				start_attack(delta)
@@ -124,15 +122,15 @@ func set_current_move_by_mode(delta: float):
 				if (is_last_frame("dead")):
 					queue_free()
 
-func start_attack(delta: float):
-#	TODO track collision with player using CollisionShape2d?
-	var is_player_near = attack_ray_right.is_colliding() or attack_ray_left.is_colliding()
+func _on_player_detect_timer_timeout() -> void:
+	current_mode = MODE.PEACE
+	current_move = default_move
+	current_speed = SPEED
+	if has_attack_animation_started:
+		has_attack_animation_started = false
+		current_attack_direction = null
 	
-	if is_player_near:
-		current_move = MOVE_SET.ALERTED
-	else:
-		current_move = MOVE_SET.ATTACKING
-	
+
 func is_during_attack() -> bool:
 	return (current_move == MOVE_SET.ATTACKING
 		or current_move == MOVE_SET.RECOVERING
@@ -140,74 +138,64 @@ func is_during_attack() -> bool:
 		or current_move == MOVE_SET.HIT
 		or current_move == MOVE_SET.DEAD)
 
-
-func handle_alert_animation(delta: float):
-	if !animated_sprite_2d.animation == "attack_end":
-		spin_to_position(delta,  position.x + (SPINNING_DISTANCE / 3))
-		
-	if (is_last_frame("attack_end")):
+func start_attack(delta: float):
+#	TODO track collision with player using CollisionShape2d?
+	var is_player_near = enemy.is_player_close()
+	
+	if is_player_near:
 		current_move = MOVE_SET.ATTACKING
-
-
-func handle_attack_animation(delta: float):
-	if !has_attack_animation_started:
-		animated_sprite_2d.play("attack_start")
-		has_attack_animation_started = true
-		direction = enemy.get_direction_to_player(position, player.position)
-		exclamation.show_popup(Enums.DIALOGUE_TYPE.EXCLAMATION)
+	else:
+		current_move = MOVE_SET.ALERTED
 		
-		if direction == 1:
-			animated_sprite_2d.flip_h = true
-		elif direction == -1:
-			animated_sprite_2d.flip_h = false
-		return
+func handle_alert_animation(delta: float):
+	var player_direction = enemy.get_direction_to_player(position, player.position)
+	exclamation.show_popup(Enums.DIALOGUE_TYPE.EXCLAMATION)
+	animated_sprite_2d.play("running")
 	
-	if (is_last_frame("attack_start") 
-	or animated_sprite_2d.animation == "attack_spin"):
-		spin_to_position(delta)
 	
-	if (is_last_frame("attack_end")):
+	if current_speed == SPEED:
+		current_speed = CHASE_SPEED
+	
+	position.x += current_speed * delta * player_direction
+	direction = player_direction
+	
+	
+	if enemy.is_player_close():
+		current_move = MOVE_SET.ATTACKING
+	
+	
+func handle_attack_animation(delta: float):
+	if not has_attack_animation_started:
+		animated_sprite_2d.play("attack_prepare")
+		# lock enemy's direction during the attack animation
+		current_attack_direction = direction
+		has_attack_animation_started = true
+	
+	if is_last_frame("attack_prepare"):
+		animated_sprite_2d.play("attack_bite")
+		
+	if animated_sprite_2d.animation == "attack_bite":
+		position.x += BITE_SPEED * delta * current_attack_direction
+	
+	if is_last_frame("attack_bite"):
 		current_move = MOVE_SET.RECOVERING
 		has_attack_animation_started = false
 		
-func spin_to_position(delta: float, position_override = null) -> void:
+func is_last_frame(animation_name: String) ->bool:
+	if animated_sprite_2d.animation != animation_name:
+		return false
+	
+	var current_attack_start_frame := animated_sprite_2d.frame
+	var attack_start_frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animation_name)
+	return current_attack_start_frame == attack_start_frame_count - 1
 
-	# Attack has just begun
-	if current_attack_target_x == null:
-		# move enemy towards the player
-		# direction is set according to player's postition at attack start
-		if position_override != null:
-			current_attack_target_x = position_override
-		else:	
-			current_attack_target_x = position.x + SPINNING_DISTANCE * direction
-		animated_sprite_2d.play("attack_spin")
-		
-	
-	var reached_target_or_obctacle_left = (
-		direction == -1
-		and
-		(enemy.has_obstacle_to_left() or position.x <= current_attack_target_x))
-	var reached_target_or_obstacle_right = (
-		direction == 1
-		and
-		(enemy.has_obstacle_to_right() or position.x >= current_attack_target_x))
-	var has_reached_tartget_pos = (reached_target_or_obctacle_left
-		or reached_target_or_obstacle_right)
-	
-	# If at target position or ahead of an obstacle, cease spinning
-	if has_reached_tartget_pos:
-		if is_last_frame("attack_spin"):
-			animated_sprite_2d.play("attack_end")
-			current_attack_target_x = null
-		return
-	
-	position.x += SPINNING_SPEED * delta * direction
-	
-	
 func take_damage():
 	if !can_take_damage or current_move != MOVE_SET.RECOVERING:
 		return
-		
+	
+	if !is_player_behind():
+		return
+	
 	can_take_damage = false
 	damage_cooldown_timer.start()
 	health -= 1
@@ -221,7 +209,10 @@ func take_damage():
 func take_damage_heavy(direction_to_push: float, push_force:float):
 	if !can_take_damage or current_move != MOVE_SET.RECOVERING:
 		return
-		
+	
+	if !is_player_behind():
+		return
+	
 	can_take_damage = false
 	damage_cooldown_timer.start()
 	
@@ -235,15 +226,10 @@ func take_damage_heavy(direction_to_push: float, push_force:float):
 #	push enemy by a heavy strike
 	position.x += direction_to_push * push_force 
 	print(name + "; Heavy damage taken from player")
-
-func _on_player_detect_timer_timeout() -> void:
-	if has_attack_animation_started:
-		has_attack_animation_started = false
-		current_attack_target_x = null
-	current_mode = MODE.PEACE
-	current_move = default_move
-
+	
+	
 func _on_attack_cooldown_timer_timeout() -> void:
+	current_attack_direction = null
 	# Damage can be taken only in RECOVERING state, thus, this timer will still be
 	# active during the DEAD state. To avoid weird occassions of resurrection, 
 	# this check is required 
@@ -256,30 +242,43 @@ func _on_attack_cooldown_timer_timeout() -> void:
 		# From idling state it is possible to start attack over
 		current_move = MOVE_SET.IDLE 
 
-func _on_damage_cooldown_timer_timeout() -> void:
-	can_take_damage = true
 
 func _on_attack_area_body_entered(player: CharacterBody2D) -> void:
 	if (!current_mode == MODE.COMBAT or !current_move == MOVE_SET.ATTACKING):
 		return
 	
-	if !is_spinning():
+	if !is_bitting():
 		return
 	
 	print(name + " hits!")
 	# TODO refactor that. I do not know how external fields are accessed 
 	if player.current_move != 6: #DEAD 
 		player.change_move_type("HIT")
+		
+		
+func is_bitting() -> bool:
+	return animated_sprite_2d.animation == "attack_bite"
 
 
-func is_last_frame(animation_name: String) ->bool:
-	if animated_sprite_2d.animation != animation_name:
-		return false
+func _on_damage_cooldown_timer_timeout() -> void:
+	can_take_damage = true
+
+func is_player_behind() -> bool:
+	var dir_to_player = enemy.get_direction_to_player(position, player.position)
 	
-	var current_attack_start_frame := animated_sprite_2d.frame
-	var attack_start_frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animation_name)
-	return current_attack_start_frame == attack_start_frame_count - 1
-	
+	var is_player_to_the_left = (direction == 1 
+								and dir_to_player == -1
+								and player.get_direction() == 1) 
+	var is_player_to_the_right = (direction == -1 
+								and dir_to_player == 1
+								and player.get_direction() == -1)
+								
+	return is_player_to_the_left or is_player_to_the_right
 
-func is_spinning() -> bool:
-	return animated_sprite_2d.animation == "attack_spin"
+
+func fall_down(delta: float):
+	if enemy.is_on_floor():
+		return
+	
+	position.y += 250 * delta
+	print(position.y)

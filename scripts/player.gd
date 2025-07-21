@@ -186,4 +186,6 @@ func attack():
 		var collider = light_attack_ray.get_collider()
 		if collider.is_in_group("enemies"):
 			collider.get_parent().get_parent().take_damage()
-			
+
+func get_direction() -> int:
+	return -1 if animated_sprite.flip_h else 1 

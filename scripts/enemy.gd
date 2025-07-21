@@ -13,6 +13,8 @@ extends Node2D
 @onready var ray_cast_left_bottom: RayCast2D = $RayCastLeftBottom
 @onready var eye_sight_ray: RayCast2D = $EyeSightRay
 @onready var collision_shape_2d: CollisionShape2D = $AttackArea/CollisionShape2D
+@onready var attack_ray_left: RayCast2D = $AttackArea/AttackRayLeft
+@onready var attack_ray_right: RayCast2D = $AttackArea/AttackRayRight
 
 
 
@@ -85,3 +87,11 @@ func has_obstacle_to_right() -> bool:
 
 func has_obstacle_to_left() -> bool:
 	return ray_cast_left.is_colliding() or !ray_cast_left_bottom.is_colliding()
+
+func is_player_close() -> bool:
+#	TODO track collision with player using CollisionShape2d?
+	return attack_ray_right.is_colliding() or attack_ray_left.is_colliding()
+
+func is_on_floor() -> bool:
+	return (ray_cast_left_bottom.is_colliding() 
+			or ray_cast_right_bottom.is_colliding())
