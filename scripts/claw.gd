@@ -53,7 +53,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#fall_down(delta)
+	enemy.fall_down(delta)
 	flip_enemy_sprite()
 	change_mode()
 	set_current_move_by_mode(delta)
@@ -123,13 +123,16 @@ func set_current_move_by_mode(delta: float):
 					queue_free()
 
 func _on_player_detect_timer_timeout() -> void:
+	if current_move == MOVE_SET.DEAD:
+		return
+	
 	current_mode = MODE.PEACE
 	current_move = default_move
 	current_speed = SPEED
+	current_attack_direction = null
+
 	if has_attack_animation_started:
-		has_attack_animation_started = false
-		current_attack_direction = null
-	
+		has_attack_animation_started = false	
 
 func is_during_attack() -> bool:
 	return (current_move == MOVE_SET.ATTACKING
@@ -146,6 +149,11 @@ func start_attack(delta: float):
 		current_move = MOVE_SET.ATTACKING
 	else:
 		current_move = MOVE_SET.ALERTED
+	
+	# Explicitly stopping all timers to mark a fresh attack start and avoid 
+	# sideeffects on timers timeout 
+	attack_cooldown_timer.stop()
+	damage_cooldown_timer.stop()
 		
 func handle_alert_animation(delta: float):
 	var player_direction = enemy.get_direction_to_player(position, player.position)
@@ -167,15 +175,16 @@ func handle_alert_animation(delta: float):
 func handle_attack_animation(delta: float):
 	if not has_attack_animation_started:
 		animated_sprite_2d.play("attack_prepare")
-		# lock enemy's direction during the attack animation
+		# lockd enemy's direction during the attack animation
 		current_attack_direction = direction
 		has_attack_animation_started = true
 	
 	if is_last_frame("attack_prepare"):
 		animated_sprite_2d.play("attack_bite")
-		
-	if animated_sprite_2d.animation == "attack_bite":
-		position.x += BITE_SPEED * delta * current_attack_direction
+	
+	if (!enemy.has_wall_at_direction(current_attack_direction)
+		and animated_sprite_2d.animation == "attack_bite"):
+			position.x += BITE_SPEED * delta * current_attack_direction
 	
 	if is_last_frame("attack_bite"):
 		current_move = MOVE_SET.RECOVERING
@@ -259,7 +268,6 @@ func _on_attack_area_body_entered(player: CharacterBody2D) -> void:
 func is_bitting() -> bool:
 	return animated_sprite_2d.animation == "attack_bite"
 
-
 func _on_damage_cooldown_timer_timeout() -> void:
 	can_take_damage = true
 
@@ -276,9 +284,12 @@ func is_player_behind() -> bool:
 	return is_player_to_the_left or is_player_to_the_right
 
 
-func fall_down(delta: float):
-	if enemy.is_on_floor():
-		return
-	
-	position.y += 250 * delta
-	print(position.y)
+#func fall_down(delta: float):
+	#if enemy.is_on_floor():
+		#return
+	#
+	#position.y += 250 * delta
+
+
+func _on_enemy_killzone_entered() -> void:
+	current_move = MOVE_SET.DEAD

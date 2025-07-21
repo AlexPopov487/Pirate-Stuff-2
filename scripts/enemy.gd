@@ -1,11 +1,8 @@
 extends Node2D
 
 
-#enemy default behavior
-# - health_amount
-# - damage_amount
-# - state {IDLE, MOVING, ATTACKING, DEAD}
-# - is_moving
+
+signal killzone_entered
 @export var PLAYER_ALERT_DISTANCE = 100 
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
@@ -29,7 +26,6 @@ func is_player_seen(tile_map: TileMap, enemy_position: Vector2, player: Characte
 
 	var enemy_bottom := ray_cast_left_bottom.get_collision_point()
 	var player_bottom = player.bottom_collision_ray.get_collision_point()
-		
 	# Comparing player's and enemie's y with a small tolerance:
 	var is_on_same_ground_with_player = abs(enemy_bottom.y - player_bottom.y) < 5
 	
@@ -88,6 +84,10 @@ func has_obstacle_to_right() -> bool:
 func has_obstacle_to_left() -> bool:
 	return ray_cast_left.is_colliding() or !ray_cast_left_bottom.is_colliding()
 
+func has_wall_at_direction(dir: int) -> bool:
+	return ((dir == 1 and ray_cast_right.is_colliding())
+			or dir == -1 and ray_cast_left.is_colliding())
+
 func is_player_close() -> bool:
 #	TODO track collision with player using CollisionShape2d?
 	return attack_ray_right.is_colliding() or attack_ray_left.is_colliding()
@@ -95,3 +95,13 @@ func is_player_close() -> bool:
 func is_on_floor() -> bool:
 	return (ray_cast_left_bottom.is_colliding() 
 			or ray_cast_right_bottom.is_colliding())
+
+func set_dead():
+	killzone_entered.emit()
+
+# add to the _process pipeline of the parent enemy
+func fall_down(delta: float):
+	if is_on_floor():
+		return
+		
+	get_parent().position.y += 250 * delta

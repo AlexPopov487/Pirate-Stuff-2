@@ -5,7 +5,7 @@ enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING }
 @export var should_lock_initial_move = false
 
 const SPEED = 45
-const MAX_HEALTH = 5
+const MAX_HEALTH = 15
 # 1 = moving right. -1 = moving left
 var direction = 1
 
@@ -41,6 +41,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	enemy.fall_down(delta)
 	flip_enemy_sprite()
 	
 	var player_seen = enemy.is_player_seen(tile_map, position, player)
@@ -207,3 +208,8 @@ func attack() :
 	# TODO refactor that. I do not know how external fields are accessed 
 	if player.current_move != 6: #DEAD 
 		player.change_move_type("HIT")
+		
+
+
+func _on_enemy_killzone_entered() -> void:
+	current_move = MOVE_SET.DEAD

@@ -55,6 +55,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	enemy.fall_down(delta)
 	flip_sprite()
 	change_mode()
 	set_current_move_by_mode(delta)
