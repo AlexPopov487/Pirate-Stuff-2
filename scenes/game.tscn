@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cemomou6nsdm5"]
+[gd_scene load_steps=12 format=3 uid="uid://cemomou6nsdm5"]
 
 [ext_resource type="Script" uid="uid://cjsbmbtq02gli" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://cq264t28wmrws" path="res://scenes/player.tscn" id="1_yqjtg"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://byd75ke7yl7w" path="res://scenes/crabby.tscn" id="4_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://b03lwcg65ruqn" path="res://scenes/cannon.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://de2y4cpmqk46j" path="res://scenes/claw.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cwee6s4j5jdf" path="res://scenes/seashell.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("2_lnu2h")
@@ -459,10 +460,18 @@ tile_map = NodePath("../../../TileMap")
 [node name="cannon" type="Node" parent="enemies"]
 
 [node name="Cannon" parent="enemies/cannon" node_paths=PackedStringArray("player", "tile_map") instance=ExtResource("7_gee14")]
-position = Vector2(1103, -13)
+position = Vector2(765, 3)
 player = NodePath("../../../Player")
 tile_map = NodePath("../../../TileMap")
-direction = 1
+direction = -1
+
+[node name="shells" type="Node" parent="enemies"]
+
+[node name="seashell" parent="enemies/shells" node_paths=PackedStringArray("player", "tile_map") instance=ExtResource("8_gee14")]
+position = Vector2(1096, -19)
+player = NodePath("../../../Player")
+tile_map = NodePath("../../../TileMap")
+direction = -1
 
 [node name="Labels" type="Node" parent="."]
 

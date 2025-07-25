@@ -1,7 +1,6 @@
 extends Node2D
 
 
-
 signal killzone_entered
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft

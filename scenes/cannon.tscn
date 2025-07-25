@@ -159,7 +159,7 @@ script = ExtResource("1_jfr8q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tsoy7")
-animation = &"dead"
+animation = &"idle"
 autoplay = "idle"
 
 [node name="enemy" parent="AnimatedSprite2D" instance=ExtResource("2_jfr8q")]
@@ -290,9 +290,6 @@ target_position = Vector2(0, 3)
 collision_mask = 2
 hit_from_inside = true
 collide_with_areas = true
-
-[node name="Exclamation" parent="." instance=ExtResource("3_0285d")]
-position = Vector2(0, -20)
 
 [node name="PlayerDetectTimer" type="Timer" parent="."]
 
