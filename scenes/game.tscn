@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cemomou6nsdm5"]
+[gd_scene load_steps=11 format=3 uid="uid://cemomou6nsdm5"]
 
 [ext_resource type="Script" uid="uid://cjsbmbtq02gli" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://cq264t28wmrws" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="Texture2D" uid="uid://dx4cyydp6v2am" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="2_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://cutxmol6nrnn2" path="res://scenes/killzone.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://byd75ke7yl7w" path="res://scenes/crabby.tscn" id="4_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://b03lwcg65ruqn" path="res://scenes/cannon.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://de2y4cpmqk46j" path="res://scenes/claw.tscn" id="7_u5sy4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
@@ -404,7 +405,7 @@ position = Vector2(711, -149)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-zoom = Vector2(2, 2)
+zoom = Vector2(3, 3)
 
 [node name="TileMap" type="TileMap" parent="."]
 unique_name_in_owner = true
@@ -450,10 +451,18 @@ tile_map = NodePath("../../../TileMap")
 [node name="claw" type="Node" parent="enemies"]
 
 [node name="claw" parent="enemies/claw" node_paths=PackedStringArray("player", "tile_map") instance=ExtResource("7_u5sy4")]
-position = Vector2(990, -13)
+position = Vector2(902, 19)
 default_move = 1
 player = NodePath("../../../Player")
 tile_map = NodePath("../../../TileMap")
+
+[node name="cannon" type="Node" parent="enemies"]
+
+[node name="Cannon" parent="enemies/cannon" node_paths=PackedStringArray("player", "tile_map") instance=ExtResource("7_gee14")]
+position = Vector2(1103, -13)
+player = NodePath("../../../Player")
+tile_map = NodePath("../../../TileMap")
+direction = 1
 
 [node name="Labels" type="Node" parent="."]
 

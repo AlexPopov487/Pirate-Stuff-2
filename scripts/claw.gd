@@ -283,13 +283,5 @@ func is_player_behind() -> bool:
 								
 	return is_player_to_the_left or is_player_to_the_right
 
-
-#func fall_down(delta: float):
-	#if enemy.is_on_floor():
-		#return
-	#
-	#position.y += 250 * delta
-
-
 func _on_enemy_killzone_entered() -> void:
 	current_move = MOVE_SET.DEAD

@@ -356,7 +356,6 @@ autoplay = "idle"
 
 [node name="enemy" parent="." instance=ExtResource("4_w5rel")]
 position = Vector2(0, -2)
-PLAYER_ALERT_DISTANCE = 150
 
 [node name="AttackArea" type="Area2D" parent="enemy" groups=["enemies"]]
 position = Vector2(-11, -8)

@@ -3,7 +3,6 @@ extends Node2D
 
 
 signal killzone_entered
-@export var PLAYER_ALERT_DISTANCE = 100 
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right_bottom: RayCast2D = $RayCastRightBottom
@@ -13,12 +12,14 @@ signal killzone_entered
 @onready var attack_ray_left: RayCast2D = $AttackArea/AttackRayLeft
 @onready var attack_ray_right: RayCast2D = $AttackArea/AttackRayRight
 
-
+var player_alert_distance = 100:
+	set(alert_distance):
+		player_alert_distance = alert_distance
 
 func is_player_seen(tile_map: TileMap, enemy_position: Vector2, player: CharacterBody2D) -> bool:
 	var distance_to_player = enemy_position.distance_to(player.position)
 
-	if distance_to_player > PLAYER_ALERT_DISTANCE:
+	if distance_to_player > player_alert_distance:
 		toggle_eyesight_ray(false)
 		return false
 		
@@ -52,7 +53,7 @@ func is_player_within_eyesight(enemy_collision: CollisionShape2D,
 	
 	# Set hardcoded -4 for y axis because otherwise the ray is slanted to the bottom
 	var eye_sight_target = Vector2(
-		eye_sight_start.x + (ray_dir * PLAYER_ALERT_DISTANCE),
+		eye_sight_start.x + (ray_dir * player_alert_distance),
 		eye_sight_ray.position.y - 4)
 	
 	eye_sight_ray.position = eye_sight_start
