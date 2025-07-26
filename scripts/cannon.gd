@@ -23,6 +23,7 @@ const MAX_HEALTH = 4
 const PLAYER_ALERT_DISTANCE = 300
 
 var has_attack_animation_started = false
+var is_projectile_fired = false
 var can_take_damage = true
 
 var health = MAX_HEALTH
@@ -118,12 +119,21 @@ func start_attack():
 	
 func handle_attack_animation():
 	if not has_attack_animation_started:
-		animated_sprite_2d.play("attack")
+		animated_sprite_2d.play("attack_prepare")
 		has_attack_animation_started = true
 	
-	if is_last_frame("attack"):
+	
+	if is_last_frame("attack_prepare"):
+		animated_sprite_2d.play("attack_fire")
+		# doublecheck, since _process may be executed multiple times during the same animation
+		if not is_projectile_fired:
+			fire()
+			is_projectile_fired = true
+	
+	if is_last_frame("attack_fire"):
 		current_move = MOVE_SET.RECOVERING
 		has_attack_animation_started = false
+		is_projectile_fired = false
 		
 func is_last_frame(animation_name: String) ->bool:
 	if animated_sprite_2d.animation != animation_name:
@@ -132,7 +142,6 @@ func is_last_frame(animation_name: String) ->bool:
 	var current_attack_start_frame := animated_sprite_2d.frame
 	var attack_start_frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animation_name)
 	return current_attack_start_frame == attack_start_frame_count - 1
-
 
 func take_damage():
 	if !can_take_damage:
@@ -167,6 +176,20 @@ func take_damage_heavy(direction_to_push: float, push_force:float):
 	print(name + "; Heavy damage taken from player")
 
 
+func fire():
+	var cannon_ball = preload("res://scenes/cannon_ball.tscn").instantiate()
+	cannon_ball.connect("should_hit_player", _on_cannon_ball_should_hit_player)
+	var muzzle_x = position.x + (20 * direction)
+	cannon_ball.position = Vector2(muzzle_x, position.y)
+	cannon_ball.direction = direction
+	get_parent().add_child(cannon_ball)
+
+func hit_player():
+	print(name + " hits!")
+	# TODO refactor that. I do not know how external fields are accessed 
+	if player.current_move != 6: #DEAD 
+		player.change_move_type("HIT")
+
 func _on_player_detect_timer_timeout() -> void:
 	if current_move == MOVE_SET.DEAD:
 		return
@@ -195,3 +218,6 @@ func _on_enemy_killzone_entered() -> void:
 
 func enter_combat_mode():
 	current_mode = MODE.COMBAT
+
+func _on_cannon_ball_should_hit_player() -> void:
+	hit_player()

@@ -1,0 +1,87 @@
+[gd_scene load_steps=12 format=3 uid="uid://dadtopu2d0xss"]
+
+[ext_resource type="Texture2D" uid="uid://cu10rabrgolaa" path="res://assets/Shooter Traps/Sprites/Cannon/cannon_ball.png" id="1_4105j"]
+[ext_resource type="Script" uid="uid://sghpid4p0jgw" path="res://scripts/cannon_ball.gd" id="1_tqdv6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqdv6"]
+atlas = ExtResource("1_4105j")
+region = Rect2(0, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlhnd"]
+atlas = ExtResource("1_4105j")
+region = Rect2(18, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csbd0"]
+atlas = ExtResource("1_4105j")
+region = Rect2(36, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mywdy"]
+atlas = ExtResource("1_4105j")
+region = Rect2(54, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t83eu"]
+atlas = ExtResource("1_4105j")
+region = Rect2(72, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t20g"]
+atlas = ExtResource("1_4105j")
+region = Rect2(90, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6apfm"]
+atlas = ExtResource("1_4105j")
+region = Rect2(0, 20, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ubxgc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqdv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlhnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csbd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mywdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t83eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t20g")
+}],
+"loop": false,
+"name": &"exploding",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6apfm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_nwiat"]
+radius = 8.0
+
+[node name="cannon_ball" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_tqdv6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ubxgc")
+animation = &"exploding"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_nwiat")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -5,18 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://dfoywfoh5w7ly" path="res://scenes/enemy.tscn" id="2_jfr8q"]
 [ext_resource type="PackedScene" uid="uid://b2v86d6n0a562" path="res://scenes/exclamation.tscn" id="3_0285d"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_22shy"]
-atlas = ExtResource("1_yjxeu")
-region = Rect2(0, 30, 42, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ssa1"]
-atlas = ExtResource("1_yjxeu")
-region = Rect2(42, 30, 42, 30)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5saov"]
-atlas = ExtResource("1_yjxeu")
-region = Rect2(84, 30, 42, 30)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_uvlre"]
 atlas = ExtResource("1_yjxeu")
 region = Rect2(126, 30, 42, 30)
@@ -28,6 +16,18 @@ region = Rect2(168, 30, 42, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_4a4je"]
 atlas = ExtResource("1_yjxeu")
 region = Rect2(210, 30, 42, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22shy"]
+atlas = ExtResource("1_yjxeu")
+region = Rect2(0, 30, 42, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ssa1"]
+atlas = ExtResource("1_yjxeu")
+region = Rect2(42, 30, 42, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5saov"]
+atlas = ExtResource("1_yjxeu")
+region = Rect2(84, 30, 42, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_lr4va"]
 atlas = ExtResource("1_yjxeu")
@@ -69,6 +69,20 @@ region = Rect2(0, 90, 42, 30)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_uvlre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ogt75")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a4je")
+}],
+"loop": false,
+"name": &"attack_fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_22shy")
 }, {
 "duration": 1.0,
@@ -82,18 +96,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5saov")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_uvlre")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ogt75")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4a4je")
 }],
 "loop": false,
-"name": &"attack",
+"name": &"attack_prepare",
 "speed": 10.0
 }, {
 "frames": [{
@@ -159,7 +164,7 @@ script = ExtResource("1_jfr8q")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_tsoy7")
-animation = &"idle"
+animation = &"attack_fire"
 autoplay = "idle"
 
 [node name="enemy" parent="AnimatedSprite2D" instance=ExtResource("2_jfr8q")]

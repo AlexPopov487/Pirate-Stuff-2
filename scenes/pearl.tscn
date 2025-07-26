@@ -1,0 +1,81 @@
+[gd_scene load_steps=11 format=3 uid="uid://c4uu85w4s1on3"]
+
+[ext_resource type="Texture2D" uid="uid://cu10rabrgolaa" path="res://assets/Shooter Traps/Sprites/Cannon/cannon_ball.png" id="1_na6ih"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tqdv6"]
+atlas = ExtResource("1_na6ih")
+region = Rect2(0, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jlhnd"]
+atlas = ExtResource("1_na6ih")
+region = Rect2(18, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_csbd0"]
+atlas = ExtResource("1_na6ih")
+region = Rect2(36, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mywdy"]
+atlas = ExtResource("1_na6ih")
+region = Rect2(54, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t83eu"]
+atlas = ExtResource("1_na6ih")
+region = Rect2(72, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1t20g"]
+atlas = ExtResource("1_na6ih")
+region = Rect2(90, 0, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6apfm"]
+atlas = ExtResource("1_na6ih")
+region = Rect2(0, 20, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bt3nf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tqdv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jlhnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_csbd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mywdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t83eu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1t20g")
+}],
+"loop": false,
+"name": &"exploding",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6apfm")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fqv0d"]
+radius = 8.0
+
+[node name="pearl" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_bt3nf")
+animation = &"exploding"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, 0)
+shape = SubResource("CircleShape2D_fqv0d")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
