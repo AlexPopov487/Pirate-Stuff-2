@@ -93,14 +93,14 @@ func set_current_move_by_mode():
 					attack_cooldown_timer.start()
 			elif current_move == MOVE_SET.HIT:
 				animated_sprite_2d.play("hit")
-				if is_last_frame("hit"):
+				if AnimationUtils.is_last_frame(animated_sprite_2d, "hit"):
 					if !attack_cooldown_timer.is_stopped():
 						current_move = MOVE_SET.RECOVERING
 					else:
 						current_move = MOVE_SET.IDLE
 			elif current_move == MOVE_SET.DEAD:
 				animated_sprite_2d.play("dead")
-				if (is_last_frame("dead")):
+				if (AnimationUtils.is_last_frame(animated_sprite_2d, "dead")):
 					queue_free()
 
 func is_during_attack() -> bool:
@@ -125,14 +125,14 @@ func handle_attack_animation():
 		animated_sprite_2d.play("attack_prepare")
 		has_attack_animation_started = true
 	
-	if is_last_frame("attack_prepare"):
+	if AnimationUtils.is_last_frame(animated_sprite_2d, "attack_prepare"):
 		animated_sprite_2d.play("attack_fire")
 		# doublecheck, since _process may be executed multiple times during the same animation
 		if not is_projectile_fired:
 			fire()
 			is_projectile_fired = true
 	
-	if is_last_frame("attack_fire"):
+	if AnimationUtils.is_last_frame(animated_sprite_2d, "attack_fire"):
 		current_move = MOVE_SET.RECOVERING
 		has_attack_animation_started = false
 		is_projectile_fired = false
@@ -154,15 +154,6 @@ func hit_player():
 		player.change_move_type("HIT")
 		
 		
-func is_last_frame(animation_name: String) ->bool:
-	if animated_sprite_2d.animation != animation_name:
-		return false
-	
-	var current_attack_start_frame := animated_sprite_2d.frame
-	var attack_start_frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animation_name)
-	return current_attack_start_frame == attack_start_frame_count - 1
-
-
 func take_damage():
 	if !can_take_damage:
 		return

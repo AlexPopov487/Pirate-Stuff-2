@@ -92,7 +92,7 @@ func set_current_move_by_mode(delta: float):
 			match current_move:
 				MOVE_SET.TURNING:
 					animated_sprite_2d.play("turning")
-					if is_last_frame("turning"):
+					if AnimationUtils.is_last_frame(animated_sprite_2d, "turning"):
 						current_move = default_move
 				MOVE_SET.RUNNING:
 					animated_sprite_2d.play("running")
@@ -115,14 +115,14 @@ func set_current_move_by_mode(delta: float):
 					attack_cooldown_timer.start()
 			elif current_move == MOVE_SET.HIT:
 				animated_sprite_2d.play("hit")
-				if is_last_frame("hit"):
+				if AnimationUtils.is_last_frame(animated_sprite_2d, "hit"):
 					if !attack_cooldown_timer.is_stopped():
 						current_move = MOVE_SET.RECOVERING
 					else:
 						current_move = MOVE_SET.IDLE
 			elif current_move == MOVE_SET.DEAD:
 				animated_sprite_2d.play("dead")
-				if (is_last_frame("dead")):
+				if (AnimationUtils.is_last_frame(animated_sprite_2d, "dead")):
 					queue_free()
 
 func start_attack(delta: float):
@@ -146,7 +146,7 @@ func handle_alert_animation(delta: float):
 	if !animated_sprite_2d.animation == "attack_end":
 		spin_to_position(delta,  position.x + (SPINNING_DISTANCE / 3))
 		
-	if (is_last_frame("attack_end")):
+	if (AnimationUtils.is_last_frame(animated_sprite_2d, "attack_end")):
 		current_move = MOVE_SET.ATTACKING
 
 
@@ -163,11 +163,11 @@ func handle_attack_animation(delta: float):
 			animated_sprite_2d.flip_h = false
 		return
 	
-	if (is_last_frame("attack_start") 
+	if (AnimationUtils.is_last_frame(animated_sprite_2d, "attack_start") 
 	or animated_sprite_2d.animation == "attack_spin"):
 		spin_to_position(delta)
 	
-	if (is_last_frame("attack_end")):
+	if (AnimationUtils.is_last_frame(animated_sprite_2d, "attack_end")):
 		current_move = MOVE_SET.RECOVERING
 		has_attack_animation_started = false
 		
@@ -197,7 +197,7 @@ func spin_to_position(delta: float, position_override = null) -> void:
 	
 	# If at target position or ahead of an obstacle, cease spinning
 	if has_reached_tartget_pos:
-		if is_last_frame("attack_spin"):
+		if AnimationUtils.is_last_frame(animated_sprite_2d, "attack_spin"):
 			animated_sprite_2d.play("attack_end")
 			current_attack_target_x = null
 		return
@@ -272,15 +272,6 @@ func _on_attack_area_body_entered(player: CharacterBody2D) -> void:
 	if player.current_move != 6: #DEAD 
 		player.change_move_type("HIT")
 
-
-func is_last_frame(animation_name: String) ->bool:
-	if animated_sprite_2d.animation != animation_name:
-		return false
-	
-	var current_attack_start_frame := animated_sprite_2d.frame
-	var attack_start_frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animation_name)
-	return current_attack_start_frame == attack_start_frame_count - 1
-	
 
 func is_spinning() -> bool:
 	return animated_sprite_2d.animation == "attack_spin"

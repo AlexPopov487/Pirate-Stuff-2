@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://cemomou6nsdm5"]
+[gd_scene load_steps=13 format=3 uid="uid://cemomou6nsdm5"]
 
 [ext_resource type="Script" uid="uid://cjsbmbtq02gli" path="res://scripts/game_manager.gd" id="1_iywne"]
 [ext_resource type="PackedScene" uid="uid://cq264t28wmrws" path="res://scenes/player.tscn" id="1_yqjtg"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b03lwcg65ruqn" path="res://scenes/cannon.tscn" id="7_gee14"]
 [ext_resource type="PackedScene" uid="uid://de2y4cpmqk46j" path="res://scenes/claw.tscn" id="7_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cwee6s4j5jdf" path="res://scenes/seashell.tscn" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://cqwk88i1skwa8" path="res://scenes/coin.tscn" id="9_0tnpc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("2_lnu2h")
@@ -402,7 +403,7 @@ script = ExtResource("1_iywne")
 
 [node name="Player" parent="." instance=ExtResource("1_yqjtg")]
 unique_name_in_owner = true
-position = Vector2(639, -7)
+position = Vector2(667, -147)
 collision_layer = 2
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
@@ -502,6 +503,13 @@ offset_top = 24.0
 offset_right = 121.0
 offset_bottom = 47.0
 text = "Player's state = "
+
+[node name="pickups" type="Node" parent="."]
+
+[node name="coins" type="Node" parent="pickups"]
+
+[node name="coin" parent="pickups/coins" instance=ExtResource("9_0tnpc")]
+position = Vector2(734, -144)
 
 [connection signal="player_health_changed" from="Player" to="GameManager" method="_on_player_player_health_changed"]
 [connection signal="player_move_changed" from="Player" to="GameManager" method="_on_player_player_move_changed"]

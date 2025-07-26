@@ -112,14 +112,14 @@ func set_current_move_by_mode(delta: float):
 					attack_cooldown_timer.start()
 			elif current_move == MOVE_SET.HIT:
 				animated_sprite_2d.play("hit")
-				if is_last_frame("hit"):
+				if AnimationUtils.is_last_frame(animated_sprite_2d, "hit"):
 					if !attack_cooldown_timer.is_stopped():
 						current_move = MOVE_SET.RECOVERING
 					else:
 						current_move = MOVE_SET.IDLE
 			elif current_move == MOVE_SET.DEAD:
 				animated_sprite_2d.play("dead")
-				if (is_last_frame("dead")):
+				if (AnimationUtils.is_last_frame(animated_sprite_2d, "dead")):
 					queue_free()
 
 func _on_player_detect_timer_timeout() -> void:
@@ -179,25 +179,18 @@ func handle_attack_animation(delta: float):
 		current_attack_direction = direction
 		has_attack_animation_started = true
 	
-	if is_last_frame("attack_prepare"):
+	if AnimationUtils.is_last_frame(animated_sprite_2d, "attack_prepare"):
 		animated_sprite_2d.play("attack_bite")
 	
 	if (!enemy.has_wall_at_direction(current_attack_direction)
 		and animated_sprite_2d.animation == "attack_bite"):
 			position.x += BITE_SPEED * delta * current_attack_direction
 	
-	if is_last_frame("attack_bite"):
+	if AnimationUtils.is_last_frame(animated_sprite_2d, "attack_bite"):
 		current_move = MOVE_SET.RECOVERING
 		has_attack_animation_started = false
 		
-func is_last_frame(animation_name: String) ->bool:
-	if animated_sprite_2d.animation != animation_name:
-		return false
-	
-	var current_attack_start_frame := animated_sprite_2d.frame
-	var attack_start_frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animation_name)
-	return current_attack_start_frame == attack_start_frame_count - 1
-
+		
 func take_damage():
 	if !can_take_damage or current_move != MOVE_SET.RECOVERING:
 		return

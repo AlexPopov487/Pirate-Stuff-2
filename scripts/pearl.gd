@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 func handle_explode_animation():
 	animated_sprite_2d.play("exploding")
 		
-	if is_last_frame("exploding"):
+	if AnimationUtils.is_last_frame(animated_sprite_2d, "exploding"):
 		print(name + " has exloded")
 		queue_free()
 		
@@ -40,14 +40,6 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	if body is CharacterBody2D:
 		should_hit_player.emit()
-
-func is_last_frame(animation_name: String) ->bool:
-	if animated_sprite_2d.animation != animation_name:
-		return false
-	
-	var current_animation_start_frame := animated_sprite_2d.frame
-	var animation_frame_count = animated_sprite_2d.sprite_frames.get_frame_count(animation_name)
-	return current_animation_start_frame == animation_frame_count - 1
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
