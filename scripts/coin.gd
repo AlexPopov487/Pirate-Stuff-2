@@ -1,5 +1,6 @@
 extends Area2D
 
+@onready var game_manager: Node = %GameManager
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 enum MOVE_SET { IDLE, COLLECTED}
@@ -24,4 +25,5 @@ func _process(delta: float) -> void:
 			print(name + " is collected")
 
 func _on_body_entered(body: Node2D) -> void:
+	game_manager.add_coin_point()
 	current_move = MOVE_SET.COLLECTED
