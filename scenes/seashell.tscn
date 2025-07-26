@@ -4,18 +4,6 @@
 [ext_resource type="Script" uid="uid://djke08md5up4c" path="res://scripts/seashell.gd" id="1_ncemi"]
 [ext_resource type="PackedScene" uid="uid://dfoywfoh5w7ly" path="res://scenes/enemy.tscn" id="2_ncemi"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ys1vu"]
-atlas = ExtResource("1_msg4g")
-region = Rect2(0, 42, 50, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_vf2ko"]
-atlas = ExtResource("1_msg4g")
-region = Rect2(50, 42, 50, 42)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q32uo"]
-atlas = ExtResource("1_msg4g")
-region = Rect2(100, 42, 50, 42)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_jg0cx"]
 atlas = ExtResource("1_msg4g")
 region = Rect2(150, 42, 50, 42)
@@ -27,6 +15,18 @@ region = Rect2(200, 42, 50, 42)
 [sub_resource type="AtlasTexture" id="AtlasTexture_ghltl"]
 atlas = ExtResource("1_msg4g")
 region = Rect2(250, 42, 50, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ys1vu"]
+atlas = ExtResource("1_msg4g")
+region = Rect2(0, 42, 50, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf2ko"]
+atlas = ExtResource("1_msg4g")
+region = Rect2(50, 42, 50, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q32uo"]
+atlas = ExtResource("1_msg4g")
+region = Rect2(100, 42, 50, 42)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnbag"]
 atlas = ExtResource("1_msg4g")
@@ -92,15 +92,6 @@ region = Rect2(200, 168, 50, 42)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ys1vu")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_vf2ko")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q32uo")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_jg0cx")
 }, {
 "duration": 1.0,
@@ -110,7 +101,21 @@ animations = [{
 "texture": SubResource("AtlasTexture_ghltl")
 }],
 "loop": false,
-"name": &"attack",
+"name": &"attack_fire",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ys1vu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf2ko")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q32uo")
+}],
+"loop": false,
+"name": &"attack_prepare",
 "speed": 10.0
 }, {
 "frames": [{
@@ -271,7 +276,7 @@ script = ExtResource("1_ncemi")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_18ype")
-animation = &"idle_static"
+animation = &"attack_prepare"
 autoplay = "idle"
 
 [node name="PlayerDetectTimer" type="Timer" parent="AnimatedSprite2D"]

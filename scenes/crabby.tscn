@@ -301,11 +301,11 @@ target_position = Vector2(-21, 0)
 
 [node name="RayCastRightBottom" type="RayCast2D" parent="enemy"]
 position = Vector2(12, -8)
-target_position = Vector2(0, 23)
+target_position = Vector2(0, 22)
 
 [node name="RayCastLeftBottom" type="RayCast2D" parent="enemy"]
 position = Vector2(-11, -8)
-target_position = Vector2(0, 23)
+target_position = Vector2(0, 22)
 
 [node name="EyeSightRay" type="RayCast2D" parent="enemy"]
 position = Vector2(0, -18)

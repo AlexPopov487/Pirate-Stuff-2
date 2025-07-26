@@ -5,7 +5,7 @@ enum MOVE_SET { IDLE, RUNNING, ATTACKING, DEAD = 6, HIT, ALERTED, RECOVERING }
 @export var should_lock_initial_move = false
 
 const SPEED = 45
-const MAX_HEALTH = 15
+const MAX_HEALTH = 5
 # 1 = moving right. -1 = moving left
 var direction = 1
 

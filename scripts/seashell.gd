@@ -3,6 +3,8 @@ extends Node2D
 @export var player: CharacterBody2D
 @export var tile_map: TileMap
 @export var direction: CANNON_DIRECTION
+signal should_hit_player
+
 
 @onready var attack_ray_left: RayCast2D = $enemy/AttackArea/AttackRayLeft
 @onready var attack_ray_right: RayCast2D = $enemy/AttackArea/AttackRayRight
@@ -24,6 +26,7 @@ const PLAYER_ALERT_DISTANCE = 300
 
 var has_attack_animation_started = false
 var has_fooling_animation_started = false
+var is_projectile_fired = false
 var can_take_damage = true
 
 var health = MAX_HEALTH
@@ -119,12 +122,36 @@ func start_attack():
 	
 func handle_attack_animation():
 	if not has_attack_animation_started:
-		animated_sprite_2d.play("attack")
+		animated_sprite_2d.play("attack_prepare")
 		has_attack_animation_started = true
 	
-	if is_last_frame("attack"):
+	if is_last_frame("attack_prepare"):
+		animated_sprite_2d.play("attack_fire")
+		# doublecheck, since _process may be executed multiple times during the same animation
+		if not is_projectile_fired:
+			fire()
+			is_projectile_fired = true
+	
+	if is_last_frame("attack_fire"):
 		current_move = MOVE_SET.RECOVERING
 		has_attack_animation_started = false
+		is_projectile_fired = false
+		
+		
+func fire():
+	var pearl = preload("res://scenes/pearl.tscn").instantiate()
+	pearl.connect("should_hit_player", _on_pearl_should_hit_player)
+	var muzzle_x = position.x + (20 * direction)
+	var muzzle_y = position.y + (10)
+	pearl.position = Vector2(muzzle_x, muzzle_y)
+	pearl.direction = direction
+	get_parent().add_child(pearl)
+
+func hit_player():
+	print(name + " hits!")
+	# TODO refactor that. I do not know how external fields are accessed 
+	if player.current_move != 6: #DEAD 
+		player.change_move_type("HIT")
 		
 		
 func is_last_frame(animation_name: String) ->bool:
@@ -197,3 +224,6 @@ func _on_enemy_killzone_entered() -> void:
 
 func enter_combat_mode():
 	current_mode = MODE.COMBAT
+
+func _on_pearl_should_hit_player() -> void:
+	hit_player()
