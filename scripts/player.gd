@@ -3,6 +3,11 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const JUMP_VELOCITY = -250.0
+const MAX_HEALTH := 10
+const MAX_STAMINA := 10
+const HEAVY_ATTACK_COST := 3
+const STAMINA_AUTORECOVER_AMOUNT := 1
+const ENEMY_DAMAGE := 1
 
 signal player_move_changed(current_move: String)
 enum MOVE_SET { IDLE, JUMPING, FALLING, RUNNING, ATTACKING_LIGHT, ATTACKING_HEAVY, DEAD = 6, HIT }
@@ -20,19 +25,27 @@ var has_attack_animation_played:bool = false
 var has_hit_animation_played:bool = false
 
 signal player_health_changed(current_health: int)
-var health = 5:
+var health = MAX_HEALTH:
 	set(updated_health):
-		health = clamp(updated_health, 0, 5)
-		player_health_changed.emit(updated_health)
+		health = clamp(updated_health, 0, MAX_HEALTH)
+		player_health_changed.emit(health)
+
+signal player_stamina_changed(current_stamina: int)
+var stamina = MAX_STAMINA:
+	set(updated_stamina):
+		stamina = clamp(updated_stamina, 0, MAX_STAMINA)
+		player_stamina_changed.emit(stamina)
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var heavy_attack_ray: RayCast2D = $AnimatedSprite2D/heavy_attack_ray
 @onready var light_attack_ray: RayCast2D = $AnimatedSprite2D/light_attack_ray
 @onready var bottom_collision_ray: RayCast2D = $AnimatedSprite2D/bottom_collision_ray
+@onready var stamina_recovery_timer: Timer = $StaminaRecoveryTimer
 
 
 func _ready() -> void:
 	player_health_changed.emit(health)
+	player_stamina_changed.emit(stamina)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -133,40 +146,22 @@ func set_animation_by_current_move():
 				light_attack_ray.enabled = false
 				has_attack_animation_played = false
 		MOVE_SET.ATTACKING_HEAVY:
-			if !has_attack_animation_played:
-				animated_sprite.play("heavy_attack")
-				has_attack_animation_played = true
-				return
-				
-			var heavy_attack_frame_count = animated_sprite.sprite_frames.get_frame_count("heavy_attack")
-			var heavy_attack_current_frame = animated_sprite.frame
-			var has_last_attack_frame_played = heavy_attack_current_frame == heavy_attack_frame_count - 1
-			
-			# the attacking collision ray is enabled at the specific attack animation frame
-			if heavy_attack_current_frame == 3 or heavy_attack_current_frame == 4:
-				heavy_attack_ray.enabled = true
-				attack()
-			else:
-				heavy_attack_ray.enabled = false
-			
-			if has_last_attack_frame_played:
-				current_move = MOVE_SET.IDLE
-				heavy_attack_ray.enabled = false
-				has_attack_animation_played = false
+			handle_heavy_attack_animation()
 		MOVE_SET.DEAD:
 			animated_sprite.play("dead")
 		MOVE_SET.HIT:
 			if !has_hit_animation_played:
 				animated_sprite.play("hit")
 				has_hit_animation_played = true
+				health -= ENEMY_DAMAGE
 				return
-				
+			
 			var hit_frame_count = animated_sprite.sprite_frames.get_frame_count("hit")
 			var hit_current_frame = animated_sprite.frame
 			var has_last_hit_frame_played = hit_current_frame == hit_frame_count - 1
 			
 			if has_last_hit_frame_played:
-				#health -= 1
+			
 				print("Damage taken! Current health = " + str(health))
 				if health <= 0:
 					print("Damage taken! Health below zero. Player's dead")
@@ -176,6 +171,35 @@ func set_animation_by_current_move():
 				has_hit_animation_played = false
 			
 
+func handle_heavy_attack_animation():
+	if !has_attack_animation_played:
+		if not can_land_heavy_attack():
+			print(name + " not enough stamina for heavy attack!")
+			current_move = MOVE_SET.IDLE
+			return
+		
+		animated_sprite.play("heavy_attack")
+		has_attack_animation_played = true
+		stamina -= HEAVY_ATTACK_COST
+		return
+				
+	var heavy_attack_frame_count = animated_sprite.sprite_frames.get_frame_count("heavy_attack")
+	var heavy_attack_current_frame = animated_sprite.frame
+	var has_last_attack_frame_played = heavy_attack_current_frame == heavy_attack_frame_count - 1
+	
+	# the attacking collision ray is enabled at the specific attack animation frame
+	if heavy_attack_current_frame == 3 or heavy_attack_current_frame == 4:
+		heavy_attack_ray.enabled = true
+		attack()
+	else:
+		heavy_attack_ray.enabled = false
+			
+	if has_last_attack_frame_played:
+		current_move = MOVE_SET.IDLE
+		heavy_attack_ray.enabled = false
+		has_attack_animation_played = false
+		
+		
 func attack():
 	if heavy_attack_ray.is_colliding():
 		var collider = heavy_attack_ray.get_collider()
@@ -189,3 +213,25 @@ func attack():
 
 func get_direction() -> int:
 	return -1 if animated_sprite.flip_h else 1 
+	
+func can_heal() -> bool:
+	return health < MAX_HEALTH
+
+func can_recover() -> bool:
+	return stamina < MAX_STAMINA
+
+func can_land_heavy_attack() -> bool:
+	return stamina >= HEAVY_ATTACK_COST
+	
+# regard it as a publlic method. I'm not sure whether it is appropriate to use property setters outiside the class
+func add_stamina(amount_to_add: int):
+	stamina += amount_to_add
+	
+func add_health(amount_to_add: int):
+	health += amount_to_add
+
+func _on_stamina_recovery_timer_timeout() -> void:
+	if not can_recover(): 
+		return
+	
+	stamina += STAMINA_AUTORECOVER_AMOUNT

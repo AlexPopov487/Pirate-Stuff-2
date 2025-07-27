@@ -322,3 +322,9 @@ collide_with_areas = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 3)
 shape = SubResource("RectangleShape2D_fjrip")
+
+[node name="StaminaRecoveryTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]
