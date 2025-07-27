@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://baiigco7tpspj"]
+
+[ext_resource type="Texture2D" uid="uid://7vorbso7wegq" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/palm_tree_back_right1.png" id="1_45phd"]
+[ext_resource type="Texture2D" uid="uid://dwhncrluqugt" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/palm_tree_back_right2.png" id="2_lh6li"]
+[ext_resource type="Texture2D" uid="uid://6u2ffvt813w6" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/palm_tree_back_right3.png" id="3_dtstt"]
+[ext_resource type="Texture2D" uid="uid://byisov3l0urt0" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/palm_tree_back_right4.png" id="4_mvft4"]
+
+[resource]
+frames = 4
+speed_scale = 5.0
+frame_0/texture = ExtResource("1_45phd")
+frame_1/texture = ExtResource("2_lh6li")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_dtstt")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_mvft4")
+frame_3/duration = 1.0
