@@ -1157,7 +1157,7 @@ layer_3/tile_data = PackedInt32Array(-589770, 12, 0, -655316, 4, 0, -589780, 4, 
 collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(89, 141)
+position = Vector2(99, 122)
 shape = SubResource("WorldBoundaryShape2D_lnu2h")
 
 [node name="enemies" type="Node" parent="."]
@@ -1169,7 +1169,12 @@ shape = SubResource("WorldBoundaryShape2D_lnu2h")
 [node name="claw" type="Node" parent="enemies"]
 
 [node name="claw" parent="enemies/claw" node_paths=PackedStringArray("player", "tile_map") instance=ExtResource("7_u5sy4")]
-position = Vector2(805, -13)
+position = Vector2(549, 19)
+player = NodePath("../../../Player")
+tile_map = NodePath("../../../TileMap")
+
+[node name="claw2" parent="enemies/claw" node_paths=PackedStringArray("player", "tile_map") instance=ExtResource("7_u5sy4")]
+position = Vector2(829, -13)
 player = NodePath("../../../Player")
 tile_map = NodePath("../../../TileMap")
 

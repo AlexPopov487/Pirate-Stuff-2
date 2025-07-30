@@ -330,6 +330,7 @@ autostart = true
 
 [node name="terrain_detector" parent="." instance=ExtResource("11_d2wvv")]
 position = Vector2(0, 6)
+collision_layer = 8
 
 [connection signal="timeout" from="StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]
 [connection signal="terrain_type_changed" from="terrain_detector" to="." method="_on_terrain_detector_terrain_type_changed"]
