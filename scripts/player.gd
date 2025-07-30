@@ -2,6 +2,7 @@
 extends CharacterBody2D
 
 const SPEED = 130.0
+const SLOWED_DOWN_SPEED = 30.0
 const JUMP_VELOCITY = -250.0
 const MAX_HEALTH := 10
 const MAX_STAMINA := 10
@@ -36,6 +37,8 @@ var stamina = MAX_STAMINA:
 		stamina = clamp(updated_stamina, 0, MAX_STAMINA)
 		player_stamina_changed.emit(stamina)
 
+var current_speed = SPEED
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var heavy_attack_ray: RayCast2D = $AnimatedSprite2D/heavy_attack_ray
 @onready var light_attack_ray: RayCast2D = $AnimatedSprite2D/light_attack_ray
@@ -67,9 +70,9 @@ func _physics_process(delta: float) -> void:
 
 
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * current_speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, current_speed)
 
 	move_and_slide()
 
@@ -235,3 +238,11 @@ func _on_stamina_recovery_timer_timeout() -> void:
 		return
 	
 	stamina += STAMINA_AUTORECOVER_AMOUNT
+
+
+func _on_terrain_detector_terrain_type_changed(updated_terrain: TerrainDetector.TerrainType) -> void:
+	match updated_terrain:
+		TerrainDetector.TerrainType.MUD:
+			current_speed = SLOWED_DOWN_SPEED
+		TerrainDetector.TerrainType.GROUND:
+			current_speed = SPEED

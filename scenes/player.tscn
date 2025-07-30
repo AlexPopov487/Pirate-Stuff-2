@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://cq264t28wmrws"]
+[gd_scene load_steps=47 format=3 uid="uid://cq264t28wmrws"]
 
 [ext_resource type="Texture2D" uid="uid://jghiqfd3w2xg" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/09-Idle Sword/idle_sword.png" id="1_3vyb7"]
 [ext_resource type="Script" uid="uid://cbs60c6bqyi2y" path="res://scripts/player.gd" id="1_g2els"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://coocx35xu3db6" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 01.png" id="3_smehm"]
 [ext_resource type="Texture2D" uid="uid://cksobsgo425ns" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/16-Attack 2/attack2.png" id="6_smehm"]
 [ext_resource type="Texture2D" uid="uid://5jj0ubhexyf4" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose with Sword/14-Hit Sword/hit.png" id="6_y4r1p"]
+[ext_resource type="PackedScene" uid="uid://c1drmucqxeui3" path="res://scenes/terrain_detector.tscn" id="11_d2wvv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fulsm"]
 atlas = ExtResource("2_ur7pv")
@@ -327,4 +328,8 @@ shape = SubResource("RectangleShape2D_fjrip")
 wait_time = 2.0
 autostart = true
 
+[node name="terrain_detector" parent="." instance=ExtResource("11_d2wvv")]
+position = Vector2(0, 6)
+
 [connection signal="timeout" from="StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]
+[connection signal="terrain_type_changed" from="terrain_detector" to="." method="_on_terrain_detector_terrain_type_changed"]
