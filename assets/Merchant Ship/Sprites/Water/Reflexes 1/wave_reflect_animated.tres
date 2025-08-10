@@ -1,0 +1,23 @@
+[gd_resource type="AnimatedTexture" load_steps=7 format=3 uid="uid://bakswghpsl25t"]
+
+[ext_resource type="Texture2D" uid="uid://e22b8mrsg1j3" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 1/1.png" id="1_88rgg"]
+[ext_resource type="Texture2D" uid="uid://btt13cx3j8oa7" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 1/2.png" id="2_p63jp"]
+[ext_resource type="Texture2D" uid="uid://vmt14803yug4" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 1/3.png" id="3_b8hq8"]
+[ext_resource type="Texture2D" uid="uid://e2xcwtbf1m6f" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 1/4.png" id="4_4akt8"]
+[ext_resource type="Texture2D" uid="uid://b46kfl7gf01t5" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 1/5.png" id="5_nrwqi"]
+[ext_resource type="Texture2D" uid="uid://bhoriv1w4nlcu" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 1/6.png" id="6_503dr"]
+
+[resource]
+frames = 6
+speed_scale = 7.0
+frame_0/texture = ExtResource("1_88rgg")
+frame_1/texture = ExtResource("2_p63jp")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_b8hq8")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_4akt8")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_nrwqi")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_503dr")
+frame_5/duration = 1.0
