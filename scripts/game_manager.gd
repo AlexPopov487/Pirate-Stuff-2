@@ -20,6 +20,6 @@ func _on_player_player_stamina_changed(current_stamina: int) -> void:
 	stamina_label.text = "Player's stamina = " + str(current_stamina)
 
 
-func add_coin_point():
-	collectedCoinsCount += 1
+func add_coin_point(amount: int):
+	collectedCoinsCount += amount
 	coin_stats.text = "Coins collected: " + str(collectedCoinsCount)

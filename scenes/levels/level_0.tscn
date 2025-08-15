@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="24_mx2fj"]
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="28_sagaa"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sl5c4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p102h"]
 texture = ExtResource("3_mswog")
 use_texture_padding = false
 1:0/0 = 0
@@ -56,7 +56,7 @@ use_texture_padding = false
 2:1/0 = 0
 2:2/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5krw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qf67e"]
 texture = ExtResource("4_eh6x6")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -435,7 +435,7 @@ texture = ExtResource("4_eh6x6")
 33:9/0 = 0
 33:9/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cx7as"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sl5c4"]
 texture = ExtResource("5_sagaa")
 texture_region_size = Vector2i(62, 54)
 use_texture_padding = false
@@ -450,7 +450,7 @@ use_texture_padding = false
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.0554752, -27.1271, 22.9665, -27.0162, 23.1329, -25.7402, 0.166424, -26.0731)
 0:0/0/physics_layer_0/polygon_0/one_way = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dt72c"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b5krw"]
 texture = ExtResource("6_0rc6f")
 use_texture_padding = false
 0:0/0 = 0
@@ -466,19 +466,19 @@ use_texture_padding = false
 0:1/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kux2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cx7as"]
 texture = ExtResource("7_p102h")
 texture_region_size = Vector2i(51, 53)
 use_texture_padding = false
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aab13"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dt72c"]
 texture = ExtResource("8_qf67e")
 texture_region_size = Vector2i(52, 53)
 use_texture_padding = false
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gngue"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3kux2"]
 texture = ExtResource("9_sl5c4")
 0:0/0 = 0
 1:0/0 = 0
@@ -673,7 +673,7 @@ texture = ExtResource("9_sl5c4")
 23:7/0 = 0
 9:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6miux"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aab13"]
 texture = ExtResource("10_b5krw")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 8, -8, 8, -8, -6.51331, 8, -6.45068)
@@ -1078,7 +1078,7 @@ texture = ExtResource("10_b5krw")
 23:7/0 = 0
 23:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sagaa"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gngue"]
 texture = ExtResource("11_mswog")
 use_texture_padding = false
 0:0/0 = 0
@@ -1094,7 +1094,7 @@ use_texture_padding = false
 5:0/0 = 0
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xi6i6"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6miux"]
 texture = ExtResource("11_cx7as")
 texture_region_size = Vector2i(31, 16)
 use_texture_padding = false
@@ -1103,7 +1103,7 @@ use_texture_padding = false
 1:0/0 = 0
 1:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0rc6f"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xi6i6"]
 texture = ExtResource("13_eh6x6")
 0:0/0 = 0
 1:0/0 = 0
@@ -1125,7 +1125,7 @@ texture = ExtResource("12_dt72c")
 2:1/0 = 0
 3:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p102h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yc3aq"]
 texture = ExtResource("15_eh6x6")
 texture_region_size = Vector2i(56, 16)
 use_texture_padding = false
@@ -1136,7 +1136,7 @@ use_texture_padding = false
 2:1/0 = 0
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yc3aq"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_l1g2h"]
 texture = ExtResource("13_3kux2")
 use_texture_padding = false
 1:0/0 = 0
@@ -1163,20 +1163,20 @@ use_texture_padding = false
 physics_layer_0/collision_layer = 3
 custom_data_layer_0/name = "terrain_type"
 custom_data_layer_0/type = 2
-sources/1 = SubResource("TileSetAtlasSource_b5krw")
+sources/1 = SubResource("TileSetAtlasSource_qf67e")
 sources/6 = SubResource("TileSetAtlasSource_lt8ga")
-sources/9 = SubResource("TileSetAtlasSource_yc3aq")
-sources/10 = SubResource("TileSetAtlasSource_cx7as")
-sources/11 = SubResource("TileSetAtlasSource_dt72c")
-sources/12 = SubResource("TileSetAtlasSource_3kux2")
-sources/13 = SubResource("TileSetAtlasSource_aab13")
-sources/14 = SubResource("TileSetAtlasSource_gngue")
-sources/0 = SubResource("TileSetAtlasSource_sl5c4")
-sources/4 = SubResource("TileSetAtlasSource_xi6i6")
-sources/2 = SubResource("TileSetAtlasSource_6miux")
-sources/3 = SubResource("TileSetAtlasSource_sagaa")
-sources/5 = SubResource("TileSetAtlasSource_0rc6f")
-sources/7 = SubResource("TileSetAtlasSource_p102h")
+sources/9 = SubResource("TileSetAtlasSource_l1g2h")
+sources/10 = SubResource("TileSetAtlasSource_sl5c4")
+sources/11 = SubResource("TileSetAtlasSource_b5krw")
+sources/12 = SubResource("TileSetAtlasSource_cx7as")
+sources/13 = SubResource("TileSetAtlasSource_dt72c")
+sources/14 = SubResource("TileSetAtlasSource_3kux2")
+sources/0 = SubResource("TileSetAtlasSource_p102h")
+sources/4 = SubResource("TileSetAtlasSource_6miux")
+sources/2 = SubResource("TileSetAtlasSource_aab13")
+sources/3 = SubResource("TileSetAtlasSource_gngue")
+sources/5 = SubResource("TileSetAtlasSource_xi6i6")
+sources/7 = SubResource("TileSetAtlasSource_yc3aq")
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0exrd"]
 

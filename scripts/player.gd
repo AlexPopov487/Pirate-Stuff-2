@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 130.0
 const SLOWED_DOWN_SPEED = 30.0
-const JUMP_VELOCITY = -250.0
+const JUMP_VELOCITY = -300.0
 const MAX_HEALTH := 10
 const MAX_STAMINA := 10
 const HEAVY_ATTACK_COST := 3

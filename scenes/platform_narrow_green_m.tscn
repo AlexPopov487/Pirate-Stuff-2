@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://wmurco54r64o"]
+
+[ext_resource type="Texture2D" uid="uid://bcwewatd1rtli" path="res://assets/Palm Tree Island/Sprites/Objects/narrow_platforms.png" id="1_3561s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_86anu"]
+size = Vector2(30, 9)
+
+[node name="platform_narrow_green_m" type="AnimatableBody2D"]
+collision_mask = 6
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3561s")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_86anu")

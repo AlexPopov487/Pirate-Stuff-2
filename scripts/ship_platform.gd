@@ -13,7 +13,7 @@ var current_move: MOVE_SET
 func _ready() -> void:
 	match ship_destination:
 		SHIP_DESTINATION.TO_ISLAND:
-			current_move = MOVE_SET.SAILING
+			current_move = MOVE_SET.IDLE
 		SHIP_DESTINATION.OFF_ISLAND:
 			current_move = MOVE_SET.IDLE
 

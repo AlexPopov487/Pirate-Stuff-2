@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgj8fouck6rd7"]
+
+[ext_resource type="Texture2D" uid="uid://dmoned2meel1b" path="res://assets/Palm Tree Island/Sprites/Front Palm Trees/trunk.png" id="1_86ndl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv0fn"]
+size = Vector2(40, 7)
+
+[node name="trunk_2" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_86ndl")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 40)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_yv0fn")
+one_way_collision = true
