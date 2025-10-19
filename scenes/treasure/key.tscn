@@ -1,0 +1,92 @@
+[gd_scene load_steps=17 format=3 uid="uid://cj0rvpwmx5k0o"]
+
+[ext_resource type="Script" uid="uid://dphvblki1wo2j" path="res://scripts/collectables/key.gd" id="1_o0qs2"]
+[ext_resource type="Texture2D" uid="uid://cfwdwdfij61mx" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/1.png" id="2_o0qs2"]
+[ext_resource type="Texture2D" uid="uid://byt4r48q5aofa" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/2.png" id="3_q6cy3"]
+[ext_resource type="Texture2D" uid="uid://bqq6cjfirlied" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/3.png" id="4_g6h31"]
+[ext_resource type="Texture2D" uid="uid://bgwt5ki1ry3bb" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/4.png" id="5_thfhf"]
+[ext_resource type="Texture2D" uid="uid://rcgc7hl2gr6p" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="6_xnmhd"]
+[ext_resource type="Texture2D" uid="uid://byus5s8jkrbx4" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/2.png" id="7_dhiux"]
+[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="7_sirnb"]
+[ext_resource type="Texture2D" uid="uid://c15ept2exk632" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/3.png" id="8_kkds4"]
+[ext_resource type="Texture2D" uid="uid://omh3e0lwmpud" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/4.png" id="9_cn5ka"]
+[ext_resource type="Texture2D" uid="uid://cntcb5266l7l6" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/5.png" id="10_xlm2n"]
+[ext_resource type="Texture2D" uid="uid://n2c30uh751n6" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/6.png" id="11_fc0q0"]
+[ext_resource type="Texture2D" uid="uid://bw3qr5yfyetd6" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/7.png" id="12_kjufq"]
+[ext_resource type="Texture2D" uid="uid://jp8c2pat4ptj" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/8.png" id="13_eivdw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfxoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_o0qs2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_q6cy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_g6h31")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_thfhf")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_xnmhd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_dhiux")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_kkds4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_cn5ka")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_xlm2n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_fc0q0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_kjufq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_eivdw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q6cy3"]
+radius = 3.0
+height = 14.0
+
+[node name="key" type="RigidBody2D"]
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_o0qs2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kfxoj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_q6cy3")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_sirnb")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c30bs2j240d2a"]
+
+[ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="1_ldiog"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px4x2"]
+size = Vector2(1112, 988.625)
+
+[node name="CameraOverride" type="Area2D"]
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+script = ExtResource("1_ldiog")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, -497.688)
+shape = SubResource("RectangleShape2D_px4x2")
+debug_color = Color(0.649321, 0.493664, 0.455495, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

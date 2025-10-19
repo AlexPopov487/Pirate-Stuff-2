@@ -1,0 +1,63 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c3d6rb6kavbns"]
+
+[ext_resource type="Texture2D" uid="uid://buml82ot0dkgh" path="res://assets/Wood and Paper UI/Sprites/Green Button/1.png" id="1_m7jai"]
+[ext_resource type="Texture2D" uid="uid://rnf0qgq58qv4" path="res://assets/Wood and Paper UI/Sprites/Yellow Button/1.png" id="2_ufndy"]
+[ext_resource type="Texture2D" uid="uid://c0fvpxhye1am4" path="res://assets/Wood and Paper UI/Sprites/Prefabs/9.png" id="3_ybqih"]
+[ext_resource type="Texture2D" uid="uid://cay1ophgvio4t" path="res://assets/Wood and Paper UI/Sprites/Prefabs/3.png" id="4_wp64m"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bhc0f"]
+texture = ExtResource("1_m7jai")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kbfp"]
+texture = ExtResource("2_ufndy")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dates"]
+texture = ExtResource("1_m7jai")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_whbgs"]
+texture = ExtResource("2_ufndy")
+texture_margin_left = 6.0
+texture_margin_top = 6.0
+texture_margin_right = 6.0
+texture_margin_bottom = 8.0
+modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58fle"]
+texture = ExtResource("3_ybqih")
+texture_margin_left = 20.0
+texture_margin_top = 20.0
+texture_margin_right = 20.0
+texture_margin_bottom = 20.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+region_rect = Rect2(12, 12, 104, 104)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lpjck"]
+texture = ExtResource("4_wp64m")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 14.0
+texture_margin_bottom = 14.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[resource]
+Button/styles/disabled = SubResource("StyleBoxTexture_bhc0f")
+Button/styles/hover = SubResource("StyleBoxTexture_1kbfp")
+Button/styles/normal = SubResource("StyleBoxTexture_dates")
+Button/styles/pressed = SubResource("StyleBoxTexture_whbgs")
+Panel/styles/panel = SubResource("StyleBoxTexture_58fle")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_lpjck")

@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://qpx12wwl7nko"]
+
+[ext_resource type="Script" uid="uid://dl6coglxqeh7x" path="res://scripts/collectables/pearl_coin.gd" id="1_hhnms"]
+[ext_resource type="Texture2D" uid="uid://exus5wya2144" path="res://assets/Pirate Treasure/Sprites/coin.png" id="2_yngxv"]
+[ext_resource type="Texture2D" uid="uid://cv0ul47usj4f1" path="res://assets/Pirate Treasure/Sprites/Silver Coin/01.png" id="3_hhnms"]
+[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="3_kk1yn"]
+[ext_resource type="Texture2D" uid="uid://ciogtjkuoeoec" path="res://assets/Pirate Treasure/Sprites/Silver Coin/02.png" id="4_r0nfe"]
+[ext_resource type="Texture2D" uid="uid://c8tb1ces84se2" path="res://assets/Pirate Treasure/Sprites/Silver Coin/03.png" id="5_qvq6e"]
+[ext_resource type="Texture2D" uid="uid://b47yhk8wv8bde" path="res://assets/Pirate Treasure/Sprites/Silver Coin/04.png" id="6_8iwex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]
+atlas = ExtResource("2_yngxv")
+region = Rect2(0, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
+atlas = ExtResource("2_yngxv")
+region = Rect2(18, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
+atlas = ExtResource("2_yngxv")
+region = Rect2(36, 20, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfxoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i64fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11l1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14el")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_hhnms")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_r0nfe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_qvq6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_8iwex")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jsmju"]
+radius = 5.0
+
+[node name="silver_coin" type="RigidBody2D"]
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_hhnms")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kfxoj")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_jsmju")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kk1yn")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

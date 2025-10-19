@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://qr1itk5dvxw2"]
+
+[ext_resource type="Script" uid="uid://ndv61mbhaa5y" path="res://scripts/ui/health_gauge.gd" id="1_wrbfh"]
+[ext_resource type="Texture2D" uid="uid://cf87jsvisuxko" path="res://assets/Wood and Paper UI/Sprites/Life Bars/Big Bars/1.png" id="2_jajyc"]
+[ext_resource type="Texture2D" uid="uid://vc3lkaskg6vr" path="res://assets/Wood and Paper UI/Sprites/Life Bars/Big Bars/3.png" id="3_tjvnl"]
+[ext_resource type="Texture2D" uid="uid://bb2k0kiotaqrs" path="res://assets/Wood and Paper UI/Sprites/Life Bars/Big Bars/4.png" id="4_xr1pe"]
+[ext_resource type="Texture2D" uid="uid://b0ju64ieww2eg" path="res://assets/Wood and Paper UI/Sprites/Life Bars/Colors/1.png" id="5_g123l"]
+
+[node name="healthGauge" type="Control"]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = -40.0
+offset_right = 72.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+pivot_offset = Vector2(0, 40)
+size_flags_horizontal = 0
+script = ExtResource("1_wrbfh")
+
+[node name="background" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 104.0
+offset_bottom = 40.0
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="background"]
+layout_mode = 2
+texture = ExtResource("2_jajyc")
+expand_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="background"]
+layout_mode = 2
+texture = ExtResource("3_tjvnl")
+
+[node name="TextureRect3" type="TextureRect" parent="background"]
+layout_mode = 2
+texture = ExtResource("4_xr1pe")
+
+[node name="fill" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 18.0
+offset_right = 100.0
+offset_bottom = 20.0
+texture = ExtResource("5_g123l")
+expand_mode = 1

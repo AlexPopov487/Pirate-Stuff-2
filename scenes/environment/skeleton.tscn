@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdp3jdffckjmk"]
+
+[ext_resource type="Texture2D" uid="uid://d0qs1yiv77rx2" path="res://assets/Palm Tree Island/Sprites/Objects/skeleton.png" id="1_j0wnc"]
+[ext_resource type="Script" uid="uid://bsgmxengvece5" path="res://scripts/environment/skeleton.gd" id="1_uwvoj"]
+[ext_resource type="Texture2D" uid="uid://7p4k3qvp74qq" path="res://assets/Wood and Paper UI/Sprites/Big Text/enter_button.png" id="3_qq0y5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j0wnc"]
+height = 44.0
+
+[node name="Skeleton" type="Area2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("1_uwvoj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -10)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_j0wnc")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_j0wnc")
+
+[node name="EnterSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4.76837e-07, -42)
+scale = Vector2(1.04152, 1.04152)
+texture = ExtResource("3_qq0y5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

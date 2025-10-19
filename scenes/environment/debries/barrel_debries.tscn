@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://b8w16f7gyhkvc"]
+
+[ext_resource type="Script" uid="uid://bxf4gpdluduue" path="res://scripts/characters/debries.gd" id="1_asopt"]
+[ext_resource type="Texture2D" uid="uid://c6hnebvfsuaq4" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/2.png" id="2_5x2k6"]
+[ext_resource type="Texture2D" uid="uid://bav5rt5msoqor" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/3.png" id="3_wefcn"]
+[ext_resource type="Texture2D" uid="uid://j3iywp6fy0r7" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/4.png" id="4_nwuvm"]
+[ext_resource type="Texture2D" uid="uid://cwtu5hl0cv4pm" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/5.png" id="5_gdo5x"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddjel"]
+radius = 5.25
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mcp5j"]
+radius = 4.99885
+height = 14.0397
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5j3de"]
+radius = 6.0
+height = 14.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jwxl1"]
+radius = 3.35674
+height = 9.99409
+
+[node name="Debries" type="Node2D"]
+script = ExtResource("1_asopt")
+
+[node name="TopLeft" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 16
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="TopLeft"]
+position = Vector2(-6, -19)
+texture = ExtResource("2_5x2k6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopLeft"]
+position = Vector2(-6, -18)
+shape = SubResource("CapsuleShape2D_ddjel")
+
+[node name="TopRight" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 16
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="TopRight"]
+position = Vector2(5, -19)
+texture = ExtResource("3_wefcn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TopRight"]
+position = Vector2(5, -19)
+rotation = -0.66497
+shape = SubResource("CapsuleShape2D_mcp5j")
+
+[node name="BottomLeft" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 16
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomLeft"]
+position = Vector2(-5, -7)
+texture = ExtResource("4_nwuvm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomLeft"]
+position = Vector2(-4, -6)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5j3de")
+
+[node name="BottomRight" type="RigidBody2D" parent="."]
+visible = false
+collision_layer = 16
+freeze = true
+freeze_mode = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="BottomRight"]
+position = Vector2(6, -6)
+texture = ExtResource("5_gdo5x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BottomRight"]
+position = Vector2(6, -5)
+rotation = 0.60912
+shape = SubResource("CapsuleShape2D_jwxl1")
+
+[node name="TtlTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="TtlTimer" to="." method="_on_ttl_timer_timeout"]

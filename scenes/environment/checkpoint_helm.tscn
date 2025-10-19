@@ -1,0 +1,157 @@
+[gd_scene load_steps=24 format=3 uid="uid://c5aldcvh3op8t"]
+
+[ext_resource type="Texture2D" uid="uid://d33n2ria7mnoy" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 01.png" id="1_8prxr"]
+[ext_resource type="Script" uid="uid://dl4qi5k5w7u0y" path="res://scripts/environment/checkpoint_helm.gd" id="1_adq52"]
+[ext_resource type="Texture2D" uid="uid://dphhgsqmujx76" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 02.png" id="2_w06tl"]
+[ext_resource type="Texture2D" uid="uid://c4ed21a7h8coa" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 03.png" id="3_fxnfc"]
+[ext_resource type="Texture2D" uid="uid://dyhafdqojo8rv" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 04.png" id="4_tyxre"]
+[ext_resource type="Texture2D" uid="uid://cy1ysq3h5umqf" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 05.png" id="5_u470h"]
+[ext_resource type="Texture2D" uid="uid://cojs3vkokykhl" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 06.png" id="6_adq52"]
+[ext_resource type="Texture2D" uid="uid://c6pd53mn8wxt6" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 01.png" id="8_dbqyv"]
+[ext_resource type="Texture2D" uid="uid://bldx1fl8vjyod" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 02.png" id="9_eqipx"]
+[ext_resource type="Texture2D" uid="uid://bjrg6gi682i0" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 03.png" id="10_yi6wr"]
+[ext_resource type="Texture2D" uid="uid://3ppwpctqnkgg" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 04.png" id="11_3okc6"]
+[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="12_dbqyv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8prxr"]
+radius = 16.0
+
+[sub_resource type="Animation" id="Animation_eqipx"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_8prxr")]
+}
+
+[sub_resource type="Animation" id="Animation_dbqyv"]
+resource_name = "idle"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("1_8prxr"), ExtResource("2_w06tl"), ExtResource("3_fxnfc"), ExtResource("4_tyxre"), ExtResource("5_u470h"), ExtResource("6_adq52")]
+}
+
+[sub_resource type="Animation" id="Animation_4y5w0"]
+resource_name = "spin"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_dbqyv"), ExtResource("9_eqipx"), ExtResource("10_yi6wr"), ExtResource("11_3okc6"), ExtResource("8_dbqyv"), ExtResource("9_eqipx"), ExtResource("10_yi6wr"), ExtResource("11_3okc6")]
+}
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.174,
+"start_offset": 0.0,
+"stream": ExtResource("12_dbqyv")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.8),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"set_checkpoint_reached_false"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yi6wr"]
+_data = {
+&"RESET": SubResource("Animation_eqipx"),
+&"idle": SubResource("Animation_dbqyv"),
+&"spin": SubResource("Animation_4y5w0")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_47do6"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ktfl5"]
+animation = &"spin"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1207f"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_llhh4"]
+advance_mode = 2
+advance_expression = "_checkpoint_reached"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dhge6"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dudvj"]
+states/idle/node = SubResource("AnimationNodeAnimation_47do6")
+states/idle/position = Vector2(398, 100)
+states/spin/node = SubResource("AnimationNodeAnimation_ktfl5")
+states/spin/position = Vector2(398, -16)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_1207f"), "idle", "spin", SubResource("AnimationNodeStateMachineTransition_llhh4"), "spin", "idle", SubResource("AnimationNodeStateMachineTransition_dhge6")]
+graph_offset = Vector2(-12, -34)
+
+[node name="checkpoint_helm" type="Area2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+script = ExtResource("1_adq52")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_8prxr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -16)
+shape = SubResource("CircleShape2D_8prxr")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_yi6wr")
+}
+autoplay = "idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="AnimationPlayer"]
+root_node = NodePath("../..")
+tree_root = SubResource("AnimationNodeStateMachine_dudvj")
+advance_expression_base_node = NodePath("../..")
+anim_player = NodePath("..")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

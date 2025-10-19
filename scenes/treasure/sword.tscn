@@ -1,0 +1,102 @@
+[gd_scene load_steps=17 format=3 uid="uid://by48bmhxy6746"]
+
+[ext_resource type="Script" uid="uid://hw8wa53h16kj" path="res://scripts/collectables/sword.gd" id="1_l2p3q"]
+[ext_resource type="Texture2D" uid="uid://exus5wya2144" path="res://assets/Pirate Treasure/Sprites/coin.png" id="2_vmc2i"]
+[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="3_vdioa"]
+[ext_resource type="Texture2D" uid="uid://urosd13gbgqk" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 01.png" id="3_wewl5"]
+[ext_resource type="Texture2D" uid="uid://d1qclrw4y47p4" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 02.png" id="4_lmkbs"]
+[ext_resource type="Texture2D" uid="uid://txxkamcvdxp6" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 03.png" id="5_yl03e"]
+[ext_resource type="Texture2D" uid="uid://be3w6fmtklxm5" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 04.png" id="6_dudl0"]
+[ext_resource type="Texture2D" uid="uid://ng8g0jcm5ffp" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 05.png" id="7_ll07v"]
+[ext_resource type="Texture2D" uid="uid://csp8jbavnfdiv" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 06.png" id="8_s4sef"]
+[ext_resource type="Texture2D" uid="uid://o4u1ogbr3ekc" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 07.png" id="9_blqpj"]
+[ext_resource type="Texture2D" uid="uid://cjc2jga126jya" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Sword/21-Sword Idle/Sword Idle 08.png" id="10_5n417"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]
+atlas = ExtResource("2_vmc2i")
+region = Rect2(0, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
+atlas = ExtResource("2_vmc2i")
+region = Rect2(18, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
+atlas = ExtResource("2_vmc2i")
+region = Rect2(36, 20, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfxoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i64fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11l1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14el")
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_wewl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_lmkbs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_yl03e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dudl0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ll07v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_s4sef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_blqpj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_5n417")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gkpry"]
+radius = 4.0
+height = 20.0
+
+[node name="sword" type="RigidBody2D"]
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_l2p3q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -10)
+rotation = -1.5708
+sprite_frames = SubResource("SpriteFrames_kfxoj")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.918987
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -11)
+shape = SubResource("CapsuleShape2D_gkpry")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_vdioa")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
