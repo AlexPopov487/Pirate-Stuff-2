@@ -13,6 +13,7 @@ extends Node2D
 @onready var _vfx: Vfx = $UserInterface/VFX
 @onready var _player_highlight: PointLight2D = $PlayerHighlight
 @onready var _pause_menu: Control = $UserInterface/PauseMenu
+@onready var _level_complete_window: LevelCompleteWindow = $UserInterface/LevelCompleteWindow
 
 
 var _current_level: Level
@@ -37,6 +38,9 @@ func collect_map(map_type: Globals.MAP_TYPE):
 func _ready() -> void:
 	_fade.visible = true # set to invisible in editor during development
 	_pause_menu.visible = false
+	if get_tree().paused:
+		_set_game_paused(false)
+
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)
@@ -108,10 +112,12 @@ func _spawn_player():
 	_camera.force_set_position(spawn.x, spawn.y)
 	# reset the previous velosity (in cases when player dies during fall)
 	_player.velocity = Vector2.ZERO
+	_player._direction = 0
 
 func _on_pirate_died() -> void:
 	_audio_stream_player_2d.stream = _dead
 	_audio_stream_player_2d.play()
+	File.increase_death_count()
 	_return_to_last_checkpoint()
 	
 func _return_to_last_checkpoint():
@@ -124,21 +130,29 @@ func _return_to_last_checkpoint():
 
 func _on_level_completed():
 	_current_level.level_completed.disconnect(_on_level_completed)
+	
+	get_tree().paused = true
+	
+	_level_complete_window.display_window(LevelCompleteStats.new(
+		File.data.coins,
+		100,
+		File.data.death_count,
+		false,
+		false
+	))
+	
 	var next_level_idx: int = File.data.current_level_idx + 1
 	File.change_level(next_level_idx)
 	File.save_game()
 	print(_current_level.name + " is completed, initializing level_" + str(File.data.current_level_idx))
-	_init_level_and_reset_player()
 	
 func _restart_level():
-	if get_tree().paused:
-		_set_game_paused(false)
-		
 	File.change_level(File.data.current_level_idx)
 	_init_level_and_reset_player()
 	
 func _init_level_and_reset_player():
 	await _fade.fade_to_black()
+	
 	_player.get_controls().set_enabled(false)
 
 	_init_level()
@@ -148,6 +162,8 @@ func _init_level_and_reset_player():
 	_init_level_ui()
 	_player._has_sword = _current_level.get_player_armed()
 
+	if get_tree().paused:
+		_set_game_paused(false)
 	await _fade.fade_to_clear()
 
 	if _current_level.get_controls_enabled_by_default():
@@ -162,3 +178,8 @@ func _exit_to_main_menu():
 		_set_game_paused(false)
 
 	get_tree().change_scene_to_file(Globals.TITLE_SCENE_PATH)
+
+
+func _on_level_complete_window_next_level_button_pressed() -> void:
+	_level_complete_window.visible = false
+	_init_level_and_reset_player()

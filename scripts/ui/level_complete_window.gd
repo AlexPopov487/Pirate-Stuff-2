@@ -1,0 +1,62 @@
+extends PanelContainer
+class_name LevelCompleteWindow
+
+@onready var _coin_label: Label = $MainContainer/Panel/VBoxContainer/CoinContainer/LabelContainer/CoinLabel
+@onready var _death_label: Label = $MainContainer/Panel/VBoxContainer/DeathContainer/LabelContainer/DeathLabel
+@onready var _treasure_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/TreasureContainer
+@onready var _map_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/MapContainer
+@onready var _title_label: Label = $MainContainer/TitleLabel
+
+var titles: Array[String] = ["Разрази меня гром! Отличный заход!",
+							"Якорь мне в глотку, это победа!",
+							"Клянусь бородой – достойный улов!",
+							"Неплохо...\nдля сухопутной крысы!",
+							"Пушки дымятся, кошель толстеет!",
+							"Золотишко блестит — можно жить!",
+							"Крысы бегут с корабля,\nа мы — к следующему острову!",
+							"С горем пополам,\nно остров покорён!",
+							"Трюмы полны, капитан!\nКуда дальше?",
+							"На бутылку рома заработал!",
+							"А ты не так уж и безнадежен, салага!",
+							"Разрази меня гром,\nа ты не промах!",
+							"Даже моя деревянная нога\nдвигалась быстрей!",
+							"Деньги есть - можно поесть!",
+							"Карамба!\nВсе пиастры наши!", 
+							"Якорь мне в глотку, вот это добыча!"]
+
+signal next_level_button_pressed
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	_treasure_container.visible = false
+	_map_container.visible = false
+	self.visible = false
+
+func display_window(stats: LevelCompleteStats):
+	_title_label.text = titles[randi_range(0, titles.size() - 1)]
+	_coin_label.text = str(stats.coins_collected) + " / " + str(stats.coins_total)
+	_death_label.text = str(stats.death_count)
+
+	if stats.found_treasure:
+		_treasure_container.visible = true
+
+	if stats.collected_map:
+		_map_container.visible = true
+
+	# Despite _treasure_container and _map_container are set to invisible by 
+	# default, the node reserves space for them resulting in the whole window
+	# being too long. To fix this the window's size, pivot and anchor should 
+	# be reset depending on the actual stats being displayed.
+	size = Vector2(0,0)
+	pivot_offset = size / 2
+	set_anchors_preset(Control.PRESET_CENTER)
+
+	self.visible = true
+
+
+func _on_title_button_pressed() -> void:
+	get_tree().change_scene_to_file(Globals.TITLE_SCENE_PATH)
+
+
+func _on_next_level_button_pressed() -> void:
+	next_level_button_pressed.emit()

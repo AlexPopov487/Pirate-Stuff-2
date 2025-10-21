@@ -175,6 +175,7 @@ func emit_death_signal(curr_animation: String):
 	died.emit()
 	
 	
+	
 func attack():
 	if _is_dead:
 		return

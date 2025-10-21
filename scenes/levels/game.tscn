@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://bjbjnv74t2usm"]
+[gd_scene load_steps=63 format=3 uid="uid://bjbjnv74t2usm"]
 
 [ext_resource type="Script" uid="uid://bsevfhcfjrvel" path="res://scripts/levels/game_manager.gd" id="1_bpkyr"]
 [ext_resource type="Script" uid="uid://bg5rdjxmq74jo" path="res://scripts/environment/camera.gd" id="2_1qlo5"]
@@ -31,21 +31,18 @@
 [ext_resource type="Texture2D" uid="uid://dj1i1abjocfa3" path="res://assets/Wood and Paper UI/Sprites/Small Banner/1.png" id="32_33tjn"]
 [ext_resource type="Texture2D" uid="uid://bqyo8hcv5ko2g" path="res://assets/Wood and Paper UI/Sprites/Small Banner/13.png" id="33_fiprq"]
 [ext_resource type="Texture2D" uid="uid://ciplx4njevdm2" path="res://assets/Wood and Paper UI/Sprites/Small Banner/2.png" id="34_anjs8"]
-[ext_resource type="Texture2D" uid="uid://dt64yar4ippgl" path="res://assets/Wood and Paper UI/Sprites/Small Banner/6.png" id="35_qdops"]
-[ext_resource type="Texture2D" uid="uid://mc8vs8ka784a" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/7.png" id="36_pmc62"]
 [ext_resource type="Texture2D" uid="uid://bhknhdjx6w6qq" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/1.png" id="37_1gpeq"]
 [ext_resource type="Texture2D" uid="uid://em23fec82cf1" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/13.png" id="38_v4sqr"]
 [ext_resource type="Texture2D" uid="uid://bibow6i10bt07" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/5.png" id="39_5egp0"]
-[ext_resource type="Texture2D" uid="uid://dxv24h0545aom" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/15.png" id="40_n5yi1"]
 [ext_resource type="Texture2D" uid="uid://dyk86ufwaqnoj" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/22.png" id="41_o2f1w"]
 [ext_resource type="Texture2D" uid="uid://bly6vkp0q3rb3" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/18.png" id="42_1tc2r"]
 [ext_resource type="Texture2D" uid="uid://buhduvaiwjocx" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="43_jywka"]
 [ext_resource type="Texture2D" uid="uid://bvtsyjrkqqw8j" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/20.png" id="44_bsfij"]
-[ext_resource type="Texture2D" uid="uid://y8vbhl5jj3nm" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/25.png" id="45_hhx5b"]
 [ext_resource type="Texture2D" uid="uid://duapsuevf5628" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/1.png" id="46_bphj2"]
 [ext_resource type="Texture2D" uid="uid://ddmir516uj7tf" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/12.png" id="47_fhnvd"]
 [ext_resource type="Texture2D" uid="uid://ct8jr81mxo1u1" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/21.png" id="48_3actn"]
 [ext_resource type="Texture2D" uid="uid://iqnyu0twx6gj" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/19.png" id="49_clhor"]
+[ext_resource type="PackedScene" uid="uid://dcq7spnc4ud2y" path="res://scenes/ui/level_complete_window.tscn" id="49_tt305"]
 [ext_resource type="Texture2D" uid="uid://c5gdwvd2teqip" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/3.png" id="50_p1n8k"]
 [ext_resource type="Texture2D" uid="uid://74kh7ghl4a4g" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/15.png" id="51_7wj53"]
 [ext_resource type="Texture2D" uid="uid://b2i2nfqlh3cwp" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/24.png" id="52_8jg2u"]
@@ -258,262 +255,9 @@ visible = false
 layout_mode = 2
 texture = ExtResource("24_1w27a")
 
-[node name="GameOverMenu" type="Control" parent="UserInterface"]
-visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-theme = ExtResource("28_8xa5q")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/GameOverMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -49.0
-offset_top = -50.5
-offset_right = 49.0
-offset_bottom = 50.5
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Banner" type="Control" parent="UserInterface/GameOverMenu/VBoxContainer"]
-custom_minimum_size = Vector2(0, 24)
-layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = -41.5
-offset_top = -7.5
-offset_right = -1.5
-offset_bottom = 32.5
-texture = ExtResource("32_33tjn")
-
-[node name="TextureRect2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = -0.75
-offset_top = -7.5
-offset_right = 39.25
-offset_bottom = 32.5
-texture = ExtResource("33_fiprq")
-
-[node name="TextureRect3" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 78.5
-offset_top = -13.5
-offset_right = 118.5
-offset_bottom = 26.5
-texture = ExtResource("33_fiprq")
-
-[node name="TextureRect4" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 118.5
-offset_top = -13.5
-offset_right = 158.5
-offset_bottom = 26.5
-texture = ExtResource("34_anjs8")
-
-[node name="TextureRect5" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 39.0
-offset_top = -13.0
-offset_right = 79.0
-offset_bottom = 27.0
-texture = ExtResource("35_qdops")
-
-[node name="GAME" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 2.0
-offset_top = 8.5
-offset_right = 34.0
-offset_bottom = 14.5
-theme_override_constants/separation = 2
-
-[node name="G" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
-layout_mode = 2
-texture = ExtResource("36_pmc62")
-
-[node name="A" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
-layout_mode = 2
-texture = ExtResource("37_1gpeq")
-
-[node name="M" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
-layout_mode = 2
-texture = ExtResource("38_v4sqr")
-
-[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/GAME"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="OVER" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 84.5
-offset_top = 2.5
-offset_right = 116.5
-offset_bottom = 8.5
-theme_override_constants/separation = 2
-
-[node name="O" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
-layout_mode = 2
-texture = ExtResource("40_n5yi1")
-
-[node name="V" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
-layout_mode = 2
-texture = ExtResource("41_o2f1w")
-
-[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="R" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Banner/OVER"]
-layout_mode = 2
-texture = ExtResource("42_1tc2r")
-
-[node name="Wood" type="PanelContainer" parent="UserInterface/GameOverMenu/VBoxContainer"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-
-[node name="Paper" type="Panel" parent="UserInterface/GameOverMenu/VBoxContainer/Wood"]
-custom_minimum_size = Vector2(120, 100)
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="RetryButtonContainer" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="Retry" type="Button" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/RetryButtonContainer"]
-layout_mode = 2
-icon = ExtResource("43_jywka")
-
-[node name="Label" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/RetryButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 2
-
-[node name="R" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/RetryButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("42_1tc2r")
-
-[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/RetryButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="T" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/RetryButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("44_bsfij")
-
-[node name="R2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/RetryButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("42_1tc2r")
-
-[node name="Y" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/RetryButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("45_hhx5b")
-
-[node name="LevelSelectButtonContainer" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="LevelSelect" type="Button" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer"]
-layout_mode = 2
-icon = ExtResource("46_bphj2")
-
-[node name="Label" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 2
-
-[node name="L" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("47_fhnvd")
-
-[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="V" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("48_3actn")
-
-[node name="E2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="L2" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("47_fhnvd")
-
-[node name="SPACE" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-
-[node name="S" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("49_clhor")
-
-[node name="E3" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="L3" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("47_fhnvd")
-
-[node name="E4" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="C" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("50_p1n8k")
-
-[node name="T" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("44_bsfij")
-
-[node name="ExitButtonContainer" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="Exit" type="Button" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]
-layout_mode = 2
-icon = ExtResource("51_7wj53")
-
-[node name="Laber" type="HBoxContainer" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 2
-
-[node name="E" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="X" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("52_8jg2u")
-
-[node name="I" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("53_ksyyb")
-
-[node name="T" type="TextureRect" parent="UserInterface/GameOverMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("44_bsfij")
-
 [node name="PauseMenu" type="Control" parent="UserInterface"]
 process_mode = 2
+visible = false
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -797,6 +541,10 @@ offset_right = 3728.0
 offset_bottom = 792.0
 mouse_filter = 2
 
+[node name="LevelCompleteWindow" parent="UserInterface" instance=ExtResource("49_tt305")]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [node name="Levels" type="Node" parent="."]
 process_mode = 1
 
@@ -812,3 +560,4 @@ process_mode = 1
 [connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Resume" to="." method="_set_game_paused" binds= [false]]
 [connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Restart" to="." method="_restart_level"]
 [connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Exit" to="." method="_exit_to_main_menu"]
+[connection signal="next_level_button_pressed" from="UserInterface/LevelCompleteWindow" to="." method="_on_level_complete_window_next_level_button_pressed"]

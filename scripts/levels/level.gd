@@ -9,8 +9,8 @@ var _controls_enabled_by_default: bool
 var _weather := Globals.WEATHER.CLEAR
 var _time := Globals.TIME.DAY 
 
-@onready var _environment_overlay: CanvasModulate = $EnvironmentOverlay
-@onready var _background_overlay: CanvasModulate = $environment/ParallaxBackground/BackgroundOverlay
+@onready var _environment_overlay: CanvasModulate = get_node_or_null("EnvironmentOverlay")
+@onready var _background_overlay: CanvasModulate =  get_node_or_null("environment/ParallaxBackground/BackgroundOverlay")
 
 signal level_completed
 
@@ -47,7 +47,7 @@ func _ready() -> void:
 	_min = _boundaries.position - half_size
 	_max = _boundaries.position + half_size
 	
-	_init_level_overlay()		
+	_init_level_overlay()
 	_init_checkpoint_nodes()
 
 func _init_checkpoint_nodes():

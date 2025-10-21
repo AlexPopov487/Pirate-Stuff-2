@@ -26,3 +26,15 @@ func change_level(new_level_idx):
 	data.last_checkbox_id = 0
 	data.has_key = false
 	data.current_level_idx = new_level_idx
+	data.death_count = 0
+	data.found_map = false
+	data.found_secret_treasure = false
+	
+func increase_death_count():
+	data.death_count += 1
+	
+func set_found_secret_treasure():
+	data.found_secret_treasure = true
+	
+func set_found_map():
+	data.found_map = true
