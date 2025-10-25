@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://cipdnv3xlkcfc"]
+[gd_scene load_steps=97 format=3 uid="uid://cipdnv3xlkcfc"]
 
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="1_k7ksp"]
 [ext_resource type="Script" uid="uid://biwd851a2ku76" path="res://scripts/levels/level_6.gd" id="1_mcllb"]
@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://csdcf0jwabn3y" path="res://assets/Palm Tree Island/Sprites/Background/star_2.png" id="54_5ibjk"]
 [ext_resource type="PackedScene" uid="uid://byyk63721kn5v" path="res://scenes/environment/candle.tscn" id="56_tlnr5"]
 [ext_resource type="PackedScene" uid="uid://cdp3jdffckjmk" path="res://scenes/environment/skeleton.tscn" id="61_pe5af"]
+[ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="65_41gm2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
 size = Vector2(8810, 1183)
@@ -3575,12 +3576,15 @@ _padlock = ExtResource("35_j0hcr")
 
 [node name="Skeleton" parent="environment" instance=ExtResource("61_pe5af")]
 position = Vector2(6361, -287)
-hint = "Key instructions"
+_hint = "lvl6_let1"
+_hint_type = 1
+
+[node name="dialogues" type="Node" parent="environment"]
 
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-621, 403)
+position = Vector2(-630, 429)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("41_3vumg")]
 position = Vector2(1777, 416)
@@ -3624,8 +3628,13 @@ position = Vector2(-199.25, -285.25)
 shape = SubResource("RectangleShape2D_hx0e5")
 debug_color = Color(0.6289, 0.509483, 0.41285, 0.42)
 
+[node name="hint_ui" parent="." instance=ExtResource("65_41gm2")]
+visible = false
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="lever_opened" from="environment/levers/Lever" to="platforms/platform_narrow_green_m5" method="_on_lever_lever_opened"]
 [connection signal="lever_opened" from="environment/levers/Lever2" to="platforms/platform_narrow_gray_m" method="_on_lever_lever_opened"]
+[connection signal="hide_hint_popup" from="environment/Skeleton" to="." method="hide_hint_wood_popup"]
+[connection signal="show_hint_popup" from="environment/Skeleton" to="." method="show_hint_wood_popup"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_entered"]
 [connection signal="body_exited" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_exited"]

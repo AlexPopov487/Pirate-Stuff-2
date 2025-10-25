@@ -1,0 +1,36 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://bsbndfiu7il25"]
+
+[ext_resource type="FontFile" uid="uid://iqin2itdwl57" path="res://resources/fonts/bitcell_memesbruh03.ttf" id="1_as3l2"]
+[ext_resource type="Texture2D" uid="uid://uue75jbfwydt" path="res://assets/Wood and Paper UI/Sprites/Sliders/arrow_up.png" id="3_h0i57"]
+[ext_resource type="Texture2D" uid="uid://oup1ghflmunl" path="res://assets/Wood and Paper UI/Sprites/Inventory/16.png" id="3_o4plp"]
+[ext_resource type="Texture2D" uid="uid://dws57v4pylr3w" path="res://assets/Wood and Paper UI/Sprites/Sliders/arrow_down.png" id="4_pkid5"]
+[ext_resource type="Texture2D" uid="uid://ergkck47ld6i" path="res://assets/Wood and Paper UI/Sprites/Sliders/3.png" id="5_o4plp"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pkid5"]
+texture = ExtResource("3_o4plp")
+texture_margin_left = 14.0
+texture_margin_top = 12.0
+texture_margin_right = 14.0
+texture_margin_bottom = 12.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_o4plp"]
+texture = ExtResource("5_o4plp")
+texture_margin_top = 5.0
+texture_margin_bottom = 5.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_h0i57"]
+
+[resource]
+Label/colors/font_color = Color(0.254902, 0.254902, 0.254902, 1)
+Label/colors/font_shadow_color = Color(1, 1, 1, 0.223529)
+Label/constants/line_spacing = 0
+Label/fonts/font = ExtResource("1_as3l2")
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_pkid5")
+VScrollBar/icons/decrement = ExtResource("3_h0i57")
+VScrollBar/icons/increment = ExtResource("4_pkid5")
+VScrollBar/styles/grabber = SubResource("StyleBoxTexture_o4plp")
+VScrollBar/styles/scroll = SubResource("StyleBoxEmpty_h0i57")

@@ -11,6 +11,8 @@ var _time := Globals.TIME.DAY
 
 @onready var _environment_overlay: CanvasModulate = get_node_or_null("EnvironmentOverlay")
 @onready var _background_overlay: CanvasModulate =  get_node_or_null("environment/ParallaxBackground/BackgroundOverlay")
+@onready var _hint_ui: HintUi = get_node_or_null("hint_ui")
+
 
 signal level_completed
 
@@ -71,6 +73,9 @@ func _init_level_overlay():
 		Globals.TIME.NIGHT:
 			_init_overlay(Globals.NIGHT_OVERLAY_COLOR)
 			
+	if _hint_ui != null:
+		_hint_ui.hide()
+
 func _init_overlay(color: Color) -> void:
 	if _environment_overlay == null or _background_overlay == null:
 		print("Failed to init overlay, overlay nodes not found")
@@ -79,3 +84,35 @@ func _init_overlay(color: Color) -> void:
 	_background_overlay.color = color
 	_environment_overlay.visible = true
 	_background_overlay.visible = true
+	
+func hide_hint_wood_popup(player: Player):
+
+	if _hint_ui == null:
+		push_warning(name + " failed to hide hint popup. HintUI scene is null")
+		return
+		
+	if player == null:
+		push_warning(name + " failed to hide hint popup. Player scene is null")
+		return
+	
+	_hint_ui.hide_ui()
+	player.get_controls().set_enabled(true)
+
+
+func show_hint_wood_popup(hint_type: Globals.HINT_TYPE, player: Player, text: String):
+	if _hint_ui == null:
+		push_warning(name + " failed to show hint popup. HintUI scene is null")
+		return
+		
+	if player == null:
+		push_warning(name + " failed to show hint popup. Player scene is null")
+		return
+		
+	player.get_controls().set_enabled(false)
+	match hint_type:
+		Globals.HINT_TYPE.WOOD_SIGN:
+			_hint_ui.show_wood_hint(text)
+		Globals.HINT_TYPE.LETTER:
+			_hint_ui.show_letter(text)
+	
+	

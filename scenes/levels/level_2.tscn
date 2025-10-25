@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://v7qy8guo2xhy"]
+[gd_scene load_steps=83 format=3 uid="uid://v7qy8guo2xhy"]
 
 [ext_resource type="Script" uid="uid://sbom5pd7g1g6" path="res://scripts/levels/level_2.gd" id="1_exwx8"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_rvwo1"]
@@ -38,6 +38,10 @@
 [ext_resource type="PackedScene" uid="uid://wmurco54r64o" path="res://scenes/platform_narrow_green_m.tscn" id="33_yxkvy"]
 [ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="34_wk7pi"]
 [ext_resource type="Texture2D" uid="uid://d4d8wwxwuinax" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_no_collision.png" id="37_nsjcl"]
+[ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="41_0y23r"]
+[ext_resource type="Resource" uid="uid://bhm6b4wuqr8ms" path="res://resources/dialogues/lvl_2_d_1.dialogue" id="42_0y23r"]
+[ext_resource type="Resource" uid="uid://dt45vsuliofed" path="res://resources/dialogues/lvl_2_d_0.dialogue" id="42_wrgna"]
+[ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="43_exwx8"]
 [ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="47_8ghkn"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="47_wrgna"]
 [ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="51_holbn"]
@@ -198,7 +202,7 @@ _data = {
 &"move": SubResource("Animation_yqg3d")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1dtmv"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exwx8"]
 texture = ExtResource("4_tn15g")
 texture_region_size = Vector2i(48, 32)
 use_texture_padding = false
@@ -209,7 +213,7 @@ use_texture_padding = false
 0:3/0/physics_layer_0/polygon_0/one_way = true
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_71eos"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17aof"]
 texture = ExtResource("5_oftal")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -637,7 +641,7 @@ texture_region_size = Vector2i(32, 32)
 16:4/0/terrains_peering_bit/left_side = 0
 16:4/0/terrains_peering_bit/top_side = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f81ot"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6nfno"]
 texture = ExtResource("6_fqy8p")
 texture_region_size = Vector2i(62, 54)
 use_texture_padding = false
@@ -645,7 +649,7 @@ use_texture_padding = false
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0.0554752, -27.1271, 22.9665, -27.0162, 23.1329, -25.7402, 0.166424, -26.0731)
 0:0/0/physics_layer_0/polygon_0/one_way = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c332g"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0y23r"]
 texture = ExtResource("7_s7kn7")
 texture_region_size = Vector2i(32, 32)
 use_texture_padding = false
@@ -654,19 +658,19 @@ use_texture_padding = false
 0:1/0 = 0
 1:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_atvs4"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrgna"]
 texture = ExtResource("8_wk7pi")
 texture_region_size = Vector2i(51, 53)
 use_texture_padding = false
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_oskpc"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ghkn"]
 texture = ExtResource("9_yqg3d")
 texture_region_size = Vector2i(52, 53)
 use_texture_padding = false
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rfe4c"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ar51"]
 texture = ExtResource("10_2e0t0")
 0:0/0 = 0
 1:0/0 = 0
@@ -861,7 +865,7 @@ texture = ExtResource("10_2e0t0")
 23:7/0 = 0
 9:5/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxcec"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1k63"]
 texture = ExtResource("10_yqg3d")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -883,19 +887,19 @@ texture_region_size = Vector2i(32, 32)
 1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -12, -14, -14, -10, -14, -9, -13, -7, -13, -6, -14, -2, -14, -1, -13, 0, -13, 2, -15, 6, -15, 7, -14, 8, -14, 10, -16, 14, -16, 16, -14, 16, -11.5, 13.5, -9.5, 10.5, -9, 5.5, -8.5, 2.5, -8, -2, -7.5, -5.5, -7, -10, -7.5, -13.5, -7, -16, -9)
 1:2/0/physics_layer_0/polygon_0/one_way = true
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7tg7"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_holbn"]
 texture = ExtResource("11_2e0t0")
 texture_region_size = Vector2i(16, 32)
 0:0/0 = 0
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0k4y2"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_px4x2"]
 texture = ExtResource("12_keip3")
 texture_region_size = Vector2i(16, 32)
 0:0/0 = 0
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q4cuw"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5lg2"]
 texture = ExtResource("14_6nfno")
 texture_region_size = Vector2i(32, 32)
 use_texture_padding = false
@@ -909,7 +913,7 @@ use_texture_padding = false
 2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, 8, 16, 8, 16, 16, -16, 16)
 2:0/0/custom_data_0 = 2
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjpyo"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kt0v5"]
 texture = ExtResource("37_nsjcl")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -960,7 +964,7 @@ texture_region_size = Vector2i(32, 32)
 15:4/0 = 0
 16:4/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ukvvg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_laosj"]
 texture = ExtResource("16_wrgna")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -973,19 +977,19 @@ texture_region_size = Vector2i(32, 32)
 2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0/custom_data_0 = 2
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d13cp"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsjcl"]
 texture = ExtResource("17_8ghkn")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 0:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_keip3"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjpyo"]
 texture = ExtResource("25_2e0t0")
 texture_region_size = Vector2i(16, 32)
 0:0/0 = 0
 0:1/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vpv3e"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lhwnp"]
 texture = ExtResource("19_b1k63")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
@@ -1264,7 +1268,7 @@ texture_region_size = Vector2i(32, 32)
 11:3/0/terrains_peering_bit/left_side = 1
 11:3/0/terrains_peering_bit/top_side = 1
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wdu5j"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_852cy"]
 texture = ExtResource("20_holbn")
 texture_region_size = Vector2i(39, 32)
 use_texture_padding = false
@@ -1286,23 +1290,23 @@ terrain_set_0/terrain_1/name = "cave_back"
 terrain_set_0/terrain_1/color = Color(0.269794, 0.135457, 0.362165, 1)
 custom_data_layer_0/name = "terrain_type"
 custom_data_layer_0/type = 2
-sources/1 = SubResource("TileSetAtlasSource_71eos")
-sources/6 = SubResource("TileSetAtlasSource_d13cp")
-sources/9 = SubResource("TileSetAtlasSource_wdu5j")
-sources/10 = SubResource("TileSetAtlasSource_f81ot")
-sources/11 = SubResource("TileSetAtlasSource_c332g")
-sources/12 = SubResource("TileSetAtlasSource_atvs4")
-sources/13 = SubResource("TileSetAtlasSource_oskpc")
-sources/14 = SubResource("TileSetAtlasSource_rfe4c")
-sources/0 = SubResource("TileSetAtlasSource_1dtmv")
-sources/3 = SubResource("TileSetAtlasSource_q4cuw")
-sources/5 = SubResource("TileSetAtlasSource_ukvvg")
-sources/8 = SubResource("TileSetAtlasSource_vpv3e")
-sources/17 = SubResource("TileSetAtlasSource_vxcec")
-sources/18 = SubResource("TileSetAtlasSource_r7tg7")
-sources/19 = SubResource("TileSetAtlasSource_0k4y2")
-sources/4 = SubResource("TileSetAtlasSource_xjpyo")
-sources/7 = SubResource("TileSetAtlasSource_keip3")
+sources/1 = SubResource("TileSetAtlasSource_17aof")
+sources/6 = SubResource("TileSetAtlasSource_nsjcl")
+sources/9 = SubResource("TileSetAtlasSource_852cy")
+sources/10 = SubResource("TileSetAtlasSource_6nfno")
+sources/11 = SubResource("TileSetAtlasSource_0y23r")
+sources/12 = SubResource("TileSetAtlasSource_wrgna")
+sources/13 = SubResource("TileSetAtlasSource_8ghkn")
+sources/14 = SubResource("TileSetAtlasSource_5ar51")
+sources/0 = SubResource("TileSetAtlasSource_exwx8")
+sources/3 = SubResource("TileSetAtlasSource_u5lg2")
+sources/5 = SubResource("TileSetAtlasSource_laosj")
+sources/8 = SubResource("TileSetAtlasSource_lhwnp")
+sources/17 = SubResource("TileSetAtlasSource_b1k63")
+sources/18 = SubResource("TileSetAtlasSource_holbn")
+sources/19 = SubResource("TileSetAtlasSource_px4x2")
+sources/4 = SubResource("TileSetAtlasSource_kt0v5")
+sources/7 = SubResource("TileSetAtlasSource_xjpyo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fqy8p"]
 size = Vector2(120, 72)
@@ -2510,37 +2514,30 @@ metadata/_edit_lock_ = true
 [node name="Hint" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(459, 447)
 monitorable = false
-hint = "Посмотри вниз"
-metadata/_edit_lock_ = true
-
-[node name="Hint3" parent="environment/hints" instance=ExtResource("52_px4x2")]
-position = Vector2(153, 447)
-monitorable = false
-hint = "Похоже, чтобы достать монету, придется лезть на дерево"
-metadata/_edit_lock_ = true
-
-[node name="Hint4" parent="environment/hints" instance=ExtResource("52_px4x2")]
-position = Vector2(234, 96)
-monitorable = false
-hint = "(ДИАЛОГ ПИРАТА) ВОт это изумруд! Как бы до него добараться..."
+_hint = "Посмотри вниз"
 metadata/_edit_lock_ = true
 
 [node name="Hint2" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(538, 288)
 monitorable = false
-hint = "Подсказка о том, что штурвал сохраняет"
+_hint = "Штурвал сохраняет"
 metadata/_edit_lock_ = true
+
+[node name="dialogues" type="Node" parent="environment"]
+
+[node name="DialogueTrigger" parent="environment/dialogues" instance=ExtResource("41_0y23r")]
+position = Vector2(233, 95)
+_dialogue = ExtResource("42_0y23r")
+
+[node name="DialogueTrigger2" parent="environment/dialogues" instance=ExtResource("41_0y23r")]
+z_index = -1
+position = Vector2(149, 447)
+_dialogue = ExtResource("42_wrgna")
 
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-341, 495)
-metadata/_edit_lock_ = true
-
-[node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("47_8ghkn")]
-visible = false
-position = Vector2(16, 511)
-metadata/_edit_lock_ = true
+position = Vector2(-336, 497)
 
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("47_8ghkn")]
 position = Vector2(506, 288)
@@ -2647,7 +2644,18 @@ position = Vector2(-120, -41.5)
 shape = SubResource("RectangleShape2D_s7kn7")
 debug_color = Color(0.650633, 0.504051, 0.355405, 0.42)
 
+[node name="hint_ui" parent="." instance=ExtResource("43_exwx8")]
+visible = false
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="hide_hint_popup" from="environment/hints/Hint" to="." method="hide_hint_wood_popup"]
+[connection signal="show_hint_popup" from="environment/hints/Hint" to="." method="show_hint_wood_popup"]
+[connection signal="hide_hint_popup" from="environment/hints/Hint2" to="." method="hide_hint_wood_popup"]
+[connection signal="show_hint_popup" from="environment/hints/Hint2" to="." method="show_hint_wood_popup"]
+[connection signal="body_entered" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_exited"]
+[connection signal="body_entered" from="environment/dialogues/DialogueTrigger2" to="environment/dialogues/DialogueTrigger2" method="_on_body_entered"]
+[connection signal="body_exited" from="environment/dialogues/DialogueTrigger2" to="environment/dialogues/DialogueTrigger2" method="_on_body_exited"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride4" to="camera_overrides/CameraOverride4" method="_on_body_entered"]
 [connection signal="body_exited" from="camera_overrides/CameraOverride4" to="camera_overrides/CameraOverride4" method="_on_body_exited"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_entered"]

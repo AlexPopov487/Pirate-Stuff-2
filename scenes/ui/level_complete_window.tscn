@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dcq7spnc4ud2y"]
+[gd_scene load_steps=36 format=3 uid="uid://dcq7spnc4ud2y"]
 
 [ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="1_atwha"]
 [ext_resource type="Texture2D" uid="uid://duapsuevf5628" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/1.png" id="2_75ri7"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://diuy3tle8w8vx" path="res://scripts/ui/level_complete_window.gd" id="2_priei"]
 [ext_resource type="Texture2D" uid="uid://hjl3wdaipu10" path="res://assets/Pirate Treasure/Sprites/Gold Coin/02.png" id="3_a6ouc"]
 [ext_resource type="Texture2D" uid="uid://buhduvaiwjocx" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="3_l7oe6"]
-[ext_resource type="Texture2D" uid="uid://x0vlv27yn87m" path="res://assets/Wood and Paper UI/Sprites/Prefabs/8.png" id="3_s6oj2"]
+[ext_resource type="StyleBox" uid="uid://7wgb2txa1cp7" path="res://resources/paper_panel_container_theme.tres" id="3_s6oj2"]
 [ext_resource type="Texture2D" uid="uid://chu8p5pjv5bv0" path="res://assets/Pirate Treasure/Sprites/Gold Coin/03.png" id="4_8rjmj"]
 [ext_resource type="Texture2D" uid="uid://4f4jdw5jhdnn" path="res://assets/Pirate Treasure/Sprites/Gold Coin/04.png" id="5_t4igq"]
 [ext_resource type="Texture2D" uid="uid://bnj76y1o5gj5y" path="res://assets/Pirate Treasure/Sprites/Golden Skull/01.png" id="6_3uytm"]
@@ -29,19 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://dlvw1qed7akia" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/06.png" id="23_vknk7"]
 [ext_resource type="Texture2D" uid="uid://b5rme7lib1vmh" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/07.png" id="24_hg5d4"]
 [ext_resource type="Texture2D" uid="uid://b8665bhv2gci5" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/08.png" id="25_yld3k"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_atgl1"]
-texture = ExtResource("3_s6oj2")
-texture_margin_left = 18.0
-texture_margin_top = 19.0
-texture_margin_right = 18.0
-texture_margin_bottom = 18.0
-expand_margin_left = 13.0
-expand_margin_top = 15.0
-expand_margin_right = 13.0
-expand_margin_bottom = 8.0
-axis_stretch_horizontal = 1
-axis_stretch_vertical = 1
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_xst35"]
 frames = 4
@@ -115,9 +102,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -107.0
-offset_top = -112.5
+offset_top = -119.5
 offset_right = 107.0
-offset_bottom = 112.5
+offset_bottom = 119.5
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2.5, 2.5)
@@ -146,7 +133,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(182, 0)
 layout_mode = 2
 size_flags_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxTexture_atgl1")
+theme_override_styles/panel = ExtResource("3_s6oj2")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/Panel"]
 layout_mode = 2
@@ -196,6 +183,7 @@ text = "100"
 horizontal_alignment = 1
 
 [node name="TreasureContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 
@@ -219,6 +207,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="MapContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_vertical = 0
 

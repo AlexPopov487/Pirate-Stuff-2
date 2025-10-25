@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6ods0ucyjmc3"]
+
+[ext_resource type="Theme" uid="uid://bsbndfiu7il25" path="res://resources/hint_sign_popup_theme.tres" id="1_hdcov"]
+[ext_resource type="StyleBox" uid="uid://7wgb2txa1cp7" path="res://resources/paper_panel_container_theme.tres" id="2_omm3o"]
+[ext_resource type="Script" uid="uid://cgn6x20j103d7" path="res://scripts/ui/hint_sign.gd" id="2_vtqr8"]
+
+[node name="Sign" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 75)
+offset_right = 200.0
+offset_bottom = 75.0
+theme = ExtResource("1_hdcov")
+script = ExtResource("2_vtqr8")
+
+[node name="Paper" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("2_omm3o")
+
+[node name="MainText" type="Label" parent="Paper"]
+layout_mode = 2
+text = "Text"
+horizontal_alignment = 1
+justification_flags = 161

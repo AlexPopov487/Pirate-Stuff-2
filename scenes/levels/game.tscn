@@ -150,6 +150,7 @@ _type = 1
 
 [node name="UserInterface" type="CanvasLayer" parent="."]
 process_mode = 1
+layer = 10
 
 [node name="VFX" type="Node" parent="UserInterface"]
 script = ExtResource("26_i73dc")
@@ -542,6 +543,7 @@ offset_bottom = 792.0
 mouse_filter = 2
 
 [node name="LevelCompleteWindow" parent="UserInterface" instance=ExtResource("49_tt305")]
+visible = false
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

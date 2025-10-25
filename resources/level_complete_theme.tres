@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=13 format=3 uid="uid://covf0eybn7rlx"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://covf0eybn7rlx"]
 
 [ext_resource type="FontFile" uid="uid://iqin2itdwl57" path="res://resources/fonts/bitcell_memesbruh03.ttf" id="1_lxpin"]
 [ext_resource type="Texture2D" uid="uid://buml82ot0dkgh" path="res://assets/Wood and Paper UI/Sprites/Green Button/1.png" id="1_uq62u"]
@@ -36,8 +36,6 @@ texture_margin_right = 6.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.501961, 0.501961, 0.501961, 1)
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_lxpin"]
-
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_58fle"]
 texture = ExtResource("3_gmlys")
 texture_margin_left = 20.0
@@ -70,13 +68,12 @@ Button/styles/pressed = SubResource("StyleBoxTexture_whbgs")
 Label/colors/font_color = Color(0.255659, 0.255659, 0.255659, 1)
 Label/colors/font_outline_color = Color(1, 1, 1, 1)
 Label/colors/font_shadow_color = Color(1, 1, 1, 1)
-Label/constants/line_spacing = -6
+Label/constants/line_spacing = -5
 Label/constants/outline_size = 0
 Label/constants/shadow_offset_x = 1
 Label/constants/shadow_offset_y = 1
 Label/constants/shadow_outline_size = 1
 Label/font_sizes/font_size = 16
 Label/fonts/font = ExtResource("1_lxpin")
-Label/styles/normal = SubResource("StyleBoxEmpty_lxpin")
 Panel/styles/panel = SubResource("StyleBoxTexture_58fle")
 PanelContainer/styles/panel = SubResource("StyleBoxTexture_lpjck")

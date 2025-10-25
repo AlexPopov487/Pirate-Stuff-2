@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=3 uid="uid://chsi6vfx62f80"]
+[gd_scene load_steps=53 format=3 uid="uid://chsi6vfx62f80"]
 
 [ext_resource type="Script" uid="uid://cr6e1c82650hf" path="res://scripts/levels/level_1.gd" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_x7jkp"]
@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://byyhgpp1kl52d" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="27_20f45"]
 [ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="28_6bay7"]
 [ext_resource type="PackedScene" uid="uid://bxaxwhb1c6aif" path="res://scenes/environment/water_reflection_1.tscn" id="31_cfnpk"]
+[ext_resource type="PackedScene" uid="uid://b6ods0ucyjmc3" path="res://scenes/ui/hint_sign.tscn" id="32_cfnpk"]
 [ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="32_wvtie"]
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="34_wvtie"]
 
@@ -1639,11 +1640,16 @@ position = Vector2(1608, 467)
 [node name="start" type="Node2D" parent="checkpoints"]
 position = Vector2(822, 417)
 
+[node name="camera_overrides" type="Node" parent="."]
+
+[node name="ui" type="Node" parent="."]
+
+[node name="Sign" parent="ui" instance=ExtResource("32_cfnpk")]
+visible = false
+
 [node name="next_level" parent="." instance=ExtResource("1_x7jkp")]
 position = Vector2(895, 403)
 collision_layer = 0
 collision_mask = 256
-
-[node name="camera_overrides" type="Node" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

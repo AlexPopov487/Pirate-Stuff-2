@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdl8xxf6t2162"]
+
+[ext_resource type="Script" uid="uid://cobcijeorv1mw" path="res://scripts/ui/dialogue_trigger.gd" id="1_byapi"]
+[ext_resource type="Texture2D" uid="uid://ca5ytcj1lj7as" path="res://assets/Palm Tree Island/Sprites/Objects/dialogue_trigger.png" id="2_0hero"]
+[ext_resource type="Texture2D" uid="uid://7p4k3qvp74qq" path="res://assets/Wood and Paper UI/Sprites/Big Text/enter_button.png" id="3_0ilmo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d654h"]
+radius = 8.0
+
+[node name="DialogueTrigger" type="Area2D"]
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+script = ExtResource("1_byapi")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("2_0hero")
+region_rect = Rect2(0, 16, 16, 16)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_d654h")
+
+[node name="EnterSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-4.76837e-07, -42)
+scale = Vector2(1.04152, 1.04152)
+texture = ExtResource("3_0ilmo")
