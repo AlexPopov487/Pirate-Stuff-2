@@ -1811,7 +1811,7 @@ animations = [{
 
 [node name="Pirate" type="CharacterBody2D"]
 collision_layer = 256
-collision_mask = 33619973
+collision_mask = 42008581
 script = ExtResource("1_mmjh0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

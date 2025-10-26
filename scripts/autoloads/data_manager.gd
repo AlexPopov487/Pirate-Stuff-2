@@ -27,18 +27,9 @@ func load_game_data():
 	print("Successfully loaded game data.")
 
 
-
 func get_letter_data(letter_id: String) -> String:
 	if data.has("letters") and data["letters"].has(letter_id):
 		return data["letters"][letter_id]
 	
 	print("WARNING: Letter ID '%s' not found." % letter_id)
 	return "Text not found."
-
-
-func get_dialogue_data(dialogue_id: String) -> Dictionary:
-	if data.has("dialogue") and data["dialogue"].has(dialogue_id):
-		return data["dialogue"][dialogue_id]
-	
-	print("WARNING: Dialogue ID '%s' not found." % dialogue_id)
-	return {"character": "Error", "text": "Dialogue not found."}

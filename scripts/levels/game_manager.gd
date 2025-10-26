@@ -41,7 +41,7 @@ func _ready() -> void:
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 2
+	File.data.current_level_idx = 5
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)

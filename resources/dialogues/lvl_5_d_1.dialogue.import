@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://bul5tgll868dq"
+path="res://.godot/imported/lvl_5_d_1.dialogue-f6c4709dbe9e85c04d28223a3f0a8ba2.tres"
+
+[deps]
+
+source_file="res://resources/dialogues/lvl_5_d_1.dialogue"
+dest_files=["res://.godot/imported/lvl_5_d_1.dialogue-f6c4709dbe9e85c04d28223a3f0a8ba2.tres"]
+
+[params]
+
+defaults=true

@@ -292,7 +292,6 @@ func _die():
 	
 
 func _on_hitbox_area_entered(hurtbox: Area2D) -> void:
-	# TODO if attacking heavily, throw enemy up and hit harder
 	var impulse: Vector2
 	var damage:int
 	

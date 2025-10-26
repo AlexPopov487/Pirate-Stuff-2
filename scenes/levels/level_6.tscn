@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cipdnv3xlkcfc"]
+[gd_scene load_steps=98 format=3 uid="uid://cipdnv3xlkcfc"]
 
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="1_k7ksp"]
 [ext_resource type="Script" uid="uid://biwd851a2ku76" path="res://scripts/levels/level_6.gd" id="1_mcllb"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cd7gphshvxn47" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_cave_inside.png" id="9_l2n0k"]
 [ext_resource type="PackedScene" uid="uid://c5pwlf8p6wrv3" path="res://scenes/treasure/red_potion.tscn" id="10_1e6gv"]
 [ext_resource type="Texture2D" uid="uid://bay8eubhjxbca" path="res://assets/Palm Tree Island/Sprites/Objects/bridge_64x96.png" id="10_6oggx"]
+[ext_resource type="PackedScene" uid="uid://dm4co3wrqhdh5" path="res://scenes/enemies/cat.tscn" id="10_c68a6"]
 [ext_resource type="Texture2D" uid="uid://cwpmytvpik4tk" path="res://assets/Palm Tree Island/Sprites/Objects/guide_sign_16x64.png" id="11_hfqfu"]
 [ext_resource type="PackedScene" uid="uid://dj5h2px4lp8k0" path="res://scenes/treasure/green_diamond.tscn" id="11_ubrjs"]
 [ext_resource type="Texture2D" uid="uid://csv288h5cgbi2" path="res://assets/Palm Tree Island/Sprites/Objects/hint_sign_16x64.png" id="12_6omao"]
@@ -1762,6 +1763,16 @@ _projectile = ExtResource("4_6oggx")
 [node name="Cannon7" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(5692, 385)
 _projectile = ExtResource("4_6oggx")
+
+[node name="npc" type="Node" parent="."]
+
+[node name="Cat" parent="npc" instance=ExtResource("10_c68a6")]
+position = Vector2(-643, 437)
+_init_direction = 1
+
+[node name="Cat2" parent="npc" instance=ExtResource("10_c68a6")]
+position = Vector2(7496, 442)
+_init_direction = 1
 
 [node name="pickups" type="Node" parent="."]
 
@@ -3584,7 +3595,7 @@ _hint_type = 1
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-630, 429)
+position = Vector2(-614, 428)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("41_3vumg")]
 position = Vector2(1777, 416)

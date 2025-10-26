@@ -41,6 +41,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		_handle_player_on_board()
 	elif body is TileMap:
 		_set_ashore()
+	elif body is Cat:
+		_hande_cat_on_board(body)
+		
 
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	if body == _player:
@@ -60,6 +63,10 @@ func _handle_player_on_board() -> void:
 			_current_move = MOVE_SET.SAILING
 		SHIP_DESTINATION.OFF_ISLAND:
 			_current_move = MOVE_SET.GAINING_PACE
+
+func _hande_cat_on_board(cat: Cat):
+	cat.set_is_on_board(true)
+	cat.run(0)
 
 func _set_ashore():
 	_has_landed = true

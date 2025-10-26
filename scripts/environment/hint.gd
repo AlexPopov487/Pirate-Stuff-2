@@ -36,6 +36,7 @@ func _input(event: InputEvent) -> void:
 	if !event.is_action_pressed("interract"):
 		return
 		
+	_enter_sprite.visible = false
 	if !_is_popup_displayed:
 		_is_popup_displayed = true
 		show_hint_popup.emit(_hint_type, _player, _hint)
