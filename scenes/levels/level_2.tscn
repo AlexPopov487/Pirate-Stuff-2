@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=3 uid="uid://v7qy8guo2xhy"]
+[gd_scene load_steps=84 format=3 uid="uid://v7qy8guo2xhy"]
 
 [ext_resource type="Script" uid="uid://sbom5pd7g1g6" path="res://scripts/levels/level_2.gd" id="1_exwx8"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_rvwo1"]
@@ -42,6 +42,7 @@
 [ext_resource type="Resource" uid="uid://bhm6b4wuqr8ms" path="res://resources/dialogues/lvl_2_d_1.dialogue" id="42_0y23r"]
 [ext_resource type="Resource" uid="uid://dt45vsuliofed" path="res://resources/dialogues/lvl_2_d_0.dialogue" id="42_wrgna"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="43_exwx8"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="47_5ar51"]
 [ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="47_8ghkn"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="47_wrgna"]
 [ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="51_holbn"]
@@ -1913,7 +1914,7 @@ libraries = {
 autoplay = "move"
 
 [node name="ship_in" parent="platforms" instance=ExtResource("9_exwx8")]
-position = Vector2(-331, 525)
+position = Vector2(-465, 525)
 metadata/_edit_lock_ = true
 
 [node name="ship_in2" parent="platforms" instance=ExtResource("9_exwx8")]
@@ -2537,7 +2538,7 @@ _dialogue = ExtResource("42_wrgna")
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-336, 497)
+position = Vector2(-470, 497)
 
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("47_8ghkn")]
 position = Vector2(506, 288)
@@ -2646,6 +2647,10 @@ debug_color = Color(0.650633, 0.504051, 0.355405, 0.42)
 
 [node name="hint_ui" parent="." instance=ExtResource("43_exwx8")]
 visible = false
+
+[node name="Title" parent="." instance=ExtResource("47_5ar51")]
+visible = false
+_title = "Жажда наживы"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="hide_hint_popup" from="environment/hints/Hint" to="." method="hide_hint_wood_popup"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=110 format=3 uid="uid://gqrxvk187iqv"]
+[gd_scene load_steps=111 format=3 uid="uid://gqrxvk187iqv"]
 
 [ext_resource type="Script" uid="uid://vhl0nxm3a78k" path="res://scripts/levels/level_7.gd" id="1_8mct5"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_1cjrn"]
@@ -80,6 +80,7 @@
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="64_fn6xc"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="66_raao8"]
 [ext_resource type="PackedScene" uid="uid://jaesrlqhixob" path="res://scenes/environment/shadowed_area.tscn" id="77_vemna"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="81_k57b2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
 size = Vector2(6194, 1763)
@@ -5132,5 +5133,8 @@ collision_mask = 256
 
 [node name="hint_ui" parent="." instance=ExtResource("66_raao8")]
 visible = false
+
+[node name="Title" parent="." instance=ExtResource("81_k57b2")]
+_title = "\"Испаньола\""
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

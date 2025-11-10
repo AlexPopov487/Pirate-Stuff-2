@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://cipdnv3xlkcfc"]
+[gd_scene load_steps=99 format=3 uid="uid://cipdnv3xlkcfc"]
 
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="1_k7ksp"]
 [ext_resource type="Script" uid="uid://biwd851a2ku76" path="res://scripts/levels/level_6.gd" id="1_mcllb"]
@@ -66,6 +66,7 @@
 [ext_resource type="PackedScene" uid="uid://byyk63721kn5v" path="res://scenes/environment/candle.tscn" id="56_tlnr5"]
 [ext_resource type="PackedScene" uid="uid://cdp3jdffckjmk" path="res://scenes/environment/skeleton.tscn" id="61_pe5af"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="65_41gm2"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="67_388u4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
 size = Vector2(8810, 1183)
@@ -3641,6 +3642,9 @@ debug_color = Color(0.6289, 0.509483, 0.41285, 0.42)
 
 [node name="hint_ui" parent="." instance=ExtResource("65_41gm2")]
 visible = false
+
+[node name="Title" parent="." instance=ExtResource("67_388u4")]
+_title = "В тени, да не в обиде"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="lever_opened" from="environment/levers/Lever" to="platforms/platform_narrow_green_m5" method="_on_lever_lever_opened"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://bdeg5a12wvakf"]
+[gd_scene load_steps=100 format=3 uid="uid://bdeg5a12wvakf"]
 
 [ext_resource type="Script" uid="uid://beev7svqj76lo" path="res://scripts/levels/level_4.gd" id="1_dorgx"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_lbwwd"]
@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="50_e3ys7"]
 [ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="51_gpe64"]
 [ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="56_jmlf3"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="57_7iwft"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
 size = Vector2(4357, 2620)
@@ -3250,6 +3251,10 @@ metadata/_custom_type_script = "uid://cek3v5e7g8gt6"
 position = Vector2(145.5, 30)
 shape = SubResource("RectangleShape2D_jmlf3")
 debug_color = Color(0.641591, 0.512218, 0.315143, 0.42)
+
+[node name="Title" parent="." instance=ExtResource("57_7iwft")]
+visible = false
+_title = "Потерянный остров"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="lever_opened" from="environment/levers/Lever" to="platforms/platform_narrow_green_m5" method="_on_lever_lever_opened"]

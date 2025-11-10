@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=3 uid="uid://cnwa7l1x75wph"]
+[gd_scene load_steps=52 format=3 uid="uid://cnwa7l1x75wph"]
 
 [ext_resource type="Script" uid="uid://bbdbttpwwaid1" path="res://scripts/levels/level_3.gd" id="1_mqy1c"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_rvwo1"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://byyhgpp1kl52d" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="31_em1wd"]
 [ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="32_7to3y"]
 [ext_resource type="PackedScene" uid="uid://wmurco54r64o" path="res://scenes/platform_ground.tscn" id="33_yxkvy"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="36_ju8vr"]
 [ext_resource type="PackedScene" uid="uid://bxaxwhb1c6aif" path="res://scenes/environment/water_reflection_1.tscn" id="39_yqg3d"]
 [ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="40_2e0t0"]
 [ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="47_8ghkn"]
@@ -1280,23 +1281,18 @@ metadata/_edit_lock_ = true
 
 [node name="Hint" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(139, 384)
-hint = "Пират без кинжала - не пират!Используй ЛКМ для легкой атаки. Нажми ЛКМ дважды для комбинации легких аттак.Используй ПКМ для тяжелой атаки, чтобы нанести больше урона врагу. Тяжелые атаки потребляют энергию.Бочки и ящики впереди преграждают тебе путь. Самое время обнажить кинжал и попрактиваться."
 
 [node name="Hint2" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(717, 384)
-hint = "А вот и первый враг!Крабы-вонючки заполонили все острова архипелага и атакуют любого на своем пути!"
 
 [node name="Hint4" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(2082, 352)
-hint = "Порой препятствие не обойти. В таких случаях нужно прорубить путь вперед!Нажми ЛКМ во время прыжка для выполнения атаки в воздухе. Находясь в воздухе нажми ЛКМ дважды для выполнения комбинации воздушных атак.  "
 
 [node name="Hint5" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(1433, 384)
-hint = "Что-нибудь по моллюска и про то, что в них можно найти жемчуг"
 
 [node name="Hint3" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(471, 384)
-hint = "Разрушай ящики и бочки, чтобы получить награду! В них часто можно найти красные зелья для восстановления здоровья, синие зелья для восстановления энергии, и даже монеты   "
 
 [node name="checkpoints" type="Node" parent="."]
 
@@ -1371,6 +1367,9 @@ position = Vector2(4828.5, 141.25)
 shape = SubResource("RectangleShape2D_px4x2")
 debug_color = Color(0.655398, 0.493677, 0.428744, 0.42)
 metadata/_edit_lock_ = true
+
+[node name="Title" parent="." instance=ExtResource("36_ju8vr")]
+_title = "Хз, название"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_entered"]

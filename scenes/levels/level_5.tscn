@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://b6wi50ikwwn13"]
+[gd_scene load_steps=102 format=3 uid="uid://b6wi50ikwwn13"]
 
 [ext_resource type="Script" uid="uid://b88xfwd7py8nl" path="res://scripts/levels/level_5.gd" id="1_2ylsn"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="2_2vq5a"]
@@ -62,6 +62,7 @@
 [ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="57_kmfb7"]
 [ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="58_7sg85"]
 [ext_resource type="Resource" uid="uid://bul5tgll868dq" path="res://resources/dialogues/lvl_5_d_1.dialogue" id="59_70kwm"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="63_70kwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
 size = Vector2(5857, 1913)
@@ -3012,7 +3013,7 @@ _dialogue_type = 0
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(4078, 401)
+position = Vector2(-756, 435)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("41_ywvvp")]
 visible = false
@@ -3090,6 +3091,9 @@ metadata/_custom_type_script = "uid://cek3v5e7g8gt6"
 position = Vector2(260.5, 5.5)
 shape = SubResource("RectangleShape2D_ywvvp")
 debug_color = Color(0.713113, 0.475827, 0.252198, 0.42)
+
+[node name="Title" parent="." instance=ExtResource("63_70kwm")]
+_title = "Дождь не может лить вечно"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_entered" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_entered"]
