@@ -137,6 +137,7 @@ position = Vector2(0, -16)
 texture = ExtResource("1_8prxr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -16)
 shape = SubResource("CircleShape2D_8prxr")
 

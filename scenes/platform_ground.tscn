@@ -11,7 +11,7 @@ height = 32.0
 radius = 7.0
 height = 36.0
 
-[node name="platform_narrow_green_m" type="AnimatableBody2D"]
+[node name="platform_ground" type="AnimatableBody2D"]
 collision_mask = 65793
 script = ExtResource("1_5d7yx")
 

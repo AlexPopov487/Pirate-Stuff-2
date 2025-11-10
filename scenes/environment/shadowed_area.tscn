@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://jaesrlqhixob"]
+
+[ext_resource type="Script" uid="uid://v2ipf884q31e" path="res://scripts/environment/shadowed_area.gd" id="1_wnpx2"]
+
+[sub_resource type="Gradient" id="Gradient_lyblr"]
+offsets = PackedFloat32Array(0.638983, 1)
+colors = PackedColorArray(0.2, 0.196078, 0.239216, 1, 0.286498, 0.281422, 0.33768, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vemna"]
+gradient = SubResource("Gradient_lyblr")
+fill_from = Vector2(0.944444, 0.491453)
+fill_to = Vector2(0.978632, 0.491453)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6opv2"]
+size = Vector2(280, 205)
+
+[node name="ShadowedArea" type="Area2D"]
+collision_layer = 67108864
+collision_mask = 256
+script = ExtResource("1_wnpx2")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = -153.0
+offset_top = -206.0
+offset_right = 154.0
+texture = SubResource("GradientTexture2D_vemna")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-13, -103.5)
+shape = SubResource("RectangleShape2D_6opv2")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

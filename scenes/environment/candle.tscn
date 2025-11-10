@@ -73,17 +73,17 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_hojsh"]
+[sub_resource type="Gradient" id="Gradient_aob40"]
 offsets = PackedFloat32Array(0.00823045, 1)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_3xq8a"]
-gradient = SubResource("Gradient_hojsh")
+gradient = SubResource("Gradient_aob40")
 fill = 1
 fill_from = Vector2(0.495726, 0.508547)
 fill_to = Vector2(0.179487, 0.282051)
 
-[node name="Area2D" type="Area2D"]
+[node name="Candle" type="Area2D"]
 z_index = -1
 
 [node name="Candle" type="AnimatedSprite2D" parent="."]

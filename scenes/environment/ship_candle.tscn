@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://cbex24rfd7dvc"]
+
+[ext_resource type="Texture2D" uid="uid://cnb4wff2j30hg" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle/01.png" id="1_hwlts"]
+[ext_resource type="Texture2D" uid="uid://cfoj55p3x8cmk" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle/02.png" id="2_dibbi"]
+[ext_resource type="Texture2D" uid="uid://bcxv5cp8dwxir" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle/03.png" id="3_3wdke"]
+[ext_resource type="Texture2D" uid="uid://cks773r054b7u" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle/04.png" id="4_gsu4n"]
+[ext_resource type="Texture2D" uid="uid://ydof3im6ptk6" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle/05.png" id="5_ctp3r"]
+[ext_resource type="Texture2D" uid="uid://bts67oi5t4oyq" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle/06.png" id="6_70soh"]
+[ext_resource type="Texture2D" uid="uid://cehmpbviipgfp" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle Light/01.png" id="7_ctp3r"]
+[ext_resource type="Texture2D" uid="uid://blck3g180f5p0" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle Light/02.png" id="8_70soh"]
+[ext_resource type="Texture2D" uid="uid://catenp8ehh2eq" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle Light/03.png" id="9_g1tdf"]
+[ext_resource type="Texture2D" uid="uid://diy0sw051f0hg" path="res://assets/Pirate Ship/Sprites/Decorations/Candle/Candle Light/04.png" id="10_rxic5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_poo2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hwlts")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dibbi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3wdke")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_gsu4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ctp3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_70soh")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hwlts"]
+radius = 5.0
+height = 20.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1nf54"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_ctp3r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_70soh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_g1tdf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_rxic5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="Gradient" id="Gradient_m4hxg"]
+offsets = PackedFloat32Array(0.00823045, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ctp3r"]
+gradient = SubResource("Gradient_m4hxg")
+height = 86
+fill = 1
+fill_from = Vector2(0.495726, 0.508547)
+fill_to = Vector2(0.241186, 0.183761)
+
+[node name="ShipCandle" type="StaticBody2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+
+[node name="Candle" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_poo2k")
+autoplay = "default"
+frame_progress = 0.53568
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -10)
+shape = SubResource("CapsuleShape2D_hwlts")
+
+[node name="CandleLight" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -28)
+sprite_frames = SubResource("SpriteFrames_1nf54")
+autoplay = "default"
+frame_progress = 0.502494
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, -37)
+color = Color(1, 0.736854, 0.349452, 1)
+texture = SubResource("GradientTexture2D_ctp3r")

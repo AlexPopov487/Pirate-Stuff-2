@@ -1,35 +1,35 @@
 [gd_scene load_steps=13 format=3 uid="uid://5ebflu4mg3q"]
 
-[ext_resource type="Script" uid="uid://cmp0mqudetbsn" path="res://scripts/collectables/gold_coin.gd" id="1_pgoa7"]
-[ext_resource type="Texture2D" uid="uid://exus5wya2144" path="res://assets/Pirate Treasure/Sprites/coin.png" id="2_44h41"]
-[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="3_g4cg5"]
+[ext_resource type="Script" uid="uid://cmp0mqudetbsn" path="res://scripts/collectables/gold_coin.gd" id="1_dbgmf"]
+[ext_resource type="Texture2D" uid="uid://exus5wya2144" path="res://assets/Pirate Treasure/Sprites/coin.png" id="2_v03m5"]
+[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="3_sbmr2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]
-atlas = ExtResource("2_44h41")
+atlas = ExtResource("2_v03m5")
 region = Rect2(0, 20, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
-atlas = ExtResource("2_44h41")
+atlas = ExtResource("2_v03m5")
 region = Rect2(18, 20, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
-atlas = ExtResource("2_44h41")
+atlas = ExtResource("2_v03m5")
 region = Rect2(36, 20, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1ikuy"]
-atlas = ExtResource("2_44h41")
+atlas = ExtResource("2_v03m5")
 region = Rect2(0, 0, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wnlwo"]
-atlas = ExtResource("2_44h41")
+atlas = ExtResource("2_v03m5")
 region = Rect2(18, 0, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jig8b"]
-atlas = ExtResource("2_44h41")
+atlas = ExtResource("2_v03m5")
 region = Rect2(36, 0, 18, 20)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xmuha"]
-atlas = ExtResource("2_44h41")
+atlas = ExtResource("2_v03m5")
 region = Rect2(54, 0, 18, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_kfxoj"]
@@ -77,7 +77,7 @@ freeze = true
 freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
-script = ExtResource("1_pgoa7")
+script = ExtResource("1_dbgmf")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kfxoj")
@@ -90,6 +90,6 @@ position = Vector2(2, 0)
 shape = SubResource("CircleShape2D_jsmju")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_g4cg5")
+stream = ExtResource("3_sbmr2")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

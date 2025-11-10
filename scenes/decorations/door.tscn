@@ -1,0 +1,83 @@
+[gd_scene load_steps=14 format=3 uid="uid://bc4d44qit8aci"]
+
+[ext_resource type="Texture2D" uid="uid://c674iauqhn0gd" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Closing/01.png" id="1_d6u41"]
+[ext_resource type="Script" uid="uid://c2uiy8oevbfec" path="res://scripts/environment/door.gd" id="1_fxobm"]
+[ext_resource type="Texture2D" uid="uid://dexxq714c76c7" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Closing/02.png" id="2_fxobm"]
+[ext_resource type="Texture2D" uid="uid://t8somqt5ijiw" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Closing/03.png" id="3_y7dx4"]
+[ext_resource type="Texture2D" uid="uid://buxk83cnriwc6" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Closing/04.png" id="4_uhkpg"]
+[ext_resource type="Texture2D" uid="uid://c53hbov0fd7ma" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Closing/05.png" id="5_feaxp"]
+[ext_resource type="Texture2D" uid="uid://drtyslosi8f2i" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Opening/01.png" id="6_prejc"]
+[ext_resource type="Texture2D" uid="uid://byvfjhacjfn1w" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Opening/02.png" id="7_ogb83"]
+[ext_resource type="Texture2D" uid="uid://biecsbfe8mbu2" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Opening/03.png" id="8_qe60r"]
+[ext_resource type="Texture2D" uid="uid://c757coumqdpq8" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Opening/04.png" id="9_1vo6v"]
+[ext_resource type="Texture2D" uid="uid://cit2ils84owmx" path="res://assets/Pirate Ship/Sprites/Decorations/Door/Opening/05.png" id="10_t6k5j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0wk1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_d6u41")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fxobm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_y7dx4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uhkpg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_feaxp")
+}],
+"loop": false,
+"name": &"closing",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_prejc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ogb83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_qe60r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1vo6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_t6k5j")
+}],
+"loop": false,
+"name": &"opening",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_njktw"]
+radius = 21.0
+height = 50.0
+
+[node name="Door" type="StaticBody2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_fxobm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_0wk1p")
+animation = &"closing"
+frame = 4
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -25)
+shape = SubResource("CapsuleShape2D_njktw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
