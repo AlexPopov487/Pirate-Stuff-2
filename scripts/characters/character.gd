@@ -50,7 +50,7 @@ signal changed_health(health_percentage: float)
 signal died()
 
 var _jump_velocity
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity: float = ProjectSettings.get_setting("physics/2d/default_gravity")
 var _direction: float
 var _was_on_floor: bool
 

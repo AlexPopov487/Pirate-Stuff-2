@@ -45,18 +45,3 @@ func _input(event: InputEvent) -> void:
 	_enter_sprite.visible = false
 	_dialogue_triggered = true
 	trigger_dialogue(_player)
-
-#func _on_body_entered(body: Node2D) -> void:
-	#if body is not Player:
-		#return
-		#
-	#trigger_dialogue(body)
-#
-#
-#func _on_body_exited(body: Node2D) -> void:
-	#if body is not Player:
-		#return
-	#
-	#var player : Player = body
-	#if not player.get_controls()._is_enabled:
-		#player.get_controls().set_enabled(true)

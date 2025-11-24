@@ -40,6 +40,11 @@ var _current_stamina: float = _max_stamina:
 		
 var _stamina_tween: Tween
 
+# I have only one slow area that is basically a pit. Thus, only falling behviour is to be handled
+var _has_entered_slow_area: bool = false
+var _default_gravity
+var _slowed_down_gravity
+
 signal _changed_stamina(stamina_repcentage: float)
 signal _is_on_platform(is_on_platform: bool)
 
@@ -54,6 +59,9 @@ func _ready() -> void:
 	_invincibility_duration = invincivbility_duration
 	_heavy_attack_damage = heavy_attack_damage
 	super._ready()
+	
+	_default_gravity = gravity
+	_slowed_down_gravity = _default_gravity * 0.25
 
 func get_controls() -> PlayerBehavior:
 	return _controls
@@ -99,11 +107,19 @@ func restore_stamina_by_potion(amount: int):
 
 func emit_on_platform_signal(on_platform: bool):
 	_is_on_platform.emit(on_platform)
+	
+func enter_slow_area():
+	_has_entered_slow_area = true
+
+func exit_slow_area():
+	_has_entered_slow_area = false
 
 func _apply_air_physics(delta: float):
 	if _is_attacking && velocity.y > 0:
 		velocity.y = 0
 		velocity.x = 0
+	elif _has_entered_slow_area:
+		velocity = (velocity + get_gravity() * delta) * 0.25
 	else:
 		super._apply_air_physics(delta)
 
@@ -113,5 +129,5 @@ func _restore_stamina():
 	_stamina_tween = create_tween()
 	_stamina_tween.tween_property(self, "_current_stamina", _max_stamina, _stamina_restore_speed)
 
-func _can_attack_heavily():
+func _can_attack_heavily() -> bool:
 	return _current_stamina >= _heavy_attack_stamina_cost

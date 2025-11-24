@@ -1,23 +1,17 @@
-[gd_scene load_steps=35 format=3 uid="uid://dm4co3wrqhdh5"]
+[gd_scene load_steps=29 format=3 uid="uid://dn5f7dbo86r27"]
 
-[ext_resource type="Script" uid="uid://bgy5wbu3blamb" path="res://scripts/characters/cat.gd" id="1_cf4is"]
-[ext_resource type="Texture2D" uid="uid://cnasybq5mvijb" path="res://assets/The Crusty Crew/Sprites/Black Cat/idle/idle_1.png" id="3_cf4is"]
-[ext_resource type="Texture2D" uid="uid://bqcnvxrxqmper" path="res://assets/The Crusty Crew/Sprites/Black Cat/idle/idle_2.png" id="4_yecbv"]
-[ext_resource type="Texture2D" uid="uid://bvh4uumt1182c" path="res://assets/The Crusty Crew/Sprites/Black Cat/idle/idle_3.png" id="5_cjrgq"]
-[ext_resource type="Texture2D" uid="uid://dwurixyftifg7" path="res://assets/The Crusty Crew/Sprites/Black Cat/idle/idle_4.png" id="6_7cv73"]
-[ext_resource type="Texture2D" uid="uid://cansqfnjrd6nc" path="res://assets/The Crusty Crew/Sprites/Black Cat/idle/idle_5.png" id="7_b1vow"]
-[ext_resource type="Texture2D" uid="uid://bdhfsja1mhlpa" path="res://assets/The Crusty Crew/Sprites/Black Cat/idle/idle_6.png" id="8_krq47"]
-[ext_resource type="Texture2D" uid="uid://dvsrw1mutnc34" path="res://assets/The Crusty Crew/Sprites/Black Cat/idle/idle_7.png" id="9_ygevk"]
-[ext_resource type="Texture2D" uid="uid://wxxqcfbhvnrw" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/run2.png" id="11_losj0"]
-[ext_resource type="Texture2D" uid="uid://c844bxnugc4ep" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/run3.png" id="12_pp785"]
-[ext_resource type="Texture2D" uid="uid://c5pk2d70873bp" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/run4.png" id="13_idkon"]
-[ext_resource type="Texture2D" uid="uid://btxu8ojl3354g" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/run5.png" id="14_e105o"]
-[ext_resource type="Texture2D" uid="uid://cwkussfka05lk" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/run6.png" id="15_28u8g"]
-[ext_resource type="Texture2D" uid="uid://bya3ew5x06hlo" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/run7.png" id="16_n0bww"]
-[ext_resource type="Texture2D" uid="uid://1u5apdd3n8i5" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/run8.png" id="17_t5xpq"]
-[ext_resource type="Texture2D" uid="uid://cuvhycrocev6w" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/jump9.png" id="18_31hhq"]
-[ext_resource type="Texture2D" uid="uid://bu1dg1hm372nx" path="res://assets/The Crusty Crew/Sprites/Black Cat/run/jump10.png" id="19_jvajd"]
-[ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="44_ef662"]
+[ext_resource type="Script" uid="uid://4lcv6ycglvdg" path="res://scripts/characters/pig.gd" id="1_v0mk3"]
+[ext_resource type="Texture2D" uid="uid://bqkte4bj65d4w" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_1.png" id="3_fnvlv"]
+[ext_resource type="Texture2D" uid="uid://pgo8aaur56y4" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_2.png" id="4_2fwd1"]
+[ext_resource type="Texture2D" uid="uid://bfqoomguu2uw7" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_3.png" id="5_v0mk3"]
+[ext_resource type="Texture2D" uid="uid://dmr8r4dbbm1u2" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_4.png" id="6_rfcfh"]
+[ext_resource type="Texture2D" uid="uid://b63phr7taubr8" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_5.png" id="7_2fwd1"]
+[ext_resource type="Texture2D" uid="uid://hpqeg3335x" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_1.png" id="8_5wv3b"]
+[ext_resource type="Texture2D" uid="uid://i3vfbgekokyp" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_2.png" id="9_72n67"]
+[ext_resource type="Texture2D" uid="uid://bul1wt0a5dg77" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_3.png" id="10_y8j1w"]
+[ext_resource type="Texture2D" uid="uid://dxdjwow1e40be" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_4.png" id="11_x1fgm"]
+[ext_resource type="PackedScene" uid="uid://cs0vtls0jywwm" path="res://scenes/enemies/enemy_ai.tscn" id="12_5wv3b"]
+[ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="18_5ssii"]
 
 [sub_resource type="Animation" id="Animation_g5jhy"]
 length = 0.001
@@ -31,12 +25,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("3_cf4is")]
+"values": [ExtResource("3_fnvlv")]
 }
 
 [sub_resource type="Animation" id="Animation_hhpqf"]
 resource_name = "idle"
-length = 0.7
+length = 0.5
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -45,15 +39,15 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("3_cf4is"), ExtResource("4_yecbv"), ExtResource("5_cjrgq"), ExtResource("6_7cv73"), ExtResource("7_b1vow"), ExtResource("8_krq47"), ExtResource("9_ygevk")]
+"values": [ExtResource("3_fnvlv"), ExtResource("4_2fwd1"), ExtResource("5_v0mk3"), ExtResource("6_rfcfh"), ExtResource("7_2fwd1")]
 }
 
 [sub_resource type="Animation" id="Animation_holxr"]
 resource_name = "running"
-length = 0.9
+length = 0.4
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -62,14 +56,14 @@ tracks/0/path = NodePath("Sprite2D:texture")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
 "update": 1,
-"values": [ExtResource("11_losj0"), ExtResource("12_pp785"), ExtResource("13_idkon"), ExtResource("14_e105o"), ExtResource("15_28u8g"), ExtResource("16_n0bww"), ExtResource("17_t5xpq"), ExtResource("18_31hhq"), ExtResource("19_jvajd")]
+"values": [ExtResource("8_5wv3b"), ExtResource("9_72n67"), ExtResource("10_y8j1w"), ExtResource("11_x1fgm")]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -77,7 +71,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [ExtResource("44_ef662")],
+"args": [ExtResource("18_5ssii")],
 "method": &"_spawn_dust"
 }]
 }
@@ -128,8 +122,8 @@ transitions = ["Start", "Locomition", SubResource("AnimationNodeStateMachineTran
 graph_offset = Vector2(-96, -90)
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfm1y"]
-radius = 9.0
-height = 18.0
+radius = 8.0
+height = 16.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lovqd"]
 radius = 11.0
@@ -138,14 +132,18 @@ radius = 11.0
 radius = 9.0
 height = 28.0
 
-[node name="Cat" type="CharacterBody2D"]
-collision_layer = 8388608
-collision_mask = 33620225
-script = ExtResource("1_cf4is")
+[node name="Pig" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4194304
+collision_mask = 37748737
+script = ExtResource("1_v0mk3")
+speed = 1.5
+acceleration = 8.0
+_jump_dust = ExtResource("18_5ssii")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)
-texture = ExtResource("3_cf4is")
+texture = ExtResource("3_fnvlv")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
 root_node = NodePath("../..")
@@ -161,22 +159,19 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -9)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_qfm1y")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="ground_check_ray" type="RayCast2D" parent="."]
-visible = false
-position = Vector2(-33, -4)
+position = Vector2(-25, -4)
 target_position = Vector2(0, 10)
 
 [node name="obstacle_check_ray" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, -11)
-target_position = Vector2(-24, 0)
-collision_mask = 65793
+target_position = Vector2(-16, 0)
+collision_mask = 46203137
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -201,5 +196,9 @@ position = Vector2(0, -9)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_bbhtf")
 debug_color = Color(0.670588, 0, 0.188235, 0.235294)
+
+[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray") instance=ExtResource("12_5wv3b")]
+_obstacle_ray = NodePath("../obstacle_check_ray")
+_ground_ray = NodePath("../ground_check_ray")
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

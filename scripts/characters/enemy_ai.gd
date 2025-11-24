@@ -1,4 +1,5 @@
 extends Node
+class_name EnemyBehavior
 
 @onready var _character: Character = get_parent()
 @onready var _look_around_timer: Timer = $look_around_timer
@@ -51,8 +52,14 @@ func _set_routine() -> void:
 			_stop_moving()
 			_jump_once()
 
-func _set_random_activity():
-	_current_activity = ACTIVITIES.values().pick_random()
+func _set_random_activity():	
+	var picked_activity = false
+	while !picked_activity:
+		var activity_candidate = ACTIVITIES.values().pick_random()
+		if activity_candidate != _current_activity:
+			_current_activity = activity_candidate
+			picked_activity = true
+	
 	var activity_duration = randi_range(2, 6)
 	#print(get_parent().name + " set current activity to " + ACTIVITIES.find_key(_current_activity) + 
 		#" for " + str(activity_duration) + "s.")

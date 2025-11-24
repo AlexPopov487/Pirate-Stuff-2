@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://xta340japskr"]
+
+[ext_resource type="Script" uid="uid://cqxyprfkb56kd" path="res://scripts/environment/slow_area.gd" id="1_pk1x1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ojd1"]
+size = Vector2(42, 1)
+
+[node name="SlowArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("1_pk1x1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_7ojd1")
+debug_color = Color(0.654347, 0.32483, 1, 0.42)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,10 +1,9 @@
-[gd_scene load_steps=111 format=3 uid="uid://gqrxvk187iqv"]
+[gd_scene load_steps=110 format=3 uid="uid://gqrxvk187iqv"]
 
 [ext_resource type="Script" uid="uid://vhl0nxm3a78k" path="res://scripts/levels/level_7.gd" id="1_8mct5"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_1cjrn"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_waf72"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="3_l7tbi"]
-[ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="3_wrhxn"]
 [ext_resource type="PackedScene" uid="uid://s8l0b878id76" path="res://scenes/enemies/claw.tscn" id="4_1nhwc"]
 [ext_resource type="PackedScene" uid="uid://ebo7g0tmk3mq" path="res://scenes/enemies/projectiles/cannon_ball.tscn" id="4_8mct5"]
 [ext_resource type="PackedScene" uid="uid://mhhgwohqigx6" path="res://scenes/platform_wood_narow_short.tscn" id="4_q2dvh"]
@@ -2202,35 +2201,27 @@ metadata/_edit_lock_ = true
 
 [node name="crabby" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(-413, 0)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="crabby2" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(29, -257)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="crabby3" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(235, 223)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="crabby4" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(1022, 446)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="crabby5" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(1631, 288)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="crabby6" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(2281, -160)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="crabby7" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(3182, 65)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="crabby8" parent="enemies/crabs" instance=ExtResource("2_waf72")]
 position = Vector2(3797, 64)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="starfish" type="Node" parent="enemies"]
 
@@ -2238,35 +2229,27 @@ _jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(-56, -448)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw2" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(422, 447)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw3" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(1501, -129)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw4" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(1367, 226)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw5" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(1954, 160)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw6" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(3251, 193)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw7" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(3597, -383)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="claw8" parent="enemies/claw" instance=ExtResource("4_1nhwc")]
 position = Vector2(4494, 417)
-_jump_dust = ExtResource("3_wrhxn")
 
 [node name="spikes" type="Node" parent="enemies"]
 

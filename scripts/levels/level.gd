@@ -101,11 +101,11 @@ func hide_hint_wood_popup(player: Player):
 
 func show_hint_wood_popup(hint_type: Globals.HINT_TYPE, player: Player, text: String):
 	if _hint_ui == null:
-		push_warning(name + " failed to show hint popup. HintUI scene is null")
+		push_error(name + " failed to show hint popup. HintUI scene is null")
 		return
 		
 	if player == null:
-		push_warning(name + " failed to show hint popup. Player scene is null")
+		push_error(name + " failed to show hint popup. Player scene is null")
 		return
 		
 	player.get_controls().set_enabled(false)

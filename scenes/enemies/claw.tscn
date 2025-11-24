@@ -709,6 +709,7 @@ animations = [{
 collision_layer = 65536
 collision_mask = 33620225
 script = ExtResource("1_jip2x")
+_jump_dust = ExtResource("26_pxwix")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -13)
@@ -745,7 +746,6 @@ target_position = Vector2(0, 10)
 [node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray") instance=ExtResource("28_jxaqu")]
 _obstacle_ray = NodePath("../obstacle_check_ray")
 _ground_ray = NodePath("../ground_check_ray")
-_ledge_behavior = 1
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 131072
