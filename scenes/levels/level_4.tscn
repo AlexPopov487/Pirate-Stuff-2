@@ -1,15 +1,11 @@
-[gd_scene load_steps=100 format=3 uid="uid://bdeg5a12wvakf"]
+[gd_scene load_steps=96 format=3 uid="uid://bdeg5a12wvakf"]
 
 [ext_resource type="Script" uid="uid://beev7svqj76lo" path="res://scripts/levels/level_4.gd" id="1_dorgx"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_lbwwd"]
-[ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="3_2n8qx"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="3_fgtm3"]
 [ext_resource type="PackedScene" uid="uid://cs0wwmt5s3ai1" path="res://scenes/platform_rock.tscn" id="3_y0jd0"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="4_iblbt"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="4_kqkch"]
-[ext_resource type="PackedScene" uid="uid://ebo7g0tmk3mq" path="res://scenes/enemies/projectiles/cannon_ball.tscn" id="5_iblbt"]
-[ext_resource type="PackedScene" uid="uid://bmb5alfohqrfu" path="res://scenes/treasure/collectable_pearl.tscn" id="5_syeym"]
-[ext_resource type="PackedScene" uid="uid://ddo7vdsp87alq" path="res://scenes/enemies/projectiles/pearl.tscn" id="6_05jat"]
 [ext_resource type="Texture2D" uid="uid://cd7gphshvxn47" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_cave_inside.png" id="9_4luak"]
 [ext_resource type="PackedScene" uid="uid://qpx12wwl7nko" path="res://scenes/treasure/silver_coin.tscn" id="9_7bt4x"]
 [ext_resource type="PackedScene" uid="uid://bcrb0fa0415o1" path="res://scenes/treasure/barrel.tscn" id="9_fwhj0"]
@@ -2015,23 +2011,18 @@ metadata/_edit_lock_ = true
 
 [node name="crabby" parent="enemies/crabs" instance=ExtResource("2_lbwwd")]
 position = Vector2(-1, 95)
-_jump_dust = ExtResource("3_2n8qx")
 
 [node name="crabby2" parent="enemies/crabs" instance=ExtResource("2_lbwwd")]
 position = Vector2(816, -321)
-_jump_dust = ExtResource("3_2n8qx")
 
 [node name="crabby3" parent="enemies/crabs" instance=ExtResource("2_lbwwd")]
 position = Vector2(2329, 160)
-_jump_dust = ExtResource("3_2n8qx")
 
 [node name="crabby4" parent="enemies/crabs" instance=ExtResource("2_lbwwd")]
 position = Vector2(643, 1343)
-_jump_dust = ExtResource("3_2n8qx")
 
 [node name="crabby5" parent="enemies/crabs" instance=ExtResource("2_lbwwd")]
 position = Vector2(1008, 506)
-_jump_dust = ExtResource("3_2n8qx")
 
 [node name="starfish" type="Node" parent="enemies"]
 
@@ -2163,25 +2154,19 @@ position = Vector2(2672, 1664)
 
 [node name="Seashell" parent="enemies/seashells" instance=ExtResource("4_iblbt")]
 position = Vector2(47, 319)
-_pearl_collectable = ExtResource("5_syeym")
 _face_direction = 1
-_projectile = ExtResource("6_05jat")
 _projectile_speed = 7.0
 _projectile_damage = 1.0
 _fire_cooldown_ttl = 0.5
 
 [node name="Seashell2" parent="enemies/seashells" instance=ExtResource("4_iblbt")]
 position = Vector2(1455, -448)
-_pearl_collectable = ExtResource("5_syeym")
-_projectile = ExtResource("6_05jat")
 _projectile_speed = 7.0
 _projectile_damage = 1.0
 _fire_cooldown_ttl = 0.5
 
 [node name="Seashell3" parent="enemies/seashells" instance=ExtResource("4_iblbt")]
 position = Vector2(2896, -32)
-_pearl_collectable = ExtResource("5_syeym")
-_projectile = ExtResource("6_05jat")
 _projectile_speed = 7.0
 _projectile_damage = 1.0
 _fire_cooldown_ttl = 0.5
@@ -2191,16 +2176,13 @@ _fire_cooldown_ttl = 0.5
 [node name="Cannon" parent="enemies/cannons" instance=ExtResource("4_kqkch")]
 position = Vector2(1535, 295)
 _face_direction = 1
-_projectile = ExtResource("5_iblbt")
 
 [node name="Cannon2" parent="enemies/cannons" instance=ExtResource("4_kqkch")]
 position = Vector2(327, 927)
 _face_direction = 1
-_projectile = ExtResource("5_iblbt")
 
 [node name="Cannon3" parent="enemies/cannons" instance=ExtResource("4_kqkch")]
 position = Vector2(2196, 832)
-_projectile = ExtResource("5_iblbt")
 
 [node name="pickups" type="Node" parent="."]
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=55 format=3 uid="uid://dcj58c00p3c2h"]
+[gd_scene load_steps=56 format=3 uid="uid://dcj58c00p3c2h"]
 
 [ext_resource type="Script" uid="uid://clk5isikgv5ld" path="res://scripts/characters/cannon.gd" id="1_41t11"]
+[ext_resource type="PackedScene" uid="uid://ebo7g0tmk3mq" path="res://scenes/enemies/projectiles/cannon_ball.tscn" id="2_tm86n"]
 [ext_resource type="Texture2D" uid="uid://dorvyvw12idmo" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Destroyed/1.png" id="3_ywprs"]
 [ext_resource type="Texture2D" uid="uid://8dimtalgsk71" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire/1.png" id="4_41t11"]
 [ext_resource type="Texture2D" uid="uid://c3w7dkxh3mnif" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire/2.png" id="5_8i3pm"]
@@ -443,6 +444,7 @@ radius = 110.005
 collision_layer = 65536
 collision_mask = 33620225
 script = ExtResource("1_41t11")
+_projectile = ExtResource("2_tm86n")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -13)

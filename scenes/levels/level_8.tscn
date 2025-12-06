@@ -1,15 +1,12 @@
-[gd_scene load_steps=123 format=3 uid="uid://d2f0nbt08dwxl"]
+[gd_scene load_steps=120 format=3 uid="uid://d2f0nbt08dwxl"]
 
 [ext_resource type="Script" uid="uid://cgvrweqywgmso" path="res://scripts/levels/level_8.gd" id="1_swb4r"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_4rw3a"]
 [ext_resource type="PackedScene" uid="uid://bhx6syxe7l8wc" path="res://scenes/enemies/starfish.tscn" id="3_6fhn0"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="4_67oco"]
 [ext_resource type="PackedScene" uid="uid://s8l0b878id76" path="res://scenes/enemies/claw.tscn" id="4_megyt"]
-[ext_resource type="PackedScene" uid="uid://bmb5alfohqrfu" path="res://scenes/treasure/collectable_pearl.tscn" id="5_chr0g"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="6_d3xrd"]
-[ext_resource type="PackedScene" uid="uid://ddo7vdsp87alq" path="res://scenes/enemies/projectiles/pearl.tscn" id="6_fkr20"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="9_v0prs"]
-[ext_resource type="PackedScene" uid="uid://ebo7g0tmk3mq" path="res://scenes/enemies/projectiles/cannon_ball.tscn" id="10_yxjj8"]
 [ext_resource type="Texture2D" uid="uid://c5j5w50oqxh7l" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_sand.png" id="11_e5lmi"]
 [ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="12_lop5v"]
 [ext_resource type="PackedScene" uid="uid://cj0rvpwmx5k0o" path="res://scenes/treasure/key.tscn" id="12_yxjj8"]
@@ -2626,51 +2623,38 @@ position = Vector2(5871, 1090)
 
 [node name="Seashell" parent="enemies/seashells" instance=ExtResource("4_67oco")]
 position = Vector2(1585, 255)
-_pearl_collectable = ExtResource("5_chr0g")
 _type = 1
-_projectile = ExtResource("6_fkr20")
 
 [node name="Seashell2" parent="enemies/seashells" instance=ExtResource("4_67oco")]
 position = Vector2(2420, -32)
-_pearl_collectable = ExtResource("5_chr0g")
-_projectile = ExtResource("6_fkr20")
 
 [node name="Seashell3" parent="enemies/seashells" instance=ExtResource("4_67oco")]
 position = Vector2(4085, -160)
-_pearl_collectable = ExtResource("5_chr0g")
 _face_direction = 1
-_projectile = ExtResource("6_fkr20")
 
 [node name="Seashell4" parent="enemies/seashells" instance=ExtResource("4_67oco")]
 position = Vector2(5423, -96)
-_pearl_collectable = ExtResource("5_chr0g")
-_projectile = ExtResource("6_fkr20")
 
 [node name="cannons" type="Node" parent="enemies"]
 
 [node name="Cannon" parent="enemies/cannons" instance=ExtResource("9_v0prs")]
 position = Vector2(2573, 128)
 _face_direction = 1
-_projectile = ExtResource("10_yxjj8")
 
 [node name="Cannon2" parent="enemies/cannons" instance=ExtResource("9_v0prs")]
 position = Vector2(4805, 512)
-_projectile = ExtResource("10_yxjj8")
 
 [node name="Cannon4" parent="enemies/cannons" instance=ExtResource("9_v0prs")]
 position = Vector2(5937, 33)
 _face_direction = 1
-_projectile = ExtResource("10_yxjj8")
 
 [node name="Cannon5" parent="enemies/cannons" instance=ExtResource("9_v0prs")]
 position = Vector2(5846, 33)
 _face_direction = 1
-_projectile = ExtResource("10_yxjj8")
 
 [node name="Cannon6" parent="enemies/cannons" instance=ExtResource("9_v0prs")]
 position = Vector2(5771, 33)
 _face_direction = 1
-_projectile = ExtResource("10_yxjj8")
 
 [node name="pickups" type="Node" parent="."]
 
@@ -3109,7 +3093,6 @@ autoplay = "move"
 [node name="ship_out" parent="platforms" instance=ExtResource("21_gi4d6")]
 position = Vector2(7110, 486)
 rotation = 0.00027778
-scale = Vector2(1, 1)
 _ship_destination = 1
 
 [node name="npc" type="Node" parent="."]

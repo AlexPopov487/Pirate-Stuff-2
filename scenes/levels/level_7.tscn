@@ -1,11 +1,10 @@
-[gd_scene load_steps=110 format=3 uid="uid://gqrxvk187iqv"]
+[gd_scene load_steps=107 format=3 uid="uid://gqrxvk187iqv"]
 
 [ext_resource type="Script" uid="uid://vhl0nxm3a78k" path="res://scripts/levels/level_7.gd" id="1_8mct5"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_1cjrn"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_waf72"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="3_l7tbi"]
 [ext_resource type="PackedScene" uid="uid://s8l0b878id76" path="res://scenes/enemies/claw.tscn" id="4_1nhwc"]
-[ext_resource type="PackedScene" uid="uid://ebo7g0tmk3mq" path="res://scenes/enemies/projectiles/cannon_ball.tscn" id="4_8mct5"]
 [ext_resource type="PackedScene" uid="uid://mhhgwohqigx6" path="res://scenes/platform_wood_narow_short.tscn" id="4_q2dvh"]
 [ext_resource type="PackedScene" uid="uid://cj0rvpwmx5k0o" path="res://scenes/treasure/key.tscn" id="4_rxbpo"]
 [ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="4_sqf7f"]
@@ -14,9 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://drgxjyarcpeuu" path="res://scenes/platform_wood_wide_short.tscn" id="5_yg5nw"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="6_jeoq1"]
 [ext_resource type="PackedScene" uid="uid://cgmre0n47u83v" path="res://scenes/treasure/padlock.tscn" id="6_l7tbi"]
-[ext_resource type="PackedScene" uid="uid://bmb5alfohqrfu" path="res://scenes/treasure/collectable_pearl.tscn" id="7_ta1vh"]
 [ext_resource type="PackedScene" uid="uid://dktsyp0et6ypc" path="res://scenes/platform_wood_narow_long.tscn" id="7_u2yrg"]
-[ext_resource type="PackedScene" uid="uid://ddo7vdsp87alq" path="res://scenes/enemies/projectiles/pearl.tscn" id="8_2nc70"]
 [ext_resource type="PackedScene" uid="uid://34qf00axhx33" path="res://scenes/platform_mud.tscn" id="8_crjcb"]
 [ext_resource type="PackedScene" uid="uid://dm4co3wrqhdh5" path="res://scenes/enemies/cat.tscn" id="10_ta1vh"]
 [ext_resource type="PackedScene" uid="uid://bymkslho10bgg" path="res://scenes/treasure/crate.tscn" id="12_1nhwc"]
@@ -2434,74 +2431,56 @@ position = Vector2(753, 388)
 
 [node name="Seashell" parent="enemies/seashells" instance=ExtResource("6_jeoq1")]
 position = Vector2(365, -97)
-_pearl_collectable = ExtResource("7_ta1vh")
 _face_direction = 1
-_projectile = ExtResource("8_2nc70")
 
 [node name="Seashell2" parent="enemies/seashells" instance=ExtResource("6_jeoq1")]
 position = Vector2(2032, -33)
-_pearl_collectable = ExtResource("7_ta1vh")
 _face_direction = 1
-_projectile = ExtResource("8_2nc70")
 
 [node name="Seashell3" parent="enemies/seashells" instance=ExtResource("6_jeoq1")]
 position = Vector2(2408, 32)
-_pearl_collectable = ExtResource("7_ta1vh")
 _type = 1
-_projectile = ExtResource("8_2nc70")
 
 [node name="Seashell4" parent="enemies/seashells" instance=ExtResource("6_jeoq1")]
 position = Vector2(3950, -384)
-_pearl_collectable = ExtResource("7_ta1vh")
 _type = 1
-_projectile = ExtResource("8_2nc70")
 
 [node name="cannons" type="Node" parent="enemies"]
 
 [node name="Cannon" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(-262, -1)
 _face_direction = 1
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon2" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(1493, 64)
 _face_direction = 1
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon3" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(1355, 287)
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon4" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(2802, 96)
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon5" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(2802, 224)
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon6" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(2895, 352)
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon7" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(2924, 0)
 _face_direction = 1
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon8" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(3858, -224)
 _face_direction = 1
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon9" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(4018, 352)
 _face_direction = 1
-_projectile = ExtResource("4_8mct5")
 
 [node name="Cannon10" parent="enemies/cannons" instance=ExtResource("3_l7tbi")]
 position = Vector2(3887, 1024)
-_projectile = ExtResource("4_8mct5")
 
 [node name="npc" type="Node" parent="."]
 

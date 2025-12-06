@@ -1,6 +1,8 @@
-[gd_scene load_steps=69 format=3 uid="uid://cdv7bvreii5n"]
+[gd_scene load_steps=71 format=3 uid="uid://cdv7bvreii5n"]
 
 [ext_resource type="Script" uid="uid://dauk2683dc1lp" path="res://scripts/characters/seashell.gd" id="1_krrxd"]
+[ext_resource type="PackedScene" uid="uid://bmb5alfohqrfu" path="res://scenes/treasure/collectable_pearl.tscn" id="2_53n0i"]
+[ext_resource type="PackedScene" uid="uid://ddo7vdsp87alq" path="res://scenes/enemies/projectiles/pearl.tscn" id="3_4owgk"]
 [ext_resource type="Texture2D" uid="uid://d4cdiiovemqi3" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Idle/1.png" id="3_krrxd"]
 [ext_resource type="Texture2D" uid="uid://soanno67li1r" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Hit/1.png" id="4_n7c7r"]
 [ext_resource type="Texture2D" uid="uid://1qukps4akn4l" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Hit/2.png" id="5_fxt42"]
@@ -597,6 +599,8 @@ radius = 110.005
 collision_layer = 65536
 collision_mask = 33620225
 script = ExtResource("1_krrxd")
+_pearl_collectable = ExtResource("2_53n0i")
+_projectile = ExtResource("3_4owgk")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -19)
