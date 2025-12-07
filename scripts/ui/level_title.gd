@@ -1,9 +1,8 @@
 extends CanvasLayer
+class_name LevelTitle
 
 const TRANSPARENT: Color = Color(1,1,1,0)
 const OPAQUE: Color = Color(1,1,1,1)
-
-@export var _title: String
 
 @onready var _timer: Timer = $Timer
 @onready var _h_box_container: HBoxContainer = $HBoxContainer
@@ -11,12 +10,15 @@ const OPAQUE: Color = Color(1,1,1,1)
 var _tween: Tween
 @onready var _label: Label = $HBoxContainer/PanelContainer/Label
 
-func _ready() -> void:
-	_label.text = _title
-	visible = true
-	_h_box_container.modulate = TRANSPARENT
+func delayed_popup(text: String) -> void:
 	_timer.start(1)
 	await _timer.timeout
+	popup(text)
+
+func popup(text: String) -> void:
+	_label.text = text
+	visible = true
+	_h_box_container.modulate = TRANSPARENT
 	await _fade_to_opaque()
 	_timer.start(2)
 	await _timer.timeout

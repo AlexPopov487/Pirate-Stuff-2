@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://gqrxvk187iqv"]
+[gd_scene load_steps=108 format=3 uid="uid://gqrxvk187iqv"]
 
 [ext_resource type="Script" uid="uid://vhl0nxm3a78k" path="res://scripts/levels/level_7.gd" id="1_8mct5"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_1cjrn"]
@@ -12,7 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://btmb1bly678wo" path="res://scenes/platform_wood_wide_long.tscn" id="5_bjwri"]
 [ext_resource type="PackedScene" uid="uid://drgxjyarcpeuu" path="res://scenes/platform_wood_wide_short.tscn" id="5_yg5nw"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="6_jeoq1"]
-[ext_resource type="PackedScene" uid="uid://cgmre0n47u83v" path="res://scenes/treasure/padlock.tscn" id="6_l7tbi"]
 [ext_resource type="PackedScene" uid="uid://dktsyp0et6ypc" path="res://scenes/platform_wood_narow_long.tscn" id="7_u2yrg"]
 [ext_resource type="PackedScene" uid="uid://34qf00axhx33" path="res://scenes/platform_mud.tscn" id="8_crjcb"]
 [ext_resource type="PackedScene" uid="uid://dm4co3wrqhdh5" path="res://scenes/enemies/cat.tscn" id="10_ta1vh"]
@@ -76,6 +75,7 @@
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="64_fn6xc"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="66_raao8"]
 [ext_resource type="PackedScene" uid="uid://jaesrlqhixob" path="res://scenes/environment/shadowed_area.tscn" id="77_vemna"]
+[ext_resource type="Script" uid="uid://cor62rc2ut4ju" path="res://scripts/environment/treasure_area.gd" id="78_q4bap"]
 [ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="81_k57b2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
@@ -2177,6 +2177,9 @@ sources/16 = SubResource("TileSetAtlasSource_mdwm4")
 sources/2 = SubResource("TileSetAtlasSource_eqjcn")
 sources/20 = SubResource("TileSetAtlasSource_q2dvh")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lyblr"]
+size = Vector2(200, 135)
+
 [node name="level_7" type="Area2D"]
 script = ExtResource("1_8mct5")
 
@@ -2502,7 +2505,6 @@ _state = 2
 _amount = 16
 _silver_coin = ExtResource("5_8p4sa")
 _gold_coin = ExtResource("5_8p4sa")
-_padlock = ExtResource("6_l7tbi")
 
 [node name="keys" type="Node" parent="pickups"]
 
@@ -2561,9 +2563,6 @@ position = Vector2(4116, -439)
 
 [node name="gold_coin17" parent="pickups/coins" instance=ExtResource("16_q4bap")]
 position = Vector2(3789, -306)
-
-[node name="silver_coin21" parent="pickups/coins" instance=ExtResource("17_lyblr")]
-position = Vector2(3473, -247)
 
 [node name="gold_coin5" parent="pickups/coins" instance=ExtResource("16_q4bap")]
 position = Vector2(466, 304)
@@ -5097,6 +5096,17 @@ collision_mask = 256
 visible = false
 
 [node name="Title" parent="." instance=ExtResource("81_k57b2")]
-_title = "\"Испаньола\""
+
+[node name="TreasureArea" type="Area2D" parent="."]
+position = Vector2(4126, 983)
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("78_q4bap")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreasureArea"]
+position = Vector2(66, -22.5)
+shape = SubResource("RectangleShape2D_lyblr")
+debug_color = Color(0.893169, 0.254117, 0.506511, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="TreasureArea" to="TreasureArea" method="_on_body_entered"]

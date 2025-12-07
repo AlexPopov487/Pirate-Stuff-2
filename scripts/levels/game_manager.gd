@@ -31,8 +31,12 @@ func use_key():
 	File.data.has_key = false
 	_key.visible = false
 	
+func score_treasure_found():
+	File.data.found_secret_treasure = true
+	
 func collect_map(map_type: Globals.MAP_TYPE):
 	File.data.collected_maps[map_type] = true
+	File.data.found_map = true
 	_map_container.display_map(map_type)
 
 func _ready() -> void:
@@ -138,8 +142,8 @@ func _on_level_completed():
 		File.data.coins,
 		100,
 		File.data.death_count,
-		false,
-		false
+		File.data.found_secret_treasure,
+		File.data.found_map
 	))
 	
 	var next_level_idx: int = File.data.current_level_idx + 1

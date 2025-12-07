@@ -10,3 +10,5 @@ func _ready() -> void:
 	super._ready()
 	_player_armed = true
 	_controls_enabled_by_default = true
+	_title_text = "Остров поросят"
+	_title.delayed_popup(_title_text)

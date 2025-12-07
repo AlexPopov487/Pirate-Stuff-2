@@ -23,5 +23,5 @@ func _init():
 		Globals.MAP_TYPE.BOTTOM_RIGHT: false
 	}
 	death_count = 0
-	found_map = false
+	found_secret_treasure = false
 	found_map = false

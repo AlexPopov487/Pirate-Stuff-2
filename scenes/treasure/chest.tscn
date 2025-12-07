@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://sbqh2wus74g4"]
+[gd_scene load_steps=44 format=3 uid="uid://sbqh2wus74g4"]
 
 [ext_resource type="Texture2D" uid="uid://dwb6l3d2ndlwd" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/3.png" id="1_m6foi"]
 [ext_resource type="Script" uid="uid://bhexaagkkv4kf" path="res://scripts/environment/chest.gd" id="1_qs5f6"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://dbese7lickgt5" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/7.png" id="3_g8c4r"]
 [ext_resource type="PackedScene" uid="uid://5ebflu4mg3q" path="res://scenes/treasure/gold_coin.tscn" id="3_ly7q1"]
 [ext_resource type="Texture2D" uid="uid://c2ua3ugen2kr2" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/6.png" id="4_qs5f6"]
+[ext_resource type="PackedScene" uid="uid://cgmre0n47u83v" path="res://scenes/treasure/padlock.tscn" id="4_u3jif"]
 [ext_resource type="Texture2D" uid="uid://c6gvq1d8nyf4u" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/5.png" id="5_tdtu2"]
 [ext_resource type="Texture2D" uid="uid://bb481wnarcjxy" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/4.png" id="6_l4iq4"]
 [ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="7_ly7q1"]
@@ -306,6 +307,7 @@ script = ExtResource("1_qs5f6")
 _amount = 7
 _silver_coin = ExtResource("2_l4iq4")
 _gold_coin = ExtResource("3_ly7q1")
+_padlock = ExtResource("4_u3jif")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -16)

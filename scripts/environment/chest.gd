@@ -73,6 +73,7 @@ func _on_body_entered(body: Node2D) -> void:
 	if _state == STATE.LOCKED and File.data.has_key:
 		_state = STATE.OPENED
 		$/root/game.use_key()
+		$/root/game.score_treasure_found()
 
 	if _state == STATE.CLOSED:
 		_state = STATE.OPENED

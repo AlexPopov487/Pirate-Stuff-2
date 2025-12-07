@@ -2,7 +2,7 @@ extends Node
 
 # denotes pixels per tiles. Helps scaling relative values so they are ajusted to the current tileset size
 const ppt: int = 32
-const EVENING_OVERLAY_COLOR := Color(0.4,0.4,0.4,1)
+const EVENING_OVERLAY_COLOR := Color(0.6,0.6,0.6,1)
 const NIGHT_OVERLAY_COLOR := Color(0.08,0.08,0.08,1)
 const PLAYER_HIGHLIGHT_EVENING_ENERGY: float = 0.3
 const PLAYER_HIGHLIGHT_NIGHT_ENERGY: float = 0.7

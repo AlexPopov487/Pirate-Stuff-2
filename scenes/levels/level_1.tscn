@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://chsi6vfx62f80"]
+[gd_scene load_steps=54 format=3 uid="uid://chsi6vfx62f80"]
 
 [ext_resource type="Script" uid="uid://cr6e1c82650hf" path="res://scripts/levels/level_1.gd" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_x7jkp"]
@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bxaxwhb1c6aif" path="res://scenes/environment/water_reflection_1.tscn" id="31_cfnpk"]
 [ext_resource type="PackedScene" uid="uid://b6ods0ucyjmc3" path="res://scenes/ui/hint_sign.tscn" id="32_cfnpk"]
 [ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="32_wvtie"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="34_o8s4s"]
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="34_wvtie"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
@@ -1651,5 +1652,7 @@ visible = false
 position = Vector2(895, 403)
 collision_layer = 0
 collision_mask = 256
+
+[node name="Title" parent="." instance=ExtResource("34_o8s4s")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

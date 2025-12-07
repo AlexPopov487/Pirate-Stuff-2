@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://cipdnv3xlkcfc"]
+[gd_scene load_steps=97 format=3 uid="uid://cipdnv3xlkcfc"]
 
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="1_k7ksp"]
 [ext_resource type="Script" uid="uid://biwd851a2ku76" path="res://scripts/levels/level_6.gd" id="1_mcllb"]
@@ -6,17 +6,13 @@
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_hfqfu"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_hx0e5"]
 [ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="2_mcllb"]
-[ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="3_6omao"]
 [ext_resource type="Texture2D" uid="uid://dx4cyydp6v2am" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="3_61ant"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="3_l2n0k"]
-[ext_resource type="PackedScene" uid="uid://ebo7g0tmk3mq" path="res://scenes/enemies/projectiles/cannon_ball.tscn" id="4_6oggx"]
 [ext_resource type="PackedScene" uid="uid://wmurco54r64o" path="res://scenes/platform_ground.tscn" id="4_l04iu"]
 [ext_resource type="Texture2D" uid="uid://bdibya0fhfg53" path="res://assets/Palm Tree Island/Sprites/palm_tree_front_curve_animated.tres" id="4_nryth"]
 [ext_resource type="Texture2D" uid="uid://c0w7ebxjfibei" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_animated.tres" id="5_l04iu"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="5_o6sba"]
 [ext_resource type="Texture2D" uid="uid://cldsqjltgedqk" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_left_animated.tres" id="6_j0hcr"]
-[ext_resource type="PackedScene" uid="uid://bmb5alfohqrfu" path="res://scenes/treasure/collectable_pearl.tscn" id="6_mmgag"]
-[ext_resource type="PackedScene" uid="uid://ddo7vdsp87alq" path="res://scenes/enemies/projectiles/pearl.tscn" id="7_22qlp"]
 [ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="7_ndq4w"]
 [ext_resource type="Texture2D" uid="uid://baiigco7tpspj" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_right_animated.tres" id="7_u1jf6"]
 [ext_resource type="Texture2D" uid="uid://b0ebx4ghphuvu" path="res://assets/Palm Tree Island/Sprites/Objects/spider_web.png" id="8_hx0e5"]
@@ -65,6 +61,7 @@
 [ext_resource type="Texture2D" uid="uid://csdcf0jwabn3y" path="res://assets/Palm Tree Island/Sprites/Background/star_2.png" id="54_5ibjk"]
 [ext_resource type="PackedScene" uid="uid://byyk63721kn5v" path="res://scenes/environment/candle.tscn" id="56_tlnr5"]
 [ext_resource type="PackedScene" uid="uid://cdp3jdffckjmk" path="res://scenes/environment/skeleton.tscn" id="61_pe5af"]
+[ext_resource type="Script" uid="uid://cor62rc2ut4ju" path="res://scripts/environment/treasure_area.gd" id="64_pe5af"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="65_41gm2"]
 [ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="67_388u4"]
 
@@ -1493,6 +1490,9 @@ sources/16 = SubResource("TileSetAtlasSource_540et")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hx0e5"]
 size = Vector2(110.5, 166.5)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_41gm2"]
+size = Vector2(199.5, 143)
+
 [node name="level_6" type="Area2D"]
 script = ExtResource("1_mcllb")
 
@@ -1514,59 +1514,45 @@ metadata/_edit_lock_ = true
 
 [node name="crabby" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(1294, 543)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby2" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(1799, 479)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby3" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(1556, 185)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby4" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(1051, 186)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby5" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(803, 188)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby6" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(413, -129)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby7" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(1677, -129)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby8" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(2028, -129)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby9" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(2344, -129)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby10" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(3388, -2)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby11" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(5495, 415)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby12" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(5843, 353)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby13" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(6766, 320)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="crabby14" parent="enemies/crabs" instance=ExtResource("2_hfqfu")]
 position = Vector2(6498, -63)
-_jump_dust = ExtResource("3_6omao")
 
 [node name="starfish" type="Node" parent="enemies"]
 
@@ -1713,57 +1699,42 @@ position = Vector2(1104, -127)
 
 [node name="Seashell" parent="enemies/seashells" instance=ExtResource("5_o6sba")]
 position = Vector2(1417, -128)
-_pearl_collectable = ExtResource("6_mmgag")
-_projectile = ExtResource("7_22qlp")
 
 [node name="Seashell3" parent="enemies/seashells" instance=ExtResource("5_o6sba")]
 position = Vector2(5225, 256)
-_pearl_collectable = ExtResource("6_mmgag")
 _face_direction = 1
-_projectile = ExtResource("7_22qlp")
 
 [node name="Seashell2" parent="enemies/seashells" instance=ExtResource("5_o6sba")]
 position = Vector2(2925, -192)
-_pearl_collectable = ExtResource("6_mmgag")
 _type = 1
-_projectile = ExtResource("7_22qlp")
 
 [node name="Seashell4" parent="enemies/seashells" instance=ExtResource("5_o6sba")]
 position = Vector2(6067, -95)
-_pearl_collectable = ExtResource("6_mmgag")
 _type = 1
-_projectile = ExtResource("7_22qlp")
 
 [node name="cannons" type="Node" parent="enemies"]
 
 [node name="Cannon" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(689, 512)
 _face_direction = 1
-_projectile = ExtResource("4_6oggx")
 
 [node name="Cannon2" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(4034, 160)
-_projectile = ExtResource("4_6oggx")
 
 [node name="Cannon3" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(4943, 225)
-_projectile = ExtResource("4_6oggx")
 
 [node name="Cannon4" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(5003, 225)
-_projectile = ExtResource("4_6oggx")
 
 [node name="Cannon5" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(5066, 225)
-_projectile = ExtResource("4_6oggx")
 
 [node name="Cannon6" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(5614, 193)
-_projectile = ExtResource("4_6oggx")
 
 [node name="Cannon7" parent="enemies/cannons" instance=ExtResource("3_l2n0k")]
 position = Vector2(5692, 385)
-_projectile = ExtResource("4_6oggx")
 
 [node name="npc" type="Node" parent="."]
 
@@ -3644,7 +3615,18 @@ debug_color = Color(0.6289, 0.509483, 0.41285, 0.42)
 visible = false
 
 [node name="Title" parent="." instance=ExtResource("67_388u4")]
-_title = "В тени, да не в обиде"
+visible = false
+
+[node name="TreasureArea" type="Area2D" parent="."]
+position = Vector2(6496, -333)
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("64_pe5af")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TreasureArea"]
+position = Vector2(74.25, -18.5)
+shape = SubResource("RectangleShape2D_41gm2")
+debug_color = Color(0.893169, 0.254117, 0.506511, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="lever_opened" from="environment/levers/Lever" to="platforms/platform_narrow_green_m5" method="_on_lever_lever_opened"]
@@ -3653,3 +3635,4 @@ _title = "В тени, да не в обиде"
 [connection signal="show_hint_popup" from="environment/Skeleton" to="." method="show_hint_wood_popup"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_entered"]
 [connection signal="body_exited" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_exited"]
+[connection signal="body_entered" from="TreasureArea" to="TreasureArea" method="_on_body_entered"]

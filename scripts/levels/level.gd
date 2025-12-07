@@ -7,11 +7,13 @@ var _checkpoints: Array[Node]
 var _player_armed: bool
 var _controls_enabled_by_default: bool
 var _weather := Globals.WEATHER.CLEAR
-var _time := Globals.TIME.DAY 
+var _time := Globals.TIME.DAY
+var _title_text: String = "Level"
 
 @onready var _environment_overlay: CanvasModulate = get_node_or_null("EnvironmentOverlay")
 @onready var _background_overlay: CanvasModulate =  get_node_or_null("environment/ParallaxBackground/BackgroundOverlay")
 @onready var _hint_ui: HintUi = get_node_or_null("hint_ui")
+@onready var _title: LevelTitle = $Title
 
 
 signal level_completed
@@ -59,7 +61,7 @@ func _init_checkpoint_nodes():
 	for i in _checkpoints.size():
 		var curr: Node = _checkpoints[i]
 		if curr is Checkpoint:
-			curr.id = i	
+			curr.id = i
 
 func _init_level_overlay():
 	match _time:
