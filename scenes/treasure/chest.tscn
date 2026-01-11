@@ -294,7 +294,7 @@ states/opening/position = Vector2(450, 12)
 states/unlocking/node = SubResource("AnimationNodeAnimation_ikviv")
 states/unlocking/position = Vector2(483, 179)
 transitions = ["idle_closed", "opening", SubResource("AnimationNodeStateMachineTransition_1m6iv"), "opening", "idle_opened", SubResource("AnimationNodeStateMachineTransition_m5uue"), "idle_opened", "closing", SubResource("AnimationNodeStateMachineTransition_u3jif"), "closing", "idle_closed", SubResource("AnimationNodeStateMachineTransition_ikviv"), "Start", "idle_closed", SubResource("AnimationNodeStateMachineTransition_t8w5t"), "Start", "idle_opened", SubResource("AnimationNodeStateMachineTransition_tvmmy"), "idle_locked", "unlocking", SubResource("AnimationNodeStateMachineTransition_7pnro"), "unlocking", "idle_closed", SubResource("AnimationNodeStateMachineTransition_dlo4l"), "idle_closed", "locking", SubResource("AnimationNodeStateMachineTransition_jstua"), "locking", "idle_locked", SubResource("AnimationNodeStateMachineTransition_r5jcg"), "Start", "idle_locked", SubResource("AnimationNodeStateMachineTransition_fw7yj")]
-graph_offset = Vector2(-45, -111)
+graph_offset = Vector2(-25, -378)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8cvhv"]
 size = Vector2(30, 24)

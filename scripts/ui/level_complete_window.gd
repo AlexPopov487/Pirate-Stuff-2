@@ -6,6 +6,7 @@ class_name LevelCompleteWindow
 @onready var _treasure_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/TreasureContainer
 @onready var _map_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/MapContainer
 @onready var _title_label: Label = $MainContainer/TitleLabel
+@onready var _next_level_button: Button = $MainContainer/HBoxContainer/NextLevelButton
 
 var titles: Array[String] = ["Разрази меня гром! Отличный заход!",
 							"Якорь мне в глотку, это победа!",
@@ -51,6 +52,9 @@ func display_window(stats: LevelCompleteStats):
 	pivot_offset = size / 2
 	set_anchors_preset(Control.PRESET_CENTER)
 
+	if stats.is_last_level:
+		_next_level_button.disabled = true
+		
 	self.visible = true
 
 

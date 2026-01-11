@@ -10,10 +10,12 @@ var _weather := Globals.WEATHER.CLEAR
 var _time := Globals.TIME.DAY
 var _title_text: String = "Level"
 
+var is_last_level: bool = false
+
 @onready var _environment_overlay: CanvasModulate = get_node_or_null("EnvironmentOverlay")
 @onready var _background_overlay: CanvasModulate =  get_node_or_null("environment/ParallaxBackground/BackgroundOverlay")
 @onready var _hint_ui: HintUi = get_node_or_null("hint_ui")
-@onready var _title: LevelTitle = $Title
+@onready var _title: LevelTitle = get_node_or_null("Title")
 
 
 signal level_completed
@@ -87,8 +89,8 @@ func _init_overlay(color: Color) -> void:
 	_environment_overlay.visible = true
 	_background_overlay.visible = true
 	
+	
 func hide_hint_wood_popup(player: Player):
-
 	if _hint_ui == null:
 		push_warning(name + " failed to hide hint popup. HintUI scene is null")
 		return

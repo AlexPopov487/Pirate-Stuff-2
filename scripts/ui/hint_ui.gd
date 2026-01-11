@@ -45,4 +45,3 @@ func _hide_letter_hint():
 	_letter.hide()
 	_scroll_container.visible = false
 	_scroll_guide_label.visible = false
-		

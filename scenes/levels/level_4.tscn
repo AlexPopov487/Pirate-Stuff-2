@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://bdeg5a12wvakf"]
+[gd_scene load_steps=98 format=3 uid="uid://bdeg5a12wvakf"]
 
 [ext_resource type="Script" uid="uid://beev7svqj76lo" path="res://scripts/levels/level_4.gd" id="1_dorgx"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_lbwwd"]
@@ -26,7 +26,6 @@
 [ext_resource type="Texture2D" uid="uid://c0w7ebxjfibei" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_animated.tres" id="21_5xyu5"]
 [ext_resource type="PackedScene" uid="uid://cway2m7fdji2w" path="res://scenes/environment/lever.tscn" id="21_rc3jm"]
 [ext_resource type="Texture2D" uid="uid://cldsqjltgedqk" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_left_animated.tres" id="22_5ukfk"]
-[ext_resource type="PackedScene" uid="uid://cgmre0n47u83v" path="res://scenes/treasure/padlock.tscn" id="22_adlly"]
 [ext_resource type="PackedScene" uid="uid://cj0rvpwmx5k0o" path="res://scenes/treasure/key.tscn" id="22_jrilj"]
 [ext_resource type="Texture2D" uid="uid://baiigco7tpspj" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_right_animated.tres" id="23_2o033"]
 [ext_resource type="Texture2D" uid="uid://bay8eubhjxbca" path="res://assets/Palm Tree Island/Sprites/Objects/bridge_64x96.png" id="24_agniq"]
@@ -3194,7 +3193,6 @@ region_rect = Rect2(96, 0, 32, 32)
 [node name="Lever" parent="environment/levers" instance=ExtResource("21_rc3jm")]
 position = Vector2(2587, 1201)
 _state = 2
-_padlock = ExtResource("22_adlly")
 
 [node name="checkpoints" type="Node" parent="."]
 

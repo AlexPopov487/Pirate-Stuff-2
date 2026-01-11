@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cipdnv3xlkcfc"]
+[gd_scene load_steps=96 format=3 uid="uid://cipdnv3xlkcfc"]
 
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="1_k7ksp"]
 [ext_resource type="Script" uid="uid://biwd851a2ku76" path="res://scripts/levels/level_6.gd" id="1_mcllb"]
@@ -47,7 +47,6 @@
 [ext_resource type="Texture2D" uid="uid://jdgryqamap5b" path="res://assets/Merchant Ship/Sprites/Water/Water/Bottom/water_body_no_collision.png" id="31_v0pyj"]
 [ext_resource type="Texture2D" uid="uid://bvf7t72v0gdhe" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_animated_no_collision.tres" id="33_gfqla"]
 [ext_resource type="PackedScene" uid="uid://cway2m7fdji2w" path="res://scenes/environment/lever.tscn" id="34_l04iu"]
-[ext_resource type="PackedScene" uid="uid://cgmre0n47u83v" path="res://scenes/treasure/padlock.tscn" id="35_j0hcr"]
 [ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="37_u1jf6"]
 [ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="41_3vumg"]
 [ext_resource type="Texture2D" uid="uid://dlcxrds1msnte" path="res://assets/Palm Tree Island/Sprites/Background/bg_image_night.png" id="43_qlm4j"]
@@ -1761,7 +1760,6 @@ _state = 2
 _amount = 26
 _silver_coin = ExtResource("11_ubrjs")
 _gold_coin = ExtResource("12_hh11m")
-_padlock = ExtResource("35_j0hcr")
 
 [node name="keys" type="Node" parent="pickups"]
 
@@ -3550,12 +3548,10 @@ position = Vector2(7090, 241)
 [node name="Lever" parent="environment/levers" instance=ExtResource("34_l04iu")]
 position = Vector2(343, 409)
 _state = 2
-_padlock = ExtResource("35_j0hcr")
 
 [node name="Lever2" parent="environment/levers" instance=ExtResource("34_l04iu")]
 position = Vector2(3027, 629)
 _state = 2
-_padlock = ExtResource("35_j0hcr")
 
 [node name="Skeleton" parent="environment" instance=ExtResource("61_pe5af")]
 position = Vector2(6361, -287)

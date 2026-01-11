@@ -120,8 +120,7 @@ script = ExtResource("1_bpkyr")
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 unique_name_in_owner = true
 process_mode = 1
-position = Vector2(680, 794)
-zoom = Vector2(3, 3)
+position = Vector2(639, 361)
 script = ExtResource("2_1qlo5")
 _subject = NodePath("../Pirate")
 _offset = Vector2(3, -1)
@@ -543,7 +542,6 @@ offset_bottom = 792.0
 mouse_filter = 2
 
 [node name="LevelCompleteWindow" parent="UserInterface" instance=ExtResource("49_tt305")]
-visible = false
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

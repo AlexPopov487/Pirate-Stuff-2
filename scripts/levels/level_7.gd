@@ -10,5 +10,7 @@ func _ready() -> void:
 	super._ready()
 	_player_armed = true
 	_controls_enabled_by_default = true
-	_title_text = "\"Испаньола\""
-	_title.delayed_popup(_title_text)
+	
+	if _title != null:
+		_title_text = "\"Испаньола\""
+		_title.delayed_popup(_title_text)

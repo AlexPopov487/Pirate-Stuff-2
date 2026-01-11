@@ -1,11 +1,13 @@
 extends Camera2D
 class_name GameCamera
 
+enum CAMERA_BEHAVIOR {FOLLOWING, STATIC}
 const ZOOM_DEFAULT: float = 3.0
 
 @export var _subject: Character
 @export var _offset: Vector2 # in tiles
 @onready var _look_ahead_distance: float
+@onready var _current_camera_behavior: CAMERA_BEHAVIOR = CAMERA_BEHAVIOR.FOLLOWING
 
 @export_category("Camera transition")
 @export var _transition_type: Tween.TransitionType
@@ -36,6 +38,10 @@ func force_set_position(subject_x: float, subject_y: float):
 	position.x = subject_x + _look_ahead_distance
 	_current_floor_height = subject_y
 
+func force_set_static_position(pos_x: float, pos_y: float):
+	position.x = pos_x
+	position.y = pos_y
+
 func override_zoom(value: float, speed: float):
 	if _camera_override_zoom && _camera_override_zoom.is_running():
 		_camera_override_zoom.kill()
@@ -48,25 +54,34 @@ func restore_zoom(speed: float):
 	_camera_override_zoom = create_tween().set_ease(_ease_type).set_trans(_transition_type)
 	_camera_override_zoom.tween_property(self, "zoom",  Vector2(ZOOM_DEFAULT, ZOOM_DEFAULT), speed)
 
-# Called when the node enters the scene tree for the first time.
+func set_camera_behavior(behavior: CAMERA_BEHAVIOR):
+	_current_camera_behavior = behavior
+
+func restore_settings():
+	restore_zoom(0.1)
+	set_camera_behavior(CAMERA_BEHAVIOR.FOLLOWING)
+
 func _ready() -> void:
+	_current_camera_behavior = CAMERA_BEHAVIOR.FOLLOWING
 	zoom.x = _current_zoom
 	zoom.y = _current_zoom
-	
 	
 	_offset *= Globals.ppt
 	_look_ahead_distance = _offset.x
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	if _is_subject_on_platform:
-		if _vertial_tween && _vertial_tween.is_running():
-			_vertial_tween.kill()
-		_current_floor_height = _subject.position.y
-		
-	position.x = _subject.position.x + _look_ahead_distance
-	position.y = _offset.y + _current_floor_height
-	
+	match _current_camera_behavior:
+		CAMERA_BEHAVIOR.FOLLOWING:
+			if _is_subject_on_platform:
+				if _vertial_tween && _vertial_tween.is_running():
+					_vertial_tween.kill()
+				_current_floor_height = _subject.position.y
+				
+			position.x = _subject.position.x + _look_ahead_distance
+			position.y = _offset.y + _current_floor_height
+		CAMERA_BEHAVIOR.STATIC:
+			pass
+
 	_check_level_boundaries()
 	
 
@@ -92,3 +107,4 @@ func _follow_subject_y(floor_pos_y: float):
 
 func _on_pirate__is_on_platform(is_on_platform: bool) -> void:
 	_is_subject_on_platform = is_on_platform
+	

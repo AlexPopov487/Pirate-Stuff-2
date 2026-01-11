@@ -4,7 +4,7 @@ extends Node2D
 @export var _level_complete: AudioStream
 
 @onready var _player: Player = $Pirate
-@onready var _camera: Camera2D = $Camera2D
+@onready var _camera: GameCamera = $Camera2D
 @onready var _coins_container: HBoxContainer = $UserInterface/CoinsContainer
 @onready var _key: Control = $UserInterface/key
 @onready var _audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -14,6 +14,8 @@ extends Node2D
 @onready var _player_highlight: PointLight2D = $PlayerHighlight
 @onready var _pause_menu: Control = $UserInterface/PauseMenu
 @onready var _level_complete_window: LevelCompleteWindow = $UserInterface/LevelCompleteWindow
+@onready var _health_gauge: HealthGauge = $UserInterface/healthGauge
+@onready var _stamina_gauge: Control = $UserInterface/staminaGauge
 
 
 var _current_level: Level
@@ -40,12 +42,14 @@ func collect_map(map_type: Globals.MAP_TYPE):
 	_map_container.display_map(map_type)
 
 func _ready() -> void:
+#	TODO CALL _init_level_and_reset_player() INSTEAD
 	_fade.visible = true # set to invisible in editor during development
 	_pause_menu.visible = false
+	show_ui()
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 9
+	File.data.current_level_idx = 10
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)
@@ -140,10 +144,12 @@ func _on_level_completed():
 	
 	_level_complete_window.display_window(LevelCompleteStats.new(
 		File.data.coins,
-		100,
+#		TODO count all coins on a level
+		100, 
 		File.data.death_count,
 		File.data.found_secret_treasure,
-		File.data.found_map
+		File.data.found_map,
+		_current_level.is_last_level
 	))
 	
 	var next_level_idx: int = File.data.current_level_idx + 1
@@ -153,12 +159,14 @@ func _on_level_completed():
 	
 func _restart_level():
 	File.change_level(File.data.current_level_idx)
+	await _fade.fade_to_black()
 	_init_level_and_reset_player()
+	await _fade.fade_to_clear()
+
 	
 func _init_level_and_reset_player():
-	await _fade.fade_to_black()
-	
 	_player.get_controls().set_enabled(false)
+	show_ui()
 
 	_init_level()
 	_spawn_player()
@@ -169,10 +177,10 @@ func _init_level_and_reset_player():
 
 	if get_tree().paused:
 		_set_game_paused(false)
-	await _fade.fade_to_clear()
-
 	if _current_level.get_controls_enabled_by_default():
 		_player.get_controls().set_enabled(true)
+		
+	_camera.restore_settings()
 
 
 func _exit_to_main_menu():
@@ -184,7 +192,45 @@ func _exit_to_main_menu():
 
 	get_tree().change_scene_to_file(Globals.TITLE_SCENE_PATH)
 
-
 func _on_level_complete_window_next_level_button_pressed() -> void:
 	_level_complete_window.visible = false
+	await _fade.fade_to_black()
 	_init_level_and_reset_player()
+	await _fade.fade_to_clear()
+
+
+func _on_last_level_complete() -> void:
+	await _fade.fade_to_black()
+	var last_level_idx = File.data.current_level_idx
+	# Mimic switching to a new level where necessary but preserving all the statistics
+	File.data.current_level_idx = last_level_idx + 1
+	File.data.last_checkbox_id = 0
+
+	_init_level_and_reset_player()
+	# Reset current level idx, since levels 10 and 11 should be considered a single level.
+	File.data.current_level_idx = last_level_idx
+
+	_hide_ui()
+	var hint: Hint = _current_level.get_node("environment/hints/Hint")
+	hint._player = _player
+	hint.toggle_hint_visibility()
+	
+	_camera.override_zoom(2,0.1)
+	_camera.set_camera_behavior(GameCamera.CAMERA_BEHAVIOR.STATIC)
+	var viewport_center_x = get_viewport_rect().size.x / 2
+	var viewport_center_y = get_viewport_rect().size.y / 2
+	_camera.force_set_static_position(viewport_center_x , viewport_center_y)
+	
+	await _fade.fade_to_clear()
+
+	
+func _hide_ui():
+	_health_gauge.visible = false
+	_stamina_gauge.visible = false
+	_coins_container.visible = false
+	
+func show_ui():
+	_health_gauge.visible = true
+	_stamina_gauge.visible = true
+	_coins_container.visible = true
+	

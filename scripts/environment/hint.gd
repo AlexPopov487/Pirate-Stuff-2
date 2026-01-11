@@ -8,9 +8,22 @@ var _has_entered: bool
 var _is_popup_displayed: bool
 @onready var _enter_sprite: Sprite2D = $EnterSprite
 var _player: Player
+@export var _complete_level_on_exit: bool = false
 
 signal show_hint_popup(type: Globals.HINT_TYPE, player: Player, text: String)
 signal hide_hint_popup(player: Player)
+
+func toggle_hint_visibility():
+	_enter_sprite.visible = false
+	if !_is_popup_displayed:
+		_is_popup_displayed = true
+		show_hint_popup.emit(_hint_type, _player, _hint)
+	else:
+		_is_popup_displayed = false
+		hide_hint_popup.emit(_player)
+		
+		if _complete_level_on_exit:
+			_toggle_level_completion()
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is not Player:
@@ -36,10 +49,7 @@ func _input(event: InputEvent) -> void:
 	if !event.is_action_pressed("interract"):
 		return
 		
-	_enter_sprite.visible = false
-	if !_is_popup_displayed:
-		_is_popup_displayed = true
-		show_hint_popup.emit(_hint_type, _player, _hint)
-	else:
-		_is_popup_displayed = false
-		hide_hint_popup.emit(_player)
+	toggle_hint_visibility()
+	
+func _toggle_level_completion():
+	get_parent().get_parent().get_parent().set_level_completed()

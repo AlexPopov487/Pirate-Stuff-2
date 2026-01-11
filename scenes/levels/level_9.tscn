@@ -3557,7 +3557,7 @@ scale = Vector2(0.814655, 1.02149)
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(3695, 465)
+position = Vector2(-318, 428)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("45_pkqh2")]
 position = Vector2(611, -65)

@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://cway2m7fdji2w"]
+[gd_scene load_steps=8 format=3 uid="uid://cway2m7fdji2w"]
 
 [ext_resource type="Script" uid="uid://duncfwqopuhd0" path="res://scripts/environment/lever.gd" id="1_12g08"]
 [ext_resource type="Texture2D" uid="uid://i3u4nwoba684" path="res://assets/Palm Tree Island/Sprites/Objects/lever/lever2.png" id="2_12g08"]
+[ext_resource type="PackedScene" uid="uid://cgmre0n47u83v" path="res://scenes/treasure/padlock.tscn" id="2_bib85"]
 [ext_resource type="Texture2D" uid="uid://b8vq3idt44r2" path="res://assets/Palm Tree Island/Sprites/Objects/lever/lever3.png" id="2_ppmx7"]
 [ext_resource type="Texture2D" uid="uid://dpak0pah7wcrm" path="res://assets/Palm Tree Island/Sprites/Objects/lever/lever1.png" id="3_bib85"]
 
@@ -34,6 +35,7 @@ z_index = -1
 collision_layer = 0
 collision_mask = 256
 script = ExtResource("1_12g08")
+_padlock = ExtResource("2_bib85")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -5)
