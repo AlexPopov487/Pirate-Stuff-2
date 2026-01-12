@@ -1,4 +1,5 @@
 extends Node2D
+class_name ShipPlaftorm
 
 enum SHIP_DESTINATION {TO_ISLAND, OFF_ISLAND}
 enum MOVE_SET {IDLE, GAINING_PACE, SAILING, STOPPING}
@@ -11,6 +12,10 @@ const SPEED: int = 70
 var _current_move: MOVE_SET = MOVE_SET.IDLE
 var _has_landed: bool
 var _player: Player
+var _initial_position: Vector2
+
+func _ready() -> void:
+	_initial_position = position
 
 func _process(delta: float) -> void:	
 	match _current_move:
@@ -31,6 +36,12 @@ func _process(delta: float) -> void:
 func set_moving():
 	if _current_move == MOVE_SET.IDLE:
 		_current_move = MOVE_SET.GAINING_PACE
+
+func reset():
+	_is_disabled = false
+	_current_move = MOVE_SET.IDLE
+	_has_landed = false
+	position = _initial_position
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if _is_disabled: 

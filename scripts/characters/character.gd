@@ -168,18 +168,6 @@ func stop_jump():
 	if velocity.y < 0:
 		velocity.y = 0
 
-# TODO should not this be player specific behavior???		
-func revive():
-	_is_dead = false
-	_is_hit = false
-	_current_health = _max_health
-	_hurtbox.monitorable = true
-	collision_layer = _collision_layer
-	collision_mask = _collision_mask
-	landed.emit(global_position.y)
-	changed_health.emit(float(_current_health) / float(_max_health) * 100)
-	
-
 ## Method is called by both 'dead_hit' and 'dead_ground' animations but the signal should be 
 ## triggered only once by either 'dead_hit' or 'dead_ground'.
 ## Animation is detected incorrectly at runtime, thus taking curr animation name

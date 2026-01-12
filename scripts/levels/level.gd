@@ -12,11 +12,13 @@ var _title_text: String = "Level"
 
 var is_last_level: bool = false
 
+
 @onready var _environment_overlay: CanvasModulate = get_node_or_null("EnvironmentOverlay")
 @onready var _background_overlay: CanvasModulate =  get_node_or_null("environment/ParallaxBackground/BackgroundOverlay")
 @onready var _hint_ui: HintUi = get_node_or_null("hint_ui")
 @onready var _title: LevelTitle = get_node_or_null("Title")
 @onready var _player: Player
+@onready var _ship_in: ShipPlaftorm = get_node_or_null("platforms/ship_in")
 
 signal level_completed
 
@@ -53,6 +55,13 @@ func get_time() -> Globals.TIME:
 
 func get_weather() -> Globals.WEATHER:
 	return _weather
+	
+func restore_ship_position() -> void:
+	if not _ship_in:
+		return
+	
+	_ship_in.reset()
+	
 
 func _ready() -> void:
 	var half_size: Vector2 = _boundaries.shape.get_rect().size / 2

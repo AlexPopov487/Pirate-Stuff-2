@@ -51,7 +51,7 @@ func _ready() -> void:
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 0
+	File.data.current_level_idx = 2
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)
@@ -140,6 +140,10 @@ func _on_pirate_died() -> void:
 func _return_to_last_checkpoint():
 	_player.get_controls().set_enabled(false)
 	await _fade.fade_to_black()
+	 
+	if File.data.last_checkbox_id == 0:
+		_current_level.restore_ship_position()
+	
 	_spawn_player()
 	_player.revive()
 	await _fade.fade_to_clear()

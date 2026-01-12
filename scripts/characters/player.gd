@@ -30,6 +30,7 @@ class_name Player extends Character
 @warning_ignore("unused_private_class_variable")
 @onready var _attack_cooldown: Timer = $Hitbox/AttackCooldown
 @onready var _controls: PlayerBehavior = $Controls
+@onready var _terrain_detector: TerrainDetector = $terrain_detector
 
 # needed for the getting upd animation at level 1
 var _is_lying: bool = false
@@ -126,6 +127,17 @@ func get_up():
 func reset_get_up():
 	_is_lying = false
 	_should_get_up = false
+
+func revive():
+	_is_dead = false
+	_is_hit = false
+	_current_health = _max_health
+	_hurtbox.monitorable = true
+	collision_layer = _collision_layer
+	collision_mask = _collision_mask
+	landed.emit(global_position.y)
+	changed_health.emit(float(_current_health) / float(_max_health) * 100)
+	_terrain_detector.reset_terrain()
 
 func _apply_air_physics(delta: float):
 	if _is_attacking && velocity.y > 0:

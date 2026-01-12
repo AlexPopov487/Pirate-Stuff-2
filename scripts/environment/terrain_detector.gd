@@ -6,6 +6,9 @@ enum TerrainType {GROUND = 0, MUD = 1, WATER = 2}
 var _current_terrain: TerrainType
 @onready var _character: Character = get_parent()
 
+func reset_terrain():
+	_current_terrain = TerrainType.GROUND
+
 func _on_body_shape_entered(body_rid: RID, body: Node2D, _body_shape_index: int, _local_shape_index: int) -> void:
 	if body is TileMap:
 		_define_terrain(body_rid, body)
