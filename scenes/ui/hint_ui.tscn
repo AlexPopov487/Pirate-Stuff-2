@@ -19,7 +19,6 @@ shadow_color = Color(1, 1, 1, 0.505882)
 script = ExtResource("1_fnmtl")
 
 [node name="Sign" parent="." instance=ExtResource("1_nrfnt")]
-visible = false
 z_index = 1
 anchors_preset = 8
 anchor_left = 0.5

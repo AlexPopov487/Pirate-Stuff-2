@@ -33,6 +33,12 @@ var _invincibility_timer: Timer
 var _is_hit: bool = false
 var _is_dead: bool = false
 var _is_ready_to_attack: bool = false
+
+# Used when character is controlled via run_for() method
+var _scripted_destination_x: float
+var _is_movement_scripted: bool = false
+signal scripted_movement_finished()
+
 @export var _is_attacking: bool = false
 @export var _is_heavy_attack_on: bool = false #needed to set proper damage during attack
 
@@ -135,7 +141,18 @@ func run(direction: float):
 		return
 		
 	_direction = direction
-
+	
+func start_scripted_run(direction: float, tiles: float):
+	var current_x = position.x
+	var destination_x = current_x + (Globals.ppt * tiles * direction)
+	
+	_scripted_destination_x = destination_x
+	_is_movement_scripted = true
+	
+	run(direction)
+	
+	await scripted_movement_finished
+	
 func jump():
 	if _is_dead || _is_attacking:
 		return
@@ -215,6 +232,8 @@ func _ready() -> void:
 	_is_attacking = false
 	
 func _physics_process(delta: float) -> void:
+	_try_stop_scripted_movement()
+	
 	if not _is_facing_left and sign(_direction) == -1:
 		face_left()
 	elif _is_facing_left and sign(_direction) == 1:
@@ -317,3 +336,10 @@ func _set_jump_velocity():
 	# multiply by -1 since in 2d platformers the y-axis is inverted. 
 	# Thus, to move up, negative values should be used	
 	_jump_velocity = sqrt(gravity * _jump_height) * -1
+	
+func _try_stop_scripted_movement():
+	if _is_movement_scripted:
+		if absf(position.x) >= absf(_scripted_destination_x):
+			_is_movement_scripted = false
+			_direction = 0
+			scripted_movement_finished.emit()

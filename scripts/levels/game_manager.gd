@@ -16,6 +16,7 @@ extends Node2D
 @onready var _level_complete_window: LevelCompleteWindow = $UserInterface/LevelCompleteWindow
 @onready var _health_gauge: HealthGauge = $UserInterface/healthGauge
 @onready var _stamina_gauge: Control = $UserInterface/staminaGauge
+@onready var _letterbox: Control = $UserInterface/Letterbox
 
 
 var _current_level: Level
@@ -45,11 +46,12 @@ func _ready() -> void:
 #	TODO CALL _init_level_and_reset_player() INSTEAD
 	_fade.visible = true # set to invisible in editor during development
 	_pause_menu.visible = false
+	
 	show_ui()
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 10
+	File.data.current_level_idx = 0
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)
@@ -59,10 +61,10 @@ func _ready() -> void:
 	_player._has_sword = _current_level.get_player_armed()
 	_spawn_player()
 	
-	await _fade.fade_to_clear()
 	if _current_level.get_controls_enabled_by_default():
 		_player.get_controls().set_enabled(true)
 	
+	await _fade.fade_to_clear()
 	
 func _input(event: InputEvent):
 	if event.is_action_pressed("pause"):
@@ -73,6 +75,8 @@ func _set_game_paused(should_pause: bool):
 	_pause_menu.visible = should_pause
 
 func _init_level():
+	_letterbox.visible = false
+
 	#	_current level is null at first launch of the game
 	if (_current_level != null) :
 		_current_level.free()
@@ -91,6 +95,10 @@ func _init_level():
 			levels_dir.remove_child(level)
 			
 	_init_level_vfx()
+	
+	if _current_level.name.contains("level_0") or _current_level.name.contains("level_1"):
+		_current_level.set_player(_player)
+		_current_level.start_init_script()
 
 func _init_level_vfx():
 	_vfx.set_vfx(_current_level.get_weather())
@@ -210,7 +218,7 @@ func _on_last_level_complete() -> void:
 	# Reset current level idx, since levels 10 and 11 should be considered a single level.
 	File.data.current_level_idx = last_level_idx
 
-	_hide_ui()
+	hide_ui()
 	var hint: Hint = _current_level.get_node("environment/hints/Hint")
 	hint._player = _player
 	hint.toggle_hint_visibility()
@@ -223,8 +231,17 @@ func _on_last_level_complete() -> void:
 	
 	await _fade.fade_to_clear()
 
+func _on_intro_complete() -> void:
+	await _fade.fade_to_black()
+	var last_level_idx = File.data.current_level_idx
+	# Mimic switching to a new level where necessary but preserving all the statistics
+	File.data.current_level_idx = last_level_idx + 1
+	File.data.last_checkbox_id = 0
 	
-func _hide_ui():
+	_init_level_and_reset_player()
+	await _fade.fade_to_clear()
+	
+func hide_ui():
 	_health_gauge.visible = false
 	_stamina_gauge.visible = false
 	_coins_container.visible = false
@@ -233,4 +250,7 @@ func show_ui():
 	_health_gauge.visible = true
 	_stamina_gauge.visible = true
 	_coins_container.visible = true
+	
+func show_letterbox():
+	_letterbox.visible = true
 	

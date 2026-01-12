@@ -16,9 +16,15 @@ var is_last_level: bool = false
 @onready var _background_overlay: CanvasModulate =  get_node_or_null("environment/ParallaxBackground/BackgroundOverlay")
 @onready var _hint_ui: HintUi = get_node_or_null("hint_ui")
 @onready var _title: LevelTitle = get_node_or_null("Title")
-
+@onready var _player: Player
 
 signal level_completed
+
+func set_player(player: Player):
+	_player = player
+	
+func start_init_script() -> void:
+	pass
 
 func get_controls_enabled_by_default() -> bool:
 	return _controls_enabled_by_default

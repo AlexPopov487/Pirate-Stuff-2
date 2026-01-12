@@ -31,6 +31,9 @@ class_name Player extends Character
 @onready var _attack_cooldown: Timer = $Hitbox/AttackCooldown
 @onready var _controls: PlayerBehavior = $Controls
 
+# needed for the getting upd animation at level 1
+var _is_lying: bool = false
+var _should_get_up: bool = false
 
 # use float type to let _stamina_tween increase gauge gradually 
 var _current_stamina: float = _max_stamina:
@@ -113,6 +116,16 @@ func enter_slow_area():
 
 func exit_slow_area():
 	_has_entered_slow_area = false
+
+func lie_down():
+	_is_lying = true
+	
+func get_up():
+	_should_get_up = true
+	
+func reset_get_up():
+	_is_lying = false
+	_should_get_up = false
 
 func _apply_air_physics(delta: float):
 	if _is_attacking && velocity.y > 0:

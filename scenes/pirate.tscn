@@ -1,4 +1,4 @@
-[gd_scene load_steps=188 format=3 uid="uid://c47s83g4fhss2"]
+[gd_scene load_steps=195 format=3 uid="uid://c47s83g4fhss2"]
 
 [ext_resource type="Script" uid="uid://bkbg7tebw37vc" path="res://scripts/characters/player.gd" id="1_mmjh0"]
 [ext_resource type="PackedScene" uid="uid://becchde81p1nq" path="res://scenes/dust/fall_dust.tscn" id="6_umdqw"]
@@ -958,6 +958,36 @@ tracks/0/keys = {
 "values": [ExtResource("26_2dvfe")]
 }
 
+[sub_resource type="Animation" id="Animation_gurp1"]
+resource_name = "get_up"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("27_giy8y"), ExtResource("28_fdfoy")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"reset_get_up"
+}]
+}
+
 [sub_resource type="Animation" id="Animation_u2ulf"]
 resource_name = "ground"
 length = 0.2
@@ -1095,6 +1125,23 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0)
 }
 tracks/1/use_blend = true
+
+[sub_resource type="Animation" id="Animation_bd24r"]
+resource_name = "lie"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("34_pilvs"), ExtResource("35_mmjh0")]
+}
 
 [sub_resource type="Animation" id="Animation_holxr"]
 resource_name = "running"
@@ -1353,10 +1400,12 @@ _data = {
 &"dead_ground": SubResource("Animation_8hlo8"),
 &"dead_hit": SubResource("Animation_iuwh4"),
 &"fall": SubResource("Animation_4gjji"),
+&"get_up": SubResource("Animation_gurp1"),
 &"ground": SubResource("Animation_u2ulf"),
 &"hit": SubResource("Animation_f1cnn"),
 &"idle": SubResource("Animation_hhpqf"),
 &"jump": SubResource("Animation_mx1m4"),
+&"lie": SubResource("Animation_bd24r"),
 &"running": SubResource("Animation_holxr"),
 &"sword_fall": SubResource("Animation_rj3w7"),
 &"sword_ground": SubResource("Animation_prb05"),
@@ -1571,8 +1620,14 @@ states/sword_hit/position = Vector2(434, -10)
 transitions = ["Start", "Attack", SubResource("AnimationNodeStateMachineTransition_5nr6a"), "Attack", "dead_hit", SubResource("AnimationNodeStateMachineTransition_rycgl"), "dead_hit", "dead_ground", SubResource("AnimationNodeStateMachineTransition_y6nu6"), "dead_ground", "Attack", SubResource("AnimationNodeStateMachineTransition_64y74"), "dead_hit", "Attack", SubResource("AnimationNodeStateMachineTransition_opjto"), "Attack", "sword_hit", SubResource("AnimationNodeStateMachineTransition_tstk1"), "sword_hit", "Attack", SubResource("AnimationNodeStateMachineTransition_mq4c8")]
 graph_offset = Vector2(48, 8)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y5lta"]
+animation = &"get_up"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dt7fs"]
 animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_22pmy"]
+animation = &"lie"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wqfne"]
 animation = &"running"
@@ -1588,13 +1643,29 @@ advance_expression = "velocity.x != 0"
 advance_mode = 2
 advance_expression = "velocity.x == 0"
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yyj1f"]
+advance_mode = 2
+advance_expression = "_is_lying == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0k61a"]
+advance_mode = 2
+advance_expression = "_should_get_up == true"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_psm6p"]
+switch_mode = 2
+advance_mode = 2
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_md1ol"]
+states/get_up/node = SubResource("AnimationNodeAnimation_y5lta")
+states/get_up/position = Vector2(440, -56)
 states/idle/node = SubResource("AnimationNodeAnimation_dt7fs")
 states/idle/position = Vector2(331, 100)
+states/lie/node = SubResource("AnimationNodeAnimation_22pmy")
+states/lie/position = Vector2(200, -56)
 states/running/node = SubResource("AnimationNodeAnimation_wqfne")
 states/running/position = Vector2(538, 100)
-transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wnwbv"), "idle", "running", SubResource("AnimationNodeStateMachineTransition_gl8cc"), "running", "idle", SubResource("AnimationNodeStateMachineTransition_487ah")]
-graph_offset = Vector2(-452, -186)
+transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_wnwbv"), "idle", "running", SubResource("AnimationNodeStateMachineTransition_gl8cc"), "running", "idle", SubResource("AnimationNodeStateMachineTransition_487ah"), "idle", "lie", SubResource("AnimationNodeStateMachineTransition_yyj1f"), "lie", "get_up", SubResource("AnimationNodeStateMachineTransition_0k61a"), "get_up", "idle", SubResource("AnimationNodeStateMachineTransition_psm6p")]
+graph_offset = Vector2(-366, -138)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w442q"]
 animation = &"fall"
@@ -1640,7 +1711,7 @@ states/ground/position = Vector2(605, -21)
 states/jump/node = SubResource("AnimationNodeAnimation_km1h3")
 states/jump/position = Vector2(333, -21)
 transitions = ["Start", "Locomotion", SubResource("AnimationNodeStateMachineTransition_bj30b"), "Locomotion", "jump", SubResource("AnimationNodeStateMachineTransition_5ckpr"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_1s8h0"), "fall", "ground", SubResource("AnimationNodeStateMachineTransition_8fahi"), "ground", "Locomotion", SubResource("AnimationNodeStateMachineTransition_fo0v5"), "Locomotion", "fall", SubResource("AnimationNodeStateMachineTransition_d02rn")]
-graph_offset = Vector2(-233, -175)
+graph_offset = Vector2(-207, -59)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_iuwh4"]
 animation = &"dead_ground"
@@ -1832,6 +1903,7 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -13)
 shape = SubResource("CapsuleShape2D_qfm1y")
 
@@ -1841,6 +1913,7 @@ shape = SubResource("CapsuleShape2D_qfm1y")
 max_polyphony = 2
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 512
 collision_mask = 0
 monitoring = false
@@ -1854,6 +1927,7 @@ debug_color = Color(0.160784, 0.388235, 0.258824, 0.258824)
 one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 1024
 collision_mask = 131072
 monitoring = false
@@ -1886,6 +1960,7 @@ wait_time = 0.5
 one_shot = true
 
 [node name="terrain_detector" parent="." instance=ExtResource("85_5wbc8")]
+visible = false
 position = Vector2(0, 1)
 
 [node name="Controls" type="Node2D" parent="."]
