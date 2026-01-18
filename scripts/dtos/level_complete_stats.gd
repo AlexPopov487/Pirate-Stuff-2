@@ -8,15 +8,15 @@ var found_treasure: bool
 var collected_map: bool
 var is_last_level: bool
 
-func _init(coins_collected: int, 
-			coins_total: int, 
-			death_count: int, 
-			found_treasure: bool, 
-			collected_map: bool,
-			is_last_level: bool) -> void:
-	self.coins_collected = coins_collected
-	self.coins_total = coins_total
-	self.death_count = death_count
-	self.found_treasure = found_treasure
-	self.collected_map = collected_map
-	self.is_last_level = is_last_level
+func _init(_coins_collected: int, 
+			_coins_total: int, 
+			_death_count: int, 
+			_found_treasure: bool, 
+			_collected_map: bool,
+			_is_last_level: bool) -> void:
+	self.coins_collected = _coins_collected
+	self.coins_total = _coins_total
+	self.death_count = _death_count
+	self.found_treasure = _found_treasure
+	self.collected_map = _collected_map
+	self.is_last_level = _is_last_level

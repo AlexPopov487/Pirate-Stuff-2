@@ -32,6 +32,10 @@ class_name Player extends Character
 @onready var _controls: PlayerBehavior = $Controls
 @onready var _terrain_detector: TerrainDetector = $terrain_detector
 
+# store collision data to restore them when player is revided
+var _collision_layer = collision_layer
+var _collision_mask = collision_mask 
+
 # needed for the getting upd animation at level 1
 var _is_lying: bool = false
 var _should_get_up: bool = false

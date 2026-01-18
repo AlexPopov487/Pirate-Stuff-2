@@ -1884,6 +1884,7 @@ animations = [{
 collision_layer = 256
 collision_mask = 42008581
 script = ExtResource("1_mmjh0")
+deceleration = 75.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -12)

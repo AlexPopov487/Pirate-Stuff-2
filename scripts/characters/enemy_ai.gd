@@ -8,6 +8,7 @@ class_name EnemyBehavior
 
 @export var _obstacle_ray: RayCast2D
 @export var _ground_ray: RayCast2D
+@export var _jump_restrictor: Area2D
 @export var _ledge_behavior: LEDGE_BEHAVIOR
 
 
@@ -31,7 +32,9 @@ func is_patrolling() -> bool:
 	return _is_enabled
 
 func _ready() -> void:
+	_character.step_on_character_detected.connect(_jump_off_from_character)
 	_set_random_activity()
+	
 		
 func _process(_delta: float) -> void:
 	if not _is_enabled: 
@@ -61,8 +64,6 @@ func _set_random_activity():
 			picked_activity = true
 	
 	var activity_duration = randi_range(2, 6)
-	#print(get_parent().name + " set current activity to " + ACTIVITIES.find_key(_current_activity) + 
-		#" for " + str(activity_duration) + "s.")
 	_wind_activity_timer(activity_duration)
 
 func _wind_activity_timer(duration: int):
@@ -91,9 +92,21 @@ func _wander_around():
 	_character.run(_direction)
 
 func _jump_once():
+	if _has_enemies_or_player_nearby():
+		return
 	if _jump_cooldown_timer.is_stopped():
 		_character.jump()
 		_jump_cooldown_timer.start()
+
+func _has_enemies_or_player_nearby() -> bool:
+	var overlapping_bodies = _jump_restrictor.get_overlapping_bodies()
+	var has_other_bodies: bool = false
+	for body in overlapping_bodies:
+		if body is Character and body != _character:
+			has_other_bodies = true
+			break
+	
+	return has_other_bodies
 
 func _can_move_in_direction(direction: float) -> bool:
 	_position_obstacle_rays(direction)
@@ -138,3 +151,12 @@ func _position_obstacle_rays(direction: float):
 	_ground_ray.position.x = abs(_ground_ray.position.x) * direction
 	_ground_ray.target_position.x = abs(_ground_ray.target_position.x) * direction
 	_ground_ray.force_raycast_update()
+
+func _jump_off_from_character() -> void:
+	print_debug(_character.name + " trying to step from another character")
+	var push_force = 50.0
+	#if collider.global_position.x > global_position.x:
+		#velocity.x = -push_force
+	#else:
+		#velocity.x = push_force
+	#

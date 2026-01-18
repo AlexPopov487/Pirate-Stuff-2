@@ -11,6 +11,7 @@ class_name Enemy extends Character
 @onready var _player: Player
 @onready var _is_player_within_target_area: bool
 @onready var _jump_attack_height: float = sqrt(gravity * 2) * -1
+
 var _jump_attack_length: float = 6
 
 func face_other_way():
@@ -25,10 +26,23 @@ func face_left():
 	super.face_left()
 	_vision.scale.x = 1 if _flipped_by_default else -1
 
-
 func _process(_delta: float) -> void:
 	_set_patrolling_behavior()
 	
+func _physics_process(delta: float) -> void:
+	#_check_if_standing_on_character()
+	super._physics_process(delta)
+
+func _check_if_standing_on_character() -> void:
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is Character: 
+			if collider.global_position.y < global_position.y :
+				velocity.x = -_current_speed
+			elif collider.global_position.y > global_position.y:
+				velocity.x = _current_speed
 
 func _set_patrolling_behavior():
 	var _could_see_player = _can_see_player

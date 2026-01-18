@@ -26,6 +26,9 @@ func popup(text: String) -> void:
 	await _fade_to_clear()
 	visible = false
 
+func _ready() -> void:
+	visible = false
+
 func _fade_to_clear() -> Signal:
 	_stop_running_tween()
 	_tween = create_tween()

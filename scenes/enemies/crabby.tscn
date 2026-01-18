@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://cgftcoml81vct"]
+[gd_scene load_steps=104 format=3 uid="uid://cgftcoml81vct"]
 
 [ext_resource type="Script" uid="uid://dppaxpsqbkc4n" path="res://scripts/characters/crabby.gd" id="1_3q660"]
 [ext_resource type="Texture2D" uid="uid://b7vtwk4l87sjh" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_kdjfx"]
@@ -575,8 +575,12 @@ animations = [{
 radius = 8.0
 height = 72.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_h5kx5"]
-radius = 110.005
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vv2rc"]
+radius = 23.0
+height = 246.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdb4c"]
+height = 80.0
 
 [node name="crabby" type="CharacterBody2D"]
 collision_layer = 65536
@@ -602,6 +606,7 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_qfm1y")
 
@@ -616,9 +621,10 @@ position = Vector2(0, -11)
 target_position = Vector2(-24, 0)
 collision_mask = 65793
 
-[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray") instance=ExtResource("26_lovqd")]
+[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray", "_jump_restrictor") instance=ExtResource("26_lovqd")]
 _obstacle_ray = NodePath("../obstacle_check_ray")
 _ground_ray = NodePath("../ground_check_ray")
+_jump_restrictor = NodePath("../JumpRestrictor")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 131072
@@ -631,6 +637,7 @@ shape = SubResource("CircleShape2D_lovqd")
 debug_color = Color(0, 0.411765, 0.027451, 0.207843)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 512
 monitoring = false
@@ -661,12 +668,14 @@ debug_color = Color(0.659021, 0.506552, 0.266785, 0.42)
 one_shot = true
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 collision_layer = 524288
 collision_mask = 256
 
 [node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
-position = Vector2(-34, -24)
-shape = SubResource("CircleShape2D_h5kx5")
+position = Vector2(0, -23)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_vv2rc")
 debug_color = Color(0.524305, 0.535326, 0.565725, 0.42)
 
 [node name="LineOfSight" type="RayCast2D" parent="Vision"]
@@ -675,7 +684,21 @@ target_position = Vector2(-30, 0)
 collision_mask = 257
 
 [node name="terrain_detector" parent="." instance=ExtResource("49_h5kx5")]
+visible = false
 position = Vector2(0, 1)
+
+[node name="JumpRestrictor" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, -13)
+collision_layer = 0
+collision_mask = 65792
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpRestrictor"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bdb4c")
+debug_color = Color(3.1285e-06, 0.644924, 0.271022, 0.42)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox/Target" to="." method="_on_target_area_entered"]

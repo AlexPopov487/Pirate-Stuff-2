@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://v7qy8guo2xhy"]
+[gd_scene load_steps=89 format=3 uid="uid://v7qy8guo2xhy"]
 
 [ext_resource type="Script" uid="uid://sbom5pd7g1g6" path="res://scripts/levels/level_2.gd" id="1_exwx8"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_rvwo1"]
@@ -40,6 +40,8 @@
 [ext_resource type="Texture2D" uid="uid://d4d8wwxwuinax" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_no_collision.png" id="37_nsjcl"]
 [ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="41_0y23r"]
 [ext_resource type="Resource" uid="uid://bhm6b4wuqr8ms" path="res://resources/dialogues/lvl_2_d_1.dialogue" id="42_0y23r"]
+[ext_resource type="Resource" uid="uid://ls0dxs5c408h" path="res://resources/dialogues/lvl_2_d_3.dialogue" id="42_5ar51"]
+[ext_resource type="Resource" uid="uid://c7a7m30m5yk1k" path="res://resources/dialogues/lvl_2_d_2.dialogue" id="42_8ghkn"]
 [ext_resource type="Resource" uid="uid://dt45vsuliofed" path="res://resources/dialogues/lvl_2_d_0.dialogue" id="42_wrgna"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="43_exwx8"]
 [ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="47_5ar51"]
@@ -203,6 +205,21 @@ _data = {
 &"move": SubResource("Animation_yqg3d")
 }
 
+[sub_resource type="Animation" id="Animation_8ghkn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(912, 520)]
+}
+
 [sub_resource type="Animation" id="Animation_wrgna"]
 resource_name = "move"
 length = 4.0
@@ -218,21 +235,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(912, 520), Vector2(1230, 554)]
-}
-
-[sub_resource type="Animation" id="Animation_8ghkn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(912, 520)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5ar51"]
@@ -2561,16 +2563,23 @@ metadata/_edit_lock_ = true
 [node name="Hint" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(338, 448)
 monitorable = false
-_hint = "Крутни штурвал, чтобы сохраниться"
+_hint = "Хорошая примета:|крутанул штурвал — спас свою шкуру!|В случае смерти пират вернется|к этому месту."
 
 [node name="dialogues" type="Node" parent="environment"]
 
 [node name="DialogueTrigger" parent="environment/dialogues" instance=ExtResource("41_0y23r")]
 position = Vector2(233, 95)
+_dialogue = ExtResource("42_8ghkn")
+
+[node name="DialogueTrigger4" parent="environment/dialogues" instance=ExtResource("41_0y23r")]
+position = Vector2(4849, 449)
+_dialogue = ExtResource("42_5ar51")
+
+[node name="DialogueTrigger3" parent="environment/dialogues" instance=ExtResource("41_0y23r")]
+position = Vector2(1293, 320)
 _dialogue = ExtResource("42_0y23r")
 
 [node name="DialogueTrigger2" parent="environment/dialogues" instance=ExtResource("41_0y23r")]
-z_index = -1
 position = Vector2(149, 447)
 _dialogue = ExtResource("42_wrgna")
 
@@ -2698,6 +2707,10 @@ visible = false
 [connection signal="show_hint_popup" from="environment/hints/Hint" to="." method="show_hint_wood_popup"]
 [connection signal="body_entered" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_entered"]
 [connection signal="body_exited" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_exited"]
+[connection signal="body_entered" from="environment/dialogues/DialogueTrigger4" to="environment/dialogues/DialogueTrigger4" method="_on_body_entered"]
+[connection signal="body_exited" from="environment/dialogues/DialogueTrigger4" to="environment/dialogues/DialogueTrigger4" method="_on_body_exited"]
+[connection signal="body_entered" from="environment/dialogues/DialogueTrigger3" to="environment/dialogues/DialogueTrigger3" method="_on_body_entered"]
+[connection signal="body_exited" from="environment/dialogues/DialogueTrigger3" to="environment/dialogues/DialogueTrigger3" method="_on_body_exited"]
 [connection signal="body_entered" from="environment/dialogues/DialogueTrigger2" to="environment/dialogues/DialogueTrigger2" method="_on_body_entered"]
 [connection signal="body_exited" from="environment/dialogues/DialogueTrigger2" to="environment/dialogues/DialogueTrigger2" method="_on_body_exited"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride4" to="camera_overrides/CameraOverride4" method="_on_body_entered"]

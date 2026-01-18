@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://dl27tpgv6g4qh"]
+[gd_scene load_steps=92 format=3 uid="uid://dl27tpgv6g4qh"]
 
 [ext_resource type="Script" uid="uid://bqymyknq7p0e3" path="res://scripts/levels/level_9.gd" id="1_ey035"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_lhphj"]
@@ -56,6 +56,7 @@
 [ext_resource type="PackedScene" uid="uid://dp0vyorw23idi" path="res://scenes/treasure/blue_diamond.tscn" id="56_7nyog"]
 [ext_resource type="Texture2D" uid="uid://dtbkp4382mov4" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="56_mymtx"]
 [ext_resource type="Texture2D" uid="uid://byyhgpp1kl52d" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="57_dfgg1"]
+[ext_resource type="Resource" uid="uid://b27wcjq1i7rwg" path="res://resources/dialogues/lvl_9_d_0.dialogue" id="58_3d7qb"]
 [ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="58_5bgpt"]
 [ext_resource type="PackedScene" uid="uid://bxaxwhb1c6aif" path="res://scenes/environment/water_reflection_1.tscn" id="59_wc7ba"]
 [ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="60_2sux3"]
@@ -3490,7 +3491,8 @@ region_rect = Rect2(64, 0, 32, 32)
 [node name="dialogues" type="Node" parent="environment"]
 
 [node name="DialogueTrigger" parent="environment/dialogues" instance=ExtResource("19_gjaoo")]
-position = Vector2(4974, 225)
+position = Vector2(4982, 226)
+_dialogue = ExtResource("58_3d7qb")
 
 [node name="waterfalls" type="Node" parent="environment"]
 
@@ -3557,10 +3559,13 @@ scale = Vector2(0.814655, 1.02149)
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-318, 428)
+position = Vector2(-331, 431)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("45_pkqh2")]
 position = Vector2(611, -65)
+
+[node name="checkpoint_helm6" parent="checkpoints" instance=ExtResource("45_pkqh2")]
+position = Vector2(243, 448)
 
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("45_pkqh2")]
 position = Vector2(2044, -96)
@@ -3599,4 +3604,6 @@ shape = SubResource("RectangleShape2D_y5w57")
 debug_color = Color(0.893169, 0.254117, 0.506511, 0.42)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_entered"]
+[connection signal="body_exited" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_exited"]
 [connection signal="body_entered" from="TreasureArea" to="TreasureArea" method="_on_body_entered"]

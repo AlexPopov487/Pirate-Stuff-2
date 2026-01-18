@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://s8l0b878id76"]
+[gd_scene load_steps=116 format=3 uid="uid://s8l0b878id76"]
 
 [ext_resource type="Script" uid="uid://p45mvxxddkvi" path="res://scripts/characters/claw.gd" id="1_jip2x"]
 [ext_resource type="Texture2D" uid="uid://b7vtwk4l87sjh" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_jxaqu"]
@@ -641,7 +641,7 @@ radius = 7.0
 height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jxaqu"]
-radius = 7.0
+radius = 8.0
 height = 22.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ule2n"]
@@ -705,6 +705,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qi5oy"]
+height = 80.0
+
 [node name="claw" type="CharacterBody2D"]
 collision_layer = 65536
 collision_mask = 33620225
@@ -743,9 +746,10 @@ collision_mask = 65793
 position = Vector2(-34, -4)
 target_position = Vector2(0, 10)
 
-[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray") instance=ExtResource("28_jxaqu")]
+[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray", "_jump_restrictor") instance=ExtResource("28_jxaqu")]
 _obstacle_ray = NodePath("../obstacle_check_ray")
 _ground_ray = NodePath("../ground_check_ray")
+_jump_restrictor = NodePath("../JumpRestrictor")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 collision_layer = 131072
@@ -755,7 +759,7 @@ monitoring = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, -11)
 shape = SubResource("CapsuleShape2D_jxaqu")
-debug_color = Color(0, 0.401275, 0.277027, 0.0470588)
+debug_color = Color(0.200322, 1.92523e-07, 0.956305, 0.469)
 
 [node name="Hitbox" type="Area2D" parent="."]
 collision_layer = 262144
@@ -776,6 +780,7 @@ frame = 3
 frame_progress = 1.0
 
 [node name="Target" type="Area2D" parent="Hitbox"]
+visible = false
 position = Vector2(2, -8)
 rotation = 1.5708
 collision_layer = 1048576
@@ -811,7 +816,21 @@ sprite_frames = SubResource("SpriteFrames_ebwcg")
 animation = &"interrogation"
 
 [node name="terrain_detector" parent="." instance=ExtResource("57_qi5oy")]
+visible = false
 position = Vector2(0, 1)
+
+[node name="JumpRestrictor" type="Area2D" parent="."]
+visible = false
+position = Vector2(0, -13)
+collision_layer = 0
+collision_mask = 65792
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpRestrictor"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_qi5oy")
+debug_color = Color(3.1285e-06, 0.644924, 0.271022, 0.42)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="area_entered" from="Hitbox/Target" to="." method="_on_target_area_entered"]

@@ -6,8 +6,7 @@ const PLAYER_Y_OFFSET = 12
 @export var _subject: Character
 @export var _type: TYPE
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _type == TYPE.STATIC:
 		return
 	global_position.x = _subject.global_position.x

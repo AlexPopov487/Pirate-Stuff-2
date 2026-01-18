@@ -1,4 +1,4 @@
-[gd_scene load_steps=115 format=3 uid="uid://bhx6syxe7l8wc"]
+[gd_scene load_steps=116 format=3 uid="uid://bhx6syxe7l8wc"]
 
 [ext_resource type="Script" uid="uid://b4hrn3tlmw57y" path="res://scripts/characters/starfish.gd" id="1_4jvbl"]
 [ext_resource type="Texture2D" uid="uid://b7vtwk4l87sjh" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_8tfw7"]
@@ -693,6 +693,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7acdq"]
+height = 80.0
+
 [node name="starfish" type="CharacterBody2D"]
 collision_layer = 65536
 collision_mask = 33620225
@@ -733,9 +736,10 @@ collide_with_areas = true
 position = Vector2(-32, -4)
 target_position = Vector2(0, 10)
 
-[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray") instance=ExtResource("28_bbry7")]
+[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray", "_jump_restrictor") instance=ExtResource("28_bbry7")]
 _obstacle_ray = NodePath("../obstacle_check_ray")
 _ground_ray = NodePath("../ground_check_ray")
+_jump_restrictor = NodePath("../JumpRestrictor")
 
 [node name="Hurtbox" type="Area2D" parent="."]
 position = Vector2(1, 0)
@@ -802,6 +806,18 @@ animation = &"interrogation"
 
 [node name="terrain_detector" parent="." instance=ExtResource("57_7acdq")]
 position = Vector2(0, 1)
+
+[node name="JumpRestrictor" type="Area2D" parent="."]
+position = Vector2(0, -13)
+collision_layer = 0
+collision_mask = 65792
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="JumpRestrictor"]
+position = Vector2(0, 3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_7acdq")
+debug_color = Color(3.1285e-06, 0.644924, 0.271022, 0.42)
 
 [connection signal="area_entered" from="Hurtbox" to="." method="_on_hurtbox_area_entered"]
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

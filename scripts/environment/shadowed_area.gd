@@ -27,8 +27,5 @@ func _stop_running_tween():
 		_tween.kill()
 
 
-func _on_body_entered(body: Node2D) -> void:
-	#if body != Player:
-		#return
-		#
+func _on_body_entered(_body: Node2D) -> void:
 	_fade_to_clear()

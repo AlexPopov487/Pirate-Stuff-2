@@ -6,7 +6,7 @@ extends Area2D
 var _is_title_shown: bool = false
 
 
-func _on_body_entered(body: Node2D) -> void:
+func _on_body_entered(_body: Node2D) -> void:
 	if not File.data.has_key:
 		return
 		

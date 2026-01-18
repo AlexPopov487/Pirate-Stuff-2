@@ -92,6 +92,7 @@ autoplay = "default"
 frame_progress = 0.698512
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(1, -1)
 shape = SubResource("CapsuleShape2D_vbfac")
 

@@ -1632,7 +1632,7 @@ position = Vector2(1608, 467)
 
 [node name="Hint" parent="environment/hints" instance=ExtResource("32_o8s4s")]
 position = Vector2(374, 447)
-_hint = "A - для движения вправо|W - для движения влево"
+_hint = "A - для движения вправо|D - для движения влево"
 
 [node name="Hint2" parent="environment/hints" instance=ExtResource("32_o8s4s")]
 position = Vector2(548, 448)

@@ -51,13 +51,13 @@ func _ready() -> void:
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 2
+	File.data.current_level_idx = 7
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)
 	_inint_level_boundaries()
 	_init_level_ui()
-	
+
 	_player._has_sword = _current_level.get_player_armed()
 	_spawn_player()
 	
