@@ -668,7 +668,6 @@ debug_color = Color(0.659021, 0.506552, 0.266785, 0.42)
 one_shot = true
 
 [node name="Vision" type="Area2D" parent="."]
-visible = false
 collision_layer = 524288
 collision_mask = 256
 
@@ -679,9 +678,9 @@ shape = SubResource("CapsuleShape2D_vv2rc")
 debug_color = Color(0.524305, 0.535326, 0.565725, 0.42)
 
 [node name="LineOfSight" type="RayCast2D" parent="Vision"]
-position = Vector2(0, -18)
+position = Vector2(1, -12)
 target_position = Vector2(-30, 0)
-collision_mask = 257
+collision_mask = 33554689
 
 [node name="terrain_detector" parent="." instance=ExtResource("49_h5kx5")]
 visible = false

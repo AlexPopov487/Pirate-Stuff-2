@@ -51,7 +51,7 @@ func _ready() -> void:
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 7
+	File.data.current_level_idx = 8
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)
@@ -76,6 +76,7 @@ func _set_game_paused(should_pause: bool):
 
 func _init_level():
 	_letterbox.visible = false
+	_key.visible = false
 
 	#	_current level is null at first launch of the game
 	if (_current_level != null) :

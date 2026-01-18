@@ -6,7 +6,8 @@ var _checkpoint_reached = false
 
 
 func _on_body_entered(_body: Node2D) -> void:
-	collision_mask = 0
+	# This is needed for checkpoint to be triggered only once
+	#collision_mask = 0
 	_checkpoint_reached = true
 	File.data.last_checkbox_id = id
 	

@@ -99,6 +99,10 @@ func _jump_once():
 		_jump_cooldown_timer.start()
 
 func _has_enemies_or_player_nearby() -> bool:
+#	Some characters using EnemyAI do not need _jump_restrictor (e.g. Piggy NPC)
+	if _jump_restrictor == null:
+		return false
+	
 	var overlapping_bodies = _jump_restrictor.get_overlapping_bodies()
 	var has_other_bodies: bool = false
 	for body in overlapping_bodies:

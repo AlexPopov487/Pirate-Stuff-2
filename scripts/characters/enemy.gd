@@ -59,6 +59,9 @@ func _check_if_player_seen() -> bool:
 	if _player == null:
 		return false
 		
+	if not _is_floor_continuous():
+		return false
+		
 	var line_of_sight_dir: float = 1 if _flipped_by_default && _is_facing_left else -1
 	var sight_taget: Vector2 = _player.global_position - global_position
 	sight_taget.x *= line_of_sight_dir
@@ -66,6 +69,31 @@ func _check_if_player_seen() -> bool:
 	_line_of_sight.force_raycast_update()
 	
 	return _line_of_sight.is_colliding() && _line_of_sight.get_collider() == _player
+
+func _is_floor_continuous() -> bool:
+	var space_state = get_world_2d().direct_space_state
+	var start = global_position
+	var end = _player.global_position
+	
+	# We check the floor every 16 or 32 pixels between enemy and player
+	var check_interval = 20.0 
+	var distance = start.distance_to(end)
+	var direction = (end - start).normalized()
+	
+	for i in range(1, int(distance / check_interval)):
+		var check_point = start + (direction * i * check_interval)
+		# Cast a small ray down from this point to see if there is ground
+		var query = PhysicsRayQueryParameters2D.create(
+			check_point, 
+			check_point + Vector2.DOWN * 20, # How deep to look for floor
+			1 # Your floor's collision layer
+		)
+		var result = space_state.intersect_ray(query)
+		
+		if result.is_empty():
+			return false # Found a gap!
+			
+	return true
 
 func _stop_patrolling():
 	if _enemy_behavior:

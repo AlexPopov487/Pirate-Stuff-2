@@ -8,6 +8,7 @@ class_name Claw extends Enemy
 @export var attack_damage: int = 4
 
 var _is_recovering: bool
+var _took_damage_during_recovering: bool
 @onready var _animated_sprite: AnimatedSprite2D = $InteggorationAnimatedSprite2D
 
 func _ready() -> void:
@@ -33,6 +34,7 @@ func _recover():
 
 func _on_attack_cooldown_timeout() -> void:
 	_is_recovering = false
+	_took_damage_during_recovering = false
 	#_resume_patrolling()
 	_animated_sprite.stop()
 	_try_to_attack()
@@ -56,9 +58,10 @@ func _try_to_attack():
 		super._try_to_attack()
 
 func take_damage(amount: int, direction: Vector2):
-	if _is_recovering:
+	if _is_recovering and not _took_damage_during_recovering:
 		if _animated_sprite.is_playing(): # stop interrogation animation
 			_animated_sprite.stop()
+		_took_damage_during_recovering = true
 		super.take_damage(amount, direction)
 
 func _process(_delta: float) -> void:

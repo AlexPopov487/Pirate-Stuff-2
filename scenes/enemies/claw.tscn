@@ -752,6 +752,7 @@ _ground_ray = NodePath("../ground_check_ray")
 _jump_restrictor = NodePath("../JumpRestrictor")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 131072
 collision_mask = 0
 monitoring = false
@@ -762,6 +763,7 @@ shape = SubResource("CapsuleShape2D_jxaqu")
 debug_color = Color(0.200322, 1.92523e-07, 0.956305, 0.469)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 512
 monitoring = false
@@ -806,9 +808,9 @@ shape = SubResource("CapsuleShape2D_j5c7h")
 debug_color = Color(0.524305, 0.535326, 0.565725, 0.42)
 
 [node name="LineOfSight" type="RayCast2D" parent="Vision"]
-position = Vector2(0, -18)
+position = Vector2(0, -12)
 target_position = Vector2(-30, 0)
-collision_mask = 257
+collision_mask = 33554689
 
 [node name="InteggorationAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(3, -34)

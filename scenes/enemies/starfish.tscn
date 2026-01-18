@@ -742,6 +742,7 @@ _ground_ray = NodePath("../ground_check_ray")
 _jump_restrictor = NodePath("../JumpRestrictor")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 collision_layer = 131072
 collision_mask = 0
@@ -753,6 +754,7 @@ shape = SubResource("CircleShape2D_6wscw")
 debug_color = Color(0.0901961, 0.407843, 0.0980392, 0.227451)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 collision_layer = 262144
 collision_mask = 512
@@ -795,9 +797,9 @@ shape = SubResource("CapsuleShape2D_4cf6p")
 debug_color = Color(0.524305, 0.535326, 0.565725, 0.42)
 
 [node name="LineOfSight" type="RayCast2D" parent="Vision"]
-position = Vector2(0, -18)
+position = Vector2(0, -10)
 target_position = Vector2(-30, 0)
-collision_mask = 257
+collision_mask = 33554689
 
 [node name="InteggorationAnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(1, -36)
@@ -805,9 +807,11 @@ sprite_frames = SubResource("SpriteFrames_tpwpy")
 animation = &"interrogation"
 
 [node name="terrain_detector" parent="." instance=ExtResource("57_7acdq")]
+visible = false
 position = Vector2(0, 1)
 
 [node name="JumpRestrictor" type="Area2D" parent="."]
+visible = false
 position = Vector2(0, -13)
 collision_layer = 0
 collision_mask = 65792
