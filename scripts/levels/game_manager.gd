@@ -5,7 +5,7 @@ extends Node2D
 
 @onready var _player: Player = $Pirate
 @onready var _camera: GameCamera = $Camera2D
-@onready var _coins_container: HBoxContainer = $UserInterface/CoinsContainer
+@onready var _coins_container: HBoxContainer = $UserInterface/CoinPanelContainer/CoinsContainer
 @onready var _key: Control = $UserInterface/key
 @onready var _audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var _fade: Fade = $UserInterface/fade
@@ -17,6 +17,7 @@ extends Node2D
 @onready var _health_gauge: HealthGauge = $UserInterface/healthGauge
 @onready var _stamina_gauge: Control = $UserInterface/staminaGauge
 @onready var _letterbox: Control = $UserInterface/Letterbox
+@onready var _coin_panel_container: PanelContainer = $UserInterface/CoinPanelContainer
 
 
 var _current_level: Level
@@ -52,6 +53,7 @@ func _ready() -> void:
 		_set_game_paused(false)
 
 	File.data.current_level_idx = 8
+	
 	_init_level()
 	
 	_player.get_controls().set_enabled(false)
@@ -250,11 +252,13 @@ func hide_ui():
 	_health_gauge.visible = false
 	_stamina_gauge.visible = false
 	_coins_container.visible = false
+	_coin_panel_container.visible = false
 	
 func show_ui():
 	_health_gauge.visible = true
 	_stamina_gauge.visible = true
 	_coins_container.visible = true
+	_coin_panel_container.visible = true
 	
 func show_letterbox():
 	_letterbox.visible = true

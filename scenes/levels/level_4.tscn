@@ -1,4 +1,4 @@
-[gd_scene load_steps=101 format=3 uid="uid://bdeg5a12wvakf"]
+[gd_scene load_steps=102 format=3 uid="uid://bdeg5a12wvakf"]
 
 [ext_resource type="Script" uid="uid://beev7svqj76lo" path="res://scripts/levels/level_4.gd" id="1_dorgx"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_lbwwd"]
@@ -54,6 +54,7 @@
 [ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="51_e7jjn"]
 [ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="51_gpe64"]
 [ext_resource type="Resource" uid="uid://dcpl5l2b2gq15" path="res://resources/dialogues/lvl_4_d_0.dialogue" id="52_katdh"]
+[ext_resource type="Texture2D" uid="uid://dhpvctvfgqm6r" path="res://assets/Palm Tree Island/Sprites/Objects/ladder/ladder.png" id="53_katdh"]
 [ext_resource type="Script" uid="uid://cor62rc2ut4ju" path="res://scripts/environment/treasure_area.gd" id="54_jrilj"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="55_adlly"]
 [ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="56_jmlf3"]
@@ -2460,6 +2461,16 @@ _treasure_scene = ExtResource("12_ymi8l")
 [node name="Crate3" parent="pickups/crates" instance=ExtResource("11_owuur")]
 position = Vector2(1006, 543)
 
+[node name="Crate14" parent="pickups/crates" instance=ExtResource("11_owuur")]
+position = Vector2(1938, 320)
+
+[node name="Crate15" parent="pickups/crates" instance=ExtResource("11_owuur")]
+position = Vector2(1938, 302)
+_treasure_scene = ExtResource("10_2n8qx")
+
+[node name="Crate16" parent="pickups/crates" instance=ExtResource("11_owuur")]
+position = Vector2(1938, 284)
+
 [node name="Crate4" parent="pickups/crates" instance=ExtResource("11_owuur")]
 position = Vector2(1010, 525)
 
@@ -2506,6 +2517,22 @@ _treasure_scene = ExtResource("9_7bt4x")
 [node name="Barrel" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
 position = Vector2(783, 64)
 _treasure_scene = ExtResource("10_206ib")
+
+[node name="Barrel7" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
+position = Vector2(2033, 192)
+_treasure_scene = ExtResource("9_7bt4x")
+
+[node name="Barrel9" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
+position = Vector2(2033, 167)
+
+[node name="Barrel10" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
+position = Vector2(2033, 142)
+
+[node name="Barrel11" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
+position = Vector2(2033, 117)
+
+[node name="Barrel12" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
+position = Vector2(2033, 92)
 
 [node name="Barrel5" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
 position = Vector2(-86, 95)
@@ -3202,6 +3229,12 @@ texture = ExtResource("10_4luak")
 region_enabled = true
 region_rect = Rect2(96, 0, 32, 32)
 
+[node name="web_34" type="Sprite2D" parent="environment/web"]
+position = Vector2(2685, 1595)
+texture = ExtResource("10_4luak")
+region_enabled = true
+region_rect = Rect2(96, 0, 32, 32)
+
 [node name="web_19" type="Sprite2D" parent="environment/web"]
 position = Vector2(1118, 484)
 texture = ExtResource("10_4luak")
@@ -3244,10 +3277,84 @@ _state = 2
 position = Vector2(3082, 448)
 _dialogue = ExtResource("52_katdh")
 
+[node name="ladders" type="Node" parent="environment"]
+
+[node name="Ladder" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -304)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder2" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -272)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder3" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -240)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder4" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -208)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder5" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -176)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder6" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -144)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder7" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -112)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder8" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -80)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder9" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -48)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder10" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder11" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, 16)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
+[node name="Ladder12" type="Sprite2D" parent="environment/ladders"]
+z_index = -1
+position = Vector2(1713, 48)
+scale = Vector2(2, 2)
+texture = ExtResource("53_katdh")
+
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-760, 426)
+position = Vector2(-756, 432)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("51_gpe64")]
 position = Vector2(1637, 64)

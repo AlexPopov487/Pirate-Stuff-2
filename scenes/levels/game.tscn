@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=3 uid="uid://bjbjnv74t2usm"]
+[gd_scene load_steps=65 format=3 uid="uid://bjbjnv74t2usm"]
 
 [ext_resource type="Script" uid="uid://bsevfhcfjrvel" path="res://scripts/levels/game_manager.gd" id="1_bpkyr"]
 [ext_resource type="Script" uid="uid://bg5rdjxmq74jo" path="res://scripts/environment/camera.gd" id="2_1qlo5"]
@@ -113,6 +113,13 @@ collision_mode = 2
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xa5q"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt305"]
+bg_color = Color(1, 1, 1, 0.05)
+corner_detail = 12
+
+[sub_resource type="Theme" id="Theme_pisws"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_tt305")
+
 [node name="game" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_bpkyr")
@@ -162,41 +169,6 @@ preprocess = 0.5
 visibility_rect = Rect2(0, 0, 1280, 720)
 draw_order = 0
 process_material = SubResource("ParticleProcessMaterial_tb13f")
-
-[node name="CoinsContainer" type="HBoxContainer" parent="UserInterface"]
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 110.0
-offset_bottom = 72.0
-script = ExtResource("7_886ur")
-_digits = Array[Texture2D]([ExtResource("8_cx7qy"), ExtResource("9_r4lr3"), ExtResource("10_15o36"), ExtResource("11_02t1k"), ExtResource("12_hilwk"), ExtResource("13_v80qm"), ExtResource("14_fqlro"), ExtResource("15_tb13f"), ExtResource("16_i73dc"), ExtResource("17_1w27a")])
-
-[node name="icon" type="TextureRect" parent="UserInterface/CoinsContainer"]
-layout_mode = 2
-texture = ExtResource("7_xmnyv")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="num_hundreds" type="TextureRect" parent="UserInterface/CoinsContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-texture = ExtResource("8_cx7qy")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="num_tens" type="TextureRect" parent="UserInterface/CoinsContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-texture = ExtResource("8_cx7qy")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="num_ones" type="TextureRect" parent="UserInterface/CoinsContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-texture = ExtResource("8_cx7qy")
-expand_mode = 4
-stretch_mode = 5
 
 [node name="key" type="TextureRect" parent="UserInterface"]
 visible = false
@@ -572,6 +544,46 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
+
+[node name="CoinPanelContainer" type="PanelContainer" parent="UserInterface"]
+custom_minimum_size = Vector2(112, 0)
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 129.0
+offset_bottom = 72.0
+theme = SubResource("Theme_pisws")
+
+[node name="CoinsContainer" type="HBoxContainer" parent="UserInterface/CoinPanelContainer"]
+layout_mode = 2
+script = ExtResource("7_886ur")
+_digits = Array[Texture2D]([ExtResource("8_cx7qy"), ExtResource("9_r4lr3"), ExtResource("10_15o36"), ExtResource("11_02t1k"), ExtResource("12_hilwk"), ExtResource("13_v80qm"), ExtResource("14_fqlro"), ExtResource("15_tb13f"), ExtResource("16_i73dc"), ExtResource("17_1w27a")])
+
+[node name="icon" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+layout_mode = 2
+texture = ExtResource("7_xmnyv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="num_hundreds" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="num_tens" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="num_ones" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="Levels" type="Node" parent="."]
 process_mode = 1

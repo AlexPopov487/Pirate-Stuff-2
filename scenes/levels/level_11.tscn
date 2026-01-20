@@ -2248,6 +2248,8 @@ position = Vector2(922, 348)
 [node name="SmallChain6" parent="environment" instance=ExtResource("32_n40at")]
 position = Vector2(912, 331)
 
+[node name="bars" type="Node" parent="environment"]
+
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]

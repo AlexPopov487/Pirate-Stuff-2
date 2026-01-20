@@ -2944,6 +2944,18 @@ _treasure_scene = ExtResource("21_mpedx")
 position = Vector2(6066, -224)
 _treasure_scene = ExtResource("21_mpedx")
 
+[node name="Crate13" parent="pickups/crates" instance=ExtResource("20_n3msg")]
+position = Vector2(5715, 6)
+
+[node name="Crate15" parent="pickups/crates" instance=ExtResource("20_n3msg")]
+position = Vector2(5715, -55)
+
+[node name="Crate16" parent="pickups/crates" instance=ExtResource("20_n3msg")]
+position = Vector2(5715, -73)
+
+[node name="Crate14" parent="pickups/crates" instance=ExtResource("20_n3msg")]
+position = Vector2(5715, -12)
+
 [node name="Crate12" parent="pickups/crates" instance=ExtResource("20_n3msg")]
 position = Vector2(5938, 225)
 _treasure_scene = ExtResource("21_mpedx")
@@ -2991,6 +3003,12 @@ _treasure_scene = ExtResource("23_umkvo")
 [node name="Barrel9" parent="pickups/barrels" instance=ExtResource("22_lq56f")]
 position = Vector2(5620, -160)
 _treasure_scene = ExtResource("23_umkvo")
+
+[node name="Barrel13" parent="pickups/barrels" instance=ExtResource("22_lq56f")]
+position = Vector2(5714, 32)
+
+[node name="Barrel14" parent="pickups/barrels" instance=ExtResource("22_lq56f")]
+position = Vector2(5714, -30)
 
 [node name="Barrel10" parent="pickups/barrels" instance=ExtResource("22_lq56f")]
 position = Vector2(5455, 193)
@@ -3808,7 +3826,7 @@ _dialogue = ExtResource("27_umkvo")
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-320, 430)
+position = Vector2(-316, 432)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("50_8d8jv")]
 position = Vector2(1627, 416)

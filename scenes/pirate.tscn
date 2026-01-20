@@ -669,7 +669,7 @@ tracks/5/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.100277),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(13.665, -6.135), Vector2(13.665, -6.135), Vector2(22, -8)]
+"values": [Vector2(13.665, -6.57), Vector2(13.665, -7.21), Vector2(22, -9.665)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
@@ -786,7 +786,7 @@ tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.100668),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(11, -23), Vector2(11, -23), Vector2(22, -10)]
+"values": [Vector2(11, -23), Vector2(11, -23), Vector2(22, -17)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
@@ -810,7 +810,7 @@ tracks/6/keys = {
 "times": PackedFloat32Array(0, 0.0666667, 0.100668),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1, 1), Vector2(2.5, 2.5)]
+"values": [Vector2(1, 1), Vector2(1, 1), Vector2(1.5, 1.5)]
 }
 tracks/7/type = "method"
 tracks/7/imported = false
@@ -1928,7 +1928,6 @@ debug_color = Color(0.160784, 0.388235, 0.258824, 0.258824)
 one_shot = true
 
 [node name="Hitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 1024
 collision_mask = 131072
 monitoring = false
