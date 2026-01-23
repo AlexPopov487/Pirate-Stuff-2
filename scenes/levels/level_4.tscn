@@ -2209,9 +2209,6 @@ position = Vector2(2402, 1552)
 
 [node name="coins" type="Node" parent="pickups"]
 
-[node name="silver_coin" parent="pickups/coins" instance=ExtResource("9_7bt4x")]
-position = Vector2(432, 404)
-
 [node name="silver_coin10" parent="pickups/coins" instance=ExtResource("9_7bt4x")]
 position = Vector2(1841, -459)
 
@@ -2255,7 +2252,7 @@ position = Vector2(646, 229)
 position = Vector2(888, 327)
 
 [node name="silver_coin15" parent="pickups/coins" instance=ExtResource("9_7bt4x")]
-position = Vector2(1263, 150)
+position = Vector2(1260, 142)
 
 [node name="silver_coin9" parent="pickups/coins" instance=ExtResource("9_7bt4x")]
 position = Vector2(1152, -619)
@@ -2286,9 +2283,6 @@ position = Vector2(-146, 326)
 
 [node name="silver_coin16" parent="pickups/coins" instance=ExtResource("9_7bt4x")]
 position = Vector2(798, 245)
-
-[node name="silver_coin3" parent="pickups/coins" instance=ExtResource("9_7bt4x")]
-position = Vector2(3, 103)
 
 [node name="gold_coin" parent="pickups/coins" instance=ExtResource("10_2n8qx")]
 position = Vector2(115, 404)
@@ -2393,7 +2387,7 @@ position = Vector2(2934, -74)
 position = Vector2(1301, 1009)
 
 [node name="silver_coin20" parent="pickups/coins" instance=ExtResource("9_7bt4x")]
-position = Vector2(303, 1083)
+position = Vector2(303, 1082)
 
 [node name="gold_coin19" parent="pickups/coins" instance=ExtResource("10_2n8qx")]
 position = Vector2(302, 1060)
@@ -2423,7 +2417,7 @@ position = Vector2(1006, -333)
 position = Vector2(494, 22)
 
 [node name="gold_coin5" parent="pickups/coins" instance=ExtResource("10_2n8qx")]
-position = Vector2(445, -56)
+position = Vector2(445, -90)
 
 [node name="gold_coin6" parent="pickups/coins" instance=ExtResource("10_2n8qx")]
 position = Vector2(847, 13)
@@ -2466,10 +2460,9 @@ position = Vector2(1938, 320)
 
 [node name="Crate15" parent="pickups/crates" instance=ExtResource("11_owuur")]
 position = Vector2(1938, 302)
-_treasure_scene = ExtResource("10_2n8qx")
 
 [node name="Crate16" parent="pickups/crates" instance=ExtResource("11_owuur")]
-position = Vector2(1938, 284)
+position = Vector2(1938, 285)
 
 [node name="Crate4" parent="pickups/crates" instance=ExtResource("11_owuur")]
 position = Vector2(1010, 525)
@@ -2520,7 +2513,6 @@ _treasure_scene = ExtResource("10_206ib")
 
 [node name="Barrel7" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
 position = Vector2(2033, 192)
-_treasure_scene = ExtResource("9_7bt4x")
 
 [node name="Barrel9" parent="pickups/barrels" instance=ExtResource("9_fwhj0")]
 position = Vector2(2033, 167)
@@ -3354,7 +3346,7 @@ texture = ExtResource("53_katdh")
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-756, 432)
+position = Vector2(-751, 426)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("51_gpe64")]
 position = Vector2(1637, 64)

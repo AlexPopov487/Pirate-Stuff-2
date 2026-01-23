@@ -8,7 +8,13 @@ enum STATE{OPENED, CLOSED, LOCKED}
 @export var _gold_coin: PackedScene
 @export var _padlock: PackedScene
 @onready var _random_gen : RandomNumberGenerator = RandomNumberGenerator.new()
+
+var _total_coin_count: int  
 var _booty: Array[Collectable]
+
+
+func count_coins() -> int:
+	return _total_coin_count
 
 func plunder():
 	for coin in _booty:
@@ -35,12 +41,16 @@ func throw_lock():
 	get_parent().add_child(padlock_body)	
 	
 func _ready() -> void:
+	# Defines classes that contain coin-like objects. 
+	# These classes implement count_coins() method, that provide level with total coin count 
+	add_to_group("coin_source")
 	_init_chest()
 
 func _is_even(value: int):
 	return value % 2 == 0
 
 func _init_chest():
+#	 TODO this probably need fixing, since gold and silver coins are now equal.
 	var gold_coin_count: int = 0
 	var silver_coin_count: int = 0
 	
@@ -64,7 +74,15 @@ func _init_chest():
 	for i in silver_coin_count:
 		var coin = _silver_coin.instantiate()
 		_booty.append(coin)
+	
+	_compute_total_coin_count()
 
+func _compute_total_coin_count() -> void:
+	var total: int = 0
+	for body in _booty:
+		if body.is_in_group("coin_source") and body.has_method("count_coins"):
+			total += body.count_coins()
+	_total_coin_count = total
 
 func _on_body_entered(body: Node2D) -> void:
 	if body is not Character:

@@ -52,7 +52,7 @@ func _ready() -> void:
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 8
+	File.data.current_level_idx = 4
 	
 	_init_level()
 	
@@ -159,8 +159,7 @@ func _on_level_completed():
 	
 	_level_complete_window.display_window(LevelCompleteStats.new(
 		File.data.coins,
-#		TODO count all coins on a level
-		100, 
+		_current_level.get_total_coin_count(), 
 		File.data.death_count,
 		File.data.found_secret_treasure,
 		File.data.found_map,

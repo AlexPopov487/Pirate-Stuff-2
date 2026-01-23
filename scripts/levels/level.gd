@@ -19,6 +19,7 @@ var is_last_level: bool = false
 @onready var _title: LevelTitle = get_node_or_null("Title")
 @onready var _player: Player
 @onready var _ship_in: ShipPlaftorm = get_node_or_null("platforms/ship_in")
+var _total_coins_on_level: int
 
 signal level_completed
 
@@ -62,6 +63,37 @@ func restore_ship_position() -> void:
 	
 	_ship_in.reset()
 	
+func hide_hint_wood_popup(player: Player):
+	if _hint_ui == null:
+		push_warning(name + " failed to hide hint popup. HintUI scene is null")
+		return
+		
+	if player == null:
+		push_warning(name + " failed to hide hint popup. Player scene is null")
+		return
+	
+	_hint_ui.hide_ui()
+	player.get_controls().set_enabled(true)
+
+
+func show_hint_wood_popup(hint_type: Globals.HINT_TYPE, player: Player, text: String):
+	if _hint_ui == null:
+		push_error(name + " failed to show hint popup. HintUI scene is null")
+		return
+		
+	if player == null:
+		push_error(name + " failed to show hint popup. Player scene is null")
+		return
+		
+	player.get_controls().set_enabled(false)
+	match hint_type:
+		Globals.HINT_TYPE.WOOD_SIGN:
+			_hint_ui.show_wood_hint(text)
+		Globals.HINT_TYPE.LETTER:
+			_hint_ui.show_letter(text)
+			
+func get_total_coin_count() -> int:
+	return _total_coins_on_level
 
 func _ready() -> void:
 	var half_size: Vector2 = _boundaries.shape.get_rect().size / 2
@@ -70,6 +102,7 @@ func _ready() -> void:
 	
 	_init_level_overlay()
 	_init_checkpoint_nodes()
+	_count_total_coins()
 
 func _init_checkpoint_nodes():
 	_checkpoints = $checkpoints.get_children()
@@ -104,34 +137,10 @@ func _init_overlay(color: Color) -> void:
 	_environment_overlay.visible = true
 	_background_overlay.visible = true
 	
+func _count_total_coins() -> void:
+	var total = 0
+	for child in get_tree().get_nodes_in_group("coin_source"): # Recursive search
+		if child.has_method("count_coins"):
+			total += child.count_coins()
 	
-func hide_hint_wood_popup(player: Player):
-	if _hint_ui == null:
-		push_warning(name + " failed to hide hint popup. HintUI scene is null")
-		return
-		
-	if player == null:
-		push_warning(name + " failed to hide hint popup. Player scene is null")
-		return
-	
-	_hint_ui.hide_ui()
-	player.get_controls().set_enabled(true)
-
-
-func show_hint_wood_popup(hint_type: Globals.HINT_TYPE, player: Player, text: String):
-	if _hint_ui == null:
-		push_error(name + " failed to show hint popup. HintUI scene is null")
-		return
-		
-	if player == null:
-		push_error(name + " failed to show hint popup. Player scene is null")
-		return
-		
-	player.get_controls().set_enabled(false)
-	match hint_type:
-		Globals.HINT_TYPE.WOOD_SIGN:
-			_hint_ui.show_wood_hint(text)
-		Globals.HINT_TYPE.LETTER:
-			_hint_ui.show_letter(text)
-	
-	
+	_total_coins_on_level = total

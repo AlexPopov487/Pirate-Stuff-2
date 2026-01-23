@@ -7,7 +7,6 @@ extends RigidBody2D
 
 var has_taken_damage_once: bool
 
-
 func take_damage(_amount: int, direction: Vector2):
 	if has_taken_damage_once:
 		return
@@ -20,6 +19,19 @@ func take_damage(_amount: int, direction: Vector2):
 	_debries.shutter()
 	collision_layer = 0 # to prevent player colliding with phantom crate
 	_animated_sprite_2d.visible = false
+	
+
+func count_coins() -> int:
+	var value = 0
+	if Globals.is_scene_in_group(_treasure_scene, "coin_source"):
+		value = Globals.get_value_from_packed_scene(_treasure_scene, "_type")
+	
+	return value
+
+func _ready() -> void:
+	# Defines classes that contain coin-like objects. 
+	# These classes implement count_coins() method, that provide level with total coin count 
+	add_to_group("coin_source") 
 	
 	
 func _plunder_potion():

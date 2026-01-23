@@ -11,7 +11,18 @@ enum TYPE {SHOOTER, BITER}
 
 @onready var _seashell_ai: Node2D = $SeashellAi
 
+func count_coins() -> int:
+	var value = 0
+	if Globals.is_scene_in_group(_pearl_collectable, "coin_source"):
+		value = Globals.get_value_from_packed_scene(_pearl_collectable, "_type")
+	
+	return value
+
 func _ready() -> void:
+	# Defines classes that contain coin-like objects. 
+	# These classes implement count_coins() method, that provide level with total coin count 
+	add_to_group("coin_source") 
+	
 	_projectile_speed = 7
 	_projectile_damage = 1
 	_fire_cooldown_ttl = 1

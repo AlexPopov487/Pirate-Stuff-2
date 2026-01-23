@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bdv3earxlqyqi"]
 
-[ext_resource type="Script" uid="uid://hqpdokuvi100" path="res://scripts/collectables/red_diamond.gd" id="1_hj1wc"]
+[ext_resource type="Script" uid="uid://kw0bpi4y1ba" path="res://scripts/collectables/coin.gd" id="1_hj1wc"]
 [ext_resource type="Texture2D" uid="uid://laemk6x00fnr" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/01.png" id="2_s4xfr"]
 [ext_resource type="Texture2D" uid="uid://civhubh127q8i" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/02.png" id="3_elhxd"]
 [ext_resource type="Texture2D" uid="uid://dhfivilc6rco0" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/03.png" id="4_le7ec"]
@@ -50,7 +50,7 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jsmju"]
 
-[node name="red_diamond" type="RigidBody2D"]
+[node name="red_diamond" type="RigidBody2D" groups=["coin_source"]]
 collision_layer = 16777216
 collision_mask = 257
 lock_rotation = true
@@ -59,6 +59,7 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_hj1wc")
+_type = 15
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)

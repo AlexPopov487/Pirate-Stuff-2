@@ -46,6 +46,7 @@ enabled=PackedStringArray("res://addons/dialogue_manager/plugin.cfg")
 [global_group]
 
 enemies=""
+coin_source="Defines classes that contain coin-like objects. These classes implement count_coins() method, that provide level with total coin count add_to_group(\"coin_sources\") "
 
 [input]
 
