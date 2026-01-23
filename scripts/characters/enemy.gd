@@ -26,6 +26,17 @@ func face_left():
 	super.face_left()
 	_vision.scale.x = 1 if _flipped_by_default else -1
 
+func is_player_behind() -> bool:
+	if !_player:
+		return false
+	
+	if ((_is_facing_left and _player.position.x > position.x)
+	or (!_is_facing_left and _player.position.x < position.x)):
+		return true
+	
+	return false
+	
+
 func _process(_delta: float) -> void:
 	_set_patrolling_behavior()
 	

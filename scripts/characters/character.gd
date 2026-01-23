@@ -89,6 +89,7 @@ func take_damage(amount: int, direction: Vector2):
 	
 	_is_hit = true
 	
+	# Available for Player only
 	if _invincibility_duration > 0:
 		_become_invincible()
 

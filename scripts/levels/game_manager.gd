@@ -52,7 +52,7 @@ func _ready() -> void:
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 4
+	File.data.current_level_idx = 8
 	
 	_init_level()
 	
