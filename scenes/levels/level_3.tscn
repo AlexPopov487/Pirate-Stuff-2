@@ -1379,6 +1379,9 @@ position = Vector2(-303, 398)
 position = Vector2(1053, 384)
 metadata/_edit_lock_ = true
 
+[node name="checkpoint_helm8" parent="checkpoints" instance=ExtResource("47_8ghkn")]
+position = Vector2(24, 415)
+
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("47_8ghkn")]
 position = Vector2(2686, 192)
 metadata/_edit_lock_ = true

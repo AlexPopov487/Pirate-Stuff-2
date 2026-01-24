@@ -3351,6 +3351,9 @@ position = Vector2(-751, 426)
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("51_gpe64")]
 position = Vector2(1637, 64)
 
+[node name="checkpoint_helm4" parent="checkpoints" instance=ExtResource("51_gpe64")]
+position = Vector2(-239, 447)
+
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("51_gpe64")]
 position = Vector2(719, 511)
 

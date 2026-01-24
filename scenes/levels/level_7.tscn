@@ -4415,11 +4415,11 @@ position = Vector2(4952, 433)
 [node name="dialogues" type="Node" parent="environment"]
 
 [node name="DialogueTrigger" parent="environment/dialogues" instance=ExtResource("61_q4bap")]
-position = Vector2(-124, 447)
+position = Vector2(-95, 447)
 _dialogue = ExtResource("62_lyblr")
 
 [node name="DialogueTrigger3" parent="environment/dialogues" instance=ExtResource("61_q4bap")]
-position = Vector2(-23, 448)
+position = Vector2(-8, 448)
 _dialogue = ExtResource("63_vemna")
 
 [node name="DialogueTrigger4" parent="environment/dialogues" instance=ExtResource("61_q4bap")]
@@ -5084,6 +5084,9 @@ position = Vector2(-617, 430)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("48_hlyf7")]
 position = Vector2(1681, -160)
+
+[node name="checkpoint_helm10" parent="checkpoints" instance=ExtResource("48_hlyf7")]
+position = Vector2(-155, 447)
 
 [node name="checkpoint_helm5" parent="checkpoints" instance=ExtResource("48_hlyf7")]
 position = Vector2(2080, 160)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://dioy4knh25cpm"]
+[gd_scene load_steps=26 format=3 uid="uid://dioy4knh25cpm"]
 
 [ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="1_cgs6i"]
 [ext_resource type="Script" uid="uid://mckyucx2aygg" path="res://scripts/levels/title_manager.gd" id="1_yhiml"]
@@ -10,27 +10,16 @@
 [ext_resource type="Texture2D" uid="uid://dtbkp4382mov4" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="9_3h535"]
 [ext_resource type="Texture2D" uid="uid://byyhgpp1kl52d" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="10_xbeyx"]
 [ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="11_37g8r"]
+[ext_resource type="Texture2D" uid="uid://b2is2rktf08fd" path="res://assets/Wood and Paper UI/Sprites/Title/game_title.png" id="12_c1c7m"]
 [ext_resource type="TileSet" uid="uid://br5ymqby1l3el" path="res://resources/tile_set.tres" id="12_txffm"]
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="13_c1c7m"]
 [ext_resource type="Theme" uid="uid://c3d6rb6kavbns" path="res://resources/ui_theme.tres" id="13_i8iil"]
 [ext_resource type="Texture2D" uid="uid://buhduvaiwjocx" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="14_yhiml"]
-[ext_resource type="Texture2D" uid="uid://ce7vdg3ytc2gq" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/14.png" id="15_js7t4"]
-[ext_resource type="Texture2D" uid="uid://bibow6i10bt07" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/5.png" id="16_yqy8e"]
-[ext_resource type="Texture2D" uid="uid://cn5kg64d7252u" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/23.png" id="17_0n1yb"]
-[ext_resource type="Texture2D" uid="uid://mc8vs8ka784a" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/7.png" id="18_xovig"]
-[ext_resource type="Texture2D" uid="uid://bhknhdjx6w6qq" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/1.png" id="19_jrltb"]
+[ext_resource type="FontFile" uid="uid://iqin2itdwl57" path="res://resources/fonts/bitcell_memesbruh03.ttf" id="15_xovig"]
+[ext_resource type="Texture2D" uid="uid://b5eng1fv2of7t" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/9.png" id="16_3h535"]
+[ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="17_jrltb"]
 [ext_resource type="PackedScene" uid="uid://c47s83g4fhss2" path="res://scenes/pirate.tscn" id="19_nvmym"]
-[ext_resource type="Texture2D" uid="uid://em23fec82cf1" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/13.png" id="20_6jkuc"]
-[ext_resource type="Texture2D" uid="uid://c5gdwvd2teqip" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/3.png" id="21_3qwwo"]
-[ext_resource type="Texture2D" uid="uid://dxv24h0545aom" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/15.png" id="22_duba2"]
-[ext_resource type="Texture2D" uid="uid://bvtsyjrkqqw8j" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/20.png" id="23_wn3we"]
-[ext_resource type="Texture2D" uid="uid://ddjbee17xpdbf" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/9.png" id="24_k1712"]
-[ext_resource type="Texture2D" uid="uid://dyk86ufwaqnoj" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/22.png" id="25_ckgsv"]
 [ext_resource type="PackedScene" uid="uid://snabsd6oi21t" path="res://scenes/environment/fade.tscn" id="27_js7t4"]
-[ext_resource type="Texture2D" uid="uid://b2i2nfqlh3cwp" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/24.png" id="28_6jkuc"]
-[ext_resource type="Texture2D" uid="uid://y8vbhl5jj3nm" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/25.png" id="28_jrltb"]
-[ext_resource type="Texture2D" uid="uid://iqnyu0twx6gj" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/19.png" id="29_6jkuc"]
-[ext_resource type="Texture2D" uid="uid://bf8fqqtiyi65w" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/47.png" id="30_3qwwo"]
 [ext_resource type="Texture2D" uid="uid://bcr8u6vioq4vt" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/5.png" id="31_duba2"]
 [ext_resource type="Texture2D" uid="uid://dx5nh4kh454om" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/6.png" id="32_wn3we"]
 
@@ -84,35 +73,42 @@ stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 
 [node name="small_cloud_1" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
 position = Vector2(-301.333, 295)
 motion_scale = Vector2(0.9, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="small_cloud_1" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
-position = Vector2(3, -307)
+z_index = 1
+position = Vector2(3, -307.333)
 texture = ExtResource("8_rctxr")
 centered = false
 
 [node name="small_cloud_2" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
+z_index = 1
 position = Vector2(138, -244)
 texture = ExtResource("8_rctxr")
 centered = false
 
 [node name="small_cloud_4" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
+z_index = 1
 position = Vector2(570, -295)
 texture = ExtResource("8_rctxr")
 centered = false
 
 [node name="small_cloud_5" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
+z_index = 1
 position = Vector2(741, -202)
 texture = ExtResource("8_rctxr")
 centered = false
 
 [node name="big_cloud" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
 position = Vector2(-301.333, 175)
 motion_mirroring = Vector2(448, 0)
 
 [node name="big_cloud" type="TextureRect" parent="ParallaxBackground/big_cloud"]
+z_index = 2
 offset_top = -118.0
 offset_right = 1152.0
 offset_bottom = -17.0
@@ -122,33 +118,39 @@ metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
 position = Vector2(-301.333, 175)
 motion_scale = Vector2(0.8, 1)
 motion_mirroring = Vector2(1152, 0)
 
-[node name="2_small-cloud_2" type="Sprite2D" parent="ParallaxBackground/small_cloud_2"]
-position = Vector2(341, -159)
-texture = ExtResource("10_xbeyx")
-centered = false
-
 [node name="2_small-cloud_3" type="Sprite2D" parent="ParallaxBackground/small_cloud_2"]
+z_index = 1
 position = Vector2(838, -133)
 texture = ExtResource("10_xbeyx")
 centered = false
 
 [node name="2_small-cloud_4" type="Sprite2D" parent="ParallaxBackground/small_cloud_2"]
+z_index = 1
 position = Vector2(983, -185)
 texture = ExtResource("10_xbeyx")
 centered = false
 
 [node name="small_cloud_3" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
 position = Vector2(-301.333, 175)
 motion_scale = Vector2(0.6, 1)
 motion_mirroring = Vector2(1152, 0)
 
 [node name="3_small_cloud_2" type="Sprite2D" parent="ParallaxBackground/small_cloud_3"]
+z_index = 1
 position = Vector2(270, -169)
 texture = ExtResource("11_37g8r")
+
+[node name="Title" type="Sprite2D" parent="ParallaxBackground"]
+z_index = 2
+position = Vector2(218.667, 57)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_c1c7m")
 
 [node name="TileMap" type="TileMap" parent="."]
 position = Vector2(138.8, 68.4)
@@ -190,66 +192,30 @@ layout_mode = 2
 [node name="NewGameButton" type="Button" parent="CanvasLayer/Buttons/NewGameButtonContainer"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("15_xovig")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_yhiml")
-icon = ExtResource("14_yhiml")
+icon = ExtResource("16_3h535")
 icon_alignment = 1
 
 [node name="Paper" type="Panel" parent="CanvasLayer/Buttons/NewGameButtonContainer"]
 custom_minimum_size = Vector2(80, 24)
 layout_mode = 2
+theme = ExtResource("17_jrltb")
 
-[node name="Banner" type="HBoxContainer" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper"]
+[node name="Label" type="Label" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -31.5
-offset_top = -3.0
-offset_right = 31.5
-offset_bottom = 3.0
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="N" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("15_js7t4")
-stretch_mode = 5
-
-[node name="E" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("16_yqy8e")
-stretch_mode = 5
-
-[node name="W" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("17_0n1yb")
-stretch_mode = 5
-
-[node name="SPACE" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-stretch_mode = 5
-
-[node name="G" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("18_xovig")
-stretch_mode = 5
-
-[node name="A" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("19_jrltb")
-stretch_mode = 5
-
-[node name="M" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("20_6jkuc")
-stretch_mode = 5
-
-[node name="E2" type="TextureRect" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("16_yqy8e")
-stretch_mode = 5
+text = "Новая игра"
 
 [node name="ContinueButtonContainer" type="HBoxContainer" parent="CanvasLayer/Buttons"]
 layout_mode = 2
@@ -266,59 +232,21 @@ icon_alignment = 1
 custom_minimum_size = Vector2(80, 24)
 layout_mode = 2
 
-[node name="Banner" type="HBoxContainer" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper"]
+[node name="Label" type="Label" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -3.0
-offset_right = 34.0
-offset_bottom = 3.0
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="C" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("21_3qwwo")
-stretch_mode = 5
-
-[node name="O" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("22_duba2")
-stretch_mode = 5
-
-[node name="N" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("15_js7t4")
-stretch_mode = 5
-
-[node name="T" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("23_wn3we")
-stretch_mode = 5
-
-[node name="I" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("24_k1712")
-stretch_mode = 5
-
-[node name="N2" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("15_js7t4")
-stretch_mode = 5
-
-[node name="U" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("25_ckgsv")
-stretch_mode = 5
-
-[node name="E" type="TextureRect" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("16_yqy8e")
-stretch_mode = 5
+theme = ExtResource("17_jrltb")
+text = "Продолжить"
 
 [node name="ExitButtonContainer2" type="HBoxContainer" parent="CanvasLayer/Buttons"]
 layout_mode = 2
@@ -334,39 +262,21 @@ icon_alignment = 1
 custom_minimum_size = Vector2(80, 24)
 layout_mode = 2
 
-[node name="Banner" type="HBoxContainer" parent="CanvasLayer/Buttons/ExitButtonContainer2/Paper"]
+[node name="Label" type="Label" parent="CanvasLayer/Buttons/ExitButtonContainer2/Paper"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -34.0
-offset_top = -3.0
-offset_right = 34.0
-offset_bottom = 3.0
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="C" type="TextureRect" parent="CanvasLayer/Buttons/ExitButtonContainer2/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("16_yqy8e")
-stretch_mode = 5
-
-[node name="O" type="TextureRect" parent="CanvasLayer/Buttons/ExitButtonContainer2/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("28_6jkuc")
-stretch_mode = 5
-
-[node name="N" type="TextureRect" parent="CanvasLayer/Buttons/ExitButtonContainer2/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("24_k1712")
-stretch_mode = 5
-
-[node name="T" type="TextureRect" parent="CanvasLayer/Buttons/ExitButtonContainer2/Paper/Banner"]
-layout_mode = 2
-texture = ExtResource("23_wn3we")
-stretch_mode = 5
+theme = ExtResource("17_jrltb")
+text = "Выйти"
 
 [node name="Confirmation" type="PanelContainer" parent="CanvasLayer"]
 visible = false
@@ -375,71 +285,56 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -47.0
-offset_top = -43.0
-offset_right = 47.0
-offset_bottom = 43.0
+offset_left = -97.0
+offset_top = -51.0
+offset_right = 97.0
+offset_bottom = 51.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(3, 3)
-pivot_offset = Vector2(47, 43)
+pivot_offset = Vector2(82, 36)
 theme = ExtResource("13_i8iil")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Confirmation"]
 layout_mode = 2
 
 [node name="Panel" type="Panel" parent="CanvasLayer/Confirmation/VBoxContainer"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(164, 48)
 layout_mode = 2
 
-[node name="VBoxContainer" type="HBoxContainer" parent="CanvasLayer/Confirmation/VBoxContainer/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Confirmation/VBoxContainer/Panel"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -16.0
-offset_top = -3.0
-offset_right = 16.0
-offset_bottom = 3.0
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Y" type="TextureRect" parent="CanvasLayer/Confirmation/VBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("28_jrltb")
-stretch_mode = 5
-
-[node name="E" type="TextureRect" parent="CanvasLayer/Confirmation/VBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("16_yqy8e")
-stretch_mode = 5
-
-[node name="S" type="TextureRect" parent="CanvasLayer/Confirmation/VBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("29_6jkuc")
-stretch_mode = 5
-
-[node name="Question" type="TextureRect" parent="CanvasLayer/Confirmation/VBoxContainer/Panel/VBoxContainer"]
-layout_mode = 2
-texture = ExtResource("30_3qwwo")
-stretch_mode = 5
+theme = ExtResource("17_jrltb")
+text = "Начать новую игру?
+Весь прогресс будет утерян"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Confirmation/VBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 8
 
 [node name="NoButton" type="Button" parent="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 2
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6jkuc")
 icon = ExtResource("31_duba2")
 
 [node name="YesButton" type="Button" parent="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 8
+size_flags_horizontal = 10
 theme_override_styles/focus = SubResource("StyleBoxEmpty_6jkuc")
 icon = ExtResource("32_wn3we")
 icon_alignment = 1

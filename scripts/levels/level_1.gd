@@ -10,7 +10,7 @@ func _ready() -> void:
 	_controls_enabled_by_default = false
 
 	if _title != null:
-		_title_text = "Начало"
+		_title_text = "Гибель пирата"
 		_title.delayed_popup(_title_text)
 
 func start_init_script() -> void:

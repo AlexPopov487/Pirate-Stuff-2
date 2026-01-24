@@ -3831,6 +3831,9 @@ position = Vector2(-316, 432)
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("50_8d8jv")]
 position = Vector2(1627, 416)
 
+[node name="checkpoint_helm6" parent="checkpoints" instance=ExtResource("50_8d8jv")]
+position = Vector2(211, 448)
+
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("50_8d8jv")]
 position = Vector2(2959, 322)
 

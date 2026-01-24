@@ -1,0 +1,156 @@
+[gd_scene load_steps=11 format=3 uid="uid://blc068j7o1yk1"]
+
+[ext_resource type="Script" uid="uid://syotbhj5e51i" path="res://scripts/ui/pause_menu.gd" id="1_6qnem"]
+[ext_resource type="Theme" uid="uid://c3d6rb6kavbns" path="res://resources/ui_theme.tres" id="1_lrbnh"]
+[ext_resource type="Texture2D" uid="uid://dj1i1abjocfa3" path="res://assets/Wood and Paper UI/Sprites/Small Banner/1.png" id="2_6qnem"]
+[ext_resource type="Texture2D" uid="uid://bqyo8hcv5ko2g" path="res://assets/Wood and Paper UI/Sprites/Small Banner/13.png" id="3_ynwdf"]
+[ext_resource type="Texture2D" uid="uid://ciplx4njevdm2" path="res://assets/Wood and Paper UI/Sprites/Small Banner/2.png" id="4_p4b6u"]
+[ext_resource type="Texture2D" uid="uid://buhduvaiwjocx" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="10_3xddx"]
+[ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="11_2nrdc"]
+[ext_resource type="Texture2D" uid="uid://d25ym2p36wher" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/23.png" id="12_jj4cn"]
+[ext_resource type="Texture2D" uid="uid://74kh7ghl4a4g" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/15.png" id="13_1prsh"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xa5q"]
+
+[node name="PauseMenu" type="CanvasLayer"]
+script = ExtResource("1_6qnem")
+
+[node name="PauseMenuOverlay" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.396078)
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme = ExtResource("1_lrbnh")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Banner" type="Control" parent="Control/VBoxContainer"]
+custom_minimum_size = Vector2(160, 38)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer/Banner"]
+layout_mode = 0
+offset_right = 32.0
+offset_bottom = 32.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_6qnem")
+
+[node name="TextureRect2" type="TextureRect" parent="Control/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = 32.0
+offset_right = 64.0
+offset_bottom = 32.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ynwdf")
+
+[node name="TextureRect3" type="TextureRect" parent="Control/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 0.25
+offset_right = 100.0
+offset_bottom = 32.25
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_ynwdf")
+
+[node name="TextureRect4" type="TextureRect" parent="Control/VBoxContainer/Banner"]
+layout_mode = 0
+offset_left = 114.0
+offset_right = 146.0
+offset_bottom = 32.0
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("4_p4b6u")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Banner"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -30.0
+offset_top = -3.795
+offset_right = 35.0
+offset_bottom = 10.205
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_2nrdc")
+text = "Меню паузы"
+
+[node name="Wood" type="PanelContainer" parent="Control/VBoxContainer"]
+layout_mode = 2
+
+[node name="Paper" type="Panel" parent="Control/VBoxContainer/Wood"]
+custom_minimum_size = Vector2(105, 100)
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/VBoxContainer/Wood"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="ResumeButtonContainer" type="HBoxContainer" parent="Control/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Resume" type="Button" parent="Control/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
+icon = ExtResource("10_3xddx")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer"]
+layout_mode = 2
+theme = ExtResource("11_2nrdc")
+text = "Продолжить"
+
+[node name="RestartButtonContainer" type="HBoxContainer" parent="Control/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Restart" type="Button" parent="Control/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
+icon = ExtResource("12_jj4cn")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer"]
+layout_mode = 2
+theme = ExtResource("11_2nrdc")
+text = "Начать заново"
+
+[node name="ExitButtonContainer" type="HBoxContainer" parent="Control/VBoxContainer/Wood/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Exit" type="Button" parent="Control/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]
+layout_mode = 2
+theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
+icon = ExtResource("13_1prsh")
+
+[node name="Label" type="Label" parent="Control/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]
+layout_mode = 2
+theme = ExtResource("11_2nrdc")
+text = "Главное меню"
+
+[connection signal="pressed" from="Control/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Resume" to="." method="_on_resume_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Restart" to="." method="_on_restart_pressed"]
+[connection signal="pressed" from="Control/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Exit" to="." method="_on_exit_pressed"]

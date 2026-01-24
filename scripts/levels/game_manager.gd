@@ -12,14 +12,12 @@ extends Node2D
 @onready var _map_container: MapContainer = $UserInterface/MapContainer
 @onready var _vfx: Vfx = $UserInterface/VFX
 @onready var _player_highlight: PointLight2D = $PlayerHighlight
-@onready var _pause_menu: Control = $UserInterface/PauseMenu
 @onready var _level_complete_window: LevelCompleteWindow = $UserInterface/LevelCompleteWindow
 @onready var _health_gauge: HealthGauge = $UserInterface/healthGauge
 @onready var _stamina_gauge: Control = $UserInterface/staminaGauge
 @onready var _letterbox: Control = $UserInterface/Letterbox
 @onready var _coin_panel_container: PanelContainer = $UserInterface/CoinPanelContainer
-
-
+@onready var _pause_menu: PauseMenu = $UserInterface/PauseMenu
 var _current_level: Level
 
 
@@ -46,13 +44,13 @@ func collect_map(map_type: Globals.MAP_TYPE):
 func _ready() -> void:
 #	TODO CALL _init_level_and_reset_player() INSTEAD
 	_fade.visible = true # set to invisible in editor during development
-	_pause_menu.visible = false
+	_pause_menu.set_menu_visibility(false)
 	
 	show_ui()
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 8
+	File.data.current_level_idx = 0
 	
 	_init_level()
 	
@@ -74,7 +72,7 @@ func _input(event: InputEvent):
 
 func _set_game_paused(should_pause: bool):
 	get_tree().paused = should_pause
-	_pause_menu.visible = should_pause
+	_pause_menu.set_menu_visibility(should_pause)
 
 func _init_level():
 	_letterbox.visible = false
@@ -200,7 +198,8 @@ func _init_level_and_reset_player():
 func _exit_to_main_menu():
 #	TODO save players progress
 	await _fade.fade_to_black()
-	_pause_menu.visible = false
+	_pause_menu.set_menu_visibility(false)
+
 	if get_tree().paused:
 		_set_game_paused(false)
 

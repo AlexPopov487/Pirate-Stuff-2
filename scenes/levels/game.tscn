@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=3 uid="uid://bjbjnv74t2usm"]
+[gd_scene load_steps=44 format=3 uid="uid://bjbjnv74t2usm"]
 
 [ext_resource type="Script" uid="uid://bsevfhcfjrvel" path="res://scripts/levels/game_manager.gd" id="1_bpkyr"]
 [ext_resource type="Script" uid="uid://bg5rdjxmq74jo" path="res://scripts/environment/camera.gd" id="2_1qlo5"]
@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://dvsd31q7jhkjl" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/30.png" id="12_hilwk"]
 [ext_resource type="Texture2D" uid="uid://dif8h7wi6pwcc" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/31.png" id="13_v80qm"]
 [ext_resource type="Texture2D" uid="uid://d24drybhh3f0k" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/32.png" id="14_fqlro"]
+[ext_resource type="PackedScene" uid="uid://blc068j7o1yk1" path="res://scenes/ui/pause_menu.tscn" id="15_f0qvk"]
 [ext_resource type="Texture2D" uid="uid://cuuvhu4anxor1" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/33.png" id="15_tb13f"]
 [ext_resource type="Texture2D" uid="uid://bk48um005p0qm" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/34.png" id="16_i73dc"]
 [ext_resource type="Texture2D" uid="uid://btxieunrv3t8d" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/35.png" id="17_1w27a"]
@@ -27,28 +28,7 @@
 [ext_resource type="Texture2D" uid="uid://bp4b22vdopi3x" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 4/01.png" id="24_1w27a"]
 [ext_resource type="PackedScene" uid="uid://snabsd6oi21t" path="res://scenes/environment/fade.tscn" id="25_tb13f"]
 [ext_resource type="Script" uid="uid://daup23xygbvqu" path="res://scripts/environment/vfx.gd" id="26_i73dc"]
-[ext_resource type="Theme" uid="uid://c3d6rb6kavbns" path="res://resources/ui_theme.tres" id="28_8xa5q"]
-[ext_resource type="Texture2D" uid="uid://dj1i1abjocfa3" path="res://assets/Wood and Paper UI/Sprites/Small Banner/1.png" id="32_33tjn"]
-[ext_resource type="Texture2D" uid="uid://bqyo8hcv5ko2g" path="res://assets/Wood and Paper UI/Sprites/Small Banner/13.png" id="33_fiprq"]
-[ext_resource type="Texture2D" uid="uid://ciplx4njevdm2" path="res://assets/Wood and Paper UI/Sprites/Small Banner/2.png" id="34_anjs8"]
-[ext_resource type="Texture2D" uid="uid://bhknhdjx6w6qq" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/1.png" id="37_1gpeq"]
-[ext_resource type="Texture2D" uid="uid://em23fec82cf1" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/13.png" id="38_v4sqr"]
-[ext_resource type="Texture2D" uid="uid://bibow6i10bt07" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/5.png" id="39_5egp0"]
-[ext_resource type="Texture2D" uid="uid://dyk86ufwaqnoj" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/22.png" id="41_o2f1w"]
-[ext_resource type="Texture2D" uid="uid://bly6vkp0q3rb3" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/18.png" id="42_1tc2r"]
-[ext_resource type="Texture2D" uid="uid://buhduvaiwjocx" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="43_jywka"]
-[ext_resource type="Texture2D" uid="uid://bvtsyjrkqqw8j" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/20.png" id="44_bsfij"]
-[ext_resource type="Texture2D" uid="uid://duapsuevf5628" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/1.png" id="46_bphj2"]
-[ext_resource type="Texture2D" uid="uid://ddmir516uj7tf" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/12.png" id="47_fhnvd"]
-[ext_resource type="Texture2D" uid="uid://ct8jr81mxo1u1" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/21.png" id="48_3actn"]
-[ext_resource type="Texture2D" uid="uid://iqnyu0twx6gj" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/19.png" id="49_clhor"]
 [ext_resource type="PackedScene" uid="uid://dcq7spnc4ud2y" path="res://scenes/ui/level_complete_window.tscn" id="49_tt305"]
-[ext_resource type="Texture2D" uid="uid://c5gdwvd2teqip" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/3.png" id="50_p1n8k"]
-[ext_resource type="Texture2D" uid="uid://74kh7ghl4a4g" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/15.png" id="51_7wj53"]
-[ext_resource type="Texture2D" uid="uid://b2i2nfqlh3cwp" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/24.png" id="52_8jg2u"]
-[ext_resource type="Texture2D" uid="uid://ddjbee17xpdbf" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/9.png" id="53_ksyyb"]
-[ext_resource type="Texture2D" uid="uid://dwei241auriuq" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/16.png" id="54_78i7y"]
-[ext_resource type="Texture2D" uid="uid://d25ym2p36wher" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/23.png" id="55_cbukv"]
 
 [sub_resource type="Gradient" id="Gradient_qlm4j"]
 offsets = PackedFloat32Array(0, 0.534979, 1)
@@ -110,8 +90,6 @@ scale_curve = SubResource("CurveXYZTexture_efprs")
 color_initial_ramp = SubResource("GradientTexture1D_f0qvk")
 alpha_curve = SubResource("CurveTexture_1w27a")
 collision_mode = 2
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xa5q"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt305"]
 bg_color = Color(1, 1, 1, 0.05)
@@ -227,283 +205,9 @@ visible = false
 layout_mode = 2
 texture = ExtResource("24_1w27a")
 
-[node name="PauseMenu" type="Control" parent="UserInterface"]
+[node name="PauseMenu" parent="UserInterface" instance=ExtResource("15_f0qvk")]
 process_mode = 2
-visible = false
-layout_mode = 3
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(4, 4)
-theme = ExtResource("28_8xa5q")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/PauseMenu"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -80.0
-offset_top = -84.0
-offset_right = 80.0
-offset_bottom = 84.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 0
-
-[node name="Banner" type="Control" parent="UserInterface/PauseMenu/VBoxContainer"]
-custom_minimum_size = Vector2(160, 38)
-layout_mode = 2
-size_flags_horizontal = 4
-
-[node name="TextureRect" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_right = 32.0
-offset_bottom = 32.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("32_33tjn")
-
-[node name="TextureRect2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 32.0
-offset_right = 64.0
-offset_bottom = 32.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("33_fiprq")
-
-[node name="TextureRect3" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 68.0
-offset_top = 0.25
-offset_right = 100.0
-offset_bottom = 32.25
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("33_fiprq")
-
-[node name="TextureRect4" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 114.0
-offset_right = 146.0
-offset_bottom = 32.0
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("34_anjs8")
-
-[node name="PAUSE" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Banner"]
-layout_mode = 0
-offset_left = 64.75
-offset_top = 19.25
-offset_right = 97.75
-offset_bottom = 25.25
-theme_override_constants/separation = 2
-
-[node name="P" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
-layout_mode = 2
-texture = ExtResource("54_78i7y")
-
-[node name="A" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
-layout_mode = 2
-texture = ExtResource("37_1gpeq")
-
-[node name="U" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
-layout_mode = 2
-texture = ExtResource("41_o2f1w")
-
-[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
-layout_mode = 2
-texture = ExtResource("49_clhor")
-
-[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Banner/PAUSE"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="Wood" type="PanelContainer" parent="UserInterface/PauseMenu/VBoxContainer"]
-custom_minimum_size = Vector2(160, 0)
-layout_mode = 2
-
-[node name="Paper" type="Panel" parent="UserInterface/PauseMenu/VBoxContainer/Wood"]
-custom_minimum_size = Vector2(105, 100)
-layout_mode = 2
-size_flags_horizontal = 8
-
-[node name="VBoxContainer" type="VBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood"]
-layout_mode = 2
-size_flags_vertical = 4
-
-[node name="ResumeButtonContainer" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="Resume" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer"]
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
-icon = ExtResource("43_jywka")
-
-[node name="Label" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 2
-
-[node name="R" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("42_1tc2r")
-
-[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("49_clhor")
-
-[node name="U" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("41_o2f1w")
-
-[node name="M" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("38_v4sqr")
-
-[node name="E2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="RestartButtonContainer" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="Restart" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer"]
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
-icon = ExtResource("55_cbukv")
-
-[node name="Label" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 2
-
-[node name="R" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("42_1tc2r")
-
-[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("49_clhor")
-
-[node name="T" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("44_bsfij")
-
-[node name="A" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("37_1gpeq")
-
-[node name="R2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("42_1tc2r")
-
-[node name="T2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("44_bsfij")
-
-[node name="LevelSelectButtonContainer" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="LevelSelect" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer"]
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
-icon = ExtResource("46_bphj2")
-
-[node name="Label" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 2
-
-[node name="L" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("47_fhnvd")
-
-[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="V" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("48_3actn")
-
-[node name="E2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="L2" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("47_fhnvd")
-
-[node name="SPACE" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-
-[node name="S" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("49_clhor")
-
-[node name="E3" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="L3" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("47_fhnvd")
-
-[node name="E4" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="C" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("50_p1n8k")
-
-[node name="T" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/LevelSelectButtonContainer/Label"]
-layout_mode = 2
-texture = ExtResource("44_bsfij")
-
-[node name="ExitButtonContainer" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/separation = 14
-
-[node name="Exit" type="Button" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]
-layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
-icon = ExtResource("51_7wj53")
-
-[node name="Laber" type="HBoxContainer" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]
-layout_mode = 2
-size_flags_vertical = 4
-theme_override_constants/separation = 2
-
-[node name="E" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("39_5egp0")
-
-[node name="X" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("52_8jg2u")
-
-[node name="I" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("53_ksyyb")
-
-[node name="T" type="TextureRect" parent="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Laber"]
-layout_mode = 2
-texture = ExtResource("44_bsfij")
+layer = 2
 
 [node name="fade" parent="UserInterface" instance=ExtResource("25_tb13f")]
 process_mode = 3
@@ -514,6 +218,7 @@ offset_bottom = 792.0
 mouse_filter = 2
 
 [node name="LevelCompleteWindow" parent="UserInterface" instance=ExtResource("49_tt305")]
+visible = false
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
@@ -597,7 +302,7 @@ process_mode = 1
 [connection signal="changed_health" from="Pirate" to="UserInterface/healthGauge" method="set_value"]
 [connection signal="died" from="Pirate" to="." method="_on_pirate_died"]
 [connection signal="landed" from="Pirate" to="Camera2D" method="_on_subject_landed"]
-[connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer/Resume" to="." method="_set_game_paused" binds= [false]]
-[connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer/Restart" to="." method="_restart_level"]
-[connection signal="pressed" from="UserInterface/PauseMenu/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer/Exit" to="." method="_exit_to_main_menu"]
+[connection signal="exit_button_pressed" from="UserInterface/PauseMenu" to="." method="_exit_to_main_menu"]
+[connection signal="restart_button_pressed" from="UserInterface/PauseMenu" to="." method="_restart_level"]
+[connection signal="resume_button_pressed" from="UserInterface/PauseMenu" to="." method="_set_game_paused" binds= [false]]
 [connection signal="next_level_button_pressed" from="UserInterface/LevelCompleteWindow" to="." method="_on_level_complete_window_next_level_button_pressed"]
