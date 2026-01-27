@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://cway2m7fdji2w"]
+[gd_scene load_steps=9 format=3 uid="uid://cway2m7fdji2w"]
 
 [ext_resource type="Script" uid="uid://duncfwqopuhd0" path="res://scripts/environment/lever.gd" id="1_12g08"]
 [ext_resource type="Texture2D" uid="uid://i3u4nwoba684" path="res://assets/Palm Tree Island/Sprites/Objects/lever/lever2.png" id="2_12g08"]
 [ext_resource type="PackedScene" uid="uid://cgmre0n47u83v" path="res://scenes/treasure/padlock.tscn" id="2_bib85"]
 [ext_resource type="Texture2D" uid="uid://b8vq3idt44r2" path="res://assets/Palm Tree Island/Sprites/Objects/lever/lever3.png" id="2_ppmx7"]
 [ext_resource type="Texture2D" uid="uid://dpak0pah7wcrm" path="res://assets/Palm Tree Island/Sprites/Objects/lever/lever1.png" id="3_bib85"]
+[ext_resource type="AudioStream" uid="uid://djh401cn6k5lh" path="res://audio/collectables/chest_open.wav" id="6_bib85"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_2rx6t"]
 animations = [{
@@ -46,5 +47,8 @@ animation = &"pull"
 position = Vector2(-3, -10)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_67w4y")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_bib85")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

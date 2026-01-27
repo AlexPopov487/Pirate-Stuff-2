@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://cdv7bvreii5n"]
+[gd_scene load_steps=75 format=3 uid="uid://cdv7bvreii5n"]
 
 [ext_resource type="Script" uid="uid://dauk2683dc1lp" path="res://scripts/characters/seashell.gd" id="1_krrxd"]
 [ext_resource type="PackedScene" uid="uid://bmb5alfohqrfu" path="res://scenes/treasure/collectable_pearl.tscn" id="2_53n0i"]
@@ -12,11 +12,13 @@
 [ext_resource type="Texture2D" uid="uid://scig4n68o1df" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Fire/2.png" id="9_5px4x"]
 [ext_resource type="Texture2D" uid="uid://cm88hyyepvsn0" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Fire/3.png" id="10_vlpd8"]
 [ext_resource type="Texture2D" uid="uid://dbp6abjyqknhx" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Fire/4.png" id="11_1ml8w"]
+[ext_resource type="AudioStream" uid="uid://jgby785dsos8" path="res://audio/shell/shell_bite.wav" id="11_eax7g"]
 [ext_resource type="Texture2D" uid="uid://bx6282venoyfr" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Fire/5.png" id="12_53n0i"]
 [ext_resource type="Texture2D" uid="uid://csc068lwr0mxl" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Fire/6.png" id="13_4owgk"]
 [ext_resource type="Texture2D" uid="uid://c0qxbmr4lvaeo" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Opening/1.png" id="14_1fy8k"]
 [ext_resource type="Texture2D" uid="uid://75l8j778ey2n" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Opening/2.png" id="15_p4vhc"]
 [ext_resource type="Texture2D" uid="uid://cyvc5r1xq6ltm" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Opening/3.png" id="16_xhda6"]
+[ext_resource type="AudioStream" uid="uid://verqch0jqj3j" path="res://audio/collectables/collectable_pearl_plunder.wav" id="17_1fy8k"]
 [ext_resource type="Texture2D" uid="uid://battgvoxvvjgo" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Opening/4.png" id="17_eax7g"]
 [ext_resource type="Texture2D" uid="uid://da7hsvvfrhwh8" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Bite/1.png" id="18_5px4x"]
 [ext_resource type="Texture2D" uid="uid://ce3rv221e6oa8" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Opening/5.png" id="18_bjs3k"]
@@ -26,7 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://dwfsjd32dhvyj" path="res://scenes/environment/debries/seashell_debries.tscn" id="21_krrxd"]
 [ext_resource type="Texture2D" uid="uid://bd67tdbxbugyf" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Bite/5.png" id="22_4owgk"]
 [ext_resource type="Texture2D" uid="uid://cqjnlhbstlia2" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Bite/6.png" id="23_1fy8k"]
+[ext_resource type="AudioStream" uid="uid://662yeqi1eama" path="res://audio/shell/shell_spit.wav" id="24_p4vhc"]
 [ext_resource type="PackedScene" uid="uid://d3foo2ba705n2" path="res://scenes/enemies/seashell_ai.tscn" id="28_vlpd8"]
+[ext_resource type="AudioStream" uid="uid://dgo0fgvb42epr" path="res://audio/shell/shell_hit.wav" id="28_xhda6"]
 [ext_resource type="PackedScene" uid="uid://c1drmucqxeui3" path="res://scenes/environment/terrain_detector.tscn" id="29_1ml8w"]
 [ext_resource type="Texture2D" uid="uid://4qo3bi44cc0x" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/11-Attack Effect/Attack Effect 01.png" id="49_egxo4"]
 [ext_resource type="Texture2D" uid="uid://b1mwl64tsk6jr" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/11-Attack Effect/Attack Effect 02.png" id="50_jd4aw"]
@@ -237,6 +241,21 @@ tracks/7/keys = {
 "method": &"_jump_attack"
 }]
 }
+tracks/8/type = "audio"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("AudioStreamPlayer2D")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"clips": [{
+"end_offset": 0.0604677,
+"start_offset": 0.0,
+"stream": ExtResource("11_eax7g")
+}],
+"times": PackedFloat32Array(0.166667)
+}
+tracks/8/use_blend = true
 
 [sub_resource type="Animation" id="Animation_7wewi"]
 resource_name = "close"
@@ -309,6 +328,21 @@ tracks/3/keys = {
 "method": &"shutter"
 }]
 }
+tracks/4/type = "audio"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("AudioStreamPlayer2D")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"clips": [{
+"end_offset": 0.0222158,
+"start_offset": 0.0,
+"stream": ExtResource("17_1fy8k")
+}],
+"times": PackedFloat32Array(0.0666667)
+}
+tracks/4/use_blend = true
 
 [sub_resource type="Animation" id="Animation_nk4q5"]
 length = 0.6
@@ -376,6 +410,21 @@ tracks/4/keys = {
 "method": &"start"
 }]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("24_p4vhc")
+}],
+"times": PackedFloat32Array(0.166667)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_lxrlu"]
 length = 0.4
@@ -405,6 +454,21 @@ tracks/1/keys = {
 "method": &"set_hit_false"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("28_xhda6")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_em4o3"]
 length = 0.1
@@ -620,6 +684,7 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -11)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qfm1y")
@@ -627,6 +692,7 @@ shape = SubResource("CapsuleShape2D_qfm1y")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 131072
 collision_mask = 0
 monitoring = false
@@ -638,6 +704,7 @@ shape = SubResource("CapsuleShape2D_jxaqu")
 debug_color = Color(0.216026, 0.52542, 0.352766, 0.376471)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 512
 monitoring = false
@@ -670,6 +737,7 @@ debug_color = Color(0.659021, 0.506552, 0.266785, 0.42)
 one_shot = true
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 collision_layer = 524288
 collision_mask = 256
 

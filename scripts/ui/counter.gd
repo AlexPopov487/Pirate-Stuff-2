@@ -15,6 +15,7 @@ func set_value(value: int):
 	@warning_ignore("integer_division")
 	var tens = value / 10
 	if tens < 10:
+		num_hundreds.visible = false
 		num_tens.texture = _digits[tens]
 	else:
 		num_hundreds.visible = true

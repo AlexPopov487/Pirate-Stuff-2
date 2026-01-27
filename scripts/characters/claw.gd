@@ -10,8 +10,12 @@ class_name Claw extends Enemy
 var _is_recovering: bool
 var _took_damage_during_recovering: bool
 var _attack_cooldown_time: float = 2.5
+var _front_hit_sfx: Resource = load("res://audio/claw/claw_front_hit.wav")
+
 
 @onready var _animated_sprite: AnimatedSprite2D = $InteggorationAnimatedSprite2D
+@onready var _sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
 
 func _ready() -> void:
 	_max_health = max_health
@@ -61,14 +65,18 @@ func _try_to_attack():
 
 func take_damage(amount: int, direction: Vector2):
 	if (_is_recovering 
-	and not _took_damage_during_recovering
-	and is_player_behind()):
-		if _animated_sprite.is_playing(): # stop interrogation animation
-			_animated_sprite.stop()
-		_took_damage_during_recovering = true
-		super.take_damage(amount, direction)
-		# Interrupt current recovery with a small delay
-		_attack_cooldown.start(0.5)
+	and not _took_damage_during_recovering):
+		if is_player_behind():
+			if _animated_sprite.is_playing(): # stop interrogation animation
+				_animated_sprite.stop()
+			_took_damage_during_recovering = true
+			super.take_damage(amount, direction)
+			# Interrupt current recovery with a small delay
+			_attack_cooldown.start(0.5)
+		else:
+			_sfx.stream = _front_hit_sfx
+			_sfx.play()
+			await _sfx.finished
 
 func _process(_delta: float) -> void:
 	if _is_recovering:

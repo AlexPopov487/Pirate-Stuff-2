@@ -67,6 +67,8 @@ func _handle_player_on_board() -> void:
 	if !_player:
 		return
 		
+	_player.velocity = Vector2.ZERO
+	_player._direction = 0
 	_player.get_controls().set_enabled(false)
 	
 	match _ship_destination:

@@ -31,6 +31,7 @@ class_name Player extends Character
 @onready var _attack_cooldown: Timer = $Hitbox/AttackCooldown
 @onready var _controls: PlayerBehavior = $Controls
 @onready var _terrain_detector: TerrainDetector = $terrain_detector
+@onready var _voice: AudioStreamPlayer2D = $Voice
 
 # store collision data to restore them when player is revided
 var _collision_layer = collision_layer

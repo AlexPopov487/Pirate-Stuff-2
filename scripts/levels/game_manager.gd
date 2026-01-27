@@ -39,9 +39,12 @@ func score_treasure_found():
 func collect_map(map_type: Globals.MAP_TYPE):
 	File.data.collected_maps[map_type] = true
 	File.data.found_map = true
+	File.data.found_map_type = map_type
 	_map_container.display_map(map_type)
 
 func _ready() -> void:
+	File.reset_current_level_map_progress()
+
 #	TODO CALL _init_level_and_reset_player() INSTEAD
 	_fade.visible = true # set to invisible in editor during development
 	_pause_menu.set_menu_visibility(false)
@@ -50,7 +53,8 @@ func _ready() -> void:
 	if get_tree().paused:
 		_set_game_paused(false)
 
-	File.data.current_level_idx = 0
+	File.data.current_level_idx = 9
+	File.data.coins = 101
 	
 	_init_level()
 	
@@ -123,6 +127,8 @@ func _inint_level_boundaries():
 	
 func _init_level_ui():
 	_coins_container.set_value(File.data.coins)
+	_map_container.rerender_container(File.data.collected_maps)
+	
 	
 func _spawn_player():
 	var spawn: Vector2 = _current_level.get_checkpoint_position(File.data.last_checkbox_id)
@@ -171,6 +177,8 @@ func _on_level_completed():
 	
 func _restart_level():
 	File.change_level(File.data.current_level_idx)
+	File.reset_current_level_map_progress()
+
 	await _fade.fade_to_black()
 	_init_level_and_reset_player()
 	await _fade.fade_to_clear()
@@ -198,6 +206,7 @@ func _init_level_and_reset_player():
 func _exit_to_main_menu():
 #	TODO save players progress
 	await _fade.fade_to_black()
+	File.reset_current_level_map_progress()
 	_pause_menu.set_menu_visibility(false)
 
 	if get_tree().paused:

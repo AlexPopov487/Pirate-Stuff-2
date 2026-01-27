@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dee2skf2735be"]
+[gd_scene load_steps=25 format=3 uid="uid://dee2skf2735be"]
 
 [ext_resource type="Texture2D" uid="uid://1s5dxpli3y5g" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="1_eo17v"]
 [ext_resource type="Script" uid="uid://ccc4xnvevx1at" path="res://scripts/collectables/explosive_chest.gd" id="1_jlmst"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dk6bpt1gt4vgq" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 04.png" id="5_4825m"]
 [ext_resource type="Texture2D" uid="uid://bqwpknp8gocsc" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 05.png" id="6_uv5ka"]
 [ext_resource type="Texture2D" uid="uid://nskfranmwu54" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 06.png" id="7_0bk5w"]
+[ext_resource type="AudioStream" uid="uid://djh401cn6k5lh" path="res://audio/collectables/chest_open.wav" id="9_jlmst"]
 
 [sub_resource type="Animation" id="Animation_v74ww"]
 length = 0.001
@@ -100,6 +101,21 @@ tracks/1/keys = {
 "method": &"_explode"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_jlmst")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1omt3"]
 _data = {
@@ -173,5 +189,7 @@ anim_player = NodePath("..")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -13)
 shape = SubResource("RectangleShape2D_xj3wl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

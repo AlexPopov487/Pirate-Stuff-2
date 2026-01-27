@@ -2,6 +2,7 @@ class_name CannonBall extends Projectile
 
 
 @onready var _animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 func _ready() -> void:
 	_damage_impulse = 3

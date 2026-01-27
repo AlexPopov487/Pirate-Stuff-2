@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://b8w16f7gyhkvc"]
+[gd_scene load_steps=11 format=3 uid="uid://b8w16f7gyhkvc"]
 
 [ext_resource type="Script" uid="uid://bxf4gpdluduue" path="res://scripts/characters/debries.gd" id="1_asopt"]
 [ext_resource type="Texture2D" uid="uid://c6hnebvfsuaq4" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/2.png" id="2_5x2k6"]
 [ext_resource type="Texture2D" uid="uid://bav5rt5msoqor" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/3.png" id="3_wefcn"]
 [ext_resource type="Texture2D" uid="uid://j3iywp6fy0r7" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/4.png" id="4_nwuvm"]
 [ext_resource type="Texture2D" uid="uid://cwtu5hl0cv4pm" path="res://assets/Merchant Ship/Sprites/Barrel/Destroyed/5.png" id="5_gdo5x"]
+[ext_resource type="AudioStream" uid="uid://bv8fxlbqdr4ac" path="res://audio/environment/crate_break.wav" id="6_5x2k6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ddjel"]
 radius = 5.25
@@ -87,5 +88,8 @@ shape = SubResource("CapsuleShape2D_jwxl1")
 [node name="TtlTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_5x2k6")
 
 [connection signal="timeout" from="TtlTimer" to="." method="_on_ttl_timer_timeout"]

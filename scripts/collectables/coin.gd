@@ -17,6 +17,12 @@ func _ready() -> void:
 	add_to_group("coin_source") 
 	_value = _type
 
-func _collect(): 
+func _collect():
+	var audio_resource: Resource
+	match _type :
+		Globals.COIN_TYPE.GOLD_COIN | Globals.COIN_TYPE.SILVER_COIN:
+			pass
+		_ :
+			pass
 	$/root/game.collect_coin(_value)
 	super._collect()

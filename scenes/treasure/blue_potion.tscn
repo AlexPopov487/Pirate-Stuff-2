@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://3mfe2iuuf7rs"]
+[gd_scene load_steps=18 format=3 uid="uid://3mfe2iuuf7rs"]
 
 [ext_resource type="Script" uid="uid://bsfq710bcy3ig" path="res://scripts/collectables/blue_potion.gd" id="1_4varh"]
 [ext_resource type="Texture2D" uid="uid://dy6kwep0wiu1h" path="res://assets/Pirate Treasure/Sprites/blue_potion_pickup_effect.png" id="2_4varh"]
+[ext_resource type="AudioStream" uid="uid://u827kdbiqua8" path="res://audio/collectables/blue_potion.wav" id="2_aaxp3"]
 [ext_resource type="Texture2D" uid="uid://b3pgmmdevqx60" path="res://assets/Pirate Treasure/Sprites/Blue Potion/01.png" id="3_4varh"]
 [ext_resource type="Texture2D" uid="uid://6hdukrpupsyw" path="res://assets/Pirate Treasure/Sprites/Blue Potion/02.png" id="4_aaxp3"]
 [ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="4_pr0u1"]
@@ -41,6 +42,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iqg70")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"collected",
@@ -86,11 +90,12 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_4varh")
+_sfx_resource = ExtResource("2_aaxp3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_kfxoj")
-animation = &"idle"
+animation = &"collected"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

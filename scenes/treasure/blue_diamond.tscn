@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://dp0vyorw23idi"]
+[gd_scene load_steps=14 format=3 uid="uid://dp0vyorw23idi"]
 
 [ext_resource type="Script" uid="uid://kw0bpi4y1ba" path="res://scripts/collectables/coin.gd" id="1_7dsxr"]
 [ext_resource type="Texture2D" uid="uid://laemk6x00fnr" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/01.png" id="2_7dsxr"]
+[ext_resource type="AudioStream" uid="uid://bs7lw0m50eftq" path="res://audio/collectables/diamond_2.wav" id="2_8uwak"]
 [ext_resource type="Texture2D" uid="uid://civhubh127q8i" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/02.png" id="3_8uwak"]
 [ext_resource type="Texture2D" uid="uid://dhfivilc6rco0" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/03.png" id="4_uh1sb"]
 [ext_resource type="Texture2D" uid="uid://cc84c88hgrg3f" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/04.png" id="5_hytt7"]
@@ -25,6 +26,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_hytt7")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"collected",
@@ -61,12 +65,13 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_7dsxr")
 _type = 10
+_sfx_resource = ExtResource("2_8uwak")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -7)
 scale = Vector2(1.2, 1.2)
 sprite_frames = SubResource("SpriteFrames_kfxoj")
-animation = &"idle"
+animation = &"collected"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

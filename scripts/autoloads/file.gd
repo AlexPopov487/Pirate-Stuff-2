@@ -38,3 +38,9 @@ func set_found_secret_treasure():
 	
 func set_found_map():
 	data.found_map = true
+	
+func reset_current_level_map_progress() -> void:
+	data.found_map = false
+	if data.found_map_type:
+		data.collected_maps[data.found_map_type] = false
+		data.found_map_type = null

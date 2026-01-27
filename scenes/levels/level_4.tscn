@@ -3346,7 +3346,7 @@ texture = ExtResource("53_katdh")
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-751, 426)
+position = Vector2(1845, 698)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("51_gpe64")]
 position = Vector2(1637, 64)

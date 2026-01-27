@@ -38,7 +38,7 @@ script = ExtResource("1_t78u1")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_8gy8s")
-animation = &"idle"
+animation = &"destroyed"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

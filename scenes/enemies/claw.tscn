@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://s8l0b878id76"]
+[gd_scene load_steps=119 format=3 uid="uid://s8l0b878id76"]
 
 [ext_resource type="Script" uid="uid://p45mvxxddkvi" path="res://scripts/characters/claw.gd" id="1_jip2x"]
 [ext_resource type="Texture2D" uid="uid://b7vtwk4l87sjh" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_jxaqu"]
@@ -6,33 +6,35 @@
 [ext_resource type="Texture2D" uid="uid://crdgen02is206" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/05-Ground/Ground 01.png" id="4_r0pav"]
 [ext_resource type="Texture2D" uid="uid://bnh3vcf4c0hkd" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/05-Ground/Ground 02.png" id="5_jxaqu"]
 [ext_resource type="PackedScene" uid="uid://becchde81p1nq" path="res://scenes/dust/fall_dust.tscn" id="6_ah013"]
-[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="7_qxt4y"]
 [ext_resource type="Texture2D" uid="uid://bw8yuoogck6o1" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 01.png" id="8_r0pav"]
 [ext_resource type="Texture2D" uid="uid://bvc1syhtla4x7" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 02.png" id="9_jxaqu"]
 [ext_resource type="Texture2D" uid="uid://ju1aqe8bxnab" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 03.png" id="10_20esr"]
 [ext_resource type="Texture2D" uid="uid://jfhg5n1floyu" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 04.png" id="11_qni7j"]
+[ext_resource type="AudioStream" uid="uid://mjn3w86xjwlc" path="res://audio/claw/claw_attack_1.wav" id="12_qi5oy"]
 [ext_resource type="Texture2D" uid="uid://gmfhv0npvtoo" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 05.png" id="12_yypj2"]
 [ext_resource type="Texture2D" uid="uid://qj2dguc5ro03" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 06.png" id="13_ah013"]
+[ext_resource type="AudioStream" uid="uid://1rq1h0y5dhgv" path="res://audio/claw/claw_attack_2.wav" id="13_sn23t"]
+[ext_resource type="AudioStream" uid="uid://dqx1yqwlnh5bn" path="res://audio/claw/claw_attack_3.wav" id="14_d2kdx"]
 [ext_resource type="Texture2D" uid="uid://dweyy0gug22r0" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 07.png" id="14_qxt4y"]
 [ext_resource type="Texture2D" uid="uid://dd6747mdu2yvy" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/01-Idle/Idle 08.png" id="15_apkd0"]
 [ext_resource type="Texture2D" uid="uid://c6kdfujn5g7x7" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/03-Jump/Jump 01.png" id="16_r0pav"]
 [ext_resource type="Texture2D" uid="uid://lvk4gexkiuus" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/03-Jump/Jump 02.png" id="17_jxaqu"]
 [ext_resource type="Texture2D" uid="uid://8yyklfrgopsl" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/03-Jump/Jump 03.png" id="18_20esr"]
-[ext_resource type="AudioStream" uid="uid://dhssqtlthg8il" path="res://audio/pirate/jump.wav" id="19_h2cq7"]
 [ext_resource type="Texture2D" uid="uid://cy6hdxmjwq8ke" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 01.png" id="20_r0pav"]
 [ext_resource type="Texture2D" uid="uid://bx6jmbcrejk4j" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 02.png" id="21_jxaqu"]
 [ext_resource type="Texture2D" uid="uid://c0ng7t6t2yrhj" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 03.png" id="22_20esr"]
+[ext_resource type="AudioStream" uid="uid://bs8q82wu0l2pn" path="res://audio/claw/claw_dead.wav" id="23_d2kdx"]
 [ext_resource type="Texture2D" uid="uid://dxtqp3k2hxfd8" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 04.png" id="23_qni7j"]
 [ext_resource type="Texture2D" uid="uid://dv4miwof0sycv" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 05.png" id="24_yypj2"]
 [ext_resource type="Texture2D" uid="uid://7wcpbyr1kdhp" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/02-Run/Run 06.png" id="25_ah013"]
 [ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="26_pxwix"]
-[ext_resource type="AudioStream" uid="uid://qqhhghwtvv65" path="res://audio/pirate/run.wav" id="27_tsifu"]
 [ext_resource type="PackedScene" uid="uid://cs0vtls0jywwm" path="res://scenes/enemies/enemy_ai.tscn" id="28_jxaqu"]
 [ext_resource type="Texture2D" uid="uid://b18f5csdatmqc" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/06-Anticipation/Anticipation 01.png" id="28_q0405"]
 [ext_resource type="Texture2D" uid="uid://fhfv85ttebr8" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/06-Anticipation/Anticipation 02.png" id="29_p5qob"]
 [ext_resource type="Texture2D" uid="uid://cxjehihonccb1" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/06-Anticipation/Anticipation 03.png" id="30_xxtvh"]
 [ext_resource type="Texture2D" uid="uid://cedcra6uxx6vo" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 01.png" id="31_t26tx"]
 [ext_resource type="Texture2D" uid="uid://qwxocijl5c51" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 02.png" id="32_4vpfu"]
+[ext_resource type="AudioStream" uid="uid://ceeb1fugsox0t" path="res://audio/claw/claw_hit.wav" id="32_dxe22"]
 [ext_resource type="Texture2D" uid="uid://dtb5coo5kana4" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 03.png" id="33_4t27v"]
 [ext_resource type="Texture2D" uid="uid://0xf3oqkuw3sn" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 04.png" id="34_28o80"]
 [ext_resource type="Texture2D" uid="uid://cak5oynfypfox" path="res://assets/The Crusty Crew/Sprites/Fierce Tooth/07-Attack/Attack 05.png" id="35_ssfgi"]
@@ -126,6 +128,12 @@ tracks/1/keys = {
 }]
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_a754e"]
+streams_count = 3
+stream_0/stream = ExtResource("12_qi5oy")
+stream_1/stream = ExtResource("13_sn23t")
+stream_2/stream = ExtResource("14_d2kdx")
+
 [sub_resource type="Animation" id="Animation_jip2x"]
 length = 0.5
 tracks/0/type = "value"
@@ -209,6 +217,21 @@ tracks/5/keys = {
 "method": &"_recover"
 }]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_a754e")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/6/use_blend = true
 
 [sub_resource type="Animation" id="Animation_a754e"]
 length = 0.4
@@ -253,6 +276,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("40_4h3pj"), ExtResource("41_tk68x"), ExtResource("42_5riaj"), ExtResource("43_i2866")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0350981,
+"stream": ExtResource("23_d2kdx")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_4gjji"]
 resource_name = "fall"
@@ -299,21 +337,6 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.6533,
-"start_offset": 0.0,
-"stream": ExtResource("7_qxt4y")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_nvb1f"]
 length = 0.4
@@ -343,6 +366,21 @@ tracks/1/keys = {
 "method": &"set_hit_false"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("32_dxe22")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hhpqf"]
 resource_name = "idle"
@@ -376,21 +414,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("16_r0pav"), ExtResource("17_jxaqu"), ExtResource("18_20esr")]
 }
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("AudioStreamPlayer2D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("19_h2cq7")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_ule2n"]
 resource_name = "recover"
@@ -439,21 +462,6 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 15.1679,
-"start_offset": 0.0,
-"stream": ExtResource("27_tsifu")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6e8lb"]
 _data = {
@@ -674,7 +682,7 @@ height = 42.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j5c7h"]
 radius = 24.0
-height = 262.0
+height = 500.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ebwcg"]
 animations = [{
@@ -802,7 +810,7 @@ collision_layer = 524288
 collision_mask = 256
 
 [node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
-position = Vector2(-53, -24)
+position = Vector2(0, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_j5c7h")
 debug_color = Color(0.524305, 0.535326, 0.565725, 0.42)

@@ -3075,7 +3075,7 @@ _hint = "Берегись грязи!"
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-921, 431)
+position = Vector2(1330, 1041)
 
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("41_ywvvp")]
 position = Vector2(1469, -576)

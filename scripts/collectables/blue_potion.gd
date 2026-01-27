@@ -1,7 +1,6 @@
 extends Collectable
 class_name BluePotion
 
-@export var _collect_sfx: AudioStream
 @export var _cant_collect_sfx: AudioStream
 
 const POTION_EFFECT:int = 4
@@ -12,5 +11,5 @@ func _collect():
 		#_sfx.play()
 	#else:
 		_character.restore_stamina_by_potion(POTION_EFFECT)
-		_sfx.stream = _collect_sfx
+		_sfx.stream = _sfx_resource
 		super._collect()

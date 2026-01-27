@@ -6,6 +6,11 @@ class_name MapContainer
 @onready var _bottom_left: TextureRect = $BottomLeft
 @onready var _bottom_right: TextureRect = $BottomRight
 
+func rerender_container(collected_maps: Dictionary[Globals.MAP_TYPE, bool]):
+	reset_visibility()
+	for type in collected_maps:
+		if collected_maps[type]:
+			display_map(type)
 
 func display_map(map_type: Globals.MAP_TYPE):
 	match map_type:

@@ -4,6 +4,7 @@ enum STATE{OPENED, CLOSED, LOCKED}
 @export var _state: STATE
 @export var _padlock: PackedScene
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var _sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 signal lever_opened()
 
@@ -34,6 +35,8 @@ func _on_body_entered(body: Node2D) -> void:
 		_state = STATE.OPENED
 		
 		$/root/game.use_key()
+		if _sfx:
+			_sfx.play()
 		_throw_lock()
 		
 		animated_sprite_2d.play("pull")

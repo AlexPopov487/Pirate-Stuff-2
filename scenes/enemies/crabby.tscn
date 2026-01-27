@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://cgftcoml81vct"]
+[gd_scene load_steps=107 format=3 uid="uid://cgftcoml81vct"]
 
 [ext_resource type="Script" uid="uid://dppaxpsqbkc4n" path="res://scripts/characters/crabby.gd" id="1_3q660"]
 [ext_resource type="Texture2D" uid="uid://b7vtwk4l87sjh" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_kdjfx"]
@@ -6,10 +6,12 @@
 [ext_resource type="Texture2D" uid="uid://bd07aemm3pss2" path="res://assets/The Crusty Crew/Sprites/Crabby/05-Ground/Ground 01.png" id="4_081mb"]
 [ext_resource type="Texture2D" uid="uid://c1vmd01y2msdy" path="res://assets/The Crusty Crew/Sprites/Crabby/05-Ground/Ground 02.png" id="5_lovqd"]
 [ext_resource type="PackedScene" uid="uid://becchde81p1nq" path="res://scenes/dust/fall_dust.tscn" id="6_qqthm"]
+[ext_resource type="AudioStream" uid="uid://bocilcisqisnf" path="res://audio/crab/crab_alert.wav" id="7_liiiq"]
 [ext_resource type="Texture2D" uid="uid://bvhfnkfmkerik" path="res://assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 01.png" id="8_f020n"]
 [ext_resource type="Texture2D" uid="uid://4n75fsh23s2c" path="res://assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 02.png" id="9_qqthm"]
 [ext_resource type="Texture2D" uid="uid://bjf02i1fqqpei" path="res://assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 03.png" id="10_wux0u"]
 [ext_resource type="Texture2D" uid="uid://dsnkksxt7wyin" path="res://assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 04.png" id="11_kcopm"]
+[ext_resource type="AudioStream" uid="uid://j24jopddxt45" path="res://audio/crab/crab_attack.wav" id="11_vv2rc"]
 [ext_resource type="Texture2D" uid="uid://3q8uuleic2dj" path="res://assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 05.png" id="12_cqkl0"]
 [ext_resource type="Texture2D" uid="uid://dx6obu0e26rpt" path="res://assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 06.png" id="13_whs85"]
 [ext_resource type="Texture2D" uid="uid://dtw4oyw5xqxw6" path="res://assets/The Crusty Crew/Sprites/Crabby/01-Idle/Idle 07.png" id="14_hqjie"]
@@ -29,6 +31,7 @@
 [ext_resource type="PackedScene" uid="uid://cs0vtls0jywwm" path="res://scenes/enemies/enemy_ai.tscn" id="26_lovqd"]
 [ext_resource type="Texture2D" uid="uid://r1ad56d4wyp4" path="res://assets/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 02.png" id="27_hn33v"]
 [ext_resource type="Texture2D" uid="uid://cmbfoennrkjle" path="res://assets/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 03.png" id="28_6qbqd"]
+[ext_resource type="AudioStream" uid="uid://8d2akr2no7ue" path="res://audio/crab/crab_hit.wav" id="28_bdb4c"]
 [ext_resource type="Texture2D" uid="uid://de2op13110jno" path="res://assets/The Crusty Crew/Sprites/Crabby/08-Hit/Hit 04.png" id="29_guv2b"]
 [ext_resource type="Texture2D" uid="uid://cuchbw5i72ogk" path="res://assets/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 01.png" id="30_bbhtf"]
 [ext_resource type="Texture2D" uid="uid://dbv0cjfx41m6j" path="res://assets/The Crusty Crew/Sprites/Crabby/09-Dead Hit/Dead Hit 02.png" id="31_n0jdc"]
@@ -117,6 +120,21 @@ tracks/1/keys = {
 "method": &"set_ready_to_attack_false"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.101007,
+"start_offset": 0.252998,
+"stream": ExtResource("7_liiiq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_v002b"]
 length = 0.4
@@ -184,6 +202,21 @@ tracks/4/keys = {
 "method": &"start"
 }]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.445,
+"start_offset": 0.0147107,
+"stream": ExtResource("11_vv2rc")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_lr67a"]
 length = 0.4
@@ -228,6 +261,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("30_bbhtf"), ExtResource("31_n0jdc"), ExtResource("32_nljj2"), ExtResource("33_3q660")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("28_bdb4c")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_4gjji"]
 resource_name = "fall"
@@ -304,6 +352,21 @@ tracks/1/keys = {
 "method": &"set_hit_false"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("28_bdb4c")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hhpqf"]
 resource_name = "idle"
@@ -577,7 +640,7 @@ height = 72.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vv2rc"]
 radius = 23.0
-height = 246.0
+height = 500.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bdb4c"]
 height = 80.0
@@ -586,6 +649,8 @@ height = 80.0
 collision_layer = 65536
 collision_mask = 33620225
 script = ExtResource("1_3q660")
+max_health = 2
+speed = 4.5
 _jump_dust = ExtResource("22_y8dyj")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -627,6 +692,7 @@ _ground_ray = NodePath("../ground_check_ray")
 _jump_restrictor = NodePath("../JumpRestrictor")
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 131072
 collision_mask = 0
 monitoring = false
@@ -655,6 +721,7 @@ sprite_frames = SubResource("SpriteFrames_bdb4c")
 frame = 3
 
 [node name="Target" type="Area2D" parent="Hitbox"]
+visible = false
 position = Vector2(2, -8)
 rotation = 1.5708
 collision_layer = 1048576

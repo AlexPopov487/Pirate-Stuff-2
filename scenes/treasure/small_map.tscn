@@ -1,7 +1,8 @@
-[gd_scene load_steps=40 format=3 uid="uid://pgb31jnsdwat"]
+[gd_scene load_steps=41 format=3 uid="uid://pgb31jnsdwat"]
 
 [ext_resource type="Script" uid="uid://doftb1og76jpa" path="res://scripts/collectables/small_map.gd" id="1_mgaco"]
 [ext_resource type="Texture2D" uid="uid://b7jb6i3vhp402" path="res://assets/Pirate Treasure/Sprites/Map Effect/Out/01.png" id="1_nav46"]
+[ext_resource type="AudioStream" uid="uid://c1iumm7l81u7d" path="res://audio/collectables/map.wav" id="2_de4d5"]
 [ext_resource type="Texture2D" uid="uid://brsmrb0dkqo0s" path="res://assets/Pirate Treasure/Sprites/Map Effect/Out/02.png" id="2_mgaco"]
 [ext_resource type="Texture2D" uid="uid://767ha1jn4td3" path="res://assets/Pirate Treasure/Sprites/Map Effect/Out/03.png" id="3_nplcw"]
 [ext_resource type="Texture2D" uid="uid://rr2qkl3vrm66" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/01.png" id="4_bhga4"]
@@ -49,6 +50,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_nplcw")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"collected",
@@ -183,10 +187,11 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_mgaco")
+_sfx_resource = ExtResource("2_de4d5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kfxoj")
-animation = &"idle_bottom_right"
+animation = &"collected"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

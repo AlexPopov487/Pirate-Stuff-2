@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://sbqh2wus74g4"]
+[gd_scene load_steps=46 format=3 uid="uid://sbqh2wus74g4"]
 
 [ext_resource type="Texture2D" uid="uid://dwb6l3d2ndlwd" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/3.png" id="1_m6foi"]
 [ext_resource type="Script" uid="uid://bhexaagkkv4kf" path="res://scripts/environment/chest.gd" id="1_qs5f6"]
@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://v2euvfhx1igl" path="res://assets/Merchant Ship/Sprites/Chest/Idle/1.png" id="11_m5uue"]
 [ext_resource type="Texture2D" uid="uid://3fihyix2bmmt" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/2.png" id="12_u3jif"]
 [ext_resource type="Texture2D" uid="uid://7tc5eipmjyyu" path="res://assets/Merchant Ship/Sprites/Chest/Unlocked/1.png" id="13_ikviv"]
+[ext_resource type="AudioStream" uid="uid://djh401cn6k5lh" path="res://audio/collectables/chest_open.wav" id="15_t8w5t"]
+[ext_resource type="AudioStream" uid="uid://dxrvp0lixqoh7" path="res://audio/collectables/coin_plunder.wav" id="16_tvmmy"]
 
 [sub_resource type="Animation" id="Animation_g8c4r"]
 length = 0.001
@@ -127,7 +129,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_31unv"]
 resource_name = "opening"
-length = 0.6
+length = 0.8
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -148,11 +150,11 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.3747,
+"end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource("7_ly7q1")
+"stream": ExtResource("15_t8w5t")
 }],
-"times": PackedFloat32Array(0)
+"times": PackedFloat32Array(0.1)
 }
 tracks/1/use_blend = true
 tracks/2/type = "method"
@@ -169,6 +171,21 @@ tracks/2/keys = {
 "method": &"plunder"
 }]
 }
+tracks/3/type = "audio"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../AudioStreamPlayer2D")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"clips": [{
+"end_offset": 0.0375168,
+"start_offset": 0.0,
+"stream": ExtResource("16_tvmmy")
+}],
+"times": PackedFloat32Array(0.166667)
+}
+tracks/3/use_blend = true
 
 [sub_resource type="Animation" id="Animation_7pnro"]
 resource_name = "unlocking"
@@ -325,8 +342,10 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+max_polyphony = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_8cvhv")
 

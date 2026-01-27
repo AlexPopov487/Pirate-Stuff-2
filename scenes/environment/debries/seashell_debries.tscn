@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dwfsjd32dhvyj"]
+[gd_scene load_steps=11 format=3 uid="uid://dwfsjd32dhvyj"]
 
 [ext_resource type="Script" uid="uid://bxf4gpdluduue" path="res://scripts/characters/debries.gd" id="1_1c67h"]
 [ext_resource type="Texture2D" uid="uid://8iql4x4ld2gr" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Destroyed/2.png" id="1_32fyo"]
 [ext_resource type="Texture2D" uid="uid://dbxaprns0q8eu" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Destroyed/3.png" id="2_1c67h"]
 [ext_resource type="Texture2D" uid="uid://ouum54gr6stj" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Destroyed/5.png" id="3_2kjj4"]
 [ext_resource type="Texture2D" uid="uid://cfmcy0k8jupy2" path="res://assets/Shooter Traps/Sprites/Seashell/Seashell Destroyed/4.png" id="4_yn7pp"]
+[ext_resource type="AudioStream" uid="uid://bknj7eri781x1" path="res://audio/shell/shell_destroyed.wav" id="6_6xbo6"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_53n0i"]
 radius = 5.0
@@ -92,5 +93,8 @@ shape = SubResource("CapsuleShape2D_cwv3k")
 [node name="TtlTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_6xbo6")
 
 [connection signal="timeout" from="TtlTimer" to="." method="_on_ttl_timer_timeout"]

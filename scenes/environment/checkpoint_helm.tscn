@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bldx1fl8vjyod" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 02.png" id="9_eqipx"]
 [ext_resource type="Texture2D" uid="uid://bjrg6gi682i0" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 03.png" id="10_yi6wr"]
 [ext_resource type="Texture2D" uid="uid://3ppwpctqnkgg" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Turn 04.png" id="11_3okc6"]
-[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="12_dbqyv"]
+[ext_resource type="AudioStream" uid="uid://cb8fs86xemdai" path="res://audio/environment/helm.wav" id="12_dbqyv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_8prxr"]
 radius = 16.0
@@ -71,8 +71,8 @@ tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "clips": [{
-"end_offset": 0.174,
-"start_offset": 0.0,
+"end_offset": 0.470688,
+"start_offset": 1.25873,
 "stream": ExtResource("12_dbqyv")
 }],
 "times": PackedFloat32Array(0)

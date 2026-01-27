@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://l4sru2cocgcx"]
+[gd_scene load_steps=7 format=3 uid="uid://l4sru2cocgcx"]
 
 [ext_resource type="Script" uid="uid://bxf4gpdluduue" path="res://scripts/characters/debries.gd" id="1_4qav7"]
 [ext_resource type="Texture2D" uid="uid://c6d3oxr3i4ked" path="res://assets/Shooter Traps/Sprites/Seashell/Pearl Destroyed/2.png" id="2_jy5tm"]
 [ext_resource type="Texture2D" uid="uid://mif527jcpgdv" path="res://assets/Shooter Traps/Sprites/Seashell/Pearl Destroyed/3.png" id="3_yuglu"]
+[ext_resource type="AudioStream" uid="uid://vw4xgy0ali7" path="res://audio/environment/pearl_break.wav" id="4_k4fh0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4u30q"]
 radius = 1.0
@@ -47,5 +48,8 @@ shape = SubResource("CapsuleShape2D_jdnts")
 
 [node name="TtlTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_k4fh0")
 
 [connection signal="timeout" from="TtlTimer" to="." method="_on_ttl_timer_timeout"]

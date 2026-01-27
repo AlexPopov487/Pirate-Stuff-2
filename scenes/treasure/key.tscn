@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://cj0rvpwmx5k0o"]
+[gd_scene load_steps=18 format=3 uid="uid://cj0rvpwmx5k0o"]
 
 [ext_resource type="Script" uid="uid://dphvblki1wo2j" path="res://scripts/collectables/key.gd" id="1_o0qs2"]
 [ext_resource type="Texture2D" uid="uid://cfwdwdfij61mx" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/1.png" id="2_o0qs2"]
+[ext_resource type="AudioStream" uid="uid://c3x7ex0vp1nel" path="res://audio/collectables/key.wav" id="2_q6cy3"]
 [ext_resource type="Texture2D" uid="uid://byt4r48q5aofa" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/2.png" id="3_q6cy3"]
 [ext_resource type="Texture2D" uid="uid://bqq6cjfirlied" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/3.png" id="4_g6h31"]
 [ext_resource type="Texture2D" uid="uid://bgwt5ki1ry3bb" path="res://assets/Merchant Ship/Sprites/Chest Key/Effect/4.png" id="5_thfhf"]
@@ -29,6 +30,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("5_thfhf")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"collected",
@@ -77,10 +81,11 @@ freeze_mode = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_o0qs2")
+_sfx_resource = ExtResource("2_q6cy3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kfxoj")
-animation = &"idle"
+animation = &"collected"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

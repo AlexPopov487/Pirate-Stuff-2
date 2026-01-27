@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://b2i52ntanw4ve"
-path="res://.godot/imported/eee.wav-67748bfabe88d2e148045a71ffa835c9.sample"
+uid="uid://co7wa2i448k85"
+path="res://.godot/imported/star_dead.wav-5a3e33c432b490e0403a542cdcc1bf70.sample"
 
 [deps]
 
-source_file="res://audio/pirate/eee.wav"
-dest_files=["res://.godot/imported/eee.wav-67748bfabe88d2e148045a71ffa835c9.sample"]
+source_file="res://audio/starfish/star_dead.wav"
+dest_files=["res://.godot/imported/star_dead.wav-5a3e33c432b490e0403a542cdcc1bf70.sample"]
 
 [params]
 

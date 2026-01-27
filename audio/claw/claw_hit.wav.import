@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://qqhhghwtvv65"
-path="res://.godot/imported/run.wav-a92b6769a416698e3d7d219baeedb29d.sample"
+uid="uid://ceeb1fugsox0t"
+path="res://.godot/imported/claw_hit.wav-043385edeba495203f28568a7ba4964f.sample"
 
 [deps]
 
-source_file="res://audio/pirate/run.wav"
-dest_files=["res://.godot/imported/run.wav-a92b6769a416698e3d7d219baeedb29d.sample"]
+source_file="res://audio/claw/claw_hit.wav"
+dest_files=["res://.godot/imported/claw_hit.wav-043385edeba495203f28568a7ba4964f.sample"]
 
 [params]
 

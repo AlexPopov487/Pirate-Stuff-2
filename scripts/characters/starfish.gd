@@ -8,6 +8,7 @@ class_name Starfish extends Enemy
 @export var attack_damage: int = 2
 
 var _is_recovering: bool
+var _took_damage_during_recovering: bool
 var _attack_cooldown_time: float = 2.5
 @onready var _animated_sprite: AnimatedSprite2D = $InteggorationAnimatedSprite2D
 
@@ -35,6 +36,8 @@ func _recover():
 
 func _on_attack_cooldown_timeout() -> void:
 	_is_recovering = false
+	_took_damage_during_recovering = false
+
 	#_resume_patrolling()
 	_animated_sprite.stop()
 	_try_to_attack()
@@ -59,7 +62,8 @@ func _try_to_attack():
 		
 
 func take_damage(amount: int, direction: Vector2):
-	if _is_recovering:
+	if _is_recovering and not _took_damage_during_recovering:
+		_took_damage_during_recovering = true
 		if _animated_sprite.is_playing(): # stop interrogation animation
 			_animated_sprite.stop()
 		super.take_damage(amount, direction)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://dcj58c00p3c2h"]
+[gd_scene load_steps=62 format=3 uid="uid://dcj58c00p3c2h"]
 
 [ext_resource type="Script" uid="uid://clk5isikgv5ld" path="res://scripts/characters/cannon.gd" id="1_41t11"]
 [ext_resource type="PackedScene" uid="uid://ebo7g0tmk3mq" path="res://scenes/enemies/projectiles/cannon_ball.tscn" id="2_tm86n"]
@@ -9,11 +9,16 @@
 [ext_resource type="Texture2D" uid="uid://hct68jb7q4yt" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire/4.png" id="7_l8bdk"]
 [ext_resource type="Texture2D" uid="uid://5xk0j42ae5fd" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire/5.png" id="8_7m878"]
 [ext_resource type="Texture2D" uid="uid://cs7ck8p323svi" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire/6.png" id="9_dsi1a"]
+[ext_resource type="AudioStream" uid="uid://b1h7nw3ub7tiy" path="res://audio/environment/cannon_fire.wav" id="11_l8bdk"]
 [ext_resource type="Texture2D" uid="uid://brldsmk462hni" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/1.png" id="14_8i3pm"]
 [ext_resource type="Texture2D" uid="uid://e38jjowhexqt" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/2.png" id="15_tm86n"]
+[ext_resource type="AudioStream" uid="uid://ro0huqdbkuag" path="res://audio/environment/sword_on_metal.wav" id="16_7m878"]
 [ext_resource type="Texture2D" uid="uid://otyrt2c7pqsl" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/3.png" id="16_l8bdk"]
 [ext_resource type="Texture2D" uid="uid://d1yxpi0nk71dk" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/4.png" id="17_7m878"]
+[ext_resource type="AudioStream" uid="uid://cuhuvcr2vxpyk" path="res://audio/environment/sword_on_metal_2.wav" id="17_hat4c"]
 [ext_resource type="Texture2D" uid="uid://f7aqxfnml7ng" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/5.png" id="18_dsi1a"]
+[ext_resource type="AudioStream" uid="uid://bwi5f4rdhkexs" path="res://audio/environment/sword_on_metal_3.wav" id="18_pe3ot"]
+[ext_resource type="AudioStream" uid="uid://b6y7acp5wdode" path="res://audio/environment/sword_on_metal_4.wav" id="19_a171h"]
 [ext_resource type="Texture2D" uid="uid://da6757f81v524" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Fire Effect/6.png" id="19_u0jyr"]
 [ext_resource type="PackedScene" uid="uid://dab27d8x711u8" path="res://scenes/environment/debries/cannon_debries.tscn" id="20_41t11"]
 [ext_resource type="PackedScene" uid="uid://c1drmucqxeui3" path="res://scenes/environment/terrain_detector.tscn" id="21_8i3pm"]
@@ -124,7 +129,6 @@ tracks/7/keys = {
 
 [sub_resource type="Animation" id="Animation_krrxd"]
 resource_name = "destroyed"
-length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -165,7 +169,7 @@ tracks/2/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_nk4q5"]
-length = 0.6
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -244,6 +248,28 @@ tracks/5/keys = {
 "method": &"play"
 }]
 }
+tracks/6/type = "audio"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("AudioStreamPlayer2D")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("11_l8bdk")
+}],
+"times": PackedFloat32Array(0.4)
+}
+tracks/6/use_blend = true
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_33m35"]
+streams_count = 4
+stream_0/stream = ExtResource("16_7m878")
+stream_1/stream = ExtResource("17_hat4c")
+stream_2/stream = ExtResource("18_pe3ot")
+stream_3/stream = ExtResource("19_a171h")
 
 [sub_resource type="Animation" id="Animation_lxrlu"]
 length = 0.4
@@ -273,6 +299,21 @@ tracks/1/keys = {
 "method": &"set_hit_false"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": SubResource("AudioStreamRandomizer_33m35")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_em4o3"]
 length = 0.1
@@ -464,6 +505,7 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -11)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_qfm1y")
@@ -471,6 +513,7 @@ shape = SubResource("CapsuleShape2D_qfm1y")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 
 [node name="Hurtbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 131072
 collision_mask = 0
 monitoring = false
@@ -482,6 +525,7 @@ shape = SubResource("CapsuleShape2D_jxaqu")
 debug_color = Color(0.216026, 0.52542, 0.352766, 0.376471)
 
 [node name="Hitbox" type="Area2D" parent="."]
+visible = false
 collision_layer = 262144
 collision_mask = 512
 monitoring = false
@@ -514,6 +558,7 @@ debug_color = Color(0.659021, 0.506552, 0.266785, 0.42)
 one_shot = true
 
 [node name="Vision" type="Area2D" parent="."]
+visible = false
 collision_layer = 524288
 collision_mask = 256
 

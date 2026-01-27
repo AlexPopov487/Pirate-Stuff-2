@@ -38,11 +38,8 @@ func display_window(stats: LevelCompleteStats):
 	_coin_label.text = str(stats.coins_collected) + " / " + str(stats.coins_total)
 	_death_label.text = str(stats.death_count)
 
-	if stats.found_treasure:
-		_treasure_container.visible = true
-
-	if stats.collected_map:
-		_map_container.visible = true
+	_treasure_container.visible = stats.found_treasure
+	_map_container.visible = stats.collected_map
 
 	# Despite _treasure_container and _map_container are set to invisible by 
 	# default, the node reserves space for them resulting in the whole window

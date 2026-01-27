@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://bhx6syxe7l8wc"]
+[gd_scene load_steps=117 format=3 uid="uid://bhx6syxe7l8wc"]
 
 [ext_resource type="Script" uid="uid://b4hrn3tlmw57y" path="res://scripts/characters/starfish.gd" id="1_4jvbl"]
 [ext_resource type="Texture2D" uid="uid://b7vtwk4l87sjh" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="2_8tfw7"]
@@ -6,10 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dgjp3lrrvx8cb" path="res://assets/The Crusty Crew/Sprites/Pink Star/05-Ground/Ground 01.png" id="4_e14ma"]
 [ext_resource type="Texture2D" uid="uid://dv0ajqper503e" path="res://assets/The Crusty Crew/Sprites/Pink Star/05-Ground/Ground 02.png" id="5_pn2ss"]
 [ext_resource type="PackedScene" uid="uid://becchde81p1nq" path="res://scenes/dust/fall_dust.tscn" id="6_xgyjk"]
-[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="7_xvajj"]
+[ext_resource type="AudioStream" uid="uid://u667r41kpugo" path="res://audio/starfish/star_alert.wav" id="7_7acdq"]
 [ext_resource type="Texture2D" uid="uid://b28p7y8fpvfuk" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 01.png" id="8_8x4sv"]
 [ext_resource type="Texture2D" uid="uid://ctfqb8oyt33rr" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 02.png" id="9_jo1lh"]
 [ext_resource type="Texture2D" uid="uid://kctrs62xfat6" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 03.png" id="10_6xfg0"]
+[ext_resource type="AudioStream" uid="uid://covewt1krffj6" path="res://audio/starfish/star_attack.wav" id="11_4cf6p"]
 [ext_resource type="Texture2D" uid="uid://dm73eobqnqy70" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 04.png" id="11_5vbr1"]
 [ext_resource type="Texture2D" uid="uid://ckkt5nd2t3hw5" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 05.png" id="12_1y6aj"]
 [ext_resource type="Texture2D" uid="uid://bjg4nqyex7sfn" path="res://assets/The Crusty Crew/Sprites/Pink Star/01-Idle/Idle 06.png" id="13_4o31p"]
@@ -18,15 +19,15 @@
 [ext_resource type="Texture2D" uid="uid://c750xr0tbqntb" path="res://assets/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 01.png" id="16_qhlek"]
 [ext_resource type="Texture2D" uid="uid://cu75np1d21n3q" path="res://assets/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 02.png" id="17_4ctt5"]
 [ext_resource type="Texture2D" uid="uid://e3gdxqeri750" path="res://assets/The Crusty Crew/Sprites/Pink Star/03-Jump/Jump 03.png" id="18_30qll"]
-[ext_resource type="AudioStream" uid="uid://dhssqtlthg8il" path="res://audio/pirate/jump.wav" id="19_h40rr"]
 [ext_resource type="Texture2D" uid="uid://ccugljt7c7uk1" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 01.png" id="20_jbuac"]
+[ext_resource type="AudioStream" uid="uid://co7wa2i448k85" path="res://audio/starfish/star_dead.wav" id="21_fyhic"]
 [ext_resource type="Texture2D" uid="uid://gis5qumonhec" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 02.png" id="21_o4wbl"]
 [ext_resource type="Texture2D" uid="uid://bmpx8jyc2pfc5" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 03.png" id="22_3s61r"]
 [ext_resource type="Texture2D" uid="uid://db61awjx7kc5" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 04.png" id="23_ykhdf"]
 [ext_resource type="Texture2D" uid="uid://ckjwjelxg7q7" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 05.png" id="24_4jvbl"]
 [ext_resource type="Texture2D" uid="uid://b622irl4x3wni" path="res://assets/The Crusty Crew/Sprites/Pink Star/02-Run/Run 06.png" id="25_b568i"]
 [ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="26_xojkg"]
-[ext_resource type="AudioStream" uid="uid://qqhhghwtvv65" path="res://audio/pirate/run.wav" id="27_7v018"]
+[ext_resource type="AudioStream" uid="uid://bb848scs5vhss" path="res://audio/starfish/star_hit.wav" id="28_7acdq"]
 [ext_resource type="PackedScene" uid="uid://cs0vtls0jywwm" path="res://scenes/enemies/enemy_ai.tscn" id="28_bbry7"]
 [ext_resource type="Texture2D" uid="uid://bxkjkn5u6jndh" path="res://assets/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 01.png" id="28_e14ma"]
 [ext_resource type="Texture2D" uid="uid://depcuepwllbu2" path="res://assets/The Crusty Crew/Sprites/Pink Star/06-Anticipation/Anticipation 02.png" id="29_pn2ss"]
@@ -125,6 +126,21 @@ tracks/1/keys = {
 "method": &"set_ready_to_attack_false"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.00577182,
+"start_offset": 0.0144296,
+"stream": ExtResource("7_7acdq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_8x4sv"]
 length = 0.8
@@ -195,6 +211,21 @@ tracks/4/keys = {
 "method": &"_recover"
 }]
 }
+tracks/5/type = "audio"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("AudioStreamPlayer2D")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"clips": [{
+"end_offset": 0.138524,
+"start_offset": 0.000961971,
+"stream": ExtResource("11_4cf6p")
+}],
+"times": PackedFloat32Array(0.000961971)
+}
+tracks/5/use_blend = true
 
 [sub_resource type="Animation" id="Animation_5vbr1"]
 length = 0.4
@@ -226,7 +257,7 @@ tracks/1/keys = {
 }
 
 [sub_resource type="Animation" id="Animation_6xfg0"]
-length = 0.4
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -239,6 +270,21 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("39_qhlek"), ExtResource("40_4ctt5"), ExtResource("41_30qll"), ExtResource("42_h40rr")]
 }
+tracks/1/type = "audio"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"clips": [{
+"end_offset": 0.125056,
+"start_offset": 0.0740718,
+"stream": ExtResource("21_fyhic")
+}],
+"times": PackedFloat32Array(0.00639816)
+}
+tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_4gjji"]
 resource_name = "fall"
@@ -285,21 +331,6 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 0.6533,
-"start_offset": 0.0,
-"stream": ExtResource("7_xvajj")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_jo1lh"]
 length = 0.4
@@ -329,6 +360,21 @@ tracks/1/keys = {
 "method": &"set_hit_false"
 }]
 }
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("28_7acdq")
+}],
+"times": PackedFloat32Array(0)
+}
+tracks/2/use_blend = true
 
 [sub_resource type="Animation" id="Animation_hhpqf"]
 resource_name = "idle"
@@ -362,21 +408,6 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("16_qhlek"), ExtResource("17_4ctt5"), ExtResource("18_30qll")]
 }
-tracks/1/type = "audio"
-tracks/1/imported = false
-tracks/1/enabled = false
-tracks/1/path = NodePath("AudioStreamPlayer2D")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"clips": [{
-"end_offset": 0.0,
-"start_offset": 0.0,
-"stream": ExtResource("19_h40rr")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/1/use_blend = true
 
 [sub_resource type="Animation" id="Animation_4jvbl"]
 resource_name = "recover"
@@ -425,21 +456,6 @@ tracks/1/keys = {
 "method": &"_spawn_dust"
 }]
 }
-tracks/2/type = "audio"
-tracks/2/imported = false
-tracks/2/enabled = false
-tracks/2/path = NodePath("AudioStreamPlayer2D")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"clips": [{
-"end_offset": 15.1679,
-"start_offset": 0.0,
-"stream": ExtResource("27_7v018")
-}],
-"times": PackedFloat32Array(0)
-}
-tracks/2/use_blend = true
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6e8lb"]
 _data = {
@@ -662,7 +678,7 @@ height = 120.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_4cf6p"]
 radius = 24.0
-height = 402.0
+height = 500.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_tpwpy"]
 animations = [{
@@ -720,6 +736,7 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -9)
 shape = SubResource("CapsuleShape2D_qfm1y")
 
@@ -791,7 +808,7 @@ collision_layer = 524288
 collision_mask = 256
 
 [node name="FieldOfVision" type="CollisionShape2D" parent="Vision"]
-position = Vector2(-34, -24)
+position = Vector2(-1, -24)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_4cf6p")
 debug_color = Color(0.524305, 0.535326, 0.565725, 0.42)

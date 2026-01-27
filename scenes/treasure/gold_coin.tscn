@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://5ebflu4mg3q"]
+[gd_scene load_steps=14 format=3 uid="uid://5ebflu4mg3q"]
 
 [ext_resource type="Script" uid="uid://kw0bpi4y1ba" path="res://scripts/collectables/coin.gd" id="1_dbgmf"]
+[ext_resource type="AudioStream" uid="uid://capu5gtpxsf5e" path="res://audio/collectables/coin.wav" id="2_sbmr2"]
 [ext_resource type="Texture2D" uid="uid://exus5wya2144" path="res://assets/Pirate Treasure/Sprites/coin.png" id="2_v03m5"]
 [ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="3_sbmr2"]
 
@@ -43,6 +44,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_d14el")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"collected",
@@ -79,12 +83,12 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_dbgmf")
 _type = 1
+_sfx_resource = ExtResource("2_sbmr2")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_kfxoj")
-animation = &"idle"
+animation = &"collected"
 autoplay = "idle"
-frame_progress = 0.97772
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2, 0)

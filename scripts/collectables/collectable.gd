@@ -3,13 +3,17 @@ class_name Collectable extends CollisionObject2D
 @onready var _sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var _sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var _character: Player
+@export var _sfx_resource: Resource
 
 
 func _collect(): 
 	# to prevent duplication collisions at the same time
 	collision_mask = 0
 	
-	_sfx.play()
+	if (_sfx_resource) :
+		_sfx.stream = _sfx_resource
+		_sfx.play()
+	
 	_sprite.play("collected")
 
 	# Needed to disable physics processed when a physics-affected coin is being collected,
@@ -19,6 +23,7 @@ func _collect():
 	call_deferred("set_freeze_mode", RigidBody2D.FreezeMode.FREEZE_MODE_STATIC)
 
 	await _sprite.animation_finished
+	await _sfx.finished
 	queue_free()
 	print(name + " is collected")
 	
