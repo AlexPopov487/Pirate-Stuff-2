@@ -6,7 +6,6 @@ class_name HintUi
 @onready var _scroll_container: ScrollContainer = $ScrollContainer
 @onready var _scroll_guide_label: Label = $ScrollGuideLabel
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	_hide_letter_hint()

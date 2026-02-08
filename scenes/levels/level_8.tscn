@@ -1,7 +1,8 @@
-[gd_scene load_steps=122 format=3 uid="uid://d2f0nbt08dwxl"]
+[gd_scene load_steps=123 format=3 uid="uid://d2f0nbt08dwxl"]
 
 [ext_resource type="Script" uid="uid://cgvrweqywgmso" path="res://scripts/levels/level_8.gd" id="1_swb4r"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_4rw3a"]
+[ext_resource type="AudioStream" uid="uid://cwvsxghqy18hp" path="res://audio/music/level_8.wav" id="2_6y7e3"]
 [ext_resource type="PackedScene" uid="uid://bhx6syxe7l8wc" path="res://scenes/enemies/starfish.tscn" id="3_6fhn0"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="4_67oco"]
 [ext_resource type="PackedScene" uid="uid://s8l0b878id76" path="res://scenes/enemies/claw.tscn" id="4_megyt"]
@@ -2471,6 +2472,8 @@ size = Vector2(318, 99)
 
 [node name="level_8" type="Area2D"]
 script = ExtResource("1_swb4r")
+music = ExtResource("2_6y7e3")
+music_advance_start_sec = 0.0
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
 position = Vector2(3880, 322)

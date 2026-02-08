@@ -9,4 +9,4 @@ func _ready() -> void:
 	
 	if _title != null:
 		_title_text = "С кинжалом наперевес"
-		_title.delayed_popup(_title_text)
+		_title.delayed_popup(_title_text, music_advance_start_sec)

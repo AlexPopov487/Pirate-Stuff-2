@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dn5f7dbo86r27"]
+[gd_scene load_steps=37 format=3 uid="uid://dn5f7dbo86r27"]
 
 [ext_resource type="Script" uid="uid://4lcv6ycglvdg" path="res://scripts/characters/pig.gd" id="1_v0mk3"]
 [ext_resource type="Texture2D" uid="uid://bqkte4bj65d4w" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_1.png" id="3_fnvlv"]
@@ -11,7 +11,14 @@
 [ext_resource type="Texture2D" uid="uid://bul1wt0a5dg77" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_3.png" id="10_y8j1w"]
 [ext_resource type="Texture2D" uid="uid://dxdjwow1e40be" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_4.png" id="11_x1fgm"]
 [ext_resource type="PackedScene" uid="uid://cs0vtls0jywwm" path="res://scenes/enemies/enemy_ai.tscn" id="12_5wv3b"]
+[ext_resource type="AudioStream" uid="uid://cq6wnqqf2nhse" path="res://audio/pig/oink_1.wav" id="12_rfcfh"]
+[ext_resource type="AudioStream" uid="uid://bn8bjwbwkcfex" path="res://audio/pig/oink_2.wav" id="13_qj4qb"]
+[ext_resource type="AudioStream" uid="uid://d1sgh3fw21kus" path="res://audio/pig/oink_3.wav" id="14_j0ykj"]
+[ext_resource type="AudioStream" uid="uid://buwb7u13epj5o" path="res://audio/pig/oink_4.wav" id="15_hk4il"]
+[ext_resource type="AudioStream" uid="uid://ddavdl2klueij" path="res://audio/pig/oink_5.wav" id="16_cxc4n"]
+[ext_resource type="AudioStream" uid="uid://bgc4engokhmaf" path="res://audio/pig/oink_6.wav" id="17_8qdu2"]
 [ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="18_5ssii"]
+[ext_resource type="AudioStream" uid="uid://dv50my64dj73o" path="res://audio/pig/oink_7.wav" id="18_u0o5f"]
 
 [sub_resource type="Animation" id="Animation_g5jhy"]
 length = 0.001
@@ -125,6 +132,16 @@ graph_offset = Vector2(-96, -90)
 radius = 8.0
 height = 16.0
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e2n7f"]
+streams_count = 7
+stream_0/stream = ExtResource("12_rfcfh")
+stream_1/stream = ExtResource("13_qj4qb")
+stream_2/stream = ExtResource("14_j0ykj")
+stream_3/stream = ExtResource("15_hk4il")
+stream_4/stream = ExtResource("16_cxc4n")
+stream_5/stream = ExtResource("17_8qdu2")
+stream_6/stream = ExtResource("18_u0o5f")
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_lovqd"]
 radius = 11.0
 
@@ -163,6 +180,7 @@ position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_qfm1y")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_e2n7f")
 
 [node name="ground_check_ray" type="RayCast2D" parent="."]
 position = Vector2(-25, -4)

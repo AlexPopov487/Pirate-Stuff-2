@@ -1,9 +1,10 @@
-[gd_scene load_steps=100 format=3 uid="uid://cljbvmptoblm"]
+[gd_scene load_steps=101 format=3 uid="uid://cljbvmptoblm"]
 
 [ext_resource type="Script" uid="uid://hs6hu7dwlhpn" path="res://scripts/levels/level_10.gd" id="1_fnolr"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_au8ab"]
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="2_diesl"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_inp4p"]
+[ext_resource type="AudioStream" uid="uid://ywqwpsc7877r" path="res://audio/music/level_0.wav" id="2_tiptx"]
 [ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="3_4n6ax"]
 [ext_resource type="PackedScene" uid="uid://wmurco54r64o" path="res://scenes/platform_ground.tscn" id="3_21y8e"]
 [ext_resource type="PackedScene" uid="uid://dm4co3wrqhdh5" path="res://scenes/enemies/cat.tscn" id="3_au8ab"]
@@ -2245,6 +2246,7 @@ size = Vector2(172, 101)
 
 [node name="level_10" type="Area2D"]
 script = ExtResource("1_fnolr")
+music = ExtResource("2_tiptx")
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
 position = Vector2(1376, 107.5)
@@ -3311,7 +3313,7 @@ z_index = 1
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(2765, 19)
+position = Vector2(-444, 434)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("38_uvogk")]
 position = Vector2(418, 351)

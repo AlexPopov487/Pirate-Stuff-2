@@ -11,7 +11,7 @@ func _ready() -> void:
 
 	if _title != null:
 		_title_text = "Гибель пирата"
-		_title.delayed_popup(_title_text)
+		_title.delayed_popup(_title_text, music_advance_start_sec)
 
 func start_init_script() -> void:
 	_player.lie_down()

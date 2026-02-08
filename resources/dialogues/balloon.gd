@@ -1,4 +1,6 @@
 extends CanvasLayer
+class_name DialogueBalloon
+
 ## A basic dialogue balloon for use with Dialogue Manager.
 
 ## The action to use for advancing the dialogue
@@ -120,17 +122,18 @@ func apply_dialogue_line() -> void:
 	will_hide_balloon = false
 
 	dialogue_label.show()
+	
+	if dialogue_line.has_tag("sfx"):
+		audio_stream_player.stream = _get_voice_stream(dialogue_line.get_tag_value("sfx"))
+		audio_stream_player.play()
+
+	
 	if not dialogue_line.text.is_empty():
 		dialogue_label.type_out()
 		await dialogue_label.finished_typing
 
-	# Wait for next line
-	if dialogue_line.has_tag("voice"):
-		audio_stream_player.stream = load(dialogue_line.get_tag_value("voice"))
-		audio_stream_player.play()
-		await audio_stream_player.finished
-		next(dialogue_line.next_id)
-	elif dialogue_line.responses.size() > 0:
+
+	if dialogue_line.responses.size() > 0:
 		balloon.focus_mode = Control.FOCUS_NONE
 		responses_menu.show()
 	elif dialogue_line.time != "":
@@ -148,6 +151,9 @@ func next(next_id: String) -> void:
 	self.dialogue_line = await resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 
+func _get_voice_stream(name: String) -> AudioStreamWAV:
+	return load("res://audio/dialogue/" + name + ".wav")
+	
 #region Signals
 
 

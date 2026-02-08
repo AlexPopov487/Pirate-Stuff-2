@@ -1,7 +1,8 @@
-[gd_scene load_steps=58 format=3 uid="uid://chsi6vfx62f80"]
+[gd_scene load_steps=59 format=3 uid="uid://chsi6vfx62f80"]
 
 [ext_resource type="Script" uid="uid://cr6e1c82650hf" path="res://scripts/levels/level_1.gd" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_x7jkp"]
+[ext_resource type="AudioStream" uid="uid://b5r4bsp4usv74" path="res://audio/music/level_1.wav" id="2_hvllt"]
 [ext_resource type="PackedScene" uid="uid://5ebflu4mg3q" path="res://scenes/treasure/gold_coin.tscn" id="2_row31"]
 [ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="4_4yk0h"]
 [ext_resource type="Texture2D" uid="uid://dx4cyydp6v2am" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="5_vmrhw"]
@@ -1150,6 +1151,8 @@ sources/7 = SubResource("TileSetAtlasSource_wk6bc")
 
 [node name="level_1" type="Area2D"]
 script = ExtResource("1_4yk0h")
+music = ExtResource("2_hvllt")
+music_advance_start_sec = 4.0
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
 position = Vector2(879, 50)

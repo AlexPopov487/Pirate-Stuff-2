@@ -1,7 +1,8 @@
-[gd_scene load_steps=58 format=3 uid="uid://768up8i8on3g"]
+[gd_scene load_steps=59 format=3 uid="uid://768up8i8on3g"]
 
 [ext_resource type="Script" uid="uid://bdjxwwb43w3ji" path="res://scripts/levels/level_0.gd" id="1_cx7as"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_3kux2"]
+[ext_resource type="AudioStream" uid="uid://ywqwpsc7877r" path="res://audio/music/level_0.wav" id="2_gngue"]
 [ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="3_3kux2"]
 [ext_resource type="PackedScene" uid="uid://dee2skf2735be" path="res://scenes/treasure/explosive_chest.tscn" id="3_cx7as"]
 [ext_resource type="Texture2D" uid="uid://dx4cyydp6v2am" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="4_aab13"]
@@ -1152,6 +1153,7 @@ size = Vector2(183, 464)
 
 [node name="level_0" type="Area2D"]
 script = ExtResource("1_cx7as")
+music = ExtResource("2_gngue")
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
 position = Vector2(879, 50)

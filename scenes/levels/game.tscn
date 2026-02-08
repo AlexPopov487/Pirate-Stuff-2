@@ -1,7 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://bjbjnv74t2usm"]
+[gd_scene load_steps=45 format=3 uid="uid://bjbjnv74t2usm"]
 
 [ext_resource type="Script" uid="uid://bsevfhcfjrvel" path="res://scripts/levels/game_manager.gd" id="1_bpkyr"]
 [ext_resource type="Script" uid="uid://bg5rdjxmq74jo" path="res://scripts/environment/camera.gd" id="2_1qlo5"]
+[ext_resource type="AudioStream" uid="uid://bifku8nhecc41" path="res://audio/music/level_completed.wav" id="2_dvdjy"]
 [ext_resource type="PackedScene" uid="uid://c47s83g4fhss2" path="res://scenes/pirate.tscn" id="3_sq8y2"]
 [ext_resource type="Script" uid="uid://dtb0gjo576xu5" path="res://scripts/environment/highlight.gd" id="4_1w27a"]
 [ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="4_7xxho"]
@@ -101,6 +102,12 @@ PanelContainer/styles/panel = SubResource("StyleBoxFlat_tt305")
 [node name="game" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_bpkyr")
+_level_complete = ExtResource("2_dvdjy")
+
+[node name="PauseMenu" parent="." instance=ExtResource("15_f0qvk")]
+process_mode = 2
+layer = 12
+visible = false
 
 [node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
 unique_name_in_owner = true
@@ -205,9 +212,45 @@ visible = false
 layout_mode = 2
 texture = ExtResource("24_1w27a")
 
-[node name="PauseMenu" parent="UserInterface" instance=ExtResource("15_f0qvk")]
-process_mode = 2
-layer = 2
+[node name="CoinPanelContainer" type="PanelContainer" parent="UserInterface"]
+custom_minimum_size = Vector2(112, 0)
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 144.0
+offset_bottom = 72.0
+theme = SubResource("Theme_pisws")
+
+[node name="CoinsContainer" type="HBoxContainer" parent="UserInterface/CoinPanelContainer"]
+layout_mode = 2
+script = ExtResource("7_886ur")
+_digits = Array[Texture2D]([ExtResource("8_cx7qy"), ExtResource("9_r4lr3"), ExtResource("10_15o36"), ExtResource("11_02t1k"), ExtResource("12_hilwk"), ExtResource("13_v80qm"), ExtResource("14_fqlro"), ExtResource("15_tb13f"), ExtResource("16_i73dc"), ExtResource("17_1w27a")])
+
+[node name="icon" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+layout_mode = 2
+texture = ExtResource("7_xmnyv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="num_hundreds" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="num_tens" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="num_ones" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 4
+stretch_mode = 5
 
 [node name="fade" parent="UserInterface" instance=ExtResource("25_tb13f")]
 process_mode = 3
@@ -250,59 +293,19 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
-[node name="CoinPanelContainer" type="PanelContainer" parent="UserInterface"]
-custom_minimum_size = Vector2(112, 0)
-offset_left = 32.0
-offset_top = 32.0
-offset_right = 129.0
-offset_bottom = 72.0
-theme = SubResource("Theme_pisws")
-
-[node name="CoinsContainer" type="HBoxContainer" parent="UserInterface/CoinPanelContainer"]
-layout_mode = 2
-script = ExtResource("7_886ur")
-_digits = Array[Texture2D]([ExtResource("8_cx7qy"), ExtResource("9_r4lr3"), ExtResource("10_15o36"), ExtResource("11_02t1k"), ExtResource("12_hilwk"), ExtResource("13_v80qm"), ExtResource("14_fqlro"), ExtResource("15_tb13f"), ExtResource("16_i73dc"), ExtResource("17_1w27a")])
-
-[node name="icon" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
-layout_mode = 2
-texture = ExtResource("7_xmnyv")
-expand_mode = 2
-stretch_mode = 4
-
-[node name="num_hundreds" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-texture = ExtResource("8_cx7qy")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="num_tens" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-texture = ExtResource("8_cx7qy")
-expand_mode = 5
-stretch_mode = 5
-
-[node name="num_ones" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
-custom_minimum_size = Vector2(15, 0)
-layout_mode = 2
-texture = ExtResource("8_cx7qy")
-expand_mode = 4
-stretch_mode = 5
-
 [node name="Levels" type="Node" parent="."]
 process_mode = 1
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 
+[connection signal="exit_button_pressed" from="PauseMenu" to="." method="_exit_to_main_menu"]
+[connection signal="restart_button_pressed" from="PauseMenu" to="." method="_restart_level"]
+[connection signal="resume_button_pressed" from="PauseMenu" to="." method="_set_game_paused" binds= [false]]
 [connection signal="_changed_stamina" from="Pirate" to="UserInterface/staminaGauge" method="set_value"]
 [connection signal="_is_on_platform" from="Pirate" to="Camera2D" method="_on_pirate__is_on_platform"]
 [connection signal="changed_direction" from="Pirate" to="Camera2D" method="_on_subject_changed_direction"]
 [connection signal="changed_health" from="Pirate" to="UserInterface/healthGauge" method="set_value"]
 [connection signal="died" from="Pirate" to="." method="_on_pirate_died"]
 [connection signal="landed" from="Pirate" to="Camera2D" method="_on_subject_landed"]
-[connection signal="exit_button_pressed" from="UserInterface/PauseMenu" to="." method="_exit_to_main_menu"]
-[connection signal="restart_button_pressed" from="UserInterface/PauseMenu" to="." method="_restart_level"]
-[connection signal="resume_button_pressed" from="UserInterface/PauseMenu" to="." method="_set_game_paused" binds= [false]]
 [connection signal="next_level_button_pressed" from="UserInterface/LevelCompleteWindow" to="." method="_on_level_complete_window_next_level_button_pressed"]

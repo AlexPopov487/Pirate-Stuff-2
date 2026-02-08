@@ -1,7 +1,8 @@
-[gd_scene load_steps=113 format=3 uid="uid://gqrxvk187iqv"]
+[gd_scene load_steps=114 format=3 uid="uid://gqrxvk187iqv"]
 
 [ext_resource type="Script" uid="uid://vhl0nxm3a78k" path="res://scripts/levels/level_7.gd" id="1_8mct5"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_1cjrn"]
+[ext_resource type="AudioStream" uid="uid://dvjcjw6r244pj" path="res://audio/music/level_7.wav" id="2_1fijb"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_waf72"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="3_l7tbi"]
 [ext_resource type="PackedScene" uid="uid://s8l0b878id76" path="res://scenes/enemies/claw.tscn" id="4_1nhwc"]
@@ -2187,6 +2188,7 @@ size = Vector2(200, 135)
 
 [node name="level_7" type="Area2D"]
 script = ExtResource("1_8mct5")
+music = ExtResource("2_1fijb")
 
 [node name="EnvironmentOverlay" type="CanvasModulate" parent="."]
 visible = false
@@ -2526,6 +2528,15 @@ position = Vector2(81, 225)
 
 [node name="gold_coin3" parent="pickups/coins" instance=ExtResource("16_q4bap")]
 position = Vector2(-386, -183)
+
+[node name="gold_coin18" parent="pickups/coins" instance=ExtResource("16_q4bap")]
+position = Vector2(-468, -42)
+
+[node name="gold_coin19" parent="pickups/coins" instance=ExtResource("16_q4bap")]
+position = Vector2(-468, -12)
+
+[node name="gold_coin20" parent="pickups/coins" instance=ExtResource("16_q4bap")]
+position = Vector2(-468, -79)
 
 [node name="gold_coin4" parent="pickups/coins" instance=ExtResource("16_q4bap")]
 position = Vector2(-283, -506)

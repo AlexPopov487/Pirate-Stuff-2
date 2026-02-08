@@ -17,7 +17,8 @@ func _on_body_entered(body: Node2D) -> void:
 	_state = STATE.OPENED
 	
 func _explode():
-	var height = _collision_shape_2d.shape.get_rect().size.y
+	await get_tree().create_timer(0.5).timeout
+	var height: float = _collision_shape_2d.shape.get_rect().size.y
 	_explosion.position = Vector2(position.x, position.y - (height / 2))
 	#_explosion.scale = (Vector2(4,4))
 	_explosion.explode()

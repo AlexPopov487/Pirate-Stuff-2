@@ -10,8 +10,8 @@ const OPAQUE: Color = Color(1,1,1,1)
 var _tween: Tween
 @onready var _label: Label = $HBoxContainer/PanelContainer/Label
 
-func delayed_popup(text: String) -> void:
-	_timer.start(1)
+func delayed_popup(text: String, additional_delay: float = 0) -> void:
+	_timer.start(1 + additional_delay)
 	await _timer.timeout
 	popup(text)
 

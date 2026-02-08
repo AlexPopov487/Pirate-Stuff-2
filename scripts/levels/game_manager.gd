@@ -17,7 +17,7 @@ extends Node2D
 @onready var _stamina_gauge: Control = $UserInterface/staminaGauge
 @onready var _letterbox: Control = $UserInterface/Letterbox
 @onready var _coin_panel_container: PanelContainer = $UserInterface/CoinPanelContainer
-@onready var _pause_menu: PauseMenu = $UserInterface/PauseMenu
+@onready var _pause_menu: PauseMenu = $PauseMenu
 var _current_level: Level
 
 
@@ -43,33 +43,17 @@ func collect_map(map_type: Globals.MAP_TYPE):
 	_map_container.display_map(map_type)
 
 func _ready() -> void:
+	hide_ui()
+	_fade.visible = true # set to invisible in editor during development
+
+	await Music.stop_track()
 	File.reset_current_level_map_progress()
 
-#	TODO CALL _init_level_and_reset_player() INSTEAD
-	_fade.visible = true # set to invisible in editor during development
-	_pause_menu.set_menu_visibility(false)
-	
-	show_ui()
-	if get_tree().paused:
-		_set_game_paused(false)
-
-	File.data.current_level_idx = 9
-	File.data.coins = 101
-	
-	_init_level()
-	
-	_player.get_controls().set_enabled(false)
-	_inint_level_boundaries()
-	_init_level_ui()
-
-	_player._has_sword = _current_level.get_player_armed()
-	_spawn_player()
-	
-	if _current_level.get_controls_enabled_by_default():
-		_player.get_controls().set_enabled(true)
-	
+	File.data.current_level_idx = 1
+	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
-	
+
+
 func _input(event: InputEvent):
 	if event.is_action_pressed("pause"):
 		_set_game_paused(!get_tree().paused)
@@ -100,10 +84,10 @@ func _init_level():
 			levels_dir.remove_child(level)
 			
 	_init_level_vfx()
-	
-	if _current_level.name.contains("level_0") or _current_level.name.contains("level_1"):
-		_current_level.set_player(_player)
-		_current_level.start_init_script()
+		
+	Music.start_track(_current_level.music)
+	if _current_level.music_advance_start_sec != 0:
+		await get_tree().create_timer(_current_level.music_advance_start_sec).timeout
 
 func _init_level_vfx():
 	_vfx.set_vfx(_current_level.get_weather())
@@ -129,7 +113,6 @@ func _init_level_ui():
 	_coins_container.set_value(File.data.coins)
 	_map_container.rerender_container(File.data.collected_maps)
 	
-	
 func _spawn_player():
 	var spawn: Vector2 = _current_level.get_checkpoint_position(File.data.last_checkbox_id)
 	_player.global_position = spawn
@@ -147,7 +130,7 @@ func _on_pirate_died() -> void:
 func _return_to_last_checkpoint():
 	_player.get_controls().set_enabled(false)
 	await _fade.fade_to_black()
-	 
+	
 	if File.data.last_checkbox_id == 0:
 		_current_level.restore_ship_position()
 	
@@ -170,41 +153,56 @@ func _on_level_completed():
 		_current_level.is_last_level
 	))
 	
+	Music.start_track(_level_complete, 0.3)
+	
 	var next_level_idx: int = File.data.current_level_idx + 1
 	File.change_level(next_level_idx)
 	File.save_game()
 	print(_current_level.name + " is completed, initializing level_" + str(File.data.current_level_idx))
 	
 func _restart_level():
+	var balloon: DialogueBalloon = get_tree().root.find_child("ExampleBalloon", true, false)
+	if balloon:
+		balloon.dialogue_line = null
+	
 	File.change_level(File.data.current_level_idx)
 	File.reset_current_level_map_progress()
 
 	await _fade.fade_to_black()
-	_init_level_and_reset_player()
+	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
 
 	
 func _init_level_and_reset_player():
+	if get_tree().paused:
+		_set_game_paused(false)
+	
+	# Temporarily disable player node so the level can be swapped
+	_player.process_mode = PROCESS_MODE_DISABLED
+	_pause_menu.set_menu_visibility(false)
 	_player.get_controls().set_enabled(false)
 	show_ui()
 
-	_init_level()
+	await _init_level()
+	_player.process_mode = PROCESS_MODE_PAUSABLE
 	_spawn_player()
 	_player.revive()
 	_inint_level_boundaries()
 	_init_level_ui()
 	_player._has_sword = _current_level.get_player_armed()
-
-	if get_tree().paused:
-		_set_game_paused(false)
+	
 	if _current_level.get_controls_enabled_by_default():
 		_player.get_controls().set_enabled(true)
 		
 	_camera.restore_settings()
-
+	
+	if _current_level.name.contains("level_0") or _current_level.name.contains("level_1"):
+		_current_level.set_player(_player)
+		_current_level.start_init_script()
 
 func _exit_to_main_menu():
 #	TODO save players progress
+	Music.stop_track()
 	await _fade.fade_to_black()
 	File.reset_current_level_map_progress()
 	_pause_menu.set_menu_visibility(false)
@@ -215,9 +213,11 @@ func _exit_to_main_menu():
 	get_tree().change_scene_to_file(Globals.TITLE_SCENE_PATH)
 
 func _on_level_complete_window_next_level_button_pressed() -> void:
+	Music.stop_track()
 	_level_complete_window.visible = false
 	await _fade.fade_to_black()
-	_init_level_and_reset_player()
+	await Music.stop_track()
+	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
 
 
@@ -228,7 +228,7 @@ func _on_last_level_complete() -> void:
 	File.data.current_level_idx = last_level_idx + 1
 	File.data.last_checkbox_id = 0
 
-	_init_level_and_reset_player()
+	await _init_level_and_reset_player()
 	# Reset current level idx, since levels 10 and 11 should be considered a single level.
 	File.data.current_level_idx = last_level_idx
 
@@ -246,13 +246,15 @@ func _on_last_level_complete() -> void:
 	await _fade.fade_to_clear()
 
 func _on_intro_complete() -> void:
+	Music.stop_track()
 	await _fade.fade_to_black()
+	await  Music.volume_fade_finished
 	var last_level_idx = File.data.current_level_idx
 	# Mimic switching to a new level where necessary but preserving all the statistics
 	File.data.current_level_idx = last_level_idx + 1
 	File.data.last_checkbox_id = 0
 	
-	_init_level_and_reset_player()
+	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
 	
 func hide_ui():
@@ -260,12 +262,14 @@ func hide_ui():
 	_stamina_gauge.visible = false
 	_coins_container.visible = false
 	_coin_panel_container.visible = false
+	_map_container.visible = false
 	
 func show_ui():
 	_health_gauge.visible = true
 	_stamina_gauge.visible = true
 	_coins_container.visible = true
 	_coin_panel_container.visible = true
+	_map_container.visible = true
 	
 func show_letterbox():
 	_letterbox.visible = true

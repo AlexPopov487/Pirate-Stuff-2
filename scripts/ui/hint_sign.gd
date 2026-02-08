@@ -2,6 +2,7 @@ extends PanelContainer
 class_name HintSign
 
 @onready var _main_text: Label = $Paper/MainText
+
 var new_line = "\n"
 
 # Called when the node enters the scene tree for the first time.

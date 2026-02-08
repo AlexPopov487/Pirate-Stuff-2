@@ -1,7 +1,8 @@
-[gd_scene load_steps=26 format=3 uid="uid://dioy4knh25cpm"]
+[gd_scene load_steps=27 format=3 uid="uid://dioy4knh25cpm"]
 
 [ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="1_cgs6i"]
 [ext_resource type="Script" uid="uid://mckyucx2aygg" path="res://scripts/levels/title_manager.gd" id="1_yhiml"]
+[ext_resource type="AudioStream" uid="uid://bx8vjnoxiylt4" path="res://audio/music/title.wav" id="2_37g8r"]
 [ext_resource type="Texture2D" uid="uid://b6oa75p4vfttk" path="res://assets/Palm Tree Island/Sprites/Background/BG Image.png" id="2_dr5ok"]
 [ext_resource type="Texture2D" uid="uid://bdgfvyumr2k6a" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_big.tres" id="5_wtdac"]
 [ext_resource type="Texture2D" uid="uid://ukvpodqif3pq" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_medium.tres" id="6_3l8ki"]
@@ -33,6 +34,7 @@
 process_mode = 3
 scale = Vector2(2.5, 2.5)
 script = ExtResource("1_yhiml")
+_music = ExtResource("2_37g8r")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 scale = Vector2(3, 3)

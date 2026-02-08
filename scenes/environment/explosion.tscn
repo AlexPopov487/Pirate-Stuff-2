@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://3od4l2xkvn65" path="res://assets/Palm Tree Island/Sprites/Objects/explosion/frame6.png" id="6_ydicy"]
 [ext_resource type="Texture2D" uid="uid://bxjxgnhk7ta6i" path="res://assets/Palm Tree Island/Sprites/Objects/explosion/frame7.png" id="7_iikk3"]
 [ext_resource type="Script" uid="uid://bh7tguupw8k4e" path="res://scripts/environment/explosion.gd" id="8_4kdk8"]
-[ext_resource type="AudioStream" uid="uid://bi71rdwn2o82g" path="res://audio/environment/explosion.mp3" id="9_uk1f1"]
+[ext_resource type="AudioStream" uid="uid://gdssjmsu4f11" path="res://audio/environment/explosion.wav" id="9_uk1f1"]
 
 [sub_resource type="ImageTexture" id="ImageTexture_rgvi4"]
 
@@ -88,8 +88,8 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": [{
-"end_offset": 2.41859,
-"start_offset": 0.133248,
+"end_offset": 3.9602,
+"start_offset": 0.231058,
 "stream": ExtResource("9_uk1f1")
 }],
 "times": PackedFloat32Array(0)

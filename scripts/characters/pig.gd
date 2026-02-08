@@ -13,7 +13,11 @@ enum INIT_DIRECTION {LEFT, RIGHT}
 
 var _is_on_board: bool
 @onready var _enemy_behavoir: Node = $EnemyBehavoir
+@onready var _sfx: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
+func jump():
+	_sfx.play()
+	super.jump()
 
 func set_is_on_board(on_board: bool):
 	_is_on_board = on_board

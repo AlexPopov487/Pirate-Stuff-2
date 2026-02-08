@@ -1,5 +1,8 @@
 class_name Level extends Area2D
 
+@export var music: AudioStream
+@export var music_advance_start_sec: float = 1
+
 @onready var _boundaries: CollisionShape2D = $boundaries
 var _min: Vector2
 var _max: Vector2
@@ -85,6 +88,8 @@ func show_hint_wood_popup(hint_type: Globals.HINT_TYPE, player: Player, text: St
 		push_error(name + " failed to show hint popup. Player scene is null")
 		return
 		
+	player.velocity = Vector2.ZERO
+	player._direction = 0
 	player.get_controls().set_enabled(false)
 	match hint_type:
 		Globals.HINT_TYPE.WOOD_SIGN:

@@ -1,8 +1,9 @@
-[gd_scene load_steps=57 format=3 uid="uid://cnwa7l1x75wph"]
+[gd_scene load_steps=58 format=3 uid="uid://cnwa7l1x75wph"]
 
 [ext_resource type="Script" uid="uid://bbdbttpwwaid1" path="res://scripts/levels/level_3.gd" id="1_mqy1c"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_rvwo1"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_exwx8"]
+[ext_resource type="AudioStream" uid="uid://cjvff5sf2caxa" path="res://audio/music/level_3.wav" id="2_fk6jg"]
 [ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="5_ju8vr"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="7_holbn"]
 [ext_resource type="PackedScene" uid="uid://5ebflu4mg3q" path="res://scenes/treasure/gold_coin.tscn" id="8_b1k63"]
@@ -207,6 +208,8 @@ size = Vector2(167, 119)
 
 [node name="level_3" type="Area2D"]
 script = ExtResource("1_mqy1c")
+music = ExtResource("2_fk6jg")
+music_advance_start_sec = 2.0
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
 position = Vector2(4304.88, 50)
@@ -1373,7 +1376,7 @@ _dialogue = ExtResource("34_2gq65")
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(3404, 440)
+position = Vector2(-306, 400)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("47_8ghkn")]
 position = Vector2(1053, 384)

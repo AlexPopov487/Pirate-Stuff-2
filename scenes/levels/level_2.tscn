@@ -1,7 +1,8 @@
-[gd_scene load_steps=89 format=3 uid="uid://v7qy8guo2xhy"]
+[gd_scene load_steps=90 format=3 uid="uid://v7qy8guo2xhy"]
 
 [ext_resource type="Script" uid="uid://sbom5pd7g1g6" path="res://scripts/levels/level_2.gd" id="1_exwx8"]
 [ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="1_rvwo1"]
+[ext_resource type="AudioStream" uid="uid://by0go2w4qfjlt" path="res://audio/music/level_2.wav" id="2_b1k63"]
 [ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="3_oftal"]
 [ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="4_tn15g"]
 [ext_resource type="PackedScene" uid="uid://qpx12wwl7nko" path="res://scenes/treasure/silver_coin.tscn" id="4_yqg3d"]
@@ -1366,6 +1367,8 @@ size = Vector2(384, 115)
 
 [node name="level_2" type="Area2D"]
 script = ExtResource("1_exwx8")
+music = ExtResource("2_b1k63")
+music_advance_start_sec = 3.0
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
 position = Vector2(2629.5, 31.75)
@@ -2585,7 +2588,7 @@ _dialogue = ExtResource("42_wrgna")
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-469, 496)
+position = Vector2(-470, 502)
 
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("47_8ghkn")]
 position = Vector2(506, 288)

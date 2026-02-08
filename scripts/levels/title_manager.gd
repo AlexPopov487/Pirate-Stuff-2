@@ -1,5 +1,7 @@
 extends Node2D
 
+@export var _music: AudioStream
+
 @onready var _continue_button: Button = $CanvasLayer/Buttons/ContinueButtonContainer/ContinueButton
 @onready var _new_game_button: Button = $CanvasLayer/Buttons/NewGameButtonContainer/NewGameButton
 @onready var _exit_button: Button = $CanvasLayer/Buttons/ExitButtonContainer2/ExitButton
@@ -13,6 +15,7 @@ func _ready() -> void:
 	_confirmation_window.visible= false
 	_fade.visible = true
 	_continue_button.disabled = !File.is_save_file_exists()
+	Music.start_track(_music, 2)
 	_fade.fade_to_clear()
 
 

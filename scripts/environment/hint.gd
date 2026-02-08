@@ -9,6 +9,7 @@ var _is_popup_displayed: bool
 @onready var _enter_sprite: Sprite2D = $EnterSprite
 var _player: Player
 @export var _complete_level_on_exit: bool = false
+@onready var _sfx: AudioStreamPlayer2D = get_node_or_null("AudioStreamPlayer2D")
 
 signal show_hint_popup(type: Globals.HINT_TYPE, player: Player, text: String)
 signal hide_hint_popup(player: Player)
@@ -18,6 +19,8 @@ func toggle_hint_visibility():
 	if !_is_popup_displayed:
 		_is_popup_displayed = true
 		show_hint_popup.emit(_hint_type, _player, _hint)
+		if _sfx != null:
+			_sfx.play()
 	else:
 		_is_popup_displayed = false
 		hide_hint_popup.emit(_player)

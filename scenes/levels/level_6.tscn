@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=3 uid="uid://cipdnv3xlkcfc"]
+[gd_scene load_steps=97 format=3 uid="uid://cipdnv3xlkcfc"]
 
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="1_k7ksp"]
 [ext_resource type="Script" uid="uid://biwd851a2ku76" path="res://scripts/levels/level_6.gd" id="1_mcllb"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_hfqfu"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_hx0e5"]
 [ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="2_mcllb"]
+[ext_resource type="AudioStream" uid="uid://bvme084qwjmsb" path="res://audio/music/level_6.wav" id="2_pe5af"]
 [ext_resource type="Texture2D" uid="uid://dx4cyydp6v2am" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="3_61ant"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="3_l2n0k"]
 [ext_resource type="PackedScene" uid="uid://wmurco54r64o" path="res://scenes/platform_ground.tscn" id="4_l04iu"]
@@ -1494,6 +1495,7 @@ size = Vector2(199.5, 143)
 
 [node name="level_6" type="Area2D"]
 script = ExtResource("1_mcllb")
+music = ExtResource("2_pe5af")
 
 [node name="EnvironmentOverlay" type="CanvasModulate" parent="."]
 visible = false
@@ -3563,7 +3565,7 @@ _hint_type = 1
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-614, 428)
+position = Vector2(6313, -304)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("41_3vumg")]
 position = Vector2(1777, 416)
