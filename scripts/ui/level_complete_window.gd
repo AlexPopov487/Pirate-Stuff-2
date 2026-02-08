@@ -7,6 +7,7 @@ class_name LevelCompleteWindow
 @onready var _map_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/MapContainer
 @onready var _title_label: Label = $MainContainer/TitleLabel
 @onready var _next_level_button: Button = $MainContainer/HBoxContainer/NextLevelButton
+@onready var _title_button: Button = $MainContainer/HBoxContainer/TitleButton
 
 var titles: Array[String] = ["Разрази меня гром! Отличный заход!",
 							"Якорь мне в глотку, это победа!",
@@ -52,12 +53,16 @@ func display_window(stats: LevelCompleteStats):
 	if stats.is_last_level:
 		_next_level_button.disabled = true
 		
+	# automatically grap focus to enable button navigaion using gamepad
+	_next_level_button.call_deferred("grab_focus")
 	self.visible = true
 
 
 func _on_title_button_pressed() -> void:
+	_title_button.call_deferred("release_focus")
 	get_tree().change_scene_to_file(Globals.TITLE_SCENE_PATH)
-
+	
 
 func _on_next_level_button_pressed() -> void:
+	_next_level_button.call_deferred("release_focus")
 	next_level_button_pressed.emit()

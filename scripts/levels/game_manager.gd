@@ -49,7 +49,7 @@ func _ready() -> void:
 	await Music.stop_track()
 	File.reset_current_level_map_progress()
 
-	File.data.current_level_idx = 1
+	File.data.current_level_idx = 6                          
 	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
 

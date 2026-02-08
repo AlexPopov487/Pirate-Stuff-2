@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdl8xxf6t2162"]
+[gd_scene load_steps=6 format=3 uid="uid://cdl8xxf6t2162"]
 
 [ext_resource type="Script" uid="uid://cobcijeorv1mw" path="res://scripts/ui/dialogue_trigger.gd" id="1_byapi"]
 [ext_resource type="Texture2D" uid="uid://ca5ytcj1lj7as" path="res://assets/Palm Tree Island/Sprites/Objects/dialogue_trigger.png" id="2_0hero"]
 [ext_resource type="Texture2D" uid="uid://7p4k3qvp74qq" path="res://assets/Wood and Paper UI/Sprites/Big Text/enter_button.png" id="3_0ilmo"]
+[ext_resource type="Texture2D" uid="uid://dvim05tsbeax3" path="res://assets/Wood and Paper UI/Sprites/Big Text/y_button.png" id="4_0ilmo"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d654h"]
 radius = 8.0
@@ -31,3 +32,8 @@ visible = false
 position = Vector2(-4.76837e-07, -42)
 scale = Vector2(1.04152, 1.04152)
 texture = ExtResource("3_0ilmo")
+
+[node name="YSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -42)
+texture = ExtResource("4_0ilmo")

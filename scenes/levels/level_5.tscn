@@ -168,10 +168,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 3.96667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.01, 3.96667),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(336, -216), Vector2(-117, -216)]
+"values": [Vector2(336, -216), Vector2(366, -213), Vector2(-117, -216)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_i1dx4"]

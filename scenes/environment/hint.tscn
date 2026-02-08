@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://0if862voirqk"]
+[gd_scene load_steps=10 format=3 uid="uid://0if862voirqk"]
 
 [ext_resource type="Script" uid="uid://1b082h2e8tqs" path="res://scripts/environment/hint.gd" id="1_m6f2g"]
 [ext_resource type="Texture2D" uid="uid://csv288h5cgbi2" path="res://assets/Palm Tree Island/Sprites/Objects/hint_sign_16x64.png" id="1_q5ohl"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://c16twkqfyxjuy" path="res://audio/pirate/surprised_1.wav" id="4_54e7d"]
 [ext_resource type="AudioStream" uid="uid://c7lmhbyxgrqen" path="res://audio/pirate/surprised_2.wav" id="5_eg4cs"]
 [ext_resource type="AudioStream" uid="uid://c2hrdgeyio3yh" path="res://audio/pirate/surprised_3.wav" id="6_7ttg5"]
+[ext_resource type="Texture2D" uid="uid://dvim05tsbeax3" path="res://assets/Wood and Paper UI/Sprites/Big Text/y_button.png" id="7_eg4cs"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_q5ohl"]
 radius = 8.0
@@ -42,6 +43,11 @@ texture = ExtResource("3_lh64f")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = SubResource("AudioStreamRandomizer_54e7d")
+
+[node name="YSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -42)
+texture = ExtResource("7_eg4cs")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

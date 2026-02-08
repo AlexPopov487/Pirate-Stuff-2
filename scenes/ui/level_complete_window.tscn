@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://dcq7spnc4ud2y"]
+[gd_scene load_steps=35 format=3 uid="uid://dcq7spnc4ud2y"]
 
 [ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="1_atwha"]
 [ext_resource type="Texture2D" uid="uid://duapsuevf5628" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/1.png" id="2_75ri7"]
@@ -29,6 +29,7 @@
 [ext_resource type="Texture2D" uid="uid://dlvw1qed7akia" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/06.png" id="23_vknk7"]
 [ext_resource type="Texture2D" uid="uid://b5rme7lib1vmh" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/07.png" id="24_hg5d4"]
 [ext_resource type="Texture2D" uid="uid://b8665bhv2gci5" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/08.png" id="25_yld3k"]
+[ext_resource type="Theme" uid="uid://c3d6rb6kavbns" path="res://resources/ui_theme.tres" id="28_atgl1"]
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_xst35"]
 frames = 4
@@ -89,10 +90,6 @@ frame_6/texture = ExtResource("24_hg5d4")
 frame_6/duration = 1.0
 frame_7/texture = ExtResource("25_yld3k")
 frame_7/duration = 1.0
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v4s8t"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_priei"]
 
 [node name="LevelCompleteWindow" type="PanelContainer"]
 process_mode = 3
@@ -239,7 +236,7 @@ custom_minimum_size = Vector2(76, 20)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 9
-theme_override_styles/focus = SubResource("StyleBoxEmpty_v4s8t")
+theme = ExtResource("28_atgl1")
 text = "Меню"
 icon = ExtResource("2_75ri7")
 
@@ -248,7 +245,7 @@ custom_minimum_size = Vector2(76, 30)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 9
-theme_override_styles/focus = SubResource("StyleBoxEmpty_priei")
+theme = ExtResource("28_atgl1")
 text = "Дальше"
 icon = ExtResource("3_l7oe6")
 

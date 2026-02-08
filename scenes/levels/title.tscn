@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://dioy4knh25cpm"]
+[gd_scene load_steps=24 format=3 uid="uid://dioy4knh25cpm"]
 
 [ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="1_cgs6i"]
 [ext_resource type="Script" uid="uid://mckyucx2aygg" path="res://scripts/levels/title_manager.gd" id="1_yhiml"]
@@ -23,12 +23,6 @@
 [ext_resource type="PackedScene" uid="uid://snabsd6oi21t" path="res://scenes/environment/fade.tscn" id="27_js7t4"]
 [ext_resource type="Texture2D" uid="uid://bcr8u6vioq4vt" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/5.png" id="31_duba2"]
 [ext_resource type="Texture2D" uid="uid://dx5nh4kh454om" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/6.png" id="32_wn3we"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_yhiml"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_js7t4"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_6jkuc"]
 
 [node name="Title" type="Node2D"]
 process_mode = 3
@@ -194,8 +188,8 @@ layout_mode = 2
 [node name="NewGameButton" type="Button" parent="CanvasLayer/Buttons/NewGameButtonContainer"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
+theme = ExtResource("13_i8iil")
 theme_override_fonts/font = ExtResource("15_xovig")
-theme_override_styles/focus = SubResource("StyleBoxEmpty_yhiml")
 icon = ExtResource("16_3h535")
 icon_alignment = 1
 
@@ -225,7 +219,7 @@ layout_mode = 2
 [node name="ContinueButton" type="Button" parent="CanvasLayer/Buttons/ContinueButtonContainer"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_js7t4")
+theme = ExtResource("13_i8iil")
 disabled = true
 icon = ExtResource("14_yhiml")
 icon_alignment = 1
@@ -256,7 +250,7 @@ layout_mode = 2
 [node name="ExitButton" type="Button" parent="CanvasLayer/Buttons/ExitButtonContainer2"]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_js7t4")
+theme = ExtResource("13_i8iil")
 icon = ExtResource("31_duba2")
 icon_alignment = 1
 
@@ -331,13 +325,13 @@ size_flags_vertical = 8
 [node name="NoButton" type="Button" parent="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_6jkuc")
+theme = ExtResource("13_i8iil")
 icon = ExtResource("31_duba2")
 
 [node name="YesButton" type="Button" parent="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 10
-theme_override_styles/focus = SubResource("StyleBoxEmpty_6jkuc")
+theme = ExtResource("13_i8iil")
 icon = ExtResource("32_wn3we")
 icon_alignment = 1
 

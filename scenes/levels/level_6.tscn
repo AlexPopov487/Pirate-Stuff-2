@@ -3565,7 +3565,7 @@ _hint_type = 1
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(6313, -304)
+position = Vector2(-612, 432)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("41_3vumg")]
 position = Vector2(1777, 416)

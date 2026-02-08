@@ -1635,15 +1635,15 @@ position = Vector2(1608, 467)
 
 [node name="Hint" parent="environment/hints" instance=ExtResource("32_o8s4s")]
 position = Vector2(374, 447)
-_hint = "A - для движения влево|D - для движения вправой"
+_hint = "{left} - для движения влево | {right} - для движения вправо"
 
 [node name="Hint2" parent="environment/hints" instance=ExtResource("32_o8s4s")]
 position = Vector2(548, 448)
-_hint = "ПРОБЕЛ - для прыжка"
+_hint = "{jump} - для прыжка"
 
 [node name="Hint3" parent="environment/hints" instance=ExtResource("32_o8s4s")]
 position = Vector2(804, 448)
-_hint = "Чем дольше жмешь ПРОБЕЛ,|тем выше прыжок"
+_hint = "Чем дольше жмешь {jump},|тем выше прыжок"
 
 [node name="Hint4" parent="environment/hints" instance=ExtResource("32_o8s4s")]
 position = Vector2(938, 384)

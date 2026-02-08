@@ -1345,11 +1345,11 @@ metadata/_edit_lock_ = true
 
 [node name="Hint" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(139, 384)
-_hint = "Бочки - не помеха!|Используй ЛКМ, чтобы разбить|деревянные бочки и ящики"
+_hint = "Бочки - не помеха!|Используй {attack_light}, чтобы разбить|деревянные бочки и ящики"
 
 [node name="Hint6" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(221, 384)
-_hint = "Используй ПКМ для|сильного удара|(расходует энергию)"
+_hint = "Используй {attack_heavy} для|сильного удара|(расходует энергию)"
 
 [node name="Hint4" parent="environment/hints" instance=ExtResource("52_px4x2")]
 position = Vector2(2082, 352)

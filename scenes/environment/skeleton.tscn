@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cdp3jdffckjmk"]
+[gd_scene load_steps=7 format=3 uid="uid://cdp3jdffckjmk"]
 
 [ext_resource type="Texture2D" uid="uid://d0qs1yiv77rx2" path="res://assets/Palm Tree Island/Sprites/Objects/skeleton.png" id="1_j0wnc"]
 [ext_resource type="Script" uid="uid://bsgmxengvece5" path="res://scripts/environment/skeleton.gd" id="1_uwvoj"]
 [ext_resource type="Texture2D" uid="uid://7p4k3qvp74qq" path="res://assets/Wood and Paper UI/Sprites/Big Text/enter_button.png" id="3_qq0y5"]
 [ext_resource type="AudioStream" uid="uid://bo4nvmat0swpv" path="res://audio/collectables/letter_open.wav" id="4_vi6g0"]
+[ext_resource type="Texture2D" uid="uid://dvim05tsbeax3" path="res://assets/Wood and Paper UI/Sprites/Big Text/y_button.png" id="5_66d2e"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_j0wnc"]
 height = 44.0
@@ -31,6 +32,11 @@ texture = ExtResource("3_qq0y5")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_vi6g0")
+
+[node name="YSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, -41)
+texture = ExtResource("5_66d2e")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

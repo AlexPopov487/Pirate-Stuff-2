@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://blc068j7o1yk1"]
+[gd_scene load_steps=10 format=3 uid="uid://blc068j7o1yk1"]
 
 [ext_resource type="Script" uid="uid://syotbhj5e51i" path="res://scripts/ui/pause_menu.gd" id="1_6qnem"]
 [ext_resource type="Theme" uid="uid://c3d6rb6kavbns" path="res://resources/ui_theme.tres" id="1_lrbnh"]
@@ -9,8 +9,6 @@
 [ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="11_2nrdc"]
 [ext_resource type="Texture2D" uid="uid://d25ym2p36wher" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/23.png" id="12_jj4cn"]
 [ext_resource type="Texture2D" uid="uid://74kh7ghl4a4g" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/15.png" id="13_1prsh"]
-
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8xa5q"]
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_6qnem")
@@ -115,7 +113,7 @@ theme_override_constants/separation = 14
 
 [node name="Resume" type="Button" parent="Control/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer"]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
+theme = ExtResource("1_lrbnh")
 icon = ExtResource("10_3xddx")
 
 [node name="Label" type="Label" parent="Control/VBoxContainer/Wood/VBoxContainer/ResumeButtonContainer"]
@@ -129,7 +127,7 @@ theme_override_constants/separation = 14
 
 [node name="Restart" type="Button" parent="Control/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer"]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
+theme = ExtResource("1_lrbnh")
 icon = ExtResource("12_jj4cn")
 
 [node name="Label" type="Label" parent="Control/VBoxContainer/Wood/VBoxContainer/RestartButtonContainer"]
@@ -143,7 +141,7 @@ theme_override_constants/separation = 14
 
 [node name="Exit" type="Button" parent="Control/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]
 layout_mode = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_8xa5q")
+theme = ExtResource("1_lrbnh")
 icon = ExtResource("13_1prsh")
 
 [node name="Label" type="Label" parent="Control/VBoxContainer/Wood/VBoxContainer/ExitButtonContainer"]

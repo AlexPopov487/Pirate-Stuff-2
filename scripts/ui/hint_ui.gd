@@ -5,6 +5,8 @@ class_name HintUi
 @onready var _letter: HintSign = $ScrollContainer/Letter
 @onready var _scroll_container: ScrollContainer = $ScrollContainer
 @onready var _scroll_guide_label: Label = $ScrollGuideLabel
+@onready var _hint_exit_label: Label = $HintExitLabel
+var _hint_exit_text: String = "Нажми %s для выхода"
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -22,6 +24,12 @@ func show_wood_hint(text: String):
 		_letter.hide()
 #	TODO ПЕРЕНЕСТИ ТЕКСТ ПОДСКАЗОК В JSON РЕСУРС
 	_wood_sign.display(text)
+	
+	if InputManager.current_mode == InputManager.InputMode.GAMEPAD:
+		_hint_exit_label.text = _hint_exit_text % "\"Y\""
+	else:
+		_hint_exit_label.text = _hint_exit_text % "ENTER"
+	
 	_wood_sign.visible = true
 	visible = true
 	

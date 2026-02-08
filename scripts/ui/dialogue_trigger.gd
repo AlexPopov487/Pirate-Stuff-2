@@ -23,6 +23,8 @@ func trigger_dialogue(player: Player):
 	var balloon: Node = Balloon.instantiate()
 	get_tree().current_scene.add_child(balloon)
 	
+	player.velocity = Vector2.ZERO
+	player._direction = 0
 	player.get_controls().set_enabled(false) 
 	balloon.start(_dialogue, "start")
 	
@@ -43,5 +45,6 @@ func _input(event: InputEvent) -> void:
 		return
 	
 	_enter_sprite.visible = false
+	_y_sprite.visible = false
 	_dialogue_triggered = true
 	trigger_dialogue(_player)

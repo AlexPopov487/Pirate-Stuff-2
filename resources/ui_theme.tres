@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=11 format=3 uid="uid://c3d6rb6kavbns"]
+[gd_resource type="Theme" load_steps=12 format=3 uid="uid://c3d6rb6kavbns"]
 
 [ext_resource type="Texture2D" uid="uid://buml82ot0dkgh" path="res://assets/Wood and Paper UI/Sprites/Green Button/1.png" id="1_m7jai"]
 [ext_resource type="Texture2D" uid="uid://rnf0qgq58qv4" path="res://assets/Wood and Paper UI/Sprites/Yellow Button/1.png" id="2_ufndy"]
@@ -12,6 +12,22 @@ texture_margin_top = 6.0
 texture_margin_right = 6.0
 texture_margin_bottom = 8.0
 modulate_color = Color(0.501961, 0.501961, 0.501961, 0.501961)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m7jai"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.933, 0.741, 0.541, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+expand_margin_left = 1.0
+expand_margin_top = 1.0
+expand_margin_right = 1.0
+expand_margin_bottom = 1.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1kbfp"]
 texture = ExtResource("2_ufndy")
@@ -56,6 +72,7 @@ axis_stretch_vertical = 1
 
 [resource]
 Button/styles/disabled = SubResource("StyleBoxTexture_bhc0f")
+Button/styles/focus = SubResource("StyleBoxFlat_m7jai")
 Button/styles/hover = SubResource("StyleBoxTexture_1kbfp")
 Button/styles/normal = SubResource("StyleBoxTexture_dates")
 Button/styles/pressed = SubResource("StyleBoxTexture_whbgs")
