@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b88xfwd7py8nl" path="res://scripts/levels/level_5.gd" id="1_2ylsn"]
 [ext_resource type="PackedScene" uid="uid://dcj58c00p3c2h" path="res://scenes/enemies/cannon.tscn" id="2_2vq5a"]
-[ext_resource type="AudioStream" uid="uid://cndnaxqutswvg" path="res://audio/music/level_5.wav" id="2_7sg85"]
+[ext_resource type="AudioStream" uid="uid://bsfn4tdu3tspa" path="res://audio/music/level_5.wav" id="2_7sg85"]
 [ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="2_ips30"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_o2yhh"]
 [ext_resource type="PackedScene" uid="uid://cdv7bvreii5n" path="res://scenes/enemies/seashell.tscn" id="4_blerq"]

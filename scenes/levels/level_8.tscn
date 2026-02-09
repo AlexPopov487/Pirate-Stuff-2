@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://d2f0nbt08dwxl"]
+[gd_scene load_steps=124 format=3 uid="uid://d2f0nbt08dwxl"]
 
 [ext_resource type="Script" uid="uid://cgvrweqywgmso" path="res://scripts/levels/level_8.gd" id="1_swb4r"]
 [ext_resource type="PackedScene" uid="uid://cgftcoml81vct" path="res://scenes/enemies/crabby.tscn" id="2_4rw3a"]
@@ -64,6 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://0if862voirqk" path="res://scenes/environment/hint.tscn" id="59_jvqvr"]
 [ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="60_qysiq"]
 [ext_resource type="Resource" uid="uid://dq1ukyhgdtffv" path="res://resources/dialogues/lvl_8_d_1.dialogue" id="61_akuk6"]
+[ext_resource type="Resource" uid="uid://cqs78j4ybfq6s" path="res://resources/dialogues/lvl_8_d_3.dialogue" id="63_5nj7q"]
 [ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="63_uvfsw"]
 [ext_resource type="PackedScene" uid="uid://xta340japskr" path="res://scenes/environment/slow_area.tscn" id="64_uvfsw"]
 [ext_resource type="Script" uid="uid://cor62rc2ut4ju" path="res://scripts/environment/treasure_area.gd" id="67_6y7e3"]
@@ -3826,6 +3827,10 @@ _dialogue_type = 0
 position = Vector2(2061, 384)
 _dialogue = ExtResource("27_umkvo")
 
+[node name="DialogueTrigger3" parent="environment/dialogues" instance=ExtResource("63_uvfsw")]
+position = Vector2(257, 447)
+_dialogue = ExtResource("63_5nj7q")
+
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
@@ -3908,6 +3913,8 @@ debug_color = Color(0.893169, 0.254117, 0.506511, 0.42)
 [connection signal="body_exited" from="environment/dialogues/DialogueTrigger" to="environment/dialogues/DialogueTrigger" method="_on_body_exited"]
 [connection signal="body_entered" from="environment/dialogues/DialogueTrigger2" to="environment/dialogues/DialogueTrigger2" method="_on_body_entered"]
 [connection signal="body_exited" from="environment/dialogues/DialogueTrigger2" to="environment/dialogues/DialogueTrigger2" method="_on_body_exited"]
+[connection signal="body_entered" from="environment/dialogues/DialogueTrigger3" to="environment/dialogues/DialogueTrigger3" method="_on_body_entered"]
+[connection signal="body_exited" from="environment/dialogues/DialogueTrigger3" to="environment/dialogues/DialogueTrigger3" method="_on_body_exited"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_entered"]
 [connection signal="body_exited" from="camera_overrides/CameraOverride" to="camera_overrides/CameraOverride" method="_on_body_exited"]
 [connection signal="body_entered" from="camera_overrides/CameraOverride2" to="camera_overrides/CameraOverride2" method="_on_body_entered"]

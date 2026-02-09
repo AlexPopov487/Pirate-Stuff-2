@@ -49,7 +49,7 @@ func _ready() -> void:
 	await Music.stop_track()
 	File.reset_current_level_map_progress()
 
-	File.data.current_level_idx = 6                          
+	File.data.current_level_idx = 8              
 	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
 
@@ -59,6 +59,10 @@ func _input(event: InputEvent):
 		_set_game_paused(!get_tree().paused)
 
 func _set_game_paused(should_pause: bool):
+	# Ignore pausing game when level is completed
+	if _level_complete_window.visible:
+		return
+	
 	get_tree().paused = should_pause
 	_pause_menu.set_menu_visibility(should_pause)
 
