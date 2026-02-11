@@ -9,5 +9,5 @@ func _init() -> void:
 func _ready() -> void:
 	super._ready()
 	_player_armed = false
-	_controls_enabled_by_default = false
+	_controls_enabled_by_default = true
 	is_last_level = true

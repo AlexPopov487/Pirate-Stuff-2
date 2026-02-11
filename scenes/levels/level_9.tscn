@@ -1,4 +1,4 @@
-[gd_scene load_steps=93 format=3 uid="uid://dl27tpgv6g4qh"]
+[gd_scene load_steps=95 format=3 uid="uid://dl27tpgv6g4qh"]
 
 [ext_resource type="Script" uid="uid://bqymyknq7p0e3" path="res://scripts/levels/level_9.gd" id="1_ey035"]
 [ext_resource type="AudioStream" uid="uid://d4f6fdecmiaet" path="res://audio/music/level_9.wav" id="2_7xtw3"]
@@ -21,6 +21,7 @@
 [ext_resource type="PackedScene" uid="uid://pgb31jnsdwat" path="res://scenes/treasure/small_map.tscn" id="18_oexd1"]
 [ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="19_gjaoo"]
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="23_cv2oj"]
+[ext_resource type="PackedScene" uid="uid://dlja755yhg4xt" path="res://scenes/enemies/shark.tscn" id="24_665t0"]
 [ext_resource type="PackedScene" uid="uid://dm4co3wrqhdh5" path="res://scenes/enemies/cat.tscn" id="25_1mmxc"]
 [ext_resource type="Resource" uid="uid://ve2f8xav7jhv" path="res://resources/dialogues/lvl_8_d_0.dialogue" id="26_t144s"]
 [ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="28_i8qwg"]
@@ -106,6 +107,9 @@ _data = {
 &"RESET": SubResource("Animation_7baeg"),
 &"move": SubResource("Animation_lhphj")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qex64"]
+size = Vector2(491, 152)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ejqvo"]
 texture = ExtResource("28_i8qwg")
@@ -2747,6 +2751,10 @@ _treasure_scene = ExtResource("9_pwnfs")
 position = Vector2(3120, 64)
 _treasure_scene = ExtResource("9_pwnfs")
 
+[node name="Crate15" parent="pickups/crates" instance=ExtResource("8_8afmw")]
+position = Vector2(4114, 32)
+_treasure_scene = ExtResource("9_pwnfs")
+
 [node name="Crate2" parent="pickups/crates" instance=ExtResource("8_8afmw")]
 position = Vector2(1434, -32)
 _treasure_scene = ExtResource("9_c5u5t")
@@ -2862,6 +2870,43 @@ _init_direction = 1
 [node name="Cat2" parent="npc" instance=ExtResource("25_1mmxc")]
 position = Vector2(5706, 465)
 _intro_dialogue_resource = ExtResource("26_t144s")
+
+[node name="water" type="Node" parent="npc"]
+
+[node name="Boundary" type="Area2D" parent="npc/water"]
+position = Vector2(-441, 469)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc/water/Boundary"]
+position = Vector2(266, 59)
+shape = SubResource("RectangleShape2D_qex64")
+
+[node name="Shark" parent="npc/water/Boundary" node_paths=PackedStringArray("_boundaries") instance=ExtResource("24_665t0")]
+position = Vector2(-51, -5)
+speed = 2.3
+_boundaries = NodePath("../CollisionShape2D")
+
+[node name="Boundary2" type="Area2D" parent="npc/water"]
+position = Vector2(815, 469)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc/water/Boundary2"]
+position = Vector2(63.5, 59)
+shape = SubResource("RectangleShape2D_qex64")
+
+[node name="Shark" parent="npc/water/Boundary2" node_paths=PackedStringArray("_boundaries") instance=ExtResource("24_665t0")]
+position = Vector2(-51, -5)
+speed = 2.3
+_boundaries = NodePath("../CollisionShape2D")
+
+[node name="Shark2" parent="npc/water/Boundary2" node_paths=PackedStringArray("_boundaries") instance=ExtResource("24_665t0")]
+position = Vector2(248, 20)
+speed = 2.3
+_init_direction = 0
+_boundaries = NodePath("../CollisionShape2D")
+
+[node name="Shark3" parent="npc/water/Boundary2" node_paths=PackedStringArray("_boundaries") instance=ExtResource("24_665t0")]
+position = Vector2(-88, 49)
+speed = 2.3
+_boundaries = NodePath("../CollisionShape2D")
 
 [node name="environment" type="Node" parent="."]
 
@@ -3580,6 +3625,9 @@ position = Vector2(3969, 384)
 
 [node name="checkpoint_helm5" parent="checkpoints" instance=ExtResource("45_pkqh2")]
 position = Vector2(4339, -224)
+
+[node name="checkpoint_helm7" parent="checkpoints" instance=ExtResource("45_pkqh2")]
+position = Vector2(3059, -160)
 
 [node name="next_level" parent="." instance=ExtResource("66_054be")]
 position = Vector2(6210, 383)

@@ -44,9 +44,6 @@
 [ext_resource type="Texture2D" uid="uid://cy0kcldcvjr5c" path="res://assets/Palm Tree Island/Sprites/Terrain/dark_back_outside_sprites.png" id="23_tiptx"]
 [ext_resource type="Texture2D" uid="uid://cflfo634hw5bk" path="res://assets/Palm Tree Island/Sprites/palm_tree_fromt_animated.tres" id="24_jdvt3"]
 [ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="25_iv6lf"]
-[ext_resource type="Texture2D" uid="uid://chrrk68ouwu7t" path="res://assets/Palm Tree Island/Sprites/Background/bg_image_day.png" id="26_g2d3b"]
-[ext_resource type="Texture2D" uid="uid://ckapxo7x1fexu" path="res://assets/Palm Tree Island/Sprites/Background/additiona_sky_day.png" id="27_vc730"]
-[ext_resource type="Texture2D" uid="uid://kwfvruge528x" path="res://assets/Palm Tree Island/Sprites/Background/additional_water_day.png" id="28_6pu3k"]
 [ext_resource type="Texture2D" uid="uid://bdgfvyumr2k6a" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_big.tres" id="29_a61ml"]
 [ext_resource type="Texture2D" uid="uid://b37ciq0huxdrw" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_small.tres" id="30_5knm2"]
 [ext_resource type="Texture2D" uid="uid://ukvpodqif3pq" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_medium.tres" id="31_b1ylm"]
@@ -60,6 +57,9 @@
 [ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="40_77br0"]
 [ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="41_dr67n"]
 [ext_resource type="Script" uid="uid://cor62rc2ut4ju" path="res://scripts/environment/treasure_area.gd" id="42_6huv6"]
+[ext_resource type="Texture2D" uid="uid://b6oa75p4vfttk" path="res://assets/Palm Tree Island/Sprites/Background/BG Image.png" id="45_tiptx"]
+[ext_resource type="Texture2D" uid="uid://bejq1y1k7eigw" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="46_tiptx"]
+[ext_resource type="Texture2D" uid="uid://lkbwhmsd5bqj" path="res://assets/Palm Tree Island/Sprites/Background/Additional Water.png" id="47_tiptx"]
 [ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="56_ahecq"]
 [ext_resource type="Resource" uid="uid://cb7cpq73titrh" path="res://resources/dialogues/lvl_10_d_0.dialogue" id="57_7a2gn"]
 [ext_resource type="PackedScene" uid="uid://b0bnmpl3dk8nb" path="res://scenes/environment/explosion.tscn" id="57_imfi1"]
@@ -2724,21 +2724,21 @@ metadata/_edit_lock_ = true
 [node name="main_background" type="Sprite2D" parent="environment/ParallaxBackground/bg_back"]
 position = Vector2(0, -123)
 scale = Vector2(3, 2)
-texture = ExtResource("26_g2d3b")
+texture = ExtResource("45_tiptx")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="sky_additional" type="Sprite2D" parent="environment/ParallaxBackground/bg_back"]
 position = Vector2(0, -1083)
 scale = Vector2(36, 30)
-texture = ExtResource("27_vc730")
+texture = ExtResource("46_tiptx")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="water_additional" type="Sprite2D" parent="environment/ParallaxBackground/bg_back"]
 position = Vector2(0, 133)
 scale = Vector2(36, 20)
-texture = ExtResource("28_6pu3k")
+texture = ExtResource("47_tiptx")
 centered = false
 metadata/_edit_lock_ = true
 

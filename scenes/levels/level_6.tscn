@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cipdnv3xlkcfc"]
+[gd_scene load_steps=99 format=3 uid="uid://cipdnv3xlkcfc"]
 
 [ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="1_k7ksp"]
 [ext_resource type="Script" uid="uid://biwd851a2ku76" path="res://scripts/levels/level_6.gd" id="1_mcllb"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cldsqjltgedqk" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_left_animated.tres" id="6_j0hcr"]
 [ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="7_ndq4w"]
 [ext_resource type="Texture2D" uid="uid://baiigco7tpspj" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_right_animated.tres" id="7_u1jf6"]
+[ext_resource type="PackedScene" uid="uid://cp2nom756qi6v" path="res://scenes/enemies/deep_fish.tscn" id="8_41gm2"]
 [ext_resource type="Texture2D" uid="uid://b0ebx4ghphuvu" path="res://assets/Palm Tree Island/Sprites/Objects/spider_web.png" id="8_hx0e5"]
 [ext_resource type="PackedScene" uid="uid://bymkslho10bgg" path="res://scenes/treasure/crate.tscn" id="9_1uorh"]
 [ext_resource type="Texture2D" uid="uid://cd7gphshvxn47" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_cave_inside.png" id="9_l2n0k"]
@@ -67,6 +68,9 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
 size = Vector2(8810, 1183)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c68a6"]
+size = Vector2(128, 317)
 
 [sub_resource type="Animation" id="Animation_j0hcr"]
 length = 0.001
@@ -1746,6 +1750,30 @@ _init_direction = 1
 [node name="Cat2" parent="npc" instance=ExtResource("10_c68a6")]
 position = Vector2(7496, 442)
 _init_direction = 1
+
+[node name="water" type="Node" parent="npc"]
+
+[node name="Boundaries" type="Area2D" parent="npc/water"]
+position = Vector2(2624, 655)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="npc/water/Boundaries"]
+position = Vector2(-25, -111.5)
+shape = SubResource("RectangleShape2D_c68a6")
+
+[node name="DeepFish" parent="npc/water/Boundaries" node_paths=PackedStringArray("_boundaries") instance=ExtResource("8_41gm2")]
+position = Vector2(11, 25)
+_boundaries = NodePath("../CollisionShape2D")
+
+[node name="DeepFish2" parent="npc/water/Boundaries" node_paths=PackedStringArray("_boundaries") instance=ExtResource("8_41gm2")]
+position = Vector2(-59, -78)
+speed = 2.3
+_init_direction = 1
+_boundaries = NodePath("../CollisionShape2D")
+
+[node name="DeepFish5" parent="npc/water/Boundaries" node_paths=PackedStringArray("_boundaries") instance=ExtResource("8_41gm2")]
+position = Vector2(11, -182)
+speed = 1.3
+_boundaries = NodePath("../CollisionShape2D")
 
 [node name="pickups" type="Node" parent="."]
 
@@ -3565,7 +3593,7 @@ _hint_type = 1
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-612, 432)
+position = Vector2(-612, 433)
 
 [node name="checkpoint_helm" parent="checkpoints" instance=ExtResource("41_3vumg")]
 position = Vector2(1777, 416)

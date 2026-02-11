@@ -1,0 +1,179 @@
+[gd_scene load_steps=24 format=3 uid="uid://dlja755yhg4xt"]
+
+[ext_resource type="Script" uid="uid://ch3d51mnbj1nc" path="res://scripts/characters/water_npc.gd" id="1_1el3g"]
+[ext_resource type="Texture2D" uid="uid://be4wjpcudrwia" path="res://assets/The Crusty Crew/Sprites/Turtle/1.png" id="1_fijgp"]
+[ext_resource type="Texture2D" uid="uid://cl3icjwhmv27p" path="res://assets/The Crusty Crew/Sprites/Shark/1.png" id="2_qbwwh"]
+[ext_resource type="Texture2D" uid="uid://dgyu8pvnaw2p4" path="res://assets/The Crusty Crew/Sprites/Shark/2.png" id="3_iv2bn"]
+[ext_resource type="Texture2D" uid="uid://wcay3efex2q1" path="res://assets/The Crusty Crew/Sprites/Shark/3.png" id="4_fijgp"]
+[ext_resource type="Texture2D" uid="uid://dhadr1ece2nnc" path="res://assets/The Crusty Crew/Sprites/Shark/4.png" id="5_ghf3h"]
+[ext_resource type="PackedScene" uid="uid://dweusxbi6gmsx" path="res://scenes/enemies/water_npc_ai.tscn" id="14_msmfq"]
+
+[sub_resource type="Animation" id="Animation_g5jhy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_fijgp")]
+}
+
+[sub_resource type="Animation" id="Animation_hhpqf"]
+resource_name = "idle"
+length = 0.1
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_qbwwh")]
+}
+
+[sub_resource type="Animation" id="Animation_holxr"]
+resource_name = "running"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_qbwwh"), ExtResource("3_iv2bn"), ExtResource("4_fijgp"), ExtResource("5_ghf3h")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e8lb"]
+_data = {
+&"RESET": SubResource("Animation_g5jhy"),
+&"idle": SubResource("Animation_hhpqf"),
+&"running": SubResource("Animation_holxr")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cf4is"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yecbv"]
+animation = &"running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cjrgq"]
+advance_mode = 2
+advance_expression = "velocity.x != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7cv73"]
+advance_mode = 2
+advance_expression = "velocity.x == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1vow"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_krq47"]
+states/idle/node = SubResource("AnimationNodeAnimation_cf4is")
+states/idle/position = Vector2(441, 100)
+states/running/node = SubResource("AnimationNodeAnimation_yecbv")
+states/running/position = Vector2(595, 100)
+transitions = ["idle", "running", SubResource("AnimationNodeStateMachineTransition_cjrgq"), "running", "idle", SubResource("AnimationNodeStateMachineTransition_7cv73"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_b1vow")]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pf23h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ygevk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_mu48n"]
+states/Locomition/node = SubResource("AnimationNodeStateMachine_krq47")
+states/Locomition/position = Vector2(342, 100)
+states/Start/position = Vector2(143, 100)
+states/WithSword/node = SubResource("AnimationNodeStateMachine_pf23h")
+states/WithSword/position = Vector2(677, 86)
+transitions = ["Start", "Locomition", SubResource("AnimationNodeStateMachineTransition_ygevk")]
+graph_offset = Vector2(-96, -90)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1el3g"]
+height = 50.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fg8vq"]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sqlpk"]
+radius = 9.0
+height = 28.0
+
+[node name="Shark" type="CharacterBody2D"]
+collision_layer = 8388608
+collision_mask = 8388609
+motion_mode = 1
+script = ExtResource("1_1el3g")
+speed = 4.0
+deceleration = 64.0
+_init_direction = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_fijgp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_6e8lb")
+}
+autoplay = "idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../../..")
+tree_root = SubResource("AnimationNodeStateMachine_mu48n")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 4.71239
+shape = SubResource("CapsuleShape2D_1el3g")
+
+[node name="ground_check_ray" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(-25, -4)
+target_position = Vector2(0, 10)
+
+[node name="obstacle_check_ray" type="RayCast2D" parent="."]
+visible = false
+position = Vector2(0, -11)
+rotation = 3.14159
+target_position = Vector2(-24, 1.90735e-06)
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_fg8vq")
+debug_color = Color(0, 0.411765, 0.027451, 0.207843)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+position = Vector2(0, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_sqlpk")
+debug_color = Color(0.670588, 0, 0.188235, 0.235294)
+
+[node name="WaterNpcAi" parent="." instance=ExtResource("14_msmfq")]

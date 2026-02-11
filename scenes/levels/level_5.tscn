@@ -64,7 +64,7 @@
 [ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="63_70kwm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
-size = Vector2(6024, 1913)
+size = Vector2(6024, 1907)
 
 [sub_resource type="Animation" id="Animation_7sg85"]
 length = 0.001
@@ -1846,13 +1846,12 @@ script = ExtResource("1_2ylsn")
 music = ExtResource("2_7sg85")
 
 [node name="EnvironmentOverlay" type="CanvasModulate" parent="."]
-visible = false
 top_level = true
 position = Vector2(-43, -60)
 color = Color(0.377919, 0.377919, 0.377919, 1)
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
-position = Vector2(2014, 226.5)
+position = Vector2(2014, 229.5)
 shape = SubResource("RectangleShape2D_rtb3b")
 debug_color = Color(0.796078, 0.803922, 0.952941, 0)
 metadata/_edit_lock_ = true
@@ -1898,7 +1897,7 @@ position = Vector2(985, 896)
 position = Vector2(1803, 768)
 
 [node name="crabby14" parent="enemies/crabs" instance=ExtResource("2_o2yhh")]
-position = Vector2(3130, -287)
+position = Vector2(3313, -362)
 
 [node name="crabby15" parent="enemies/crabs" instance=ExtResource("2_o2yhh")]
 position = Vector2(3384, 417)
