@@ -88,8 +88,8 @@ tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "clips": [{
-"end_offset": 3.9602,
-"start_offset": 0.231058,
+"end_offset": 6.76504,
+"start_offset": 0.24,
 "stream": ExtResource("9_uk1f1")
 }],
 "times": PackedFloat32Array(0)

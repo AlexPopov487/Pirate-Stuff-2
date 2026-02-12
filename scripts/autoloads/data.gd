@@ -18,7 +18,7 @@ func _init():
 	coins = 0
 	last_checkbox_id = 0
 	has_key = false
-	current_level_idx = 1
+	current_level_idx = 0
 	collected_maps = {
 		Globals.MAP_TYPE.TOP_LEFT: false,
 		Globals.MAP_TYPE.TOP_RIGHT: false,

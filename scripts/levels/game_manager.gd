@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var _dead: AudioStream
 @export var _level_complete: AudioStream
 
 @onready var _player: Player = $Pirate
@@ -49,7 +48,12 @@ func _ready() -> void:
 	await Music.stop_track()
 	File.reset_current_level_map_progress()
 
-	#File.data.current_level_idx = 0        
+	#File.data.current_level_idx =2
+	#File.data.collected_maps = {
+		#Globals.MAP_TYPE.TOP_LEFT : true,
+		#Globals.MAP_TYPE.TOP_RIGHT : true,
+		#Globals.MAP_TYPE.BOTTOM_LEFT : true
+		#}      
 	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
 
@@ -126,8 +130,6 @@ func _spawn_player():
 	_player._direction = 0
 
 func _on_pirate_died() -> void:
-	_audio_stream_player_2d.stream = _dead
-	_audio_stream_player_2d.play()
 	File.increase_death_count()
 	_return_to_last_checkpoint()
 	
@@ -143,10 +145,15 @@ func _return_to_last_checkpoint():
 	await _fade.fade_to_clear()
 	_player.get_controls().set_enabled(true)
 
-func _on_level_completed():
+func _on_level_completed(is_secret_ending: bool):
 	_current_level.level_completed.disconnect(_on_level_completed)
 	
 	get_tree().paused = true
+	Music.start_track(_level_complete, 0.3)
+
+	if is_secret_ending:
+		on_secret_ending_completed()
+		return
 	
 	_level_complete_window.display_window(LevelCompleteStats.new(
 		File.data.coins,
@@ -156,13 +163,19 @@ func _on_level_completed():
 		File.data.found_map,
 		_current_level.is_last_level
 	))
-	
-	Music.start_track(_level_complete, 0.3)
+
+	if _current_level.is_last_level:
+		File.reset_collected_maps()
 	
 	var next_level_idx: int = File.data.current_level_idx + 1
 	File.change_level(next_level_idx)
+	File.data.found_map_type = null
 	File.save_game()
 	print(_current_level.name + " is completed, initializing level_" + str(File.data.current_level_idx))
+	
+func on_secret_ending_completed() -> void:
+	File.remove_user_progress()
+	_level_complete_window.display_window(LevelCompleteStats.create_secret_ending())
 	
 func _restart_level():
 	var balloon: DialogueBalloon = get_tree().root.find_child("ExampleBalloon", true, false)
@@ -171,7 +184,8 @@ func _restart_level():
 	
 	File.change_level(File.data.current_level_idx)
 	File.reset_current_level_map_progress()
-
+	
+	_pause_menu.set_menu_visibility(false)
 	await _fade.fade_to_black()
 	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
@@ -205,11 +219,13 @@ func _init_level_and_reset_player():
 		_current_level.start_init_script()
 
 func _exit_to_main_menu():
-#	TODO save players progress
 	Music.stop_track()
-	await _fade.fade_to_black()
-	File.reset_current_level_map_progress()
 	_pause_menu.set_menu_visibility(false)
+	await _fade.fade_to_black()
+	# Resetting level to the same one to reset user's progress.
+	File.change_level(File.data.current_level_idx)	
+	File.reset_current_level_map_progress()
+
 
 	if get_tree().paused:
 		_set_game_paused(false)
@@ -231,13 +247,16 @@ func _on_last_level_complete() -> void:
 	# Mimic switching to a new level where necessary but preserving all the statistics
 	File.data.current_level_idx = last_level_idx + 1
 	File.data.last_checkbox_id = 0
-
+	var level10_coin_count = _current_level.get_total_coin_count()
+	
 	await _init_level_and_reset_player()
 	# Reset current level idx, since levels 10 and 11 should be considered a single level.
 	File.data.current_level_idx = last_level_idx
+	_current_level._total_coins_on_level = level10_coin_count
 
 	hide_ui()
 	var hint: Hint = _current_level.get_node("environment/hints/Hint")
+	hint.disable_sound(true)
 	hint._player = _player
 	hint.toggle_hint_visibility()
 	

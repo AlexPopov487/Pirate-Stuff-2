@@ -1,9 +1,8 @@
-[gd_scene load_steps=204 format=3 uid="uid://c47s83g4fhss2"]
+[gd_scene load_steps=203 format=3 uid="uid://c47s83g4fhss2"]
 
 [ext_resource type="Script" uid="uid://bkbg7tebw37vc" path="res://scripts/characters/player.gd" id="1_bd24r"]
 [ext_resource type="AudioStream" uid="uid://bbnlh7hrhwetu" path="res://audio/pirate/attack_air_1.wav" id="6_22pmy"]
 [ext_resource type="PackedScene" uid="uid://becchde81p1nq" path="res://scenes/dust/fall_dust.tscn" id="6_umdqw"]
-[ext_resource type="AudioStream" uid="uid://dlbwlr4b0v3ap" path="res://audio/pirate/floor-fall.wav" id="7_5ckpr"]
 [ext_resource type="AudioStream" uid="uid://dnmmmidirh2oy" path="res://audio/pirate/attack_air_2.wav" id="10_h2svi"]
 [ext_resource type="Texture2D" uid="uid://b7vtwk4l87sjh" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="12_3v2ag"]
 [ext_resource type="Texture2D" uid="uid://dtgm20xv6shh0" path="res://assets/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 02.png" id="13_pf23h"]
@@ -901,17 +900,13 @@ tracks/0/keys = {
 }
 tracks/1/type = "audio"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath("SFX")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"clips": [{
-"end_offset": 0.5058,
-"start_offset": 0.0,
-"stream": ExtResource("7_5ckpr")
-}],
-"times": PackedFloat32Array(0)
+"clips": [],
+"times": PackedFloat32Array()
 }
 tracks/1/use_blend = true
 tracks/2/type = "method"

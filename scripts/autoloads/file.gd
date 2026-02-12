@@ -7,9 +7,19 @@ var data: Data
 func _ready() -> void:
 	start_new_game()
 	
+func remove_user_progress() -> void:
+	if ResourceLoader.exists(AUTOSAVE_PATH):
+		var error = DirAccess.remove_absolute(AUTOSAVE_PATH)
+		if error == OK:
+			print("User progress wiped successfully!")
+		else:
+			print("Error deleting user progress file: ", error)
+	
 func is_save_file_exists() -> bool:
-	return ResourceLoader.exists(AUTOSAVE_PATH)
-
+	# ResourceLoader.exists() caches results failing to provide actual data 
+	var game_data = ResourceLoader.load(AUTOSAVE_PATH, "", ResourceLoader.CacheMode.CACHE_MODE_IGNORE)
+	return game_data != null
+	
 func start_new_game() -> void:
 	data = Data.new()
 	
@@ -44,3 +54,7 @@ func reset_current_level_map_progress() -> void:
 	if data.found_map_type:
 		data.collected_maps[data.found_map_type] = false
 		data.found_map_type = null
+
+func reset_collected_maps() -> void :
+	for map in data.collected_maps:
+		data.collected_maps[map] = false

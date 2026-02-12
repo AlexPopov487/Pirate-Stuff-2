@@ -8,6 +8,9 @@ class_name LevelCompleteWindow
 @onready var _title_label: Label = $MainContainer/TitleLabel
 @onready var _next_level_button: Button = $MainContainer/HBoxContainer/NextLevelButton
 @onready var _title_button: Button = $MainContainer/HBoxContainer/TitleButton
+@onready var _secret_ending_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/SecretEndingContainer
+@onready var _coin_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/CoinContainer
+@onready var _death_container: HBoxContainer = $MainContainer/Panel/VBoxContainer/DeathContainer
 
 var titles: Array[String] = ["Разрази меня гром! Отличный заход!",
 							"Якорь мне в глотку, это победа!",
@@ -32,15 +35,24 @@ signal next_level_button_pressed
 func _ready() -> void:
 	_treasure_container.visible = false
 	_map_container.visible = false
+	_secret_ending_container.visible = false
 	self.visible = false
 
 func display_window(stats: LevelCompleteStats):
 	_title_label.text = titles[randi_range(0, titles.size() - 1)]
-	_coin_label.text = str(stats.coins_collected) + " / " + str(stats.coins_total)
-	_death_label.text = str(stats.death_count)
+	
+	if stats.secret_ending:
+		_coin_container.visible = false
+		_death_container.visible = false
+		_secret_ending_container.visible = true
+	else: 
+		_coin_container.visible = true
+		_death_container.visible = true
+		_coin_label.text = str(stats.coins_collected) + " / " + str(stats.coins_total)
+		_death_label.text = str(stats.death_count)
 
-	_treasure_container.visible = stats.found_treasure
-	_map_container.visible = stats.collected_map
+		_treasure_container.visible = stats.found_treasure
+		_map_container.visible = stats.collected_map
 
 	# Despite _treasure_container and _map_container are set to invisible by 
 	# default, the node reserves space for them resulting in the whole window
@@ -52,9 +64,11 @@ func display_window(stats: LevelCompleteStats):
 
 	if stats.is_last_level:
 		_next_level_button.disabled = true
-		
-	# automatically grap focus to enable button navigaion using gamepad
-	_next_level_button.call_deferred("grab_focus")
+		# automatically grap focus to enable button navigaion using gamepad
+		_title_button.call_deferred("grab_focus")
+	else: 
+		# automatically grap focus to enable button navigaion using gamepad
+		_next_level_button.call_deferred("grab_focus")
 	self.visible = true
 
 

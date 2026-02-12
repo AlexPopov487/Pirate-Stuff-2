@@ -24,7 +24,7 @@ var is_last_level: bool = false
 @onready var _ship_in: ShipPlaftorm = get_node_or_null("platforms/ship_in")
 var _total_coins_on_level: int
 
-signal level_completed
+signal level_completed(is_secret_ending: bool)
 
 func set_player(player: Player):
 	_player = player
@@ -50,9 +50,9 @@ func get_checkpoint_position(id: int) -> Vector2:
 	
 	return _checkpoints[id].global_position
 
-func set_level_completed():
+func set_level_completed(is_secret_ending: bool):
 	print(name + " is comppleted, emitting signal to game manager")
-	level_completed.emit()
+	level_completed.emit(is_secret_ending)
 	
 func get_time() -> Globals.TIME:
 	return _time

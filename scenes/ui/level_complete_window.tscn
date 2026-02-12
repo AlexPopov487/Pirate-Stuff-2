@@ -203,6 +203,37 @@ text = "Найден тайник
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="SecretEndingContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Treasure2" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_ia3ie")
+stretch_mode = 5
+
+[node name="LabelContainer" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 4
+
+[node name="TreasureLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer/LabelContainer"]
+layout_mode = 2
+text = "Поздравляем!
+Вы нашли
+секретную концовку!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Treasure" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_ia3ie")
+stretch_mode = 5
+
 [node name="MapContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
 visible = false
 layout_mode = 2

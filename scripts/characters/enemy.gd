@@ -158,3 +158,11 @@ func _on_attack_cooldown_timeout() -> void:
 func _jump_attack():
 	velocity.y = _jump_attack_height
 	velocity.x = _jump_attack_length * Globals.ppt * (-1 if _is_facing_left else 1)
+	
+func _interrupt_running_attack():
+	super._interrupt_running_attack()
+	# If player hits enemy (and interrupts enemy's attack), attack_cooldown will
+	# never be triggered and thus enemy will not attemp to attack. 
+	# That is why we start _attack_cooldown manually
+	if _attack_cooldown.is_stopped():
+		_attack_cooldown.start()

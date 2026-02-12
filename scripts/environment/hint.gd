@@ -13,9 +13,13 @@ class_name Hint
 var _has_entered: bool
 var _is_popup_displayed: bool
 var _player: Player
+var _sound_disabled: bool
 
 signal show_hint_popup(type: Globals.HINT_TYPE, player: Player, text: String)
 signal hide_hint_popup(player: Player)
+
+func disable_sound(is_disabled: bool):
+	_sound_disabled = is_disabled
 
 func toggle_hint_visibility():
 	_enter_sprite.visible = false
@@ -23,7 +27,7 @@ func toggle_hint_visibility():
 	if !_is_popup_displayed:
 		_is_popup_displayed = true
 		show_hint_popup.emit(_hint_type, _player, _format_hint(_hint))
-		if _sfx != null:
+		if _sfx != null && !_sound_disabled:
 			_sfx.play()
 	else:
 		_is_popup_displayed = false
@@ -68,7 +72,7 @@ func _input(event: InputEvent) -> void:
 	toggle_hint_visibility()
 	
 func _toggle_level_completion():
-	get_parent().get_parent().get_parent().set_level_completed()
+	get_parent().get_parent().get_parent().set_level_completed(false)
 	
 func _format_hint(raw_string: String) -> String:
 	var bindings = {}

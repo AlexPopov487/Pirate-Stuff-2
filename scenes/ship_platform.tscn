@@ -200,7 +200,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmge3"]
-size = Vector2(57, 21)
+size = Vector2(67, 22)
 
 [node name="ship" type="Node2D"]
 script = ExtResource("1_tmge3")
@@ -232,7 +232,7 @@ collision_layer = 0
 collision_mask = 8388865
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(11.5, -10.5)
+position = Vector2(6.5, -11)
 shape = SubResource("RectangleShape2D_tmge3")
 debug_color = Color(0.345561, 0.615334, 0.230675, 0.42)
 

@@ -16,7 +16,7 @@ func _ready() -> void:
 	_confirmation_window.visible= false
 	_fade.visible = true
 	_continue_button.disabled = !File.is_save_file_exists()
-	Music.start_track(_music, 2)
+	await Music.start_track(_music, 1)
 	# automatically grap focus to enable button navigaion using gamepad
 	_new_game_button.call_deferred("grab_focus")
 	_fade.fade_to_clear()
