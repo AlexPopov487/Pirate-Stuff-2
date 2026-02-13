@@ -1,7 +1,7 @@
 class_name Coin extends Collectable
 
 @onready var _value: int
-@export var _type: Globals.COIN_TYPE:
+@export var _type: Globals.COIN_TYPE = Globals.COIN_TYPE.GOLD_COIN:
 	set(val):
 		_type = val
 		_value = val
@@ -18,11 +18,5 @@ func _ready() -> void:
 	_value = _type
 
 func _collect():
-	var audio_resource: Resource
-	match _type :
-		Globals.COIN_TYPE.GOLD_COIN | Globals.COIN_TYPE.SILVER_COIN:
-			pass
-		_ :
-			pass
 	$/root/game.collect_coin(_value)
 	super._collect()

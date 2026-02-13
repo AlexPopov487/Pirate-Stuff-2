@@ -8,10 +8,10 @@ signal resume_button_pressed()
 signal restart_button_pressed()
 signal exit_button_pressed()
 
-func set_menu_visibility(is_visible: bool) -> void:
-	visible = is_visible
-	_pause_menu_overlay.visible = is_visible
-	if is_visible:
+func set_menu_visibility(is_menu_visible: bool) -> void:
+	visible = is_menu_visible
+	_pause_menu_overlay.visible = is_menu_visible
+	if is_menu_visible:
 		# automatically grap focus to enable button navigaion using gamepad
 		_resume_button.call_deferred("grab_focus")
 	else:

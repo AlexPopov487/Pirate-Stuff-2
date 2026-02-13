@@ -72,7 +72,7 @@ func _ready() -> void:
 	add_child(mutation_cooldown)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	progress.visible = not dialogue_label.is_typing and dialogue_line.responses.size() == 0 and not dialogue_line.has_tag("voice")
 
 
@@ -151,8 +151,8 @@ func next(next_id: String) -> void:
 	self.dialogue_line = await resource.get_next_dialogue_line(next_id, temporary_game_states)
 
 
-func _get_voice_stream(name: String) -> AudioStreamWAV:
-	return load("res://audio/dialogue/" + name + ".wav")
+func _get_voice_stream(file_name: String) -> AudioStreamWAV:
+	return load("res://audio/dialogue/" + file_name + ".wav")
 	
 #region Signals
 

@@ -123,7 +123,7 @@ _speed_horizontal = 2.0
 [node name="Pirate" parent="." instance=ExtResource("3_sq8y2")]
 process_mode = 1
 position = Vector2(240, 416)
-max_health = 100
+max_health = 7
 speed = 6.0
 deceleration = 72.0
 _jump_dust = ExtResource("4_7xxho")
@@ -294,9 +294,6 @@ grow_vertical = 0
 color = Color(0, 0, 0, 1)
 
 [node name="Levels" type="Node" parent="."]
-process_mode = 1
-
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 process_mode = 1
 
 [connection signal="exit_button_pressed" from="PauseMenu" to="." method="_exit_to_main_menu"]

@@ -63,11 +63,6 @@ var _was_on_floor: bool
 var _min_level_boundary: Vector2
 var _max_level_boundary: Vector2
 
-# needed to detect and singal when enemy is stepping on character
-var _is_step_on_character_detected: bool = false
-signal step_on_character_detected()
-
-
 #region public methods
 func get_max_health() : return _max_health
 
@@ -198,9 +193,6 @@ func step_on_mud():
 	
 func step_on_ground():
 	_current_speed = _speed
-
-func mark_step_on_character_handled():
-	_is_step_on_character_detected = true
 #endregion
 
 

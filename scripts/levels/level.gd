@@ -11,6 +11,7 @@ var _player_armed: bool
 var _controls_enabled_by_default: bool
 var _weather := Globals.WEATHER.CLEAR
 var _time := Globals.TIME.DAY
+@warning_ignore("unused_private_class_variable")
 var _title_text: String = "Level"
 
 var is_last_level: bool = false
@@ -19,6 +20,7 @@ var is_last_level: bool = false
 @onready var _environment_overlay: CanvasModulate = get_node_or_null("EnvironmentOverlay")
 @onready var _background_overlay: CanvasModulate =  get_node_or_null("environment/ParallaxBackground/BackgroundOverlay")
 @onready var _hint_ui: HintUi = get_node_or_null("hint_ui")
+@warning_ignore("unused_private_class_variable")
 @onready var _title: LevelTitle = get_node_or_null("Title")
 @onready var _player: Player
 @onready var _ship_in: ShipPlaftorm = get_node_or_null("platforms/ship_in")

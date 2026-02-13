@@ -164,5 +164,6 @@ func _interrupt_running_attack():
 	# If player hits enemy (and interrupts enemy's attack), attack_cooldown will
 	# never be triggered and thus enemy will not attemp to attack. 
 	# That is why we start _attack_cooldown manually
-	if _attack_cooldown.is_stopped():
-		_attack_cooldown.start()
+	if is_inside_tree() and _attack_cooldown.is_inside_tree():
+		if _attack_cooldown.is_stopped():
+			_attack_cooldown.start()

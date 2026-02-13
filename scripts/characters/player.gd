@@ -41,6 +41,8 @@ var _collision_mask = collision_mask
 var _is_lying: bool = false
 var _should_get_up: bool = false
 
+var _panting_sound: Resource = load("res://audio/pirate/panting.wav")
+
 # use float type to let _stamina_tween increase gauge gradually 
 var _current_stamina: float = _max_stamina:
 	set(value):
@@ -91,6 +93,8 @@ func attack():
 
 func attack_heavily() -> void:
 	if not _can_attack_heavily(): 
+		_voice.stream = _panting_sound
+		_voice.play()
 		return
 		
 	_is_ready_to_attack_heavily = true

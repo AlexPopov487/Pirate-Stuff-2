@@ -53,7 +53,7 @@ func reset():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if _is_disabled: 
 		return
-		
+
 	if body is Player:
 		_player = body
 		_handle_player_on_board()
@@ -63,9 +63,9 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		_hande_cat_on_board(body)
 		
 
-func _on_area_2d_body_exited(body: Node2D) -> void:
-	if body == _player:
-		_player = null
+#func _on_area_2d_body_exited(body: Node2D) -> void:
+	#if body == _player:
+		#_player = null
 	
 func _handle_player_on_board() -> void:
 	if _has_landed: 

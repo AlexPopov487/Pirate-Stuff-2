@@ -6,7 +6,6 @@ extends Node2D
 @onready var _camera: GameCamera = $Camera2D
 @onready var _coins_container: HBoxContainer = $UserInterface/CoinPanelContainer/CoinsContainer
 @onready var _key: Control = $UserInterface/key
-@onready var _audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 @onready var _fade: Fade = $UserInterface/fade
 @onready var _map_container: MapContainer = $UserInterface/MapContainer
 @onready var _vfx: Vfx = $UserInterface/VFX
@@ -48,7 +47,7 @@ func _ready() -> void:
 	await Music.stop_track()
 	File.reset_current_level_map_progress()
 
-	#File.data.current_level_idx =2
+	File.data.current_level_idx =1
 	#File.data.collected_maps = {
 		#Globals.MAP_TYPE.TOP_LEFT : true,
 		#Globals.MAP_TYPE.TOP_RIGHT : true,
