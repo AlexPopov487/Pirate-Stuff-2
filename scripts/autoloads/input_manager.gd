@@ -3,6 +3,10 @@ extends Node
 enum InputMode { KEYBOARD, GAMEPAD }
 var current_mode = InputMode.KEYBOARD
 
+
+func _ready() -> void:
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 func _input(event: InputEvent):
 	if event is InputEventKey or event is InputEventMouseButton:
 		_change_mode(InputMode.KEYBOARD)

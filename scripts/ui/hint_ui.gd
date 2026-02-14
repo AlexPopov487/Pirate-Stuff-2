@@ -43,6 +43,10 @@ func show_letter(text: String):
 	_letter.visible = true
 	_scroll_container.visible = true
 	_scroll_guide_label.visible = true
+	if InputManager.current_mode == InputManager.InputMode.GAMEPAD:
+		_hint_exit_label.text = _hint_exit_text % "\"Y\""
+	else:
+		_hint_exit_label.text = _hint_exit_text % "ENTER"
 	visible = true
 	
 func _hide_wood_hint():

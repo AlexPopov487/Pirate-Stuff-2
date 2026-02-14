@@ -47,7 +47,7 @@ func _ready() -> void:
 	await Music.stop_track()
 	File.reset_current_level_map_progress()
 
-	File.data.current_level_idx =1
+	#File.data.current_level_idx =5
 	#File.data.collected_maps = {
 		#Globals.MAP_TYPE.TOP_LEFT : true,
 		#Globals.MAP_TYPE.TOP_RIGHT : true,
@@ -68,6 +68,12 @@ func _set_game_paused(should_pause: bool):
 	
 	get_tree().paused = should_pause
 	_pause_menu.set_menu_visibility(should_pause)
+	
+	if !should_pause:
+		var balloon: DialogueBalloon = get_tree().root.find_child("ExampleBalloon", true, false)
+		if balloon:
+			balloon.balloon.focus_mode = Control.FOCUS_ALL
+			balloon.balloon.grab_focus()
 
 func _init_level():
 	_letterbox.visible = false

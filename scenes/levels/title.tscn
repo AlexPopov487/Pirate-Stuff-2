@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dioy4knh25cpm"]
+[gd_scene load_steps=25 format=3 uid="uid://dioy4knh25cpm"]
 
 [ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="1_cgs6i"]
 [ext_resource type="Script" uid="uid://mckyucx2aygg" path="res://scripts/levels/title_manager.gd" id="1_yhiml"]
@@ -20,6 +20,7 @@
 [ext_resource type="Texture2D" uid="uid://b5eng1fv2of7t" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/9.png" id="16_3h535"]
 [ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="17_jrltb"]
 [ext_resource type="PackedScene" uid="uid://c47s83g4fhss2" path="res://scenes/pirate.tscn" id="19_nvmym"]
+[ext_resource type="Theme" uid="uid://bsbndfiu7il25" path="res://resources/hint_sign_popup_theme.tres" id="25_c1c7m"]
 [ext_resource type="PackedScene" uid="uid://snabsd6oi21t" path="res://scenes/environment/fade.tscn" id="27_js7t4"]
 [ext_resource type="Texture2D" uid="uid://bcr8u6vioq4vt" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/5.png" id="31_duba2"]
 [ext_resource type="Texture2D" uid="uid://dx5nh4kh454om" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/6.png" id="32_wn3we"]
@@ -334,6 +335,29 @@ size_flags_horizontal = 10
 theme = ExtResource("13_i8iil")
 icon = ExtResource("32_wn3we")
 icon_alignment = 1
+
+[node name="Credits" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Credits"]
+layout_mode = 2
+theme = ExtResource("25_c1c7m")
+text = "t.me/Edge03"
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits"]
+layout_mode = 2
+theme = ExtResource("25_c1c7m")
+text = "github.com/AlexPopov487"
 
 [node name="fade" parent="CanvasLayer" instance=ExtResource("27_js7t4")]
 visible = false
