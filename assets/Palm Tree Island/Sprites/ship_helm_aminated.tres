@@ -1,0 +1,23 @@
+[gd_resource type="AnimatedTexture" load_steps=7 format=3 uid="uid://bwg8nlkwuqxsw"]
+
+[ext_resource type="Texture2D" uid="uid://d33n2ria7mnoy" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 01.png" id="1_yme5p"]
+[ext_resource type="Texture2D" uid="uid://dphhgsqmujx76" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 02.png" id="2_i7cxw"]
+[ext_resource type="Texture2D" uid="uid://c4ed21a7h8coa" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 03.png" id="3_s7xj5"]
+[ext_resource type="Texture2D" uid="uid://dyhafdqojo8rv" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 04.png" id="4_1j5e2"]
+[ext_resource type="Texture2D" uid="uid://cy1ysq3h5umqf" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 05.png" id="5_b0tao"]
+[ext_resource type="Texture2D" uid="uid://cojs3vkokykhl" path="res://assets/Palm Tree Island/Sprites/Objects/Ship Helm/Ship Helm Idle 06.png" id="6_vqnog"]
+
+[resource]
+frames = 6
+speed_scale = 5.0
+frame_0/texture = ExtResource("1_yme5p")
+frame_1/texture = ExtResource("2_i7cxw")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_s7xj5")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_1j5e2")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_b0tao")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_vqnog")
+frame_5/duration = 1.0

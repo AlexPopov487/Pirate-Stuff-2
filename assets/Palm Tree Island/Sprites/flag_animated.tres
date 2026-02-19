@@ -1,0 +1,32 @@
+[gd_resource type="AnimatedTexture" load_steps=10 format=3 uid="uid://hx7jkp8jah36"]
+
+[ext_resource type="Texture2D" uid="uid://iw4cfeugnt2g" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag1.png" id="1_rm2de"]
+[ext_resource type="Texture2D" uid="uid://cam2awscdln7k" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag2.png" id="2_50bmy"]
+[ext_resource type="Texture2D" uid="uid://bjes0qj7ytqyv" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag3.png" id="3_qm7aj"]
+[ext_resource type="Texture2D" uid="uid://bma1v62hr3sxv" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag4.png" id="4_ywi1w"]
+[ext_resource type="Texture2D" uid="uid://d34abnpm0bpqo" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag5.png" id="5_qv8se"]
+[ext_resource type="Texture2D" uid="uid://qituysye1tnq" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag6.png" id="6_gessm"]
+[ext_resource type="Texture2D" uid="uid://bolq6enbnrfdx" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag7.png" id="7_6hlbw"]
+[ext_resource type="Texture2D" uid="uid://bnjrrywgvrsm" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag8.png" id="8_nnoic"]
+[ext_resource type="Texture2D" uid="uid://gp62esybbxuj" path="res://assets/Palm Tree Island/Sprites/Objects/Flag/flag9.png" id="9_80kk4"]
+
+[resource]
+frames = 9
+speed_scale = 15.0
+frame_0/texture = ExtResource("1_rm2de")
+frame_1/texture = ExtResource("2_50bmy")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_qm7aj")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_ywi1w")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_qv8se")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_gessm")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_6hlbw")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("8_nnoic")
+frame_7/duration = 1.0
+frame_8/texture = ExtResource("9_80kk4")
+frame_8/duration = 1.0

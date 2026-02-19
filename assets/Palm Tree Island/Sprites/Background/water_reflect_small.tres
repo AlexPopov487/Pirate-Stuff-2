@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://b37ciq0huxdrw"]
+
+[ext_resource type="Texture2D" uid="uid://c0ytj3mhhsnig" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Small 01.png" id="1_7eo5n"]
+[ext_resource type="Texture2D" uid="uid://cmpapeo7wp67u" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Small 02.png" id="2_j8hyc"]
+[ext_resource type="Texture2D" uid="uid://bynnhhb43k6lp" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Small 03.png" id="3_lheiu"]
+[ext_resource type="Texture2D" uid="uid://bwlebr734f1j" path="res://assets/Palm Tree Island/Sprites/Background/Water Reflect Small 04.png" id="4_4i5c7"]
+
+[resource]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("1_7eo5n")
+frame_1/texture = ExtResource("2_j8hyc")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_lheiu")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_4i5c7")
+frame_3/duration = 1.0
