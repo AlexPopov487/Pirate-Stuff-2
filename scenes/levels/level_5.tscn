@@ -2411,7 +2411,7 @@ libraries = {
 autoplay = "move"
 
 [node name="ship_out" parent="platforms" instance=ExtResource("21_tcs5o")]
-position = Vector2(4326, 453)
+position = Vector2(4327, 459)
 _ship_destination = 1
 
 [node name="ship_in" parent="platforms" instance=ExtResource("21_tcs5o")]
@@ -3075,7 +3075,7 @@ _hint = "Берегись грязи!"
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
-position = Vector2(-912, 436)
+position = Vector2(-913, 434)
 
 [node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("41_ywvvp")]
 position = Vector2(1469, -576)

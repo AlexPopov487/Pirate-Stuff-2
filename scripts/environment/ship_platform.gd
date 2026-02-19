@@ -7,42 +7,31 @@ const SPEED: int = 70
 
 @export var _ship_destination: SHIP_DESTINATION
 @export var _is_disabled: bool = false
-@onready var _animated_sprite_2d: AnimatedSprite2D = $AnimatableBody2D/AnimatedSprite2D
-@onready var _sfx: AudioStreamPlayer2D = $AnimatableBody2D/AudioStreamPlayer2D
+@onready var _audio_stream_player_2d: AudioStreamPlayer2D = $AnimatableBody2D/AudioStreamPlayer2D
 
 var _current_move: MOVE_SET = MOVE_SET.IDLE
 var _has_landed: bool
 var _player: Player
 var _initial_position: Vector2
 
-var _sfx_ship_sailing: Resource = load("res://audio/ship/ship_sailig.wav")
-var _sfx_bell: Resource = load("res://audio/ship/ship_bell.wav")
-var _sfx_ashore: Resource = load("res://audio/ship/ship_ashore.wav")
-
-
 func _ready() -> void:
 	_initial_position = position
 
 func _process(delta: float) -> void:	
-	match _current_move:
-		MOVE_SET.IDLE:
-			_animated_sprite_2d.play("idle")
-		MOVE_SET.SAILING:
-			await _play_sailing_sfx()
-			_animated_sprite_2d.play("wind")
+	if _current_move == 	MOVE_SET.SAILING:
 			position.x += SPEED * delta
-		MOVE_SET.GAINING_PACE:
-			if AnimationUtils.is_last_frame(_animated_sprite_2d, "to_wind"):
-				_current_move = MOVE_SET.SAILING
-			_animated_sprite_2d.play("to_wind")
-		MOVE_SET.STOPPING:
-			_animated_sprite_2d.play("to_idle")
-			await _animated_sprite_2d.animation_finished
-			_current_move = MOVE_SET.IDLE
 
+# Honestly, not sure, where it is called
 func set_moving():
 	if _current_move == MOVE_SET.IDLE:
 		_current_move = MOVE_SET.GAINING_PACE
+
+# Used by animation player
+func set_sailing():
+	_current_move = MOVE_SET.SAILING
+	
+func set_idle():
+	_current_move = MOVE_SET.IDLE
 
 func reset():
 	_is_disabled = false
@@ -61,11 +50,6 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 		_set_ashore()
 	elif body is Cat:
 		_hande_cat_on_board(body)
-		
-
-#func _on_area_2d_body_exited(body: Node2D) -> void:
-	#if body == _player:
-		#_player = null
 	
 func _handle_player_on_board() -> void:
 	if _has_landed: 
@@ -83,28 +67,15 @@ func _handle_player_on_board() -> void:
 			_current_move = MOVE_SET.SAILING
 		SHIP_DESTINATION.OFF_ISLAND:
 			_current_move = MOVE_SET.GAINING_PACE
-			_sfx.stream = _sfx_bell
-			_sfx.play()
 
 func _hande_cat_on_board(cat: Cat):
 	cat.set_is_on_board(true)
 	cat.run(0)
 
 func _set_ashore():
-	_sfx.stream = _sfx_ashore
-	_sfx.play()
 	_has_landed = true
 	_current_move = MOVE_SET.STOPPING
+	if _audio_stream_player_2d.playing:
+		_audio_stream_player_2d.stream = null
 	if _player:
 		_player.get_controls().set_enabled(true)
-
-func _play_sailing_sfx() -> void:
-	if _sfx.playing:
-		if _sfx.stream == _sfx_ship_sailing:
-			return
-		
-		if _sfx.stream == _sfx_bell:
-			await _sfx.finished
-	
-	_sfx.stream = _sfx_ship_sailing
-	_sfx.play()

@@ -172,6 +172,7 @@ locale/translations_pot_files=PackedStringArray("res://resources/dialogues/lvl_2
 
 occlusion_culling/jitter_projection=false
 textures/canvas_textures/default_texture_filter=0
+rendering_device/driver.windows="d3d12"
 environment/ssao/quality=3
 textures/decals/filter=0
 environment/defaults/default_clear_color=Color(0, 0, 0, 1)
