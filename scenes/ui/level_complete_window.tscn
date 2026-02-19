@@ -1,0 +1,284 @@
+[gd_scene load_steps=35 format=3 uid="uid://dcq7spnc4ud2y"]
+
+[ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="1_atwha"]
+[ext_resource type="Texture2D" uid="uid://duapsuevf5628" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/1.png" id="2_75ri7"]
+[ext_resource type="Texture2D" uid="uid://bu3iwym4b55yi" path="res://assets/Pirate Treasure/Sprites/Gold Coin/01.png" id="2_ktirr"]
+[ext_resource type="Script" uid="uid://diuy3tle8w8vx" path="res://scripts/ui/level_complete_window.gd" id="2_priei"]
+[ext_resource type="Texture2D" uid="uid://hjl3wdaipu10" path="res://assets/Pirate Treasure/Sprites/Gold Coin/02.png" id="3_a6ouc"]
+[ext_resource type="Texture2D" uid="uid://buhduvaiwjocx" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="3_l7oe6"]
+[ext_resource type="StyleBox" uid="uid://7wgb2txa1cp7" path="res://resources/paper_panel_container_theme.tres" id="3_s6oj2"]
+[ext_resource type="Texture2D" uid="uid://chu8p5pjv5bv0" path="res://assets/Pirate Treasure/Sprites/Gold Coin/03.png" id="4_8rjmj"]
+[ext_resource type="Texture2D" uid="uid://4f4jdw5jhdnn" path="res://assets/Pirate Treasure/Sprites/Gold Coin/04.png" id="5_t4igq"]
+[ext_resource type="Texture2D" uid="uid://bnj76y1o5gj5y" path="res://assets/Pirate Treasure/Sprites/Golden Skull/01.png" id="6_3uytm"]
+[ext_resource type="Texture2D" uid="uid://bjknt8xa51bqb" path="res://assets/Pirate Treasure/Sprites/Red Diamond/01.png" id="7_qb33u"]
+[ext_resource type="Texture2D" uid="uid://c24rig400xqdj" path="res://assets/Pirate Treasure/Sprites/Golden Skull/02.png" id="7_v4s8t"]
+[ext_resource type="Texture2D" uid="uid://rr2qkl3vrm66" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/01.png" id="8_hh61c"]
+[ext_resource type="Texture2D" uid="uid://ccyay7xgjnbnx" path="res://assets/Pirate Treasure/Sprites/Golden Skull/03.png" id="8_priei"]
+[ext_resource type="Texture2D" uid="uid://dx1a1bp2i0smn" path="res://assets/Pirate Treasure/Sprites/Golden Skull/04.png" id="9_s6oj2"]
+[ext_resource type="Texture2D" uid="uid://ddge2lvbrwkg6" path="res://assets/Pirate Treasure/Sprites/Golden Skull/05.png" id="10_atgl1"]
+[ext_resource type="Texture2D" uid="uid://ceuauian88wra" path="res://assets/Pirate Treasure/Sprites/Golden Skull/06.png" id="11_n8ghc"]
+[ext_resource type="Texture2D" uid="uid://dtvq4sk0r3g02" path="res://assets/Pirate Treasure/Sprites/Golden Skull/07.png" id="12_tti2u"]
+[ext_resource type="Texture2D" uid="uid://c3glqnyheadre" path="res://assets/Pirate Treasure/Sprites/Golden Skull/08.png" id="13_em1c1"]
+[ext_resource type="Texture2D" uid="uid://cfmg76dkdtnyq" path="res://assets/Pirate Treasure/Sprites/Red Diamond/02.png" id="15_repis"]
+[ext_resource type="Texture2D" uid="uid://3omanbsqvqij" path="res://assets/Pirate Treasure/Sprites/Red Diamond/03.png" id="16_3i63r"]
+[ext_resource type="Texture2D" uid="uid://cxe36gre640pu" path="res://assets/Pirate Treasure/Sprites/Red Diamond/04.png" id="17_gwjaj"]
+[ext_resource type="Texture2D" uid="uid://ccn1wv4dglnw8" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/02.png" id="19_bv37f"]
+[ext_resource type="Texture2D" uid="uid://c1mp52ueabknx" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/03.png" id="20_biqr2"]
+[ext_resource type="Texture2D" uid="uid://d01tflu11fwgd" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/04.png" id="21_stt8q"]
+[ext_resource type="Texture2D" uid="uid://te6l8q5putvd" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/05.png" id="22_cuoec"]
+[ext_resource type="Texture2D" uid="uid://dlvw1qed7akia" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/06.png" id="23_vknk7"]
+[ext_resource type="Texture2D" uid="uid://b5rme7lib1vmh" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/07.png" id="24_hg5d4"]
+[ext_resource type="Texture2D" uid="uid://b8665bhv2gci5" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/08.png" id="25_yld3k"]
+[ext_resource type="Theme" uid="uid://c3d6rb6kavbns" path="res://resources/ui_theme.tres" id="28_atgl1"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_xst35"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("2_ktirr")
+frame_1/texture = ExtResource("3_a6ouc")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("4_8rjmj")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("5_t4igq")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_b07qc"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("6_3uytm")
+frame_1/texture = ExtResource("7_v4s8t")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("8_priei")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("9_s6oj2")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("10_atgl1")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("11_n8ghc")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("12_tti2u")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("13_em1c1")
+frame_7/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_ia3ie"]
+frames = 4
+speed_scale = 10.0
+frame_0/texture = ExtResource("7_qb33u")
+frame_1/texture = ExtResource("15_repis")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("16_3i63r")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("17_gwjaj")
+frame_3/duration = 1.0
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_q56rx"]
+frames = 8
+speed_scale = 10.0
+frame_0/texture = ExtResource("8_hh61c")
+frame_1/texture = ExtResource("19_bv37f")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("20_biqr2")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("21_stt8q")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("22_cuoec")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("23_vknk7")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("24_hg5d4")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("25_yld3k")
+frame_7/duration = 1.0
+
+[node name="LevelCompleteWindow" type="PanelContainer"]
+process_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -107.0
+offset_top = -119.5
+offset_right = 107.0
+offset_bottom = 119.5
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2.5, 2.5)
+pivot_offset = Vector2(107, 85.5)
+theme = ExtResource("1_atwha")
+script = ExtResource("2_priei")
+
+[node name="MainContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="TitleLabel" type="Label" parent="MainContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+text = "Разрази меня гром!
+Отличный заход!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Panel" type="PanelContainer" parent="MainContainer"]
+custom_minimum_size = Vector2(182, 0)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_styles/panel = ExtResource("3_s6oj2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MainContainer/Panel"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="CoinContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Coin" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/CoinContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_xst35")
+stretch_mode = 5
+
+[node name="LabelContainer" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer/CoinContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 4
+
+[node name="CoinLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/CoinContainer/LabelContainer"]
+layout_mode = 2
+text = "100 / 500"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="DeathContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Death" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_b07qc")
+stretch_mode = 5
+
+[node name="LabelContainer" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer/DeathContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 8
+
+[node name="DeathLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/DeathContainer/LabelContainer"]
+layout_mode = 2
+text = "100"
+horizontal_alignment = 1
+
+[node name="TreasureContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Treasure" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/TreasureContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_ia3ie")
+stretch_mode = 5
+
+[node name="LabelContainer" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer/TreasureContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 4
+
+[node name="TreasureLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/TreasureContainer/LabelContainer"]
+layout_mode = 2
+text = "Найден тайник
+с сокровищами"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SecretEndingContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Treasure2" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_ia3ie")
+stretch_mode = 5
+
+[node name="LabelContainer" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 4
+
+[node name="TreasureLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer/LabelContainer"]
+layout_mode = 2
+text = "Поздравляем!
+Вы нашли
+секретную концовку!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Treasure" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/SecretEndingContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_ia3ie")
+stretch_mode = 5
+
+[node name="MapContainer" type="HBoxContainer" parent="MainContainer/Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Map" type="TextureRect" parent="MainContainer/Panel/VBoxContainer/MapContainer"]
+layout_mode = 2
+size_flags_horizontal = 5
+size_flags_vertical = 5
+texture = SubResource("AnimatedTexture_q56rx")
+stretch_mode = 5
+
+[node name="LabelContainer" type="VBoxContainer" parent="MainContainer/Panel/VBoxContainer/MapContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 4
+
+[node name="MapLabel" type="Label" parent="MainContainer/Panel/VBoxContainer/MapContainer/LabelContainer"]
+layout_mode = 2
+text = "Найден 
+обрывок карты"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MainContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="TitleButton" type="Button" parent="MainContainer/HBoxContainer"]
+custom_minimum_size = Vector2(76, 20)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 9
+theme = ExtResource("28_atgl1")
+text = "Меню"
+icon = ExtResource("2_75ri7")
+
+[node name="NextLevelButton" type="Button" parent="MainContainer/HBoxContainer"]
+custom_minimum_size = Vector2(76, 30)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 9
+theme = ExtResource("28_atgl1")
+text = "Дальше"
+icon = ExtResource("3_l7oe6")
+
+[connection signal="pressed" from="MainContainer/HBoxContainer/TitleButton" to="." method="_on_title_button_pressed"]
+[connection signal="pressed" from="MainContainer/HBoxContainer/NextLevelButton" to="." method="_on_next_level_button_pressed"]

@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgavha5bm7i8r"]
+
+[ext_resource type="Texture2D" uid="uid://cw8hxwoigyhvn" path="res://assets/Pirate Ship/Sprites/Decorations/pirate_portrait.png" id="1_u4e6v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_afuug"]
+size = Vector2(31, 19)
+
+[node name="Picture" type="StaticBody2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -2)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("1_u4e6v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -9)
+shape = SubResource("RectangleShape2D_afuug")

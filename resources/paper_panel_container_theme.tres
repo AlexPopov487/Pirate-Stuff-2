@@ -1,0 +1,16 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://7wgb2txa1cp7"]
+
+[ext_resource type="Texture2D" uid="uid://x0vlv27yn87m" path="res://assets/Wood and Paper UI/Sprites/Prefabs/8.png" id="1_7vx2i"]
+
+[resource]
+texture = ExtResource("1_7vx2i")
+texture_margin_left = 18.0
+texture_margin_top = 19.0
+texture_margin_right = 18.0
+texture_margin_bottom = 18.0
+expand_margin_left = 17.0
+expand_margin_top = 15.0
+expand_margin_right = 16.0
+expand_margin_bottom = 15.0
+axis_stretch_horizontal = 1
+axis_stretch_vertical = 1

@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://nkf400m8a83b"]
+
+[ext_resource type="Texture2D" uid="uid://bikmlgtp0il2n" path="res://assets/Pirate Ship/Sprites/Decorations/Barrels and Bottles/02.png" id="1_ri33o"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0qrre"]
+radius = 11.0
+
+[node name="SideBarrelFaded" type="StaticBody2D"]
+z_index = -1
+collision_layer = 0
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_ri33o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_0qrre")

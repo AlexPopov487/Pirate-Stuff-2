@@ -1,0 +1,81 @@
+[gd_scene load_steps=13 format=3 uid="uid://ebo7g0tmk3mq"]
+
+[ext_resource type="Script" uid="uid://bv2fv5aduede3" path="res://scripts/characters/cannon_ball.gd" id="1_qk41o"]
+[ext_resource type="Texture2D" uid="uid://dodp4pl7l1qeu" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Idle/1.png" id="2_3smis"]
+[ext_resource type="Texture2D" uid="uid://ckixp6n2r2bp4" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/1.png" id="2_qk41o"]
+[ext_resource type="Texture2D" uid="uid://dvef0oxy2644y" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/2.png" id="3_vdtx2"]
+[ext_resource type="Texture2D" uid="uid://c62ykuvud3n4i" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/3.png" id="4_km26n"]
+[ext_resource type="Texture2D" uid="uid://ckdj16d0wdwbo" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/4.png" id="5_y273q"]
+[ext_resource type="Texture2D" uid="uid://dduiuvdg5lp6e" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/5.png" id="6_qlmtb"]
+[ext_resource type="Texture2D" uid="uid://dtnjch7esfijd" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/6.png" id="7_8x62x"]
+[ext_resource type="Texture2D" uid="uid://bwatiydt6vh55" path="res://assets/Shooter Traps/Sprites/Cannon/Cannon Ball Explosion/7.png" id="8_v5ugd"]
+[ext_resource type="PackedScene" uid="uid://bf35dmwj5wt4i" path="res://scenes/environment/debries/cannon_ball_debries.tscn" id="10_qk41o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfdkk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qk41o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_vdtx2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_km26n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y273q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_qlmtb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_8x62x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_v5ugd")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"explosion",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_3smis")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_n7c7r"]
+radius = 7.0
+
+[node name="CannonBall" type="Area2D"]
+collision_layer = 2097152
+collision_mask = 513
+script = ExtResource("1_qk41o")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_nfdkk")
+animation = &"explosion"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_n7c7r")
+
+[node name="TtlTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Debries" parent="." instance=ExtResource("10_qk41o")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="TtlTimer" to="." method="_destroy"]

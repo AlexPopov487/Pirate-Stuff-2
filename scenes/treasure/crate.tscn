@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://bymkslho10bgg"]
+
+[ext_resource type="Texture2D" uid="uid://c1xw8lrvlxxnu" path="res://assets/Merchant Ship/Sprites/Box/Hit/1.png" id="1_okhd7"]
+[ext_resource type="Script" uid="uid://j7vl3471v4fg" path="res://scripts/collectables/crate.gd" id="1_t78u1"]
+[ext_resource type="Texture2D" uid="uid://b27d0v8tebm8b" path="res://assets/Merchant Ship/Sprites/Box/Idle/1.png" id="6_37nai"]
+[ext_resource type="PackedScene" uid="uid://rbei0kgr4u42" path="res://scenes/environment/debries/crate_debries.tscn" id="8_ymetk"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8gy8s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_okhd7")
+}],
+"loop": false,
+"name": &"destroyed",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_37nai")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_em1wd"]
+size = Vector2(24.5, 17.5)
+
+[node name="Crate" type="RigidBody2D" groups=["coin_source"]]
+collision_layer = 33554432
+collision_mask = 33554437
+can_sleep = false
+lock_rotation = true
+freeze_mode = 1
+script = ExtResource("1_t78u1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_8gy8s")
+animation = &"destroyed"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8.75)
+shape = SubResource("RectangleShape2D_em1wd")
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 131072
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(0, -8.75)
+shape = SubResource("RectangleShape2D_em1wd")
+debug_color = Color(0, 0.638771, 0.374094, 0.42)
+
+[node name="Debries" parent="." instance=ExtResource("8_ymetk")]

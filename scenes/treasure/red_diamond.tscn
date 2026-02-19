@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdv3earxlqyqi"]
+
+[ext_resource type="Script" uid="uid://kw0bpi4y1ba" path="res://scripts/collectables/coin.gd" id="1_hj1wc"]
+[ext_resource type="AudioStream" uid="uid://bkqael7kn2h3g" path="res://audio/collectables/diamond_3.wav" id="2_elhxd"]
+[ext_resource type="Texture2D" uid="uid://laemk6x00fnr" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/01.png" id="2_s4xfr"]
+[ext_resource type="Texture2D" uid="uid://civhubh127q8i" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/02.png" id="3_elhxd"]
+[ext_resource type="Texture2D" uid="uid://dhfivilc6rco0" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/03.png" id="4_le7ec"]
+[ext_resource type="Texture2D" uid="uid://cc84c88hgrg3f" path="res://assets/Pirate Treasure/Sprites/Diamond Effect/04.png" id="5_y2vuf"]
+[ext_resource type="Texture2D" uid="uid://bjknt8xa51bqb" path="res://assets/Pirate Treasure/Sprites/Red Diamond/01.png" id="6_hj1wc"]
+[ext_resource type="Texture2D" uid="uid://cfmg76dkdtnyq" path="res://assets/Pirate Treasure/Sprites/Red Diamond/02.png" id="7_s4xfr"]
+[ext_resource type="Texture2D" uid="uid://3omanbsqvqij" path="res://assets/Pirate Treasure/Sprites/Red Diamond/03.png" id="8_elhxd"]
+[ext_resource type="Texture2D" uid="uid://cxe36gre640pu" path="res://assets/Pirate Treasure/Sprites/Red Diamond/04.png" id="9_le7ec"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfxoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_s4xfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_elhxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_le7ec")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_y2vuf")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_hj1wc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_s4xfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_elhxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_le7ec")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jsmju"]
+
+[node name="red_diamond" type="RigidBody2D" groups=["coin_source"]]
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_hj1wc")
+_type = 15
+_sfx_resource = ExtResource("2_elhxd")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_kfxoj")
+animation = &"collected"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -10)
+shape = SubResource("CircleShape2D_jsmju")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_elhxd")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

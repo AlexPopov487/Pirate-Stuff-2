@@ -1,0 +1,91 @@
+[gd_scene load_steps=14 format=3 uid="uid://bmb5alfohqrfu"]
+
+[ext_resource type="Script" uid="uid://kw0bpi4y1ba" path="res://scripts/collectables/coin.gd" id="1_cuifd"]
+[ext_resource type="Texture2D" uid="uid://exus5wya2144" path="res://assets/Pirate Treasure/Sprites/coin.png" id="2_01tjv"]
+[ext_resource type="AudioStream" uid="uid://1yl16vexhk3b" path="res://audio/collectables/coin.wav" id="2_3oe8j"]
+[ext_resource type="Texture2D" uid="uid://cuw7yvtko5f3x" path="res://assets/Shooter Traps/Sprites/Seashell/Pearl Collectable/pearl_1.png" id="3_cuifd"]
+[ext_resource type="Texture2D" uid="uid://c14qsn2xlje6o" path="res://assets/Shooter Traps/Sprites/Seashell/Pearl Collectable/pearl_2.png" id="4_3oe8j"]
+[ext_resource type="Texture2D" uid="uid://0fr87lqg80lm" path="res://assets/Shooter Traps/Sprites/Seashell/Pearl Collectable/pearl_3.png" id="5_nk0uu"]
+[ext_resource type="Texture2D" uid="uid://dcryw78mitj7f" path="res://assets/Shooter Traps/Sprites/Seashell/Pearl Collectable/pearl_4.png" id="6_sdwfr"]
+[ext_resource type="Texture2D" uid="uid://br4yqnr3sa2cf" path="res://assets/Shooter Traps/Sprites/Seashell/Pearl Collectable/pearl_5.png" id="7_6uane"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i64fm"]
+atlas = ExtResource("2_01tjv")
+region = Rect2(0, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11l1o"]
+atlas = ExtResource("2_01tjv")
+region = Rect2(18, 20, 18, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d14el"]
+atlas = ExtResource("2_01tjv")
+region = Rect2(36, 20, 18, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfxoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i64fm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11l1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d14el")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_cuifd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3oe8j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_nk0uu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_sdwfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_6uane")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jsmju"]
+radius = 4.0
+
+[node name="collectable_pearl" type="RigidBody2D" groups=["coin_source"]]
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_cuifd")
+_type = 1
+_sfx_resource = ExtResource("2_3oe8j")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_kfxoj")
+animation = &"collected"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1, -1)
+shape = SubResource("CircleShape2D_jsmju")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_3oe8j")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

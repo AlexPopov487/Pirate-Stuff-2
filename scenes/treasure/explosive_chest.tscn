@@ -1,0 +1,195 @@
+[gd_scene load_steps=25 format=3 uid="uid://dee2skf2735be"]
+
+[ext_resource type="Texture2D" uid="uid://1s5dxpli3y5g" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Close 01.png" id="1_eo17v"]
+[ext_resource type="Script" uid="uid://ccc4xnvevx1at" path="res://scripts/collectables/explosive_chest.gd" id="1_jlmst"]
+[ext_resource type="Texture2D" uid="uid://ckr8c6q507ajy" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 01.png" id="2_pytmp"]
+[ext_resource type="Texture2D" uid="uid://crsu5rxofkf01" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 02.png" id="3_xj3wl"]
+[ext_resource type="Texture2D" uid="uid://kuioto577c54" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 03.png" id="4_jlmst"]
+[ext_resource type="Texture2D" uid="uid://dk6bpt1gt4vgq" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 04.png" id="5_4825m"]
+[ext_resource type="Texture2D" uid="uid://bqwpknp8gocsc" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 05.png" id="6_uv5ka"]
+[ext_resource type="Texture2D" uid="uid://nskfranmwu54" path="res://assets/Palm Tree Island/Sprites/Objects/Chest/Chest Open 06.png" id="7_0bk5w"]
+[ext_resource type="AudioStream" uid="uid://cjasfmmlq0b3o" path="res://audio/collectables/chest_open.wav" id="9_jlmst"]
+
+[sub_resource type="Animation" id="Animation_v74ww"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_eo17v")]
+}
+
+[sub_resource type="Animation" id="Animation_umib0"]
+resource_name = "closing"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 1,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_uor5q"]
+resource_name = "idle_closed"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_eo17v")]
+}
+
+[sub_resource type="Animation" id="Animation_3e7gk"]
+resource_name = "idle_opened"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("7_0bk5w")]
+}
+
+[sub_resource type="Animation" id="Animation_007le"]
+resource_name = "opening"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.19963, 0.301615, 0.399261, 0.502331),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_pytmp"), ExtResource("3_xj3wl"), ExtResource("4_jlmst"), ExtResource("5_4825m"), ExtResource("6_uv5ka"), ExtResource("7_0bk5w")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_explode"
+}]
+}
+tracks/2/type = "audio"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AudioStreamPlayer2D")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("9_jlmst")
+}],
+"times": PackedFloat32Array(0.1)
+}
+tracks/2/use_blend = true
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1omt3"]
+_data = {
+&"RESET": SubResource("Animation_v74ww"),
+&"closing": SubResource("Animation_umib0"),
+&"idle_closed": SubResource("Animation_uor5q"),
+&"idle_opened": SubResource("Animation_3e7gk"),
+&"opening": SubResource("Animation_007le")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xj3wl"]
+animation = &"idle_closed"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_jlmst"]
+animation = &"idle_opened"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4825m"]
+animation = &"opening"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_uv5ka"]
+advance_mode = 2
+advance_expression = "_state == STATE.CLOSED"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0bk5w"]
+advance_mode = 2
+advance_expression = "_state == STATE.OPENED"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_umib0"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_007le"]
+advance_mode = 2
+advance_expression = "_state == STATE.CLOSED"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_3e7gk"]
+states/idle_closed/node = SubResource("AnimationNodeAnimation_xj3wl")
+states/idle_closed/position = Vector2(574, 100)
+states/idle_opened/node = SubResource("AnimationNodeAnimation_jlmst")
+states/idle_opened/position = Vector2(574, -81)
+states/opening/node = SubResource("AnimationNodeAnimation_4825m")
+states/opening/position = Vector2(392, 4)
+transitions = ["Start", "idle_closed", SubResource("AnimationNodeStateMachineTransition_uv5ka"), "idle_closed", "opening", SubResource("AnimationNodeStateMachineTransition_0bk5w"), "opening", "idle_opened", SubResource("AnimationNodeStateMachineTransition_umib0"), "idle_opened", "idle_closed", SubResource("AnimationNodeStateMachineTransition_007le")]
+graph_offset = Vector2(-24, -126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xj3wl"]
+size = Vector2(51, 25.5)
+
+[node name="ExplosiveChest" type="Area2D"]
+z_index = -1
+collision_layer = 16777216
+collision_mask = 256
+script = ExtResource("1_jlmst")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("1_eo17v")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_1omt3")
+}
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../../..")
+tree_root = SubResource("AnimationNodeStateMachine_3e7gk")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -13)
+shape = SubResource("RectangleShape2D_xj3wl")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

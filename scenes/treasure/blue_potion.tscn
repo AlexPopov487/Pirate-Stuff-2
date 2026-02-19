@@ -1,0 +1,107 @@
+[gd_scene load_steps=17 format=3 uid="uid://3mfe2iuuf7rs"]
+
+[ext_resource type="Script" uid="uid://bsfq710bcy3ig" path="res://scripts/collectables/blue_potion.gd" id="1_4varh"]
+[ext_resource type="Texture2D" uid="uid://dy6kwep0wiu1h" path="res://assets/Pirate Treasure/Sprites/blue_potion_pickup_effect.png" id="2_4varh"]
+[ext_resource type="AudioStream" uid="uid://dc6voba0xl0ct" path="res://audio/collectables/blue_potion.wav" id="2_aaxp3"]
+[ext_resource type="Texture2D" uid="uid://b3pgmmdevqx60" path="res://assets/Pirate Treasure/Sprites/Blue Potion/01.png" id="3_4varh"]
+[ext_resource type="Texture2D" uid="uid://6hdukrpupsyw" path="res://assets/Pirate Treasure/Sprites/Blue Potion/02.png" id="4_aaxp3"]
+[ext_resource type="Texture2D" uid="uid://btbb6d2qbceue" path="res://assets/Pirate Treasure/Sprites/Blue Potion/03.png" id="5_6t67q"]
+[ext_resource type="Texture2D" uid="uid://c8k77bp5evmtx" path="res://assets/Pirate Treasure/Sprites/Blue Potion/04.png" id="6_gec46"]
+[ext_resource type="Texture2D" uid="uid://bnchj0u8rel7o" path="res://assets/Pirate Treasure/Sprites/Blue Potion/05.png" id="7_iqg70"]
+[ext_resource type="Texture2D" uid="uid://bycxjwck727kl" path="res://assets/Pirate Treasure/Sprites/Blue Potion/06.png" id="8_2fur7"]
+[ext_resource type="Texture2D" uid="uid://d22n8cde57jjn" path="res://assets/Pirate Treasure/Sprites/Blue Potion/07.png" id="9_p86cy"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aaxp3"]
+atlas = ExtResource("2_4varh")
+region = Rect2(0, 0, 18, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6t67q"]
+atlas = ExtResource("2_4varh")
+region = Rect2(18, 0, 18, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gec46"]
+atlas = ExtResource("2_4varh")
+region = Rect2(36, 0, 18, 41)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqg70"]
+atlas = ExtResource("2_4varh")
+region = Rect2(54, 0, 18, 41)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kfxoj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aaxp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6t67q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gec46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqg70")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"collected",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_4varh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_aaxp3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_6t67q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_gec46")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_iqg70")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_2fur7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_p86cy")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_imkie"]
+radius = 3.0
+height = 14.0
+
+[node name="blue_potion" type="RigidBody2D"]
+collision_layer = 16777216
+collision_mask = 257
+lock_rotation = true
+freeze = true
+freeze_mode = 1
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_4varh")
+_sfx_resource = ExtResource("2_aaxp3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_kfxoj")
+animation = &"collected"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
+shape = SubResource("CapsuleShape2D_imkie")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_aaxp3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

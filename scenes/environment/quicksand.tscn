@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://kw7884ckvtkq"]
+
+[ext_resource type="Texture2D" uid="uid://cpcleha8f87uq" path="res://assets/Palm Tree Island/Sprites/Objects/quicksand/quicksand_1.png" id="1_3p2nk"]
+[ext_resource type="Texture2D" uid="uid://b7kxqlyxspemw" path="res://assets/Palm Tree Island/Sprites/Objects/quicksand/quicksand_2.png" id="2_m7a6l"]
+[ext_resource type="Texture2D" uid="uid://dtxs3f24fk77x" path="res://assets/Palm Tree Island/Sprites/Objects/quicksand/quicksand_3.png" id="3_wfq4x"]
+[ext_resource type="Texture2D" uid="uid://oda4i6rj487q" path="res://assets/Palm Tree Island/Sprites/Objects/quicksand/quicksand_4.png" id="4_dt8yn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kqs14"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_3p2nk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_m7a6l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_wfq4x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dt8yn")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Quicksand" type="AnimatedSprite2D"]
+position = Vector2(0, -1)
+sprite_frames = SubResource("SpriteFrames_kqs14")
+autoplay = "default"
+frame_progress = 0.86444

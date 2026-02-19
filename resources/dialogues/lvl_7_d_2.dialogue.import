@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cffsp1huasdef"
+path="res://.godot/imported/lvl_7_d_2.dialogue-3e1f8909420d305dba48024d805cc33d.tres"
+
+[deps]
+
+source_file="res://resources/dialogues/lvl_7_d_2.dialogue"
+dest_files=["res://.godot/imported/lvl_7_d_2.dialogue-3e1f8909420d305dba48024d805cc33d.tres"]
+
+[params]
+
+defaults=true

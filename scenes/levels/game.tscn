@@ -1,0 +1,309 @@
+[gd_scene load_steps=45 format=3 uid="uid://bjbjnv74t2usm"]
+
+[ext_resource type="Script" uid="uid://bsevfhcfjrvel" path="res://scripts/levels/game_manager.gd" id="1_bpkyr"]
+[ext_resource type="Script" uid="uid://bg5rdjxmq74jo" path="res://scripts/environment/camera.gd" id="2_1qlo5"]
+[ext_resource type="AudioStream" uid="uid://bifku8nhecc41" path="res://audio/music/level_completed.wav" id="2_dvdjy"]
+[ext_resource type="PackedScene" uid="uid://c47s83g4fhss2" path="res://scenes/pirate.tscn" id="3_sq8y2"]
+[ext_resource type="Script" uid="uid://dtb0gjo576xu5" path="res://scripts/environment/highlight.gd" id="4_1w27a"]
+[ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="4_7xxho"]
+[ext_resource type="Script" uid="uid://du3tuxi0ovp4u" path="res://scripts/ui/counter.gd" id="7_886ur"]
+[ext_resource type="Texture2D" uid="uid://rcgc7hl2gr6p" path="res://assets/Merchant Ship/Sprites/Chest Key/Idle/1.png" id="7_r4lr3"]
+[ext_resource type="Texture2D" uid="uid://bu3iwym4b55yi" path="res://assets/Pirate Treasure/Sprites/Gold Coin/01.png" id="7_xmnyv"]
+[ext_resource type="Texture2D" uid="uid://bmhdixm3jmfyj" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/36.png" id="8_cx7qy"]
+[ext_resource type="Texture2D" uid="uid://bc1h824nh0ygw" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/27.png" id="9_r4lr3"]
+[ext_resource type="Texture2D" uid="uid://bsydwghxn0v4p" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/28.png" id="10_15o36"]
+[ext_resource type="Texture2D" uid="uid://tycdqwe0htvl" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/29.png" id="11_02t1k"]
+[ext_resource type="Texture2D" uid="uid://dvsd31q7jhkjl" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/30.png" id="12_hilwk"]
+[ext_resource type="Texture2D" uid="uid://dif8h7wi6pwcc" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/31.png" id="13_v80qm"]
+[ext_resource type="Texture2D" uid="uid://d24drybhh3f0k" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/32.png" id="14_fqlro"]
+[ext_resource type="PackedScene" uid="uid://blc068j7o1yk1" path="res://scenes/ui/pause_menu.tscn" id="15_f0qvk"]
+[ext_resource type="Texture2D" uid="uid://cuuvhu4anxor1" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/33.png" id="15_tb13f"]
+[ext_resource type="Texture2D" uid="uid://bk48um005p0qm" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/34.png" id="16_i73dc"]
+[ext_resource type="Texture2D" uid="uid://btxieunrv3t8d" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Text/35.png" id="17_1w27a"]
+[ext_resource type="PackedScene" uid="uid://qr1itk5dvxw2" path="res://scenes/ui/health_gauge.tscn" id="20_hilwk"]
+[ext_resource type="Texture2D" uid="uid://rr2qkl3vrm66" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 1/01.png" id="21_fqlro"]
+[ext_resource type="Script" uid="uid://c7yqk2dp5g33s" path="res://scripts/ui/map_container.gd" id="21_tb13f"]
+[ext_resource type="PackedScene" uid="uid://deguco72y6rc3" path="res://scenes/ui/stamina_gauge.tscn" id="21_v80qm"]
+[ext_resource type="Texture2D" uid="uid://bctkm4318ajac" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 2/01.png" id="22_tb13f"]
+[ext_resource type="Texture2D" uid="uid://b4vipirrpde3" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 3/01.png" id="23_i73dc"]
+[ext_resource type="Texture2D" uid="uid://bp4b22vdopi3x" path="res://assets/Pirate Treasure/Sprites/Small Maps/Small Map 4/01.png" id="24_1w27a"]
+[ext_resource type="PackedScene" uid="uid://snabsd6oi21t" path="res://scenes/environment/fade.tscn" id="25_tb13f"]
+[ext_resource type="Script" uid="uid://daup23xygbvqu" path="res://scripts/environment/vfx.gd" id="26_i73dc"]
+[ext_resource type="PackedScene" uid="uid://dcq7spnc4ud2y" path="res://scenes/ui/level_complete_window.tscn" id="49_tt305"]
+
+[sub_resource type="Gradient" id="Gradient_qlm4j"]
+offsets = PackedFloat32Array(0, 0.534979, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.325103, 0.325103, 0.325103, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i73dc"]
+gradient = SubResource("Gradient_qlm4j")
+width = 512
+height = 512
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.1, 0.2)
+metadata/_snap_enabled = true
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_tb13f"]
+blend_mode = 1
+
+[sub_resource type="Curve" id="Curve_i73dc"]
+_limits = [0.0, 0.3, 0.0, 1.0]
+_data = [Vector2(0.0432432, 0), 0.0, 0.0, 0, 0, Vector2(0.273874, 0.229987), 0.0, 0.0, 0, 0, Vector2(0.535, 0.3), 0.0, 0.0, 0, 0, Vector2(0.745, 0.276405), 0.0, 0.0, 0, 0, Vector2(0.835, 0.235955), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_1w27a"]
+curve = SubResource("Curve_i73dc")
+
+[sub_resource type="Gradient" id="Gradient_dponv"]
+offsets = PackedFloat32Array(0, 0.804598, 0.913793, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.804598, 0.804598, 0.804598, 1, 1, 1, 1, 0.0784314, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f0qvk"]
+gradient = SubResource("Gradient_dponv")
+
+[sub_resource type="Curve" id="Curve_dvdjy"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7yv8k"]
+_limits = [0.0, 30.0, 0.0, 1.0]
+_data = [Vector2(0, 13.1461), 0.0, 0.0, 0, 0, Vector2(0.12, 30), 0.0, 0.0, 0, 0, Vector2(0.25, 30), 0.0, 0.0, 0, 0, Vector2(0.74, 30), 0.0, 0.0, 0, 0, Vector2(0.98, 30), 0.0, 0.0, 0, 0]
+point_count = 5
+
+[sub_resource type="Curve" id="Curve_j2fik"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_efprs"]
+curve_x = SubResource("Curve_dvdjy")
+curve_y = SubResource("Curve_7yv8k")
+curve_z = SubResource("Curve_j2fik")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_tb13f"]
+particle_flag_disable_z = true
+emission_shape_offset = Vector3(640, 0, 0)
+emission_shape = 3
+emission_box_extents = Vector3(640, 100, 1)
+gravity = Vector3(0, 3000, 0)
+scale_min = 0.2
+scale_curve = SubResource("CurveXYZTexture_efprs")
+color_initial_ramp = SubResource("GradientTexture1D_f0qvk")
+alpha_curve = SubResource("CurveTexture_1w27a")
+collision_mode = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tt305"]
+bg_color = Color(1, 1, 1, 0.05)
+corner_detail = 12
+
+[sub_resource type="Theme" id="Theme_pisws"]
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_tt305")
+
+[node name="game" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_bpkyr")
+_level_complete = ExtResource("2_dvdjy")
+
+[node name="PauseMenu" parent="." instance=ExtResource("15_f0qvk")]
+process_mode = 2
+layer = 12
+visible = false
+
+[node name="Camera2D" type="Camera2D" parent="." node_paths=PackedStringArray("_subject")]
+unique_name_in_owner = true
+process_mode = 1
+position = Vector2(639, 361)
+script = ExtResource("2_1qlo5")
+_subject = NodePath("../Pirate")
+_offset = Vector2(3, -1)
+_transition_type = 2
+_ease_type = 1
+_speed_horizontal = 2.0
+
+[node name="Pirate" parent="." instance=ExtResource("3_sq8y2")]
+process_mode = 1
+position = Vector2(240, 416)
+max_health = 7
+speed = 6.0
+deceleration = 72.0
+_jump_dust = ExtResource("4_7xxho")
+
+[node name="PlayerHighlight" type="PointLight2D" parent="." node_paths=PackedStringArray("_subject")]
+process_mode = 1
+color = Color(1, 0.967329, 0.942696, 1)
+energy = 0.8
+range_layer_min = -100
+shadow_filter = 1
+texture = SubResource("GradientTexture2D_i73dc")
+script = ExtResource("4_1w27a")
+_subject = NodePath("../Pirate")
+_type = 1
+
+[node name="UserInterface" type="CanvasLayer" parent="."]
+process_mode = 1
+layer = 10
+
+[node name="VFX" type="Node" parent="UserInterface"]
+script = ExtResource("26_i73dc")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="UserInterface/VFX"]
+visible = false
+top_level = true
+material = SubResource("CanvasItemMaterial_tb13f")
+amount = 4500
+preprocess = 0.5
+visibility_rect = Rect2(0, 0, 1280, 720)
+draw_order = 0
+process_material = SubResource("ParticleProcessMaterial_tb13f")
+
+[node name="key" type="TextureRect" parent="UserInterface"]
+visible = false
+custom_minimum_size = Vector2(15, 0)
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 46.0
+offset_bottom = 72.0
+scale = Vector2(3, 3)
+texture = ExtResource("7_r4lr3")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="healthGauge" parent="UserInterface" instance=ExtResource("20_hilwk")]
+offset_top = -89.0
+offset_bottom = -49.0
+
+[node name="staminaGauge" parent="UserInterface" instance=ExtResource("21_v80qm")]
+offset_left = 13.0
+offset_top = -40.9
+offset_right = 53.0
+offset_bottom = -0.900024
+
+[node name="MapContainer" type="GridContainer" parent="UserInterface"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -106.0
+offset_top = 32.0
+offset_right = -69.0
+offset_bottom = 69.0
+grow_horizontal = 0
+scale = Vector2(2, 2)
+theme_override_constants/h_separation = -4
+theme_override_constants/v_separation = -4
+columns = 2
+script = ExtResource("21_tb13f")
+
+[node name="TopLeft" type="TextureRect" parent="UserInterface/MapContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("21_fqlro")
+
+[node name="TopRight" type="TextureRect" parent="UserInterface/MapContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("22_tb13f")
+
+[node name="BottomLeft" type="TextureRect" parent="UserInterface/MapContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("23_i73dc")
+
+[node name="BottomRight" type="TextureRect" parent="UserInterface/MapContainer"]
+visible = false
+layout_mode = 2
+texture = ExtResource("24_1w27a")
+
+[node name="CoinPanelContainer" type="PanelContainer" parent="UserInterface"]
+custom_minimum_size = Vector2(112, 0)
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 144.0
+offset_bottom = 72.0
+theme = SubResource("Theme_pisws")
+
+[node name="CoinsContainer" type="HBoxContainer" parent="UserInterface/CoinPanelContainer"]
+layout_mode = 2
+script = ExtResource("7_886ur")
+_digits = Array[Texture2D]([ExtResource("8_cx7qy"), ExtResource("9_r4lr3"), ExtResource("10_15o36"), ExtResource("11_02t1k"), ExtResource("12_hilwk"), ExtResource("13_v80qm"), ExtResource("14_fqlro"), ExtResource("15_tb13f"), ExtResource("16_i73dc"), ExtResource("17_1w27a")])
+
+[node name="icon" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+layout_mode = 2
+texture = ExtResource("7_xmnyv")
+expand_mode = 2
+stretch_mode = 4
+
+[node name="num_hundreds" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="num_tens" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 5
+stretch_mode = 5
+
+[node name="num_ones" type="TextureRect" parent="UserInterface/CoinPanelContainer/CoinsContainer"]
+custom_minimum_size = Vector2(15, 0)
+layout_mode = 2
+texture = ExtResource("8_cx7qy")
+expand_mode = 4
+stretch_mode = 5
+
+[node name="fade" parent="UserInterface" instance=ExtResource("25_tb13f")]
+process_mode = 3
+visible = false
+offset_top = -576.0
+offset_right = 3728.0
+offset_bottom = 792.0
+mouse_filter = 2
+
+[node name="LevelCompleteWindow" parent="UserInterface" instance=ExtResource("49_tt305")]
+visible = false
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Letterbox" type="Control" parent="UserInterface"]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Top" type="ColorRect" parent="UserInterface/Letterbox"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Bottom" type="ColorRect" parent="UserInterface/Letterbox"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="Levels" type="Node" parent="."]
+process_mode = 1
+
+[connection signal="exit_button_pressed" from="PauseMenu" to="." method="_exit_to_main_menu"]
+[connection signal="restart_button_pressed" from="PauseMenu" to="." method="_restart_level"]
+[connection signal="resume_button_pressed" from="PauseMenu" to="." method="_set_game_paused" binds= [false]]
+[connection signal="_changed_stamina" from="Pirate" to="UserInterface/staminaGauge" method="set_value"]
+[connection signal="_is_on_platform" from="Pirate" to="Camera2D" method="_on_pirate__is_on_platform"]
+[connection signal="changed_direction" from="Pirate" to="Camera2D" method="_on_subject_changed_direction"]
+[connection signal="changed_health" from="Pirate" to="UserInterface/healthGauge" method="set_value"]
+[connection signal="died" from="Pirate" to="." method="_on_pirate_died"]
+[connection signal="landed" from="Pirate" to="Camera2D" method="_on_subject_landed"]
+[connection signal="next_level_button_pressed" from="UserInterface/LevelCompleteWindow" to="." method="_on_level_complete_window_next_level_button_pressed"]

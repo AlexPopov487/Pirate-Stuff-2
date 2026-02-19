@@ -1,0 +1,404 @@
+[gd_scene load_steps=26 format=3 uid="uid://dioy4knh25cpm"]
+
+[ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="1_cgs6i"]
+[ext_resource type="Script" uid="uid://mckyucx2aygg" path="res://scripts/levels/title_manager.gd" id="1_yhiml"]
+[ext_resource type="AudioStream" uid="uid://bx8vjnoxiylt4" path="res://audio/music/title.wav" id="2_37g8r"]
+[ext_resource type="Texture2D" uid="uid://b6oa75p4vfttk" path="res://assets/Palm Tree Island/Sprites/Background/BG Image.png" id="2_dr5ok"]
+[ext_resource type="Texture2D" uid="uid://bdgfvyumr2k6a" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_big.tres" id="5_wtdac"]
+[ext_resource type="Texture2D" uid="uid://ukvpodqif3pq" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_medium.tres" id="6_3l8ki"]
+[ext_resource type="Texture2D" uid="uid://b37ciq0huxdrw" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_small.tres" id="7_nvmym"]
+[ext_resource type="Texture2D" uid="uid://cmbe71p8bodmo" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="8_rctxr"]
+[ext_resource type="Texture2D" uid="uid://dtbkp4382mov4" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="9_3h535"]
+[ext_resource type="Texture2D" uid="uid://byyhgpp1kl52d" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="10_xbeyx"]
+[ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="11_37g8r"]
+[ext_resource type="Texture2D" uid="uid://b2is2rktf08fd" path="res://assets/Wood and Paper UI/Sprites/Title/game_title.png" id="12_c1c7m"]
+[ext_resource type="TileSet" uid="uid://br5ymqby1l3el" path="res://resources/tile_set.tres" id="12_txffm"]
+[ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="13_c1c7m"]
+[ext_resource type="Theme" uid="uid://c3d6rb6kavbns" path="res://resources/ui_theme.tres" id="13_i8iil"]
+[ext_resource type="Texture2D" uid="uid://buhduvaiwjocx" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/2.png" id="14_yhiml"]
+[ext_resource type="FontFile" uid="uid://iqin2itdwl57" path="res://resources/fonts/bitcell_memesbruh03.ttf" id="15_xovig"]
+[ext_resource type="Texture2D" uid="uid://b5eng1fv2of7t" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/9.png" id="16_3h535"]
+[ext_resource type="Theme" uid="uid://covf0eybn7rlx" path="res://resources/level_complete_theme.tres" id="17_jrltb"]
+[ext_resource type="PackedScene" uid="uid://c47s83g4fhss2" path="res://scenes/pirate.tscn" id="19_nvmym"]
+[ext_resource type="Theme" uid="uid://bsbndfiu7il25" path="res://resources/hint_sign_popup_theme.tres" id="25_c1c7m"]
+[ext_resource type="PackedScene" uid="uid://b2nweoukq57a6" path="res://scenes/environment/wave.tscn" id="25_i8iil"]
+[ext_resource type="PackedScene" uid="uid://snabsd6oi21t" path="res://scenes/environment/fade.tscn" id="27_js7t4"]
+[ext_resource type="Texture2D" uid="uid://bcr8u6vioq4vt" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/5.png" id="31_duba2"]
+[ext_resource type="Texture2D" uid="uid://dx5nh4kh454om" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/6.png" id="32_wn3we"]
+
+[node name="Title" type="Node2D"]
+process_mode = 3
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_yhiml")
+_music = ExtResource("2_37g8r")
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+scale = Vector2(3, 3)
+transform = Transform2D(3, 0, 0, 3, 0, 0)
+script = ExtResource("1_cgs6i")
+autoscroll_speed = 30
+
+[node name="main_background" type="Sprite2D" parent="ParallaxBackground"]
+position = Vector2(-18.3333, -14)
+scale = Vector2(1.19271, 2)
+texture = ExtResource("2_dr5ok")
+centered = false
+
+[node name="water_reflect_big" type="TextureRect" parent="ParallaxBackground"]
+offset_left = 123.667
+offset_top = 160.0
+offset_right = 293.667
+offset_bottom = 185.0
+texture = ExtResource("5_wtdac")
+metadata/_edit_use_anchors_ = true
+
+[node name="water_reflect_medium2" type="TextureRect" parent="ParallaxBackground"]
+offset_left = 150.667
+offset_top = 190.0
+offset_right = 261.667
+offset_bottom = 204.0
+texture = ExtResource("6_3l8ki")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="water_reflect_small" type="TextureRect" parent="ParallaxBackground"]
+offset_left = 168.667
+offset_top = 204.0
+offset_right = 242.667
+offset_bottom = 220.0
+texture = ExtResource("7_nvmym")
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
+
+[node name="small_cloud_1" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
+position = Vector2(-301.333, 295)
+motion_scale = Vector2(0.9, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="small_cloud_1" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
+z_index = 1
+position = Vector2(3, -307.333)
+texture = ExtResource("8_rctxr")
+centered = false
+
+[node name="small_cloud_2" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
+z_index = 1
+position = Vector2(138, -244)
+texture = ExtResource("8_rctxr")
+centered = false
+
+[node name="small_cloud_4" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
+z_index = 1
+position = Vector2(570, -295)
+texture = ExtResource("8_rctxr")
+centered = false
+
+[node name="small_cloud_5" type="Sprite2D" parent="ParallaxBackground/small_cloud_1"]
+z_index = 1
+position = Vector2(741, -202)
+texture = ExtResource("8_rctxr")
+centered = false
+
+[node name="big_cloud" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
+position = Vector2(-301.333, 175)
+motion_mirroring = Vector2(448, 0)
+
+[node name="big_cloud" type="TextureRect" parent="ParallaxBackground/big_cloud"]
+z_index = 2
+offset_top = -118.0
+offset_right = 1152.0
+offset_bottom = -17.0
+texture = ExtResource("9_3h535")
+stretch_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="small_cloud_2" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
+position = Vector2(-301.333, 175)
+motion_scale = Vector2(0.8, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="2_small-cloud_3" type="Sprite2D" parent="ParallaxBackground/small_cloud_2"]
+z_index = 1
+position = Vector2(838, -133)
+texture = ExtResource("10_xbeyx")
+centered = false
+
+[node name="2_small-cloud_4" type="Sprite2D" parent="ParallaxBackground/small_cloud_2"]
+z_index = 1
+position = Vector2(983, -185)
+texture = ExtResource("10_xbeyx")
+centered = false
+
+[node name="small_cloud_3" type="ParallaxLayer" parent="ParallaxBackground"]
+z_index = 1
+position = Vector2(-301.333, 175)
+motion_scale = Vector2(0.6, 1)
+motion_mirroring = Vector2(1152, 0)
+
+[node name="3_small_cloud_2" type="Sprite2D" parent="ParallaxBackground/small_cloud_3"]
+z_index = 1
+position = Vector2(270, -169)
+texture = ExtResource("11_37g8r")
+
+[node name="Title" type="Sprite2D" parent="ParallaxBackground"]
+z_index = 2
+position = Vector2(218.667, 57)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("12_c1c7m")
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2(138.8, 68.4)
+tile_set = ExtResource("12_txffm")
+format = 2
+layer_0/name = "mid"
+layer_1/name = "foreground"
+layer_1/z_index = 1
+layer_1/tile_data = PackedInt32Array(458747, 65541, 0, 458748, 131077, 0, 458749, 5, 0, 458750, 65541, 0, 458751, 131077, 0, 393216, 5, 0, 393217, 65541, 0, 393218, 131077, 0, 393219, 5, 0, 393220, 65541, 0, 393221, 131077, 0, 393222, 5, 0, 393223, 65541, 0, 393224, 131077, 0, 393225, 5, 0, 393226, 65541, 0, 393227, 131077, 0)
+
+[node name="ship" parent="." instance=ExtResource("13_c1c7m")]
+position = Vector2(394.8, 241.733)
+_is_disabled = true
+
+[node name="Pirate2" parent="." instance=ExtResource("19_nvmym")]
+position = Vector2(376.8, 222)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="Buttons" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -502.0
+offset_top = 43.0
+offset_right = -394.0
+offset_bottom = 95.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+theme = ExtResource("13_i8iil")
+
+[node name="NewGameButtonContainer" type="HBoxContainer" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+
+[node name="NewGameButton" type="Button" parent="CanvasLayer/Buttons/NewGameButtonContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("13_i8iil")
+theme_override_fonts/font = ExtResource("15_xovig")
+icon = ExtResource("16_3h535")
+icon_alignment = 1
+
+[node name="Paper" type="Panel" parent="CanvasLayer/Buttons/NewGameButtonContainer"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+theme = ExtResource("17_jrltb")
+
+[node name="Label" type="Label" parent="CanvasLayer/Buttons/NewGameButtonContainer/Paper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Новая игра"
+
+[node name="ContinueButtonContainer" type="HBoxContainer" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+
+[node name="ContinueButton" type="Button" parent="CanvasLayer/Buttons/ContinueButtonContainer"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("13_i8iil")
+disabled = true
+icon = ExtResource("14_yhiml")
+icon_alignment = 1
+
+[node name="Paper" type="Panel" parent="CanvasLayer/Buttons/ContinueButtonContainer"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Buttons/ContinueButtonContainer/Paper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_jrltb")
+text = "Продолжить"
+
+[node name="ExitButtonContainer2" type="HBoxContainer" parent="CanvasLayer/Buttons"]
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="CanvasLayer/Buttons/ExitButtonContainer2"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+theme = ExtResource("13_i8iil")
+icon = ExtResource("31_duba2")
+icon_alignment = 1
+
+[node name="Paper" type="Panel" parent="CanvasLayer/Buttons/ExitButtonContainer2"]
+custom_minimum_size = Vector2(80, 24)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Buttons/ExitButtonContainer2/Paper"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_jrltb")
+text = "Выйти"
+
+[node name="Confirmation" type="PanelContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -97.0
+offset_top = -51.0
+offset_right = 97.0
+offset_bottom = 51.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(3, 3)
+pivot_offset = Vector2(82, 36)
+theme = ExtResource("13_i8iil")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Confirmation"]
+layout_mode = 2
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Confirmation/VBoxContainer"]
+custom_minimum_size = Vector2(164, 48)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="CanvasLayer/Confirmation/VBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.5
+offset_top = -7.0
+offset_right = 28.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("17_jrltb")
+text = "Начать новую игру?
+Весь прогресс будет утерян"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Confirmation/VBoxContainer"]
+custom_minimum_size = Vector2(56, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="NoButton" type="Button" parent="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+theme = ExtResource("13_i8iil")
+icon = ExtResource("31_duba2")
+
+[node name="YesButton" type="Button" parent="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+theme = ExtResource("13_i8iil")
+icon = ExtResource("32_wn3we")
+icon_alignment = 1
+
+[node name="Credits" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -135.0
+offset_top = -40.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Label2" type="Label" parent="CanvasLayer/Credits"]
+layout_mode = 2
+theme = ExtResource("25_c1c7m")
+text = "t.me/Edge03"
+
+[node name="Label" type="Label" parent="CanvasLayer/Credits"]
+layout_mode = 2
+theme = ExtResource("25_c1c7m")
+text = "github.com/AlexPopov487"
+
+[node name="fade" parent="CanvasLayer" instance=ExtResource("27_js7t4")]
+visible = false
+offset_left = -55.0
+offset_top = -42.0
+offset_right = 1319.0
+offset_bottom = 734.0
+mouse_filter = 2
+
+[node name="waves" type="Node" parent="."]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="waves"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Wave" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
+position = Vector2(67, 610)
+scale = Vector2(2.5, 2.5)
+
+[node name="Wave2" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
+position = Vector2(307, 610)
+scale = Vector2(2.5, 2.5)
+
+[node name="Wave3" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
+position = Vector2(547, 610)
+scale = Vector2(2.5, 2.5)
+
+[node name="Wave4" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
+position = Vector2(787, 610)
+scale = Vector2(2.5, 2.5)
+
+[node name="Wave5" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
+position = Vector2(1027, 610)
+scale = Vector2(2.5, 2.5)
+
+[node name="Wave6" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
+position = Vector2(1267, 610)
+scale = Vector2(2.5, 2.5)
+
+[connection signal="pressed" from="CanvasLayer/Buttons/NewGameButtonContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/ContinueButtonContainer/ContinueButton" to="." method="_on_continue_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Buttons/ExitButtonContainer2/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer/NoButton" to="." method="_on_confirmation_no_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Confirmation/VBoxContainer/HBoxContainer/YesButton" to="." method="_on_confirmation_yes_button_pressed"]

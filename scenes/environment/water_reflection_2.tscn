@@ -1,0 +1,39 @@
+[gd_scene load_steps=8 format=3 uid="uid://4lrrc6eekl3d"]
+
+[ext_resource type="Texture2D" uid="uid://cki34fmk2q64h" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 2/1.png" id="1_ces36"]
+[ext_resource type="Texture2D" uid="uid://bauqtn05ykmkx" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 2/2.png" id="2_rdsra"]
+[ext_resource type="Texture2D" uid="uid://clu3ircy2h2yf" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 2/3.png" id="3_aecl6"]
+[ext_resource type="Texture2D" uid="uid://dfroh16xkrv35" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 2/4.png" id="4_vnfop"]
+[ext_resource type="Texture2D" uid="uid://canu53o6kimib" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 2/5.png" id="5_wq7x7"]
+[ext_resource type="Texture2D" uid="uid://b0un706sukeva" path="res://assets/Merchant Ship/Sprites/Water/Reflexes 2/6.png" id="6_yyxk7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p04so"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ces36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_rdsra")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aecl6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_vnfop")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wq7x7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_yyxk7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="water_reflection_2" type="AnimatedSprite2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_p04so")
+autoplay = "default"

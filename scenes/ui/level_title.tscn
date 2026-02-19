@@ -1,0 +1,77 @@
+[gd_scene load_steps=7 format=3 uid="uid://qeaftbhqbqo5"]
+
+[ext_resource type="Texture2D" uid="uid://dj1i1abjocfa3" path="res://assets/Wood and Paper UI/Sprites/Small Banner/1.png" id="1_dpddt"]
+[ext_resource type="Script" uid="uid://cjsvslblyix55" path="res://scripts/ui/level_title.gd" id="1_dtm58"]
+[ext_resource type="Texture2D" uid="uid://bqyo8hcv5ko2g" path="res://assets/Wood and Paper UI/Sprites/Small Banner/13.png" id="2_dtm58"]
+[ext_resource type="Texture2D" uid="uid://ciplx4njevdm2" path="res://assets/Wood and Paper UI/Sprites/Small Banner/2.png" id="3_0uckp"]
+[ext_resource type="Theme" uid="uid://bsbndfiu7il25" path="res://resources/hint_sign_popup_theme.tres" id="4_swvgp"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sy54b"]
+
+[node name="Title" type="CanvasLayer"]
+script = ExtResource("1_dtm58")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(768, 210)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -410.0
+offset_top = 120.0
+offset_right = 410.0
+offset_bottom = 210.0
+grow_horizontal = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+texture = ExtResource("1_dpddt")
+expand_mode = 3
+
+[node name="PanelContainer" type="PanelContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxEmpty_sy54b")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect2" type="TextureRect" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+texture = ExtResource("2_dtm58")
+
+[node name="TextureRect3" type="TextureRect" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+texture = ExtResource("2_dtm58")
+
+[node name="TextureRect5" type="TextureRect" parent="HBoxContainer/PanelContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+texture = ExtResource("2_dtm58")
+
+[node name="Label" type="Label" parent="HBoxContainer/PanelContainer"]
+custom_minimum_size = Vector2(400, 210)
+layout_mode = 2
+theme = ExtResource("4_swvgp")
+theme_override_font_sizes/font_size = 80
+horizontal_alignment = 1
+vertical_alignment = 1
+justification_flags = 160
+
+[node name="TextureRect4" type="TextureRect" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 7
+size_flags_vertical = 5
+texture = ExtResource("3_0uckp")
+expand_mode = 3
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0

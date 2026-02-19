@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://b2nweoukq57a6"]
+
+[ext_resource type="Texture2D" uid="uid://dj5fsp7ft6vyh" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/1.png" id="1_pvhxg"]
+[ext_resource type="Texture2D" uid="uid://dr43x2yu30dm1" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/2.png" id="2_pq6li"]
+[ext_resource type="Texture2D" uid="uid://b7tg25wjkra3u" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/3.png" id="3_oaw6x"]
+[ext_resource type="Texture2D" uid="uid://cmy23nt34nmqj" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/4.png" id="4_hgns2"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2e3do"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_pvhxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_pq6li")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_oaw6x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hgns2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wave" type="AnimatedSprite2D"]
+z_index = 1
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_2e3do")
+autoplay = "default"
+frame_progress = 0.507237
+centered = false

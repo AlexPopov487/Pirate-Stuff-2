@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://babelcvywijqv"]
+
+[ext_resource type="Texture2D" uid="uid://c8tf52q54d1lb" path="res://assets/Palm Tree Island/Sprites/Objects/Spikes/Spikes.png" id="1_akaju"]
+[ext_resource type="Script" uid="uid://cfsp3wkukgkhi" path="res://scripts/environment/spike.gd" id="1_vqj0v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_akaju"]
+size = Vector2(31.25, 7.9375)
+
+[node name="spike" type="StaticBody2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_vqj0v")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_akaju")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -3.96875)
+shape = SubResource("RectangleShape2D_akaju")
+
+[node name="hitbox" type="Area2D" parent="."]
+visible = false
+collision_layer = 4
+collision_mask = 131584
+monitorable = false
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="hitbox"]
+polygon = PackedVector2Array(-13, -11, -5, -16, 13, -14)
+
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

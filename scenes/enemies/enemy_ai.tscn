@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://cs0vtls0jywwm"]
+
+[ext_resource type="Script" uid="uid://b2uy4p2203b4o" path="res://scripts/characters/enemy_ai.gd" id="1_m4i88"]
+
+[node name="EnemyBehavoir" type="Node"]
+script = ExtResource("1_m4i88")
+
+[node name="activity_timer" type="Timer" parent="."]
+
+[node name="look_around_timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="jump_cooldown_timer" type="Timer" parent="."]
+wait_time = 2.5
+one_shot = true
+
+[connection signal="timeout" from="activity_timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="look_around_timer" to="." method="_on_look_around_timer_timeout"]

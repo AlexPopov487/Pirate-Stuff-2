@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://d3foo2ba705n2"]
+
+[ext_resource type="Script" uid="uid://bnspmowyqfw86" path="res://scripts/characters/seashell_ai.gd" id="1_plo5y"]
+
+[node name="SeashellAi" type="Node2D"]
+script = ExtResource("1_plo5y")
+
+[node name="ActivityTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="ActivityTimer" to="." method="_on_activity_timer_timeout"]

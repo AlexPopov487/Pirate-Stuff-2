@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://wmurco54r64o"]
+
+[ext_resource type="Script" uid="uid://dk6newcm0xxsc" path="res://scripts/environment/platform.gd" id="1_5d7yx"]
+[ext_resource type="Texture2D" uid="uid://bcwewatd1rtli" path="res://assets/Palm Tree Island/Sprites/Objects/narrow_platforms.png" id="1_3561s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3561s"]
+radius = 4.0
+height = 32.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5d7yx"]
+radius = 7.0
+height = 36.0
+
+[node name="platform_ground" type="AnimatableBody2D"]
+collision_mask = 65793
+script = ExtResource("1_5d7yx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -5)
+texture = ExtResource("1_3561s")
+region_enabled = true
+region_rect = Rect2(16, 0, 32, 9)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_3561s")
+one_way_collision_margin = 0.0
+
+[node name="PlayerStepDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 256
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerStepDetector"]
+position = Vector2(0, -7)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_5d7yx")
+
+[connection signal="body_entered" from="PlayerStepDetector" to="." method="_on_player_step_detector_body_entered"]
+[connection signal="body_exited" from="PlayerStepDetector" to="." method="_on_player_step_detector_body_exited"]

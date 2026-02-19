@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=3 uid="uid://766g7tl8rwk7"]
+
+[ext_resource type="Script" uid="uid://cgn6x20j103d7" path="res://scripts/ui/hint_sign.gd" id="2_js7us"]
+[ext_resource type="Theme" uid="uid://bsbndfiu7il25" path="res://resources/hint_sign_popup_theme.tres" id="3_jihp3"]
+[ext_resource type="StyleBox" uid="uid://7wgb2txa1cp7" path="res://resources/paper_panel_container_theme.tres" id="3_pvhyk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jihp3"]
+
+[node name="Letter" type="PanelContainer"]
+offset_right = 324.0
+offset_bottom = 513.0
+theme_override_styles/panel = ExtResource("3_pvhyk")
+script = ExtResource("2_js7us")
+
+[node name="Paper" type="PanelContainer" parent="."]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_jihp3")
+
+[node name="MainText" type="Label" parent="Paper"]
+layout_mode = 2
+theme = ExtResource("3_jihp3")
+theme_override_font_sizes/font_size = 32
+text = "Моей единственной, дорогой Элен,
+Будь проклят тот час, когда я, ослеплённый 
+жадностью, покинул тебя и пустился в это 
+дьявольское плавание за сокровищами! 
+Я грезил о богатстве для нас, желал, чтобы мы жили, 
+как короли, и погнался за «золотым журавлём», не 
+ведая, что самое драгоценное сокровище уже было 
+со мной — это ты, моя душа! Не должен был я бросать 
+тебя. Теперь ты, должно быть, горюешь в 
+одиночестве, а я сгину здесь, на этом проклятом 
+Богом клочке земли, совсем один. 
+Мои силы иссякли, и дух мой изнемог; чувствую, что 
+близок мой конец. Я не собираюсь ждать 
+неизбежного и намереваюсь окончить свои 
+страдания самостоятельно! Если читаешь эти строки, 
+значит, я уже мёртв, и некий добрый моряк сумел 
+отыскать тебя и передать моё последнее послание.
+
+Карта верно привела меня к сундуку, но в его замке 
+таится очередная, изощрённая загадка. Решить её 
+мне не хватит ни здоровья, ни разумения, ни 
+отпущенного времени.
+
+Слушай же, Элен, и, если судьба пощадит тебя, 
+передай это послание тому, кто отважится разгадать 
+тайну.
+
+Навеки твой, Роджер.
+
+Как только мгла снизойдет и взовьются огни, 
+Считай их, следуй по ним и дойди до пяти.  
+Первое пламя – в начале пути. 
+Волны расскажут, что ждёт впереди  
+Прыгай вниз и ключ забери."
+horizontal_alignment = 1
+justification_flags = 161

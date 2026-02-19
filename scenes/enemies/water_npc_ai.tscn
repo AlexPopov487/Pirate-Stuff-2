@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dweusxbi6gmsx"]
+
+[ext_resource type="Script" uid="uid://d4bnga18ipv6g" path="res://scripts/characters/water_npc_ai.gd" id="1_83pmx"]
+
+[node name="WaterNpcAi" type="Node"]
+script = ExtResource("1_83pmx")

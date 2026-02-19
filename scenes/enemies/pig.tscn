@@ -1,0 +1,222 @@
+[gd_scene load_steps=37 format=3 uid="uid://dn5f7dbo86r27"]
+
+[ext_resource type="Script" uid="uid://4lcv6ycglvdg" path="res://scripts/characters/pig.gd" id="1_v0mk3"]
+[ext_resource type="Texture2D" uid="uid://bqkte4bj65d4w" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_1.png" id="3_fnvlv"]
+[ext_resource type="Texture2D" uid="uid://pgo8aaur56y4" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_2.png" id="4_2fwd1"]
+[ext_resource type="Texture2D" uid="uid://bfqoomguu2uw7" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_3.png" id="5_v0mk3"]
+[ext_resource type="Texture2D" uid="uid://dmr8r4dbbm1u2" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_4.png" id="6_rfcfh"]
+[ext_resource type="Texture2D" uid="uid://b63phr7taubr8" path="res://assets/The Crusty Crew/Sprites/Piggy/Idle/idle_5.png" id="7_2fwd1"]
+[ext_resource type="Texture2D" uid="uid://hpqeg3335x" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_1.png" id="8_5wv3b"]
+[ext_resource type="Texture2D" uid="uid://i3vfbgekokyp" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_2.png" id="9_72n67"]
+[ext_resource type="Texture2D" uid="uid://bul1wt0a5dg77" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_3.png" id="10_y8j1w"]
+[ext_resource type="Texture2D" uid="uid://dxdjwow1e40be" path="res://assets/The Crusty Crew/Sprites/Piggy/Run/run_4.png" id="11_x1fgm"]
+[ext_resource type="PackedScene" uid="uid://cs0vtls0jywwm" path="res://scenes/enemies/enemy_ai.tscn" id="12_5wv3b"]
+[ext_resource type="AudioStream" uid="uid://cq6wnqqf2nhse" path="res://audio/pig/oink_1.wav" id="12_rfcfh"]
+[ext_resource type="AudioStream" uid="uid://bn8bjwbwkcfex" path="res://audio/pig/oink_2.wav" id="13_qj4qb"]
+[ext_resource type="AudioStream" uid="uid://d1sgh3fw21kus" path="res://audio/pig/oink_3.wav" id="14_j0ykj"]
+[ext_resource type="AudioStream" uid="uid://buwb7u13epj5o" path="res://audio/pig/oink_4.wav" id="15_hk4il"]
+[ext_resource type="AudioStream" uid="uid://ddavdl2klueij" path="res://audio/pig/oink_5.wav" id="16_cxc4n"]
+[ext_resource type="AudioStream" uid="uid://bgc4engokhmaf" path="res://audio/pig/oink_6.wav" id="17_8qdu2"]
+[ext_resource type="PackedScene" uid="uid://dqv86gb3hhfug" path="res://scenes/dust/jump_dust.tscn" id="18_5ssii"]
+[ext_resource type="AudioStream" uid="uid://dv50my64dj73o" path="res://audio/pig/oink_7.wav" id="18_u0o5f"]
+
+[sub_resource type="Animation" id="Animation_g5jhy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("3_fnvlv")]
+}
+
+[sub_resource type="Animation" id="Animation_hhpqf"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("3_fnvlv"), ExtResource("4_2fwd1"), ExtResource("5_v0mk3"), ExtResource("6_rfcfh"), ExtResource("7_2fwd1")]
+}
+
+[sub_resource type="Animation" id="Animation_holxr"]
+resource_name = "running"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("8_5wv3b"), ExtResource("9_72n67"), ExtResource("10_y8j1w"), ExtResource("11_x1fgm")]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [ExtResource("18_5ssii")],
+"method": &"_spawn_dust"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6e8lb"]
+_data = {
+&"RESET": SubResource("Animation_g5jhy"),
+&"idle": SubResource("Animation_hhpqf"),
+&"running": SubResource("Animation_holxr")
+}
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cf4is"]
+animation = &"idle"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_yecbv"]
+animation = &"running"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_cjrgq"]
+advance_mode = 2
+advance_expression = "velocity.x != 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7cv73"]
+advance_mode = 2
+advance_expression = "velocity.x == 0"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b1vow"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_krq47"]
+states/idle/node = SubResource("AnimationNodeAnimation_cf4is")
+states/idle/position = Vector2(441, 100)
+states/running/node = SubResource("AnimationNodeAnimation_yecbv")
+states/running/position = Vector2(595, 100)
+transitions = ["idle", "running", SubResource("AnimationNodeStateMachineTransition_cjrgq"), "running", "idle", SubResource("AnimationNodeStateMachineTransition_7cv73"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_b1vow")]
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pf23h"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ygevk"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fulsm"]
+states/Locomition/node = SubResource("AnimationNodeStateMachine_krq47")
+states/Locomition/position = Vector2(342, 100)
+states/Start/position = Vector2(143, 100)
+states/WithSword/node = SubResource("AnimationNodeStateMachine_pf23h")
+states/WithSword/position = Vector2(677, 86)
+transitions = ["Start", "Locomition", SubResource("AnimationNodeStateMachineTransition_ygevk")]
+graph_offset = Vector2(-96, -90)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qfm1y"]
+radius = 8.0
+height = 16.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_e2n7f"]
+streams_count = 7
+stream_0/stream = ExtResource("12_rfcfh")
+stream_1/stream = ExtResource("13_qj4qb")
+stream_2/stream = ExtResource("14_j0ykj")
+stream_3/stream = ExtResource("15_hk4il")
+stream_4/stream = ExtResource("16_cxc4n")
+stream_5/stream = ExtResource("17_8qdu2")
+stream_6/stream = ExtResource("18_u0o5f")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lovqd"]
+radius = 11.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bbhtf"]
+radius = 9.0
+height = 28.0
+
+[node name="Pig" type="CharacterBody2D"]
+z_index = -1
+collision_layer = 4194304
+collision_mask = 37748737
+script = ExtResource("1_v0mk3")
+speed = 1.5
+acceleration = 8.0
+_jump_dust = ExtResource("18_5ssii")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("3_fnvlv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+root_node = NodePath("../..")
+libraries = {
+&"": SubResource("AnimationLibrary_6e8lb")
+}
+autoplay = "idle"
+
+[node name="AnimationTree" type="AnimationTree" parent="Sprite2D/AnimationPlayer"]
+root_node = NodePath("../../..")
+tree_root = SubResource("AnimationNodeStateMachine_fulsm")
+advance_expression_base_node = NodePath("../../..")
+anim_player = NodePath("..")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("CapsuleShape2D_qfm1y")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamRandomizer_e2n7f")
+
+[node name="ground_check_ray" type="RayCast2D" parent="."]
+position = Vector2(-25, -4)
+target_position = Vector2(0, 10)
+
+[node name="obstacle_check_ray" type="RayCast2D" parent="."]
+position = Vector2(0, -11)
+target_position = Vector2(-16, 0)
+collision_mask = 46203137
+
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+visible = false
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_lovqd")
+debug_color = Color(0, 0.411765, 0.027451, 0.207843)
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+monitoring = false
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+visible = false
+position = Vector2(0, -9)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bbhtf")
+debug_color = Color(0.670588, 0, 0.188235, 0.235294)
+
+[node name="EnemyBehavoir" parent="." node_paths=PackedStringArray("_obstacle_ray", "_ground_ray") instance=ExtResource("12_5wv3b")]
+_obstacle_ray = NodePath("../obstacle_check_ray")
+_ground_ray = NodePath("../ground_check_ray")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
