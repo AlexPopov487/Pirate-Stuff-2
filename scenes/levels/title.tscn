@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://dioy4knh25cpm"]
+[gd_scene load_steps=28 format=3 uid="uid://dioy4knh25cpm"]
 
 [ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="1_cgs6i"]
 [ext_resource type="Script" uid="uid://mckyucx2aygg" path="res://scripts/levels/title_manager.gd" id="1_yhiml"]
@@ -22,7 +22,9 @@
 [ext_resource type="PackedScene" uid="uid://c47s83g4fhss2" path="res://scenes/pirate.tscn" id="19_nvmym"]
 [ext_resource type="Theme" uid="uid://bsbndfiu7il25" path="res://resources/hint_sign_popup_theme.tres" id="25_c1c7m"]
 [ext_resource type="PackedScene" uid="uid://b2nweoukq57a6" path="res://scenes/environment/wave.tscn" id="25_i8iil"]
+[ext_resource type="PackedScene" uid="uid://bxaxwhb1c6aif" path="res://scenes/environment/water_reflection_1.tscn" id="26_yhiml"]
 [ext_resource type="PackedScene" uid="uid://snabsd6oi21t" path="res://scenes/environment/fade.tscn" id="27_js7t4"]
+[ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="27_yqy8e"]
 [ext_resource type="Texture2D" uid="uid://bcr8u6vioq4vt" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/5.png" id="31_duba2"]
 [ext_resource type="Texture2D" uid="uid://dx5nh4kh454om" path="res://assets/Wood and Paper UI/Sprites/Small Text/Small Icons/6.png" id="32_wn3we"]
 
@@ -370,8 +372,9 @@ mouse_filter = 2
 [node name="waves" type="Node" parent="."]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="waves"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -120.0
+offset_top = -40.0
+offset_right = -80.0
 
 [node name="Wave" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
 position = Vector2(67, 610)
@@ -395,6 +398,28 @@ scale = Vector2(2.5, 2.5)
 
 [node name="Wave6" parent="waves/VBoxContainer" instance=ExtResource("25_i8iil")]
 position = Vector2(1267, 610)
+scale = Vector2(2.5, 2.5)
+
+[node name="reflections" type="Node" parent="."]
+
+[node name="water_reflection_3" parent="reflections" instance=ExtResource("26_yhiml")]
+visible = true
+position = Vector2(20, 617)
+scale = Vector2(2.5, 2.5)
+
+[node name="water_reflection_7" parent="reflections" instance=ExtResource("27_yqy8e")]
+visible = true
+position = Vector2(504, 619)
+scale = Vector2(2.5, 2.5)
+
+[node name="water_reflection_9" parent="reflections" instance=ExtResource("26_yhiml")]
+visible = true
+position = Vector2(827, 619)
+scale = Vector2(2.5, 2.5)
+
+[node name="water_reflection_13" parent="reflections" instance=ExtResource("27_yqy8e")]
+visible = true
+position = Vector2(1174, 619)
 scale = Vector2(2.5, 2.5)
 
 [connection signal="pressed" from="CanvasLayer/Buttons/NewGameButtonContainer/NewGameButton" to="." method="_on_new_game_button_pressed"]

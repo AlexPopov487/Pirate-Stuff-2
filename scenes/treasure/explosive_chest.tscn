@@ -162,7 +162,7 @@ transitions = ["Start", "idle_closed", SubResource("AnimationNodeStateMachineTra
 graph_offset = Vector2(-24, -126)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xj3wl"]
-size = Vector2(51, 25.5)
+size = Vector2(51, 24)
 
 [node name="ExplosiveChest" type="Area2D"]
 z_index = -1
@@ -187,7 +187,7 @@ advance_expression_base_node = NodePath("../../..")
 anim_player = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -13)
+position = Vector2(0, -12)
 shape = SubResource("RectangleShape2D_xj3wl")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
