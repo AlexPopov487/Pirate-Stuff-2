@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhfia0x5cch44"
-path="res://.godot/imported/van.png-953e616a0c0be92dbdfc5492439c9984.ctex"
+uid="uid://bfhylyne1qdrd"
+path="res://.godot/imported/wave_small_1.png-e022ee5fe3a00e2f67732c7e63cfc224.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Palm Tree Island/Sprites/Objects/van.png"
-dest_files=["res://.godot/imported/van.png-953e616a0c0be92dbdfc5492439c9984.ctex"]
+source_file="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_small/wave_small_1.png"
+dest_files=["res://.godot/imported/wave_small_1.png-e022ee5fe3a00e2f67732c7e63cfc224.ctex"]
 
 [params]
 

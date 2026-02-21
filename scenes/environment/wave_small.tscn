@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://dxokqp3y1tsos"]
+
+[ext_resource type="Texture2D" uid="uid://bfhylyne1qdrd" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_small/wave_small_1.png" id="1_egi07"]
+[ext_resource type="Texture2D" uid="uid://c3udjisncwieu" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_small/wave_small_2.png" id="2_aks5u"]
+[ext_resource type="Texture2D" uid="uid://brjfc5u7anyxr" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_small/wave_small_3.png" id="3_efde3"]
+[ext_resource type="Texture2D" uid="uid://cvhvi7re4xesk" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_small/wave_small_4.png" id="4_hbcjg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2e3do"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_egi07")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_aks5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_efde3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_hbcjg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WaveSmall" type="AnimatedSprite2D"]
+z_index = 1
+position = Vector2(0, -32)
+sprite_frames = SubResource("SpriteFrames_2e3do")
+autoplay = "default"
+frame_progress = 0.257252
+centered = false

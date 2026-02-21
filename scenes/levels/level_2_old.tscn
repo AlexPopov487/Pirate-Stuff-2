@@ -1,55 +1,55 @@
-[gd_scene load_steps=90 format=3 uid="uid://cb8kc5ehr7chx"]
+[gd_scene load_steps=90 format=3 uid="uid://v7qy8guo2xhy"]
 
-[ext_resource type="Script" uid="uid://sbom5pd7g1g6" path="res://scripts/levels/level_2.gd" id="1_iobkp"]
-[ext_resource type="AudioStream" uid="uid://by0go2w4qfjlt" path="res://audio/music/level_2.wav" id="2_s1cod"]
-[ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="3_3japw"]
-[ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="4_fstmj"]
-[ext_resource type="PackedScene" uid="uid://qpx12wwl7nko" path="res://scenes/treasure/silver_coin.tscn" id="5_aulfd"]
-[ext_resource type="PackedScene" uid="uid://5ebflu4mg3q" path="res://scenes/treasure/gold_coin.tscn" id="6_5cx82"]
-[ext_resource type="PackedScene" uid="uid://dj5h2px4lp8k0" path="res://scenes/treasure/green_diamond.tscn" id="7_y1yjs"]
-[ext_resource type="PackedScene" uid="uid://by48bmhxy6746" path="res://scenes/treasure/sword.tscn" id="8_t0rry"]
-[ext_resource type="PackedScene" uid="uid://wmurco54r64o" path="res://scenes/platform_ground.tscn" id="9_ylvw0"]
-[ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="10_0282d"]
-[ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="11_c25tp"]
-[ext_resource type="Texture2D" uid="uid://dx4cyydp6v2am" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="12_i0hmf"]
-[ext_resource type="Texture2D" uid="uid://bdibya0fhfg53" path="res://assets/Palm Tree Island/Sprites/palm_tree_front_curve_animated.tres" id="13_3s15g"]
-[ext_resource type="Texture2D" uid="uid://c0w7ebxjfibei" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_animated.tres" id="14_7vjvp"]
-[ext_resource type="Texture2D" uid="uid://cldsqjltgedqk" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_left_animated.tres" id="15_l52gd"]
-[ext_resource type="Texture2D" uid="uid://baiigco7tpspj" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_right_animated.tres" id="16_i6h3t"]
-[ext_resource type="Texture2D" uid="uid://b6oa75p4vfttk" path="res://assets/Palm Tree Island/Sprites/Background/BG Image.png" id="17_lq5uo"]
-[ext_resource type="Texture2D" uid="uid://bay8eubhjxbca" path="res://assets/Palm Tree Island/Sprites/Objects/bridge_64x96.png" id="18_ccgc0"]
-[ext_resource type="Texture2D" uid="uid://cwpmytvpik4tk" path="res://assets/Palm Tree Island/Sprites/Objects/guide_sign_16x64.png" id="19_bki11"]
-[ext_resource type="Texture2D" uid="uid://csv288h5cgbi2" path="res://assets/Palm Tree Island/Sprites/Objects/hint_sign_16x64.png" id="20_bfd8q"]
-[ext_resource type="Texture2D" uid="uid://dp7es8wbixews" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_animated.tres" id="21_smdvy"]
-[ext_resource type="Texture2D" uid="uid://d4d8wwxwuinax" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_no_collision.png" id="22_3rblm"]
-[ext_resource type="Texture2D" uid="uid://chpcod44undd7" path="res://assets/Merchant Ship/Sprites/Water/Water/Bottom/water_body.png" id="23_adhs1"]
-[ext_resource type="Texture2D" uid="uid://beh5131pxx7iw" path="res://assets/Palm Tree Island/Sprites/grass_atlas.png" id="24_068yw"]
-[ext_resource type="Texture2D" uid="uid://bed0kr1vmsast" path="res://assets/Palm Tree Island/Sprites/Objects/guide_sign_left_16x64.png" id="25_hi72b"]
-[ext_resource type="Texture2D" uid="uid://cy0kcldcvjr5c" path="res://assets/Palm Tree Island/Sprites/Terrain/dark_back_outside_sprites.png" id="26_wa5n2"]
-[ext_resource type="Texture2D" uid="uid://cflfo634hw5bk" path="res://assets/Palm Tree Island/Sprites/palm_tree_fromt_animated.tres" id="27_g1081"]
-[ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="28_f6be5"]
-[ext_resource type="Texture2D" uid="uid://bejq1y1k7eigw" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="29_ml16p"]
-[ext_resource type="Texture2D" uid="uid://lkbwhmsd5bqj" path="res://assets/Palm Tree Island/Sprites/Background/Additional Water.png" id="30_xrgoq"]
-[ext_resource type="Texture2D" uid="uid://bdgfvyumr2k6a" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_big.tres" id="31_atr3v"]
-[ext_resource type="Texture2D" uid="uid://b37ciq0huxdrw" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_small.tres" id="32_bqunq"]
-[ext_resource type="Texture2D" uid="uid://ukvpodqif3pq" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_medium.tres" id="33_ses0f"]
-[ext_resource type="Texture2D" uid="uid://cmbe71p8bodmo" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="34_pmnxw"]
-[ext_resource type="Texture2D" uid="uid://dtbkp4382mov4" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="35_b5a0k"]
-[ext_resource type="Texture2D" uid="uid://byyhgpp1kl52d" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="36_ogukv"]
-[ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="37_hf205"]
-[ext_resource type="PackedScene" uid="uid://bxaxwhb1c6aif" path="res://scenes/environment/water_reflection_1.tscn" id="38_r7ew6"]
-[ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="39_7xp1r"]
-[ext_resource type="PackedScene" uid="uid://0if862voirqk" path="res://scenes/environment/hint.tscn" id="40_64na1"]
-[ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="41_spcy3"]
-[ext_resource type="Resource" uid="uid://c7a7m30m5yk1k" path="res://resources/dialogues/lvl_2_d_2.dialogue" id="42_e7hcn"]
-[ext_resource type="Resource" uid="uid://ls0dxs5c408h" path="res://resources/dialogues/lvl_2_d_3.dialogue" id="43_n6a6q"]
-[ext_resource type="Resource" uid="uid://bhm6b4wuqr8ms" path="res://resources/dialogues/lvl_2_d_1.dialogue" id="44_wt8fy"]
-[ext_resource type="Resource" uid="uid://dt45vsuliofed" path="res://resources/dialogues/lvl_2_d_0.dialogue" id="45_k6vw8"]
-[ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="46_grfe1"]
-[ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="47_hlgvf"]
-[ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="48_mrd2q"]
-[ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="49_u1y2t"]
-[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="50_h2kyd"]
+[ext_resource type="Script" uid="uid://sbom5pd7g1g6" path="res://scripts/levels/level_2.gd" id="1_f4g8a"]
+[ext_resource type="AudioStream" uid="uid://by0go2w4qfjlt" path="res://audio/music/level_2.wav" id="2_mst2l"]
+[ext_resource type="PackedScene" uid="uid://babelcvywijqv" path="res://scenes/enemies/spike.tscn" id="3_6qphc"]
+[ext_resource type="PackedScene" uid="uid://sbqh2wus74g4" path="res://scenes/treasure/chest.tscn" id="4_mndss"]
+[ext_resource type="PackedScene" uid="uid://qpx12wwl7nko" path="res://scenes/treasure/silver_coin.tscn" id="5_gj3f5"]
+[ext_resource type="PackedScene" uid="uid://5ebflu4mg3q" path="res://scenes/treasure/gold_coin.tscn" id="6_jhgas"]
+[ext_resource type="PackedScene" uid="uid://dj5h2px4lp8k0" path="res://scenes/treasure/green_diamond.tscn" id="7_7cvty"]
+[ext_resource type="PackedScene" uid="uid://by48bmhxy6746" path="res://scenes/treasure/sword.tscn" id="8_5olol"]
+[ext_resource type="PackedScene" uid="uid://wmurco54r64o" path="res://scenes/platform_ground.tscn" id="9_msu3c"]
+[ext_resource type="PackedScene" uid="uid://cexceki4qmcr5" path="res://scenes/ship_platform.tscn" id="10_evayi"]
+[ext_resource type="Texture2D" uid="uid://hx7jkp8jah36" path="res://assets/Palm Tree Island/Sprites/flag_animated.tres" id="11_2db6r"]
+[ext_resource type="Texture2D" uid="uid://dx4cyydp6v2am" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="12_d7jug"]
+[ext_resource type="Texture2D" uid="uid://bdibya0fhfg53" path="res://assets/Palm Tree Island/Sprites/palm_tree_front_curve_animated.tres" id="13_syjkv"]
+[ext_resource type="Texture2D" uid="uid://c0w7ebxjfibei" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_animated.tres" id="14_q7o8a"]
+[ext_resource type="Texture2D" uid="uid://cldsqjltgedqk" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_left_animated.tres" id="15_luw4x"]
+[ext_resource type="Texture2D" uid="uid://baiigco7tpspj" path="res://assets/Palm Tree Island/Sprites/palm_tree_back_right_animated.tres" id="16_qb6i6"]
+[ext_resource type="Texture2D" uid="uid://b6oa75p4vfttk" path="res://assets/Palm Tree Island/Sprites/Background/BG Image.png" id="17_g8tix"]
+[ext_resource type="Texture2D" uid="uid://bay8eubhjxbca" path="res://assets/Palm Tree Island/Sprites/Objects/bridge_64x96.png" id="18_6sao2"]
+[ext_resource type="Texture2D" uid="uid://cwpmytvpik4tk" path="res://assets/Palm Tree Island/Sprites/Objects/guide_sign_16x64.png" id="19_chryf"]
+[ext_resource type="Texture2D" uid="uid://csv288h5cgbi2" path="res://assets/Palm Tree Island/Sprites/Objects/hint_sign_16x64.png" id="20_yt4og"]
+[ext_resource type="Texture2D" uid="uid://dp7es8wbixews" path="res://assets/Merchant Ship/Sprites/Water/Water/Top/wave_animated.tres" id="21_yn7o8"]
+[ext_resource type="Texture2D" uid="uid://d4d8wwxwuinax" path="res://assets/Palm Tree Island/Sprites/Terrain/Terrain_no_collision.png" id="22_dw0gj"]
+[ext_resource type="Texture2D" uid="uid://chpcod44undd7" path="res://assets/Merchant Ship/Sprites/Water/Water/Bottom/water_body.png" id="23_buh1k"]
+[ext_resource type="Texture2D" uid="uid://beh5131pxx7iw" path="res://assets/Palm Tree Island/Sprites/grass_atlas.png" id="24_klw1l"]
+[ext_resource type="Texture2D" uid="uid://bed0kr1vmsast" path="res://assets/Palm Tree Island/Sprites/Objects/guide_sign_left_16x64.png" id="25_jdhac"]
+[ext_resource type="Texture2D" uid="uid://cy0kcldcvjr5c" path="res://assets/Palm Tree Island/Sprites/Terrain/dark_back_outside_sprites.png" id="26_13wn3"]
+[ext_resource type="Texture2D" uid="uid://cflfo634hw5bk" path="res://assets/Palm Tree Island/Sprites/palm_tree_fromt_animated.tres" id="27_twe10"]
+[ext_resource type="Script" uid="uid://cwnssl60e17md" path="res://scripts/levels/parallax_background.gd" id="28_qvsav"]
+[ext_resource type="Texture2D" uid="uid://bejq1y1k7eigw" path="res://assets/Palm Tree Island/Sprites/Background/Additional Sky.png" id="29_16rql"]
+[ext_resource type="Texture2D" uid="uid://lkbwhmsd5bqj" path="res://assets/Palm Tree Island/Sprites/Background/Additional Water.png" id="30_lnt2m"]
+[ext_resource type="Texture2D" uid="uid://bdgfvyumr2k6a" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_big.tres" id="31_8nnyg"]
+[ext_resource type="Texture2D" uid="uid://b37ciq0huxdrw" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_small.tres" id="32_mm6vp"]
+[ext_resource type="Texture2D" uid="uid://ukvpodqif3pq" path="res://assets/Palm Tree Island/Sprites/Background/water_reflect_medium.tres" id="33_8y5yt"]
+[ext_resource type="Texture2D" uid="uid://cmbe71p8bodmo" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="34_v8lii"]
+[ext_resource type="Texture2D" uid="uid://dtbkp4382mov4" path="res://assets/Palm Tree Island/Sprites/Background/Big Clouds.png" id="35_t5m6f"]
+[ext_resource type="Texture2D" uid="uid://byyhgpp1kl52d" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="36_ma1lb"]
+[ext_resource type="Texture2D" uid="uid://clxe0rjpc0ma0" path="res://assets/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="37_jol1s"]
+[ext_resource type="PackedScene" uid="uid://bxaxwhb1c6aif" path="res://scenes/environment/water_reflection_1.tscn" id="38_gl348"]
+[ext_resource type="PackedScene" uid="uid://4lrrc6eekl3d" path="res://scenes/environment/water_reflection_2.tscn" id="39_ud65a"]
+[ext_resource type="PackedScene" uid="uid://0if862voirqk" path="res://scenes/environment/hint.tscn" id="40_kt8y5"]
+[ext_resource type="PackedScene" uid="uid://cdl8xxf6t2162" path="res://scenes/ui/dialogue_trigger.tscn" id="41_2vg7w"]
+[ext_resource type="Resource" uid="uid://c7a7m30m5yk1k" path="res://resources/dialogues/lvl_2_d_2.dialogue" id="42_kf2lq"]
+[ext_resource type="Resource" uid="uid://ls0dxs5c408h" path="res://resources/dialogues/lvl_2_d_3.dialogue" id="43_bisj0"]
+[ext_resource type="Resource" uid="uid://bhm6b4wuqr8ms" path="res://resources/dialogues/lvl_2_d_1.dialogue" id="44_orkat"]
+[ext_resource type="Resource" uid="uid://dt45vsuliofed" path="res://resources/dialogues/lvl_2_d_0.dialogue" id="45_2r4b8"]
+[ext_resource type="PackedScene" uid="uid://c5aldcvh3op8t" path="res://scenes/environment/checkpoint_helm.tscn" id="46_mben3"]
+[ext_resource type="PackedScene" uid="uid://cfedk15leqcl3" path="res://scenes/levels/next_level.tscn" id="47_mryj0"]
+[ext_resource type="Script" uid="uid://cek3v5e7g8gt6" path="res://scripts/environment/camera_override.gd" id="48_qki3d"]
+[ext_resource type="PackedScene" uid="uid://lllba52ev63e" path="res://scenes/ui/hint_ui.tscn" id="49_e16hg"]
+[ext_resource type="PackedScene" uid="uid://qeaftbhqbqo5" path="res://scenes/ui/level_title.tscn" id="50_47vyh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rtb3b"]
 size = Vector2(6421, 1407.5)
@@ -245,7 +245,7 @@ _data = {
 }
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_exwx8"]
-texture = ExtResource("11_c25tp")
+texture = ExtResource("11_2db6r")
 texture_region_size = Vector2i(48, 32)
 use_texture_padding = false
 0:1/0 = 0
@@ -256,7 +256,7 @@ use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17aof"]
-texture = ExtResource("12_i0hmf")
+texture = ExtResource("12_d7jug")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -684,7 +684,7 @@ texture_region_size = Vector2i(32, 32)
 16:4/0/terrains_peering_bit/top_side = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6nfno"]
-texture = ExtResource("13_3s15g")
+texture = ExtResource("13_syjkv")
 texture_region_size = Vector2i(62, 54)
 use_texture_padding = false
 0:0/0 = 0
@@ -692,7 +692,7 @@ use_texture_padding = false
 0:0/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0y23r"]
-texture = ExtResource("14_7vjvp")
+texture = ExtResource("14_q7o8a")
 texture_region_size = Vector2i(32, 32)
 use_texture_padding = false
 0:0/0 = 0
@@ -701,19 +701,19 @@ use_texture_padding = false
 1:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wrgna"]
-texture = ExtResource("15_l52gd")
+texture = ExtResource("15_luw4x")
 texture_region_size = Vector2i(51, 53)
 use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8ghkn"]
-texture = ExtResource("16_i6h3t")
+texture = ExtResource("16_qb6i6")
 texture_region_size = Vector2i(52, 53)
 use_texture_padding = false
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5ar51"]
-texture = ExtResource("17_lq5uo")
+texture = ExtResource("17_g8tix")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -908,7 +908,7 @@ texture = ExtResource("17_lq5uo")
 9:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_b1k63"]
-texture = ExtResource("18_ccgc0")
+texture = ExtResource("18_6sao2")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -14, -14, -16, -10.5, -16, -10, -16, -9, -15, -8, -14, -7, -14, -6, -15, -2, -15, -1, -14, 0, -13, 1, -13, 2, -14, 6, -14, 7, -13, 9, -13, 10, -14, 14, -14, 16, -12, 16, -9.5, 13.5, -7.5, 10, -7, 2, -7, -6, -8.5, -8.5, -10.5, -10, -9.5, -13.5, -9.5, -16, -11.5)
@@ -930,19 +930,19 @@ texture_region_size = Vector2i(32, 32)
 1:2/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_holbn"]
-texture = ExtResource("19_bki11")
+texture = ExtResource("19_chryf")
 texture_region_size = Vector2i(16, 32)
 0:0/0 = 0
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_px4x2"]
-texture = ExtResource("20_bfd8q")
+texture = ExtResource("20_yt4og")
 texture_region_size = Vector2i(16, 32)
 0:0/0 = 0
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u5lg2"]
-texture = ExtResource("21_smdvy")
+texture = ExtResource("21_yn7o8")
 texture_region_size = Vector2i(32, 32)
 use_texture_padding = false
 0:0/0 = 0
@@ -956,7 +956,7 @@ use_texture_padding = false
 2:0/0/custom_data_0 = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kt0v5"]
-texture = ExtResource("22_3rblm")
+texture = ExtResource("22_dw0gj")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
@@ -1007,7 +1007,7 @@ texture_region_size = Vector2i(32, 32)
 16:4/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_laosj"]
-texture = ExtResource("23_adhs1")
+texture = ExtResource("23_buh1k")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
@@ -1020,19 +1020,19 @@ texture_region_size = Vector2i(32, 32)
 2:0/0/custom_data_0 = 2
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nsjcl"]
-texture = ExtResource("24_068yw")
+texture = ExtResource("24_klw1l")
 texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjpyo"]
-texture = ExtResource("25_hi72b")
+texture = ExtResource("25_jdhac")
 texture_region_size = Vector2i(16, 32)
 0:0/0 = 0
 0:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lhwnp"]
-texture = ExtResource("26_wa5n2")
+texture = ExtResource("26_13wn3")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/terrain_set = 0
@@ -1311,7 +1311,7 @@ texture_region_size = Vector2i(32, 32)
 11:3/0/terrains_peering_bit/top_side = 1
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_852cy"]
-texture = ExtResource("27_g1081")
+texture = ExtResource("27_twe10")
 texture_region_size = Vector2i(39, 32)
 use_texture_padding = false
 0:0/0 = 0
@@ -1366,8 +1366,8 @@ size = Vector2(480, 152)
 size = Vector2(384, 115)
 
 [node name="level_2" type="Area2D"]
-script = ExtResource("1_iobkp")
-music = ExtResource("2_s1cod")
+script = ExtResource("1_f4g8a")
+music = ExtResource("2_mst2l")
 music_advance_start_sec = 3.0
 
 [node name="boundaries" type="CollisionShape2D" parent="."]
@@ -1386,151 +1386,151 @@ metadata/_edit_lock_ = true
 
 [node name="spikes" type="Node" parent="enemies"]
 
-[node name="spike" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1328, 352)
 metadata/_edit_lock_ = true
 
-[node name="spike2" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike2" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1360, 352)
 metadata/_edit_lock_ = true
 
-[node name="spike3" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike3" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1392, 352)
 metadata/_edit_lock_ = true
 
-[node name="spike4" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike4" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1424, 352)
 metadata/_edit_lock_ = true
 
-[node name="spike5" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike5" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(560, 128)
 metadata/_edit_lock_ = true
 
-[node name="spike6" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike6" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(592, 128)
 metadata/_edit_lock_ = true
 
-[node name="spike7" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike7" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(624, 128)
 metadata/_edit_lock_ = true
 
-[node name="spike8" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike8" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1712, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike9" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike9" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1744, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike10" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike10" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1776, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike11" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike11" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1808, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike12" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike12" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1840, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike13" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike13" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1872, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike14" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike14" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1904, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike15" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike15" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1936, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike16" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike16" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1968, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike17" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike17" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2000, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike18" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike18" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2032, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike19" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike19" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2064, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike20" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike20" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2096, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike21" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike21" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2128, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike22" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike22" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2160, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike23" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike23" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2192, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike24" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike24" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(2224, 64)
 metadata/_edit_lock_ = true
 
-[node name="spike25" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike25" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1072, -256)
 metadata/_edit_lock_ = true
 
-[node name="spike26" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike26" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(1104, -256)
 metadata/_edit_lock_ = true
 
-[node name="spike27" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike27" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(3472, -32)
 metadata/_edit_lock_ = true
 
-[node name="spike28" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike28" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(3504, -32)
 metadata/_edit_lock_ = true
 
-[node name="spike29" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike29" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(3856, -32)
 metadata/_edit_lock_ = true
 
-[node name="spike30" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike30" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(3888, -32)
 metadata/_edit_lock_ = true
 
-[node name="spike31" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike31" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(3920, -32)
 metadata/_edit_lock_ = true
 
-[node name="spike32" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike32" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(3568, -320)
 metadata/_edit_lock_ = true
 
-[node name="spike33" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike33" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(4656, 384)
 metadata/_edit_lock_ = true
 
-[node name="spike34" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike34" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(4688, 384)
 metadata/_edit_lock_ = true
 
-[node name="spike35" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike35" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(4720, 384)
 metadata/_edit_lock_ = true
 
-[node name="spike36" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike36" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(4752, 384)
 metadata/_edit_lock_ = true
 
-[node name="spike37" parent="enemies/spikes" instance=ExtResource("3_3japw")]
+[node name="spike37" parent="enemies/spikes" instance=ExtResource("3_6qphc")]
 position = Vector2(4783, 384)
 metadata/_edit_lock_ = true
 
@@ -1542,7 +1542,7 @@ metadata/_edit_lock_ = true
 
 [node name="chests" type="Node" parent="pickups"]
 
-[node name="chest" parent="pickups/chests" instance=ExtResource("4_fstmj")]
+[node name="chest" parent="pickups/chests" instance=ExtResource("4_mndss")]
 position = Vector2(1456, 704)
 _state = 1
 _amount = 20
@@ -1552,339 +1552,339 @@ metadata/_edit_lock_ = true
 
 [node name="coins" type="Node" parent="pickups"]
 
-[node name="silver_coin" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(206, 374)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin20" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin20" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(31, 15)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin21" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin21" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(82, 15)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin2" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin2" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(261, 330)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin3" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin3" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1362, 534)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(258, 267)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin2" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin2" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1304, 534)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin7" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin7" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(145, 212)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin8" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin8" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(145, 191)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin35" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin35" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(940, -157)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin36" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin36" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1408, -217)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin37" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin37" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1424, -242)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin38" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin38" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1390, -242)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin9" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin9" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(145, 167)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin4" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin4" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1472, 534)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin9" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin9" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(118, 212)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin10" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin10" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(86, 212)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin6" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin6" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(701, 331)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin7" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin7" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(655, 309)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin8" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin8" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(379, 265)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin3" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin3" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1414, 534)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin5" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin5" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1580, 534)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin11" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin11" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(2097, -140)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin12" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin12" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(2158, -140)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin36" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin36" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(2515, -241)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin37" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin37" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(2515, -186)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin38" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin38" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(2515, -141)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin39" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin39" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(2307, -156)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin13" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin13" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(2078, -234)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin14" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin14" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1901, -268)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin15" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin15" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1830, -268)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin17" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin17" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(4465, -268)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin18" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin18" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(4465, -302)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin19" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin19" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(4465, -336)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin16" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin16" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1746, -268)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin22" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin22" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(3119, -9)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin23" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin23" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(3151, -40)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin28" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin28" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(512, 54)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin29" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin29" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(414, 53)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin30" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin30" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(610, 43)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin31" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin31" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(846, -76)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin32" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin32" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(881, -110)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin24" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin24" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1487, -41)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin34" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin34" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1421, -73)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin35" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin35" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(1337, -118)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin33" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin33" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(3376, 18)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin4" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin4" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1522, 534)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin5" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin5" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1646, 179)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin6" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin6" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1023, 305)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin10" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin10" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1072, -44)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin11" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin11" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1002, -44)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin12" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin12" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(943, -44)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin13" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin13" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(2203, -184)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin39" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin39" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(2445, -178)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin41" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin41" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(2606, -143)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin42" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin42" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1454, -458)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin43" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin43" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1390, -495)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin44" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin44" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1323, -529)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin45" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin45" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(1258, -561)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin40" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin40" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(2445, -209)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin14" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin14" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(2675, -17)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin15" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin15" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(2619, -17)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin16" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin16" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(2555, -18)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin17" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin17" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3266, -57)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin18" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin18" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3266, -93)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin19" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin19" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3266, -128)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin20" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin20" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3315, -171)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin21" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin21" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3422, -242)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin22" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin22" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3422, -301)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin23" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin23" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3422, -371)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin24" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin24" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3017, 208)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin25" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin25" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3970, 208)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin26" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin26" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(4015, 208)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin27" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin27" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(4062, 208)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin30" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin30" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3375, -20)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin34" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin34" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(478, 19)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin25" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin25" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(3376, 92)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin31" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin31" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3375, 54)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin26" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin26" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(3376, 163)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin32" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin32" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3375, 125)
 metadata/_edit_lock_ = true
 
-[node name="silver_coin27" parent="pickups/coins" instance=ExtResource("5_aulfd")]
+[node name="silver_coin27" parent="pickups/coins" instance=ExtResource("5_gj3f5")]
 position = Vector2(3376, 163)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin33" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin33" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(3375, 125)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin28" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin28" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(4418, 270)
 metadata/_edit_lock_ = true
 
-[node name="gold_coin29" parent="pickups/coins" instance=ExtResource("6_5cx82")]
+[node name="gold_coin29" parent="pickups/coins" instance=ExtResource("6_jhgas")]
 position = Vector2(4418, 270)
 metadata/_edit_lock_ = true
 
@@ -1894,24 +1894,24 @@ metadata/_edit_lock_ = true
 
 [node name="diamonds" type="Node" parent="pickups"]
 
-[node name="green_diamond" parent="pickups/diamonds" instance=ExtResource("7_y1yjs")]
+[node name="green_diamond" parent="pickups/diamonds" instance=ExtResource("7_7cvty")]
 position = Vector2(57, 21)
 metadata/_edit_lock_ = true
 
-[node name="green_diamond2" parent="pickups/diamonds" instance=ExtResource("7_y1yjs")]
+[node name="green_diamond2" parent="pickups/diamonds" instance=ExtResource("7_7cvty")]
 position = Vector2(3567, -390)
 
 [node name="crates" type="Node" parent="pickups"]
 
 [node name="barrels" type="Node" parent="pickups"]
 
-[node name="sword" parent="pickups" instance=ExtResource("8_t0rry")]
+[node name="sword" parent="pickups" instance=ExtResource("8_5olol")]
 position = Vector2(4880, 445)
 metadata/_edit_lock_ = true
 
 [node name="platforms" type="Node" parent="."]
 
-[node name="platform_narrow_green_m" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_ylvw0")]
+[node name="platform_narrow_green_m" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_msu3c")]
 position = Vector2(513, 568)
 animation_player = NodePath("AnimationPlayer")
 
@@ -1921,7 +1921,7 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="platform_narrow_green_m2" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_ylvw0")]
+[node name="platform_narrow_green_m2" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_msu3c")]
 position = Vector2(360, -88)
 animation_player = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
@@ -1932,7 +1932,7 @@ libraries = {
 }
 autoplay = "mo"
 
-[node name="platform_narrow_green_m3" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_ylvw0")]
+[node name="platform_narrow_green_m3" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_msu3c")]
 position = Vector2(4048, -344)
 animation_player = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
@@ -1943,7 +1943,7 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="platform_narrow_green_m4" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_ylvw0")]
+[node name="platform_narrow_green_m4" parent="platforms" node_paths=PackedStringArray("animation_player") instance=ExtResource("9_msu3c")]
 position = Vector2(3600, 240)
 animation_player = NodePath("AnimationPlayer")
 metadata/_edit_lock_ = true
@@ -1954,7 +1954,7 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="platform_ground" parent="platforms" instance=ExtResource("9_ylvw0")]
+[node name="platform_ground" parent="platforms" instance=ExtResource("9_msu3c")]
 position = Vector2(912, 520)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform_ground"]
@@ -1963,11 +1963,11 @@ libraries = {
 }
 autoplay = "move"
 
-[node name="ship_in" parent="platforms" instance=ExtResource("10_0282d")]
+[node name="ship_in" parent="platforms" instance=ExtResource("10_evayi")]
 position = Vector2(-465, 525)
 metadata/_edit_lock_ = true
 
-[node name="ship_out" parent="platforms" instance=ExtResource("10_0282d")]
+[node name="ship_out" parent="platforms" instance=ExtResource("10_evayi")]
 position = Vector2(5127, 525)
 _ship_destination = 1
 metadata/_edit_lock_ = true
@@ -1997,7 +1997,7 @@ layer_4/tile_data = PackedInt32Array(131111, 65544, 2, 131112, 65544, 1, 196648,
 metadata/_edit_lock_ = true
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="environment"]
-script = ExtResource("28_f6be5")
+script = ExtResource("28_qvsav")
 autoscroll_speed = 30
 
 [node name="bg_back" type="ParallaxLayer" parent="environment/ParallaxBackground"]
@@ -2010,21 +2010,21 @@ metadata/_edit_lock_ = true
 [node name="main_background" type="Sprite2D" parent="environment/ParallaxBackground/bg_back"]
 position = Vector2(0, -99)
 scale = Vector2(3, 2)
-texture = ExtResource("17_lq5uo")
+texture = ExtResource("17_g8tix")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="sky_additional" type="Sprite2D" parent="environment/ParallaxBackground/bg_back"]
 position = Vector2(0, -1059)
 scale = Vector2(36, 30)
-texture = ExtResource("29_ml16p")
+texture = ExtResource("29_16rql")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="water_additional" type="Sprite2D" parent="environment/ParallaxBackground/bg_back"]
 position = Vector2(0, 157)
 scale = Vector2(36, 20)
-texture = ExtResource("30_xrgoq")
+texture = ExtResource("30_lnt2m")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -2033,7 +2033,7 @@ offset_left = 66.0
 offset_top = 75.0
 offset_right = 236.0
 offset_bottom = 100.0
-texture = ExtResource("31_atr3v")
+texture = ExtResource("31_8nnyg")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
@@ -2042,7 +2042,7 @@ offset_left = 783.0
 offset_top = 75.0
 offset_right = 953.0
 offset_bottom = 100.0
-texture = ExtResource("31_atr3v")
+texture = ExtResource("31_8nnyg")
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
 
@@ -2051,7 +2051,7 @@ offset_left = 256.0
 offset_top = 75.0
 offset_right = 330.0
 offset_bottom = 91.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2061,7 +2061,7 @@ offset_left = 95.0
 offset_top = 108.0
 offset_right = 169.0
 offset_bottom = 124.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2071,7 +2071,7 @@ offset_left = 77.0
 offset_top = 125.0
 offset_right = 151.0
 offset_bottom = 141.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2081,7 +2081,7 @@ offset_left = 414.0
 offset_top = 83.0
 offset_right = 488.0
 offset_bottom = 99.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2091,7 +2091,7 @@ offset_left = 699.0
 offset_top = 83.0
 offset_right = 773.0
 offset_bottom = 99.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2101,7 +2101,7 @@ offset_left = 556.0
 offset_top = 75.0
 offset_right = 630.0
 offset_bottom = 91.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2111,7 +2111,7 @@ offset_left = 398.0
 offset_top = 97.0
 offset_right = 472.0
 offset_bottom = 113.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2121,7 +2121,7 @@ offset_left = 540.0
 offset_top = 94.0
 offset_right = 614.0
 offset_bottom = 110.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2131,7 +2131,7 @@ offset_left = 388.0
 offset_top = 118.0
 offset_right = 462.0
 offset_bottom = 134.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2141,7 +2141,7 @@ offset_left = 1047.0
 offset_top = 75.0
 offset_right = 1121.0
 offset_bottom = 91.0
-texture = ExtResource("32_bqunq")
+texture = ExtResource("32_mm6vp")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2151,7 +2151,7 @@ offset_left = 391.0
 offset_top = 75.0
 offset_right = 502.0
 offset_bottom = 89.0
-texture = ExtResource("33_ses0f")
+texture = ExtResource("33_8y5yt")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2161,7 +2161,7 @@ offset_left = 676.0
 offset_top = 75.0
 offset_right = 787.0
 offset_bottom = 89.0
-texture = ExtResource("33_ses0f")
+texture = ExtResource("33_8y5yt")
 stretch_mode = 4
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true
@@ -2174,97 +2174,97 @@ metadata/_edit_lock_ = true
 
 [node name="small_cloud_1" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(3, -307)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_11" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(13, -792)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_12" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(114, -685)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_13" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(311, -846)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_14" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(583, -952)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_15" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(713, -809)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_16" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(892, -944)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_2" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(131, -248)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_3" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(317, -379)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_4" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(446, -278)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_5" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(741, -202)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_6" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(680, -332)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_7" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(904, -389)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_8" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(169, -506)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_9" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(714, -495)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="small_cloud_10" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_1"]
 position = Vector2(989, -502)
-texture = ExtResource("34_pmnxw")
+texture = ExtResource("34_v8lii")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -2277,7 +2277,7 @@ metadata/_edit_lock_ = true
 offset_top = -94.0
 offset_right = 1152.0
 offset_bottom = 7.0
-texture = ExtResource("35_b5a0k")
+texture = ExtResource("35_t5m6f")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true
 
@@ -2289,55 +2289,55 @@ metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_1" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(94, -217)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_6" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(262, -524)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_7" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(104, -759)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_8" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(41, -926)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_9" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(775, -917)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_2" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(341, -159)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_3" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(582, -133)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_4" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(821, -175)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
 [node name="2_small-cloud_5" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_2"]
 position = Vector2(508, -316)
-texture = ExtResource("36_ogukv")
+texture = ExtResource("36_ma1lb")
 centered = false
 metadata/_edit_lock_ = true
 
@@ -2349,266 +2349,266 @@ metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_1" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(75, -353)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_7" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(526, -641)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_8" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(306, -934)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_2" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(270, -169)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_3" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(487, -409)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_4" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(1093, -464)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_5" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(697, -547)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="3_small_cloud_6" type="Sprite2D" parent="environment/ParallaxBackground/small_cloud_3"]
 position = Vector2(1095, -92)
-texture = ExtResource("37_hf205")
+texture = ExtResource("37_jol1s")
 metadata/_edit_lock_ = true
 
 [node name="reflections" type="Node" parent="environment"]
 
-[node name="water_reflection_1" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_1" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(-766, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_2" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_2" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(-673, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_3" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_3" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(-563, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_4" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_4" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(-470, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_5" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_5" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(-363, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_6" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_6" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(-270, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_7" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_7" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(-162, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_8" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_8" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(-69, 530)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_9" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_9" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(521, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_10" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_10" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(614, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_11" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_11" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(717, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_12" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_12" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(810, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_13" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_13" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(898, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_14" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_14" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(991, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_15" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_15" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(1092, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_16" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_16" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(1185, 563)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_17" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_17" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(2722, 243)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_18" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_18" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(2815, 243)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_19" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_19" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(2887, 243)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_20" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_20" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(2980, 243)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_21" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_21" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(3558, 276)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_22" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_22" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(3651, 276)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_23" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_23" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(3737, 276)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_24" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_24" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(3830, 276)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_25" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_25" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(4185, 308)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_26" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_26" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(4278, 308)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_27" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_27" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(5093, 532)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_28" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_28" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(5186, 532)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_29" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_29" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(5297, 532)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_30" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_30" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(5390, 532)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_31" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_31" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(5486, 532)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_32" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_32" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(5579, 532)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_33" parent="environment/reflections" instance=ExtResource("38_r7ew6")]
+[node name="water_reflection_33" parent="environment/reflections" instance=ExtResource("38_gl348")]
 visible = true
 position = Vector2(5679, 532)
 metadata/_edit_lock_ = true
 
-[node name="water_reflection_34" parent="environment/reflections" instance=ExtResource("39_7xp1r")]
+[node name="water_reflection_34" parent="environment/reflections" instance=ExtResource("39_ud65a")]
 visible = true
 position = Vector2(5772, 532)
 metadata/_edit_lock_ = true
 
 [node name="hints" type="Node" parent="environment"]
 
-[node name="Hint" parent="environment/hints" instance=ExtResource("40_64na1")]
+[node name="Hint" parent="environment/hints" instance=ExtResource("40_kt8y5")]
 position = Vector2(338, 448)
 monitorable = false
 _hint = "Хорошая примета:|крутанул штурвал — спас свою шкуру!|В случае смерти пират вернется|к этому месту."
 
 [node name="dialogues" type="Node" parent="environment"]
 
-[node name="DialogueTrigger" parent="environment/dialogues" instance=ExtResource("41_spcy3")]
+[node name="DialogueTrigger" parent="environment/dialogues" instance=ExtResource("41_2vg7w")]
 position = Vector2(233, 95)
-_dialogue = ExtResource("42_e7hcn")
+_dialogue = ExtResource("42_kf2lq")
 
-[node name="DialogueTrigger4" parent="environment/dialogues" instance=ExtResource("41_spcy3")]
+[node name="DialogueTrigger4" parent="environment/dialogues" instance=ExtResource("41_2vg7w")]
 position = Vector2(4849, 449)
-_dialogue = ExtResource("43_n6a6q")
+_dialogue = ExtResource("43_bisj0")
 
-[node name="DialogueTrigger3" parent="environment/dialogues" instance=ExtResource("41_spcy3")]
+[node name="DialogueTrigger3" parent="environment/dialogues" instance=ExtResource("41_2vg7w")]
 position = Vector2(1293, 320)
-_dialogue = ExtResource("44_wt8fy")
+_dialogue = ExtResource("44_orkat")
 
-[node name="DialogueTrigger2" parent="environment/dialogues" instance=ExtResource("41_spcy3")]
+[node name="DialogueTrigger2" parent="environment/dialogues" instance=ExtResource("41_2vg7w")]
 position = Vector2(149, 447)
-_dialogue = ExtResource("45_k6vw8")
+_dialogue = ExtResource("45_2r4b8")
 
 [node name="checkpoints" type="Node" parent="."]
 
 [node name="start" type="Node2D" parent="checkpoints"]
 position = Vector2(-470, 502)
 
-[node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("46_grfe1")]
+[node name="checkpoint_helm2" parent="checkpoints" instance=ExtResource("46_mben3")]
 position = Vector2(506, 288)
 metadata/_edit_lock_ = true
 
-[node name="checkpoint_helm6" parent="checkpoints" instance=ExtResource("46_grfe1")]
+[node name="checkpoint_helm6" parent="checkpoints" instance=ExtResource("46_mben3")]
 position = Vector2(375, 448)
 
-[node name="checkpoint_helm3" parent="checkpoints" instance=ExtResource("46_grfe1")]
+[node name="checkpoint_helm3" parent="checkpoints" instance=ExtResource("46_mben3")]
 position = Vector2(1648, 32)
 metadata/_edit_lock_ = true
 
-[node name="checkpoint_helm4" parent="checkpoints" instance=ExtResource("46_grfe1")]
+[node name="checkpoint_helm4" parent="checkpoints" instance=ExtResource("46_mben3")]
 position = Vector2(1179, -384)
 metadata/_edit_lock_ = true
 
-[node name="checkpoint_helm5" parent="checkpoints" instance=ExtResource("46_grfe1")]
+[node name="checkpoint_helm5" parent="checkpoints" instance=ExtResource("46_mben3")]
 position = Vector2(3002, 65)
 metadata/_edit_lock_ = true
 
-[node name="next_level" parent="." instance=ExtResource("47_hlgvf")]
+[node name="next_level" parent="." instance=ExtResource("47_mryj0")]
 position = Vector2(5420, 459)
 collision_layer = 0
 collision_mask = 256
@@ -2621,7 +2621,7 @@ position = Vector2(1088, -360)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
-script = ExtResource("48_mrd2q")
+script = ExtResource("48_qki3d")
 _zoom_override = 2.0
 _tween_speed = 1.0
 metadata/_custom_type_script = "uid://cek3v5e7g8gt6"
@@ -2637,7 +2637,7 @@ position = Vector2(420, 410)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
-script = ExtResource("48_mrd2q")
+script = ExtResource("48_qki3d")
 _zoom_override = 2.3
 _tween_speed = 1.0
 metadata/_custom_type_script = "uid://cek3v5e7g8gt6"
@@ -2654,7 +2654,7 @@ rotation = -0.00674941
 collision_layer = 0
 collision_mask = 256
 monitorable = false
-script = ExtResource("48_mrd2q")
+script = ExtResource("48_qki3d")
 _zoom_override = 2.0
 _tween_speed = 1.0
 metadata/_custom_type_script = "uid://cek3v5e7g8gt6"
@@ -2671,7 +2671,7 @@ position = Vector2(1704, -8)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
-script = ExtResource("48_mrd2q")
+script = ExtResource("48_qki3d")
 _zoom_override = 2.5
 _tween_speed = 1.0
 metadata/_custom_type_script = "uid://cek3v5e7g8gt6"
@@ -2687,7 +2687,7 @@ position = Vector2(376, -112)
 collision_layer = 0
 collision_mask = 256
 monitorable = false
-script = ExtResource("48_mrd2q")
+script = ExtResource("48_qki3d")
 _zoom_override = 2.0
 _tween_speed = 1.0
 metadata/_custom_type_script = "uid://cek3v5e7g8gt6"
@@ -2697,10 +2697,10 @@ position = Vector2(-120, -41.5)
 shape = SubResource("RectangleShape2D_s7kn7")
 debug_color = Color(0.650633, 0.504051, 0.355405, 0.42)
 
-[node name="hint_ui" parent="." instance=ExtResource("49_u1y2t")]
+[node name="hint_ui" parent="." instance=ExtResource("49_e16hg")]
 visible = false
 
-[node name="Title" parent="." instance=ExtResource("50_h2kyd")]
+[node name="Title" parent="." instance=ExtResource("50_47vyh")]
 visible = false
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
