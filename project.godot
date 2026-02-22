@@ -14,6 +14,7 @@ config/name="Гибель Пирата"
 config/version="0.1"
 run/main_scene="uid://dioy4knh25cpm"
 config/features=PackedStringArray("4.4", "Forward Plus")
+run/max_fps=60
 boot_splash/bg_color=Color(0, 0, 0, 1)
 boot_splash/show_image=false
 boot_splash/fullsize=false
@@ -39,7 +40,6 @@ window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=4
 window/stretch/mode="canvas_items"
-window/stretch/scale_mode="integer"
 window/vsync/vsync_mode=0
 
 [editor]
