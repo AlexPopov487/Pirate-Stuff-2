@@ -4,7 +4,12 @@ extends Node
 const ppt: int = 32
 const EVENING_OVERLAY_COLOR := Color(0.6,0.6,0.6,1)
 const NIGHT_OVERLAY_COLOR := Color(0.08,0.08,0.08,1)
+const DAWN_OVERLAY_COLOR := Color(0.89, 0.86, 0.8, 1.0)
+const TWIGHLIGHT_OVERLAY_COLOR := Color(0.965, 0.933, 0.969, 1.0)
+const MORNING_OVERLAY_COLOR := Color(1.0, 0.953, 0.937, 1.0)
+const MIDDAY_OVERLAY_COLOR := Color(0.969, 0.988, 1.0, 1.0)
 const PLAYER_HIGHLIGHT_EVENING_ENERGY: float = 0.3
+const PLAYER_HIGHLIGHT_DAWN_ENERGY: float = 0.07
 const PLAYER_HIGHLIGHT_NIGHT_ENERGY: float = 0.7
 const GAME_SCENE_PATH: String = "res://scenes/levels/game.tscn"
 const TITLE_SCENE_PATH: String = "res://scenes/levels/title.tscn"
@@ -26,7 +31,7 @@ enum MAP_TYPE {
 	BOTTOM_RIGHT
 }
 
-enum TIME {DAY, EVENING, NIGHT}
+enum TIME {DAY, EVENING, NIGHT, DAWN, TWIGHLIGHT, MORNING, MIDDAY}
 enum WEATHER {CLEAR, RAIN}
 enum HINT_TYPE {WOOD_SIGN, LETTER}
 

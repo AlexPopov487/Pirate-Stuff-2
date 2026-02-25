@@ -1,6 +1,10 @@
 extends Level
 class_name Level4
 
+func _init() -> void:
+	_weather = Globals.WEATHER.CLEAR
+	_time = Globals.TIME.TWIGHLIGHT
+
 
 func _ready() -> void:
 	super._ready()

@@ -131,7 +131,7 @@ _jump_dust = ExtResource("4_7xxho")
 [node name="PlayerHighlight" type="PointLight2D" parent="." node_paths=PackedStringArray("_subject")]
 process_mode = 1
 color = Color(1, 0.967329, 0.942696, 1)
-energy = 0.8
+energy = 0.07
 range_layer_min = -100
 shadow_filter = 1
 texture = SubResource("GradientTexture2D_i73dc")

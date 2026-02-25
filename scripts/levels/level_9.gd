@@ -3,7 +3,7 @@ class_name Level9
 
 func _init() -> void:
 	_weather = Globals.WEATHER.CLEAR
-	_time = Globals.TIME.DAY
+	_time = Globals.TIME.MIDDAY
 
 
 func _ready() -> void:

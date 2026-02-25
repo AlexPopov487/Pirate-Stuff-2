@@ -131,6 +131,8 @@ func _init_level_overlay():
 			_init_overlay(Globals.EVENING_OVERLAY_COLOR)
 		Globals.TIME.NIGHT:
 			_init_overlay(Globals.NIGHT_OVERLAY_COLOR)
+		Globals.TIME.DAWN:
+			_init_overlay(Globals.NIGHT_OVERLAY_COLOR)
 			
 	if _hint_ui != null:
 		_hint_ui.hide()

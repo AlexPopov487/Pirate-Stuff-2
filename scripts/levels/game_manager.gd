@@ -47,7 +47,7 @@ func _ready() -> void:
 	await Music.stop_track()
 	File.reset_current_level_map_progress()
 	
-	#File.data.current_level_idx = 10
+	File.data.current_level_idx = 1
 
 	
 	#File.data.collected_maps = {
@@ -108,13 +108,16 @@ func _init_level_vfx():
 	_vfx.set_vfx(_current_level.get_weather())
 
 	match _current_level.get_time():
-		Globals.TIME.DAY:
+		Globals.TIME.DAY, Globals.TIME.TWIGHLIGHT, Globals.TIME.MORNING, Globals.TIME.MIDDAY:
 			_player_highlight.set_enabled(false)
 		Globals.TIME.EVENING:
 			_player_highlight.set_energy(Globals.PLAYER_HIGHLIGHT_EVENING_ENERGY)
 			_player_highlight.set_enabled(true)
 		Globals.TIME.NIGHT:
 			_player_highlight.set_energy(Globals.PLAYER_HIGHLIGHT_NIGHT_ENERGY)
+			_player_highlight.set_enabled(true)
+		Globals.TIME.DAWN:
+			_player_highlight.set_energy(Globals.PLAYER_HIGHLIGHT_DAWN_ENERGY)
 			_player_highlight.set_enabled(true)
 			
 func _inint_level_boundaries():
@@ -240,9 +243,10 @@ func _exit_to_main_menu():
 	get_tree().change_scene_to_file(Globals.TITLE_SCENE_PATH)
 
 func _on_level_complete_window_next_level_button_pressed() -> void:
-	Music.stop_track()
 	_level_complete_window.visible = false
 	await _fade.fade_to_black()
+#	safety timer to ensure that LevelCompleteWindow menu music has started playing and now can be faded out
+	await get_tree().create_timer(1).timeout
 	await Music.stop_track()
 	await _init_level_and_reset_player()
 	await _fade.fade_to_clear()
