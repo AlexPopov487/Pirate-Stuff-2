@@ -47,9 +47,7 @@ func _ready() -> void:
 	await Music.stop_track()
 	File.reset_current_level_map_progress()
 	
-	File.data.current_level_idx = 1
-
-	
+	File.data.current_level_idx = 10
 	#File.data.collected_maps = {
 		#Globals.MAP_TYPE.TOP_LEFT : true,
 		#Globals.MAP_TYPE.TOP_RIGHT : true,

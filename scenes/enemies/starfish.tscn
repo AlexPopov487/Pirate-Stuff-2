@@ -717,6 +717,7 @@ collision_layer = 65536
 collision_mask = 33620225
 script = ExtResource("1_4jvbl")
 max_health = 3
+jump_height = 2.0
 _jump_dust = ExtResource("26_xojkg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

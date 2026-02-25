@@ -1355,7 +1355,9 @@ metadata/_edit_lock_ = true
 
 [node name="gold_coin7" parent="pickups/coins" instance=ExtResource("5_2e0t0")]
 position = Vector2(145, 212)
-metadata/_edit_lock_ = true
+
+[node name="gold_coin46" parent="pickups/coins" instance=ExtResource("5_2e0t0")]
+position = Vector2(815, 434)
 
 [node name="gold_coin8" parent="pickups/coins" instance=ExtResource("5_2e0t0")]
 position = Vector2(145, 191)

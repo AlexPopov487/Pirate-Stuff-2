@@ -1,4 +1,4 @@
-[gd_scene load_steps=204 format=3 uid="uid://c47s83g4fhss2"]
+[gd_scene load_steps=203 format=3 uid="uid://c47s83g4fhss2"]
 
 [ext_resource type="Script" uid="uid://bkbg7tebw37vc" path="res://scripts/characters/player.gd" id="1_bd24r"]
 [ext_resource type="AudioStream" uid="uid://bbnlh7hrhwetu" path="res://audio/pirate/attack_air_1.wav" id="6_bd24r"]
@@ -1227,9 +1227,6 @@ tracks/1/keys = {
 }]
 }
 
-[sub_resource type="Resource" id="Resource_afs66"]
-metadata/__load_path__ = "res://audio/pirate/hurt.wav"
-
 [sub_resource type="Animation" id="Animation_qkewa"]
 resource_name = "sword_hit"
 length = 0.4
@@ -1269,7 +1266,7 @@ tracks/2/keys = {
 "clips": [{
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": SubResource("Resource_afs66")
+"stream": ExtResource("40_22pmy")
 }],
 "times": PackedFloat32Array(0)
 }
