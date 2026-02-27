@@ -2091,9 +2091,10 @@ motion_mirroring = Vector2(448, 0)
 metadata/_edit_lock_ = true
 
 [node name="big_cloud" type="TextureRect" parent="environment/ParallaxBackground/big_cloud"]
-offset_top = -118.0
-offset_right = 1152.0
-offset_bottom = -17.0
+offset_left = -1.0
+offset_top = -117.0
+offset_right = 1151.0
+offset_bottom = -16.0
 texture = ExtResource("30_bnt33")
 stretch_mode = 1
 metadata/_edit_use_anchors_ = true

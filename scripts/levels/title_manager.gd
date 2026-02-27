@@ -13,7 +13,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	File.remove_user_progress()
+	#File.remove_user_progress()
 	_confirmation_window.visible= false
 	_fade.visible = true
 	_continue_button.disabled = !File.is_save_file_exists()
