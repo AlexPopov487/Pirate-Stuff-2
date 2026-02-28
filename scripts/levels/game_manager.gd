@@ -45,7 +45,7 @@ func _ready() -> void:
 	_fade.visible = true # set to invisible in editor during development
 
 	await Music.stop_track()
-	File.reset_current_level_map_progress()
+	#File.reset_current_level_map_progress()
 	
 	#File.data.current_level_idx = 8
 	#File.data.collected_maps = {
