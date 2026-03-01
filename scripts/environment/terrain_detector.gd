@@ -19,8 +19,8 @@ func _define_terrain(tile_rid: RID, tilemap: TileMap):
 	
 	for index in tilemap.get_layers_count():
 		var current_layer = tilemap.get_layer_name(index)
-		# 'mid' layer is for ground, 'foreground' - for water, bacground is used for trees in mud
-		if current_layer != 'mid' && current_layer != 'foreground' && current_layer != 'background':
+		# 'mid' and 'background_near' layers are for ground, 'foreground' - for water, bacground is used for trees in mud
+		if current_layer != 'mid' && current_layer != 'foreground' && current_layer != 'background' && current_layer != 'background_near':
 			continue
 		var tile_data = tilemap.get_cell_tile_data(index, tile_coords)
 		
