@@ -2685,7 +2685,7 @@ position = Vector2(1407, 307)
 
 [node name="water_reflection_10" parent="environment/reflections" instance=ExtResource("36_edmkp")]
 visible = true
-position = Vector2(1697, 338)
+position = Vector2(1697, 339)
 
 [node name="water_reflection_12" parent="environment/reflections" instance=ExtResource("36_edmkp")]
 visible = true
@@ -2697,7 +2697,7 @@ position = Vector2(2470, 83)
 
 [node name="water_reflection_11" parent="environment/reflections" instance=ExtResource("36_edmkp")]
 visible = true
-position = Vector2(1761, 338)
+position = Vector2(1761, 339)
 
 [node name="hints" type="Node" parent="environment"]
 
