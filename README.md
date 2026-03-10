@@ -13,7 +13,7 @@
 * **Управление:** Полная поддержка клавиатуры и геймпада.
 
 ### 🚀 Как запустить
-1. [Скачайте](https://github.com/AlexPopov487/PirateStuff2/blob/master/export/%D0%93%D0%B8%D0%B1%D0%B5%D0%BB%D1%8C%20%D0%9F%D0%B8%D1%80%D0%B0%D1%82%D0%B0.rar) архив из директории **`exoprt`** в данном репозитории.
+1. Скачайте архив из директории **`exoprt`** в данном [репозитории](https://github.com/AlexPopov487/PirateStuff2/blob/master/export/%D0%93%D0%B8%D0%B1%D0%B5%D0%BB%D1%8C%20%D0%9F%D0%B8%D1%80%D0%B0%D1%82%D0%B0.rar) или [Яндекс диске](https://disk.yandex.ru/d/0k_ffJpWui9Qdg) .
 2. Распакуйте содержимое архива в любую папку на вашем ПК.
 3. Запустите исполняемый файл **`.exe`**.
 
